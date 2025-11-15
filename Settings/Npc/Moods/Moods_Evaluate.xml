@@ -1,0 +1,35 @@
+﻿<MoodDefs><List>
+
+	<Mood Name="LiveWithBadMan">
+		<DisplayName>呜呜呜</DisplayName>
+		<Desc>昨天被[TXT]欺负了，呜呜呜，明明说只蹭蹭不进去的。</Desc>
+		<StoryDesc>正因为昨晚被欺负而羞红了脸</StoryDesc>
+		<MaxStack>5</MaxStack>
+		<StackRatio>0.75</StackRatio>
+		<Value>-10</Value>
+		<Duration>0</Duration>
+		<Deepen>2400</Deepen>
+		<DeeponMax>2</DeeponMax>
+	</Mood>	
+
+	<Mood Name="ClosedRoom">
+		<DisplayName>被囚禁</DisplayName>
+		<Desc>WDNMD，囚禁我?</Desc>
+		<StoryDesc>正因自己被困到房间里而怒发冲冠</StoryDesc>
+		<MaxStack>1</MaxStack>
+		<Value>-100</Value>
+		<Duration>-1</Duration>
+	</Mood>
+
+	<Mood Name="ClothesExpect1" Group="ClothesExpect">
+		<DisplayName>这什么破门派</DisplayName>
+		<Desc>连件像样的衣服都没有？给我穿这个？这就是你唯一能拿出手的？真是造化弄人啊（品质小于30）</Desc>
+		<StoryDesc>正因穿着简陋而不满</StoryDesc>
+		<MaxStack>1</MaxStack>
+		<Value>-20</Value>
+		<Duration>0</Duration>
+		<Deepen>2400</Deepen>
+		<DeeponMax>4</DeeponMax>
+	</Mood>
+	
+</List></MoodDefs>

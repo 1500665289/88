@@ -1,0 +1,116 @@
+﻿<Stories><List>	
+<!--系统使用，不能修改-->
+
+	<Story Name="BSZY" Parent="BaseFillingStory">
+		<DisplayName>不死咒怨</DisplayName>
+		<Desc>[NAME]刚到此地发现已经有大量散仙以及上古大能纷纷聚集，似乎在争抢着什么。</Desc>
+		<Kind>None</Kind>
+		<Selections>
+			<li>
+				<Display>尝试抢夺</Display>
+				<Condition><![CDATA[	
+				me:GetGLevel() >= 12 
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					local nR = world:RandomInt(50,70)
+					me:AddMsg(string.format(XT("[NAME]趁各路大仙争吵之际悄悄偷走了魔石，突有一位散仙发现了你的动机大叫了起来，在场所有人纷纷冷眼相对，[NAME]拿起石头转身就跑。"), tostring(nR)));
+					for i = 1, nR do
+						me:AddEnemy(world:RandomInt(1,7),world:RandomFloat(0,1));
+					end
+				me:DropAwardItem("Item_LYGY",1);				
+				me:AddMsg("恭喜你得到江湖至宝，但我不得不提醒你，你还是快跑吧宝贝，把东西带在身上，让所有人离开。");
+				story:FinishSecret();				
+				]]>		
+				</OKResult>
+				<NOResult><![CDATA[	
+				me:AddMsg("[NAME]在抢夺时实力不济，技不如人，抢夺失败。");me:AddDamgeFromCache(story.DamageCache,4);				
+				]]>
+				</NOResult>
+			</li>
+			<li>
+				<Display>离开此地     （此秘闻只出现一次，对游戏发展至关重要，确定不抢吗？）</Display>
+				<OKResult><![CDATA[	
+				me:AddMsg("[NAME]决定并不冒险抢夺，你个怂货，给你一刀。");me:AddDamgeFromCache(story.DamageCache,4);				
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="ZXSJ" Parent="BaseFillingStory">
+		<DisplayName>诛仙四剑</DisplayName>
+		<Desc>[NAME]刚到此地发现已经有大量散仙早已守候在这里，现场乱作一团。</Desc>
+		<Kind>None</Kind>
+		<Selections>
+			<li>
+				<Display>争夺</Display>
+				<Condition><![CDATA[	
+				me:GetGLevel() >= 7 
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					local nR = world:RandomInt(30,50)
+					me:AddMsg(string.format(XT("[NAME]抢完四剑转身就跑，各路散仙追至而来。"), tostring(nR)));
+					for i = 1, nR do
+						me:AddEnemy(world:RandomInt(1,5),world:RandomFloat(0,1));
+					end
+				me:DropAwardItem("Item_MiBao_ZhuXianJian",1);me:DropAwardItem("Item_MiBao_LuXianJian",1);me:DropAwardItem("Item_MiBao_JueXianJian",1);me:DropAwardItem("Item_MiBao_XianXianJian",1);
+				me:AddMsg("江湖中人也听闻[NAME]的门派抢到了诛仙四剑，纷纷接踵而至。");
+				me:AddMsg("你的门派将受到大量敌人袭击。");
+				story:FinishSecret();				
+				]]>		
+				</OKResult>
+				<NOResult><![CDATA[	
+				me:AddMsg("[NAME]在抢夺时实力不济，技不如人，抢夺失败。");me:AddDamgeFromCache(story.DamageCache,4);				
+				]]>
+				</NOResult>
+			</li>
+			<li>
+				<Display>离开此地</Display>
+				<OKResult><![CDATA[	
+				me:AddMsg("[NAME]决定并不冒险抢夺。");							
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="Story_YiJieLieFeng"  Parent="BaseFillingStory">
+		<DisplayName>异界裂缝</DisplayName>
+		<Desc>传说这片破碎的空间诞生于上古第二次仙魔大战，而后消失无踪，谁料时隔多年，竟然再度现世。不过此地异常凶险，如无特殊机缘，就算大罗金仙也会失陷其中。</Desc>
+		<Kind>Story_YiJieLieFeng</Kind>
+		<Selections>
+			<li>
+				<Display>充满喜庆气息的裂缝</Display>
+				<OKResult><![CDATA[
+				if world:GetWorldFlag(39) == 0 then
+				me:AddMsg(XT("[NAME]尝试用神念靠近裂缝，裂缝中突然传来一阵可怕的吸力，将[NAME]的意识卷入其中。在经过一个光怪陆离的通道后，[NAME]来到一个陌生的世界。"));me:TriggerStory("Secrets_YiJieKaiQi11");
+					else
+						me:AddMsg(XT("你已经探访过这里了。"));
+					end				
+				]]>
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>充满威严气息的裂缝</Display>
+				<OKResult><![CDATA[	
+				if world:GetWorldFlag(87) == 0 then
+				me:AddMsg(XT("[NAME]尝试用神念靠近裂缝，裂缝中突然传来一阵可怕的吸力，将[NAME]的意识卷入其中。在经过一个光怪陆离的通道后，[NAME]来到一个陌生的世界。"));me:TriggerStory("Secrets_YiJieKaiQi21");
+					else
+						me:AddMsg(XT("你已经探访过这里了。"));
+					end
+				
+				]]>
+				</OKResult>
+			</li>
+			<li>
+				<Display>离去</Display>
+				<OKResult>me:AddMsg(XT("此处太过凶险，还是不要过分靠近了。"));</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+</List></Stories>

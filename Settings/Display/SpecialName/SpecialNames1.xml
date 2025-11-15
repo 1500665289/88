@@ -1,0 +1,381 @@
+﻿<SpecialNames><List>
+	<SpecialItem Name="Item_HomeFood">
+		<Item_TurtleEgg>
+			
+			
+			<li Name="尼莫浓香蛋挞" Desc="尼莫制作的蛋挞"/>
+		</Item_TurtleEgg>
+		
+		<Item_ChickenEgg>
+			<li Name="尼莫浓香蛋挞" Desc="尼莫制作的蛋挞"/>
+			
+		</Item_ChickenEgg>
+		<Item_BoarMeat>
+			
+			<li Name="蓝蓝猪骨汤饭" Desc=""/>
+			<li Name="龙啸猪肉饼" Desc=""/>
+			<li Name="青云猪肉卷" Desc=""/>
+			<li Name="老杨尖椒肉丝" Desc=""/>
+			<li Name="老杨碳烤野猪腿" Desc=""/>
+			<li Name="碳烤龙啸冰封" Desc="呕"/>
+			<li Name="尼莫肉末茄子煲" Desc=""/>
+			<li Name="蓝蓝的小火锅" Desc="蓝蓝秘制小火锅，除了粉啥也没有"/>
+		</Item_BoarMeat>
+		<Item_ChickenMeat>
+			
+			<li Name="蓝蓝的小火锅" Desc="蓝蓝秘制小火锅，除了粉啥也没有"/>
+			<li Name="老杨炖鸡肉" Desc=""/>
+			<li Name="尼莫奥尔良烤翅" Desc="香气扑鼻"/>
+			<li Name="老杨鸡翅包饭" Desc=""/>
+			<li Name="愔嫕可乐鸡翅" Desc="蓝蓝亲手所制，色泽透亮，芬香怡人"/>
+		</Item_ChickenMeat>
+		<Item_Beef>
+			
+			<li Name="牛肉羹" Desc=""/>
+			<li Name="土豆炖牛肉" Desc=""/>
+			<li Name="愔嫕卤牛肉" Desc=""/>
+			<li Name="老杨土豆炖牛肉" Desc=""/>
+			<li Name="老杨咖喱牛肉" Desc="味道好极了"/>
+			<li Name="老杨香辣牛肉" Desc=""/>
+		</Item_Beef>
+		<Item_RabbitMeat>
+			<li Name="老杨麻辣兔头" Desc=""/>
+			<li Name="碳烤愔嫕" Desc=""/>
+		</Item_RabbitMeat>
+		<Item_WolfMeat>
+			<li Name="烤狼肉" Desc=""/>
+			<li Name="老杨手把狼肉" Desc=""/>
+			<li Name="老杨红焖狼肉" Desc=""/>
+			<li Name="蓝蓝红烧狼肉" Desc=""/>
+		</Item_WolfMeat>
+		<Item_FishMeat>
+			<li Name="老杨鱼肉烩饭" Desc=""/>
+			<li Name="老杨剁椒鱼头" Desc=""/>
+			<li Name="老杨烤活鱼" Desc=""/>
+			<li Name="老杨清蒸海鱼" Desc=""/>
+			<li Name="老杨红烧鱼" Desc=""/>
+			<li Name="愔嫕水煮鱼" Desc=""/>
+			
+		</Item_FishMeat>
+		<Item_SnakeMeat>
+			<li Name="老杨口味蛇" Desc=""/>
+			<li Name="蓝蓝凉拌蛇皮" Desc=""/>
+			
+		</Item_SnakeMeat>
+		<Item_Wheat>
+			<li Name="杰神手工馒头" Desc=""/>
+			<li Name="老杨素油花卷" Desc=""/>
+			<li Name="老杨担担面" Desc=""/>
+			<li Name="老杨拉面" Desc=""/>
+			<li Name="杰神葱花饼" Desc=""/>
+			<li Name="杰神大饼卷大葱" Desc=""/>
+			<li Name="杰神煎饼" Desc=""/>
+			<li Name="尼莫麻油面" Desc=""/>
+			<li Name="青云清汤面" Desc=""/>
+			<li Name="蓝蓝鸡丝面" Desc=""/>
+			<li Name="杰神烙饼" Desc="老好吃了，朋友们都喜欢"/>
+			
+		</Item_Wheat>
+		<Item_Flour>
+			<li Name="杰神手工馒头" Desc=""/>
+			<li Name="老杨素油花卷" Desc=""/>
+			<li Name="老杨担担面" Desc=""/>
+			<li Name="老杨拉面" Desc=""/>
+			<li Name="杰神葱花饼" Desc=""/>
+			<li Name="杰神大饼卷大葱" Desc=""/>
+			<li Name="杰神煎饼" Desc=""/>
+			<li Name="尼莫麻油面" Desc=""/>
+			<li Name="青云清汤面" Desc=""/>
+			<li Name="蓝蓝鸡丝面" Desc=""/>
+			<li Name="杰神烙饼" Desc="老好吃了，朋友们都喜欢"/>
+			
+		</Item_Flour>
+		<Item_Mushroom>
+			<li Name="老杨羊肉蘑菇汤" Desc=""/>
+			<li Name="老杨蒜蓉炒蘑菇" Desc=""/>
+			<li Name="老杨干炸鲜蘑" Desc=""/>
+			<li Name="蘑菇炒饭" Desc=""/>
+			<li Name="蘑菇炒肉丁" Desc=""/>
+		</Item_Mushroom>
+		<Item_Lotusroot>
+			<li Name="蓝蓝的小火锅" Desc="蓝蓝秘制小火锅，除了莲藕啥也没有"/>
+			
+		</Item_Lotusroot>
+		<Item_Pear>
+			<li Name="蓝蓝冰糖雪梨" Desc=""/>
+		</Item_Pear>
+		<Item_Fruit>
+			<li Name="老杨秘制冰糖沙棘汁" Desc="酸甜可口，清凉一夏"/>
+			<li Name="老杨酸梅炒饭" Desc=""/>
+		</Item_Fruit>
+		<Item_FrogMeat>
+			<li Name="干锅田鸡" Desc=""/>
+			<li Name="老杨干锅田鸡" Desc="其实我不喜欢这个"/>
+			
+		</Item_FrogMeat>
+		<Item_TurtleMeat>
+			<li Name="红焖龟肉" Desc=""/>
+			<li Name="蓝蓝甲鱼汤" Desc="女人就是得多补补"/>
+		</Item_TurtleMeat>
+		<Item_BearMeat>
+			<li Name="红烧熊肉" Desc=""/>
+			<li Name="老杨大刀红油熊肉片" Desc=""/>
+		</Item_BearMeat>
+	</SpecialItem>
+	<SpecialItem Name="Item_DeliciousFood">
+		<Item_TurtleEgg>
+			<li Name="五香卤龟蛋" Desc="【感谢测试玩家：人境庐提供食谱。】"/>
+			<li Name="秘制咸龟蛋" Desc="【感谢测试玩家：人境庐提供食谱。】"/>
+			<li Name="果木烤龟蛋" Desc="【感谢测试玩家：人境庐提供食谱。】"/>
+			<li Name="香煎龟蛋" Desc="【感谢测试玩家：人境庐提供食谱。】"/>
+			<li Name="炙烤龟蛋" Desc="【感谢测试玩家：人境庐提供食谱。】"/>
+			<li Name="虎皮龟蛋" Desc="【感谢测试玩家：人境庐提供食谱。】"/>
+			<li Name="浓香蛋挞" Desc="尼莫制作的蛋挞"/>
+		</Item_TurtleEgg>
+		<Item_SnakeEgg>
+			<li Name="五香卤蛇蛋" Desc="【感谢测试玩家：人境庐提供食谱。】"/>
+			<li Name="秘制咸蛇蛋" Desc="【感谢测试玩家：人境庐提供食谱。】"/>
+			<li Name="果木烤蛇蛋" Desc="【感谢测试玩家：人境庐提供食谱。】"/>
+			<li Name="香煎蛇蛋" Desc="【感谢测试玩家：人境庐提供食谱。】"/>
+			<li Name="炙烤蛇蛋" Desc="【感谢测试玩家：人境庐提供食谱。】"/>
+			<li Name="虎皮蛇蛋" Desc="【感谢测试玩家：人境庐提供食谱。】"/>
+			<li Name="浓香蛋挞" Desc="尼莫制作的蛋挞"/>
+		</Item_SnakeEgg>
+		<Item_ChickenEgg>
+			<li Name="五香卤鸡蛋" Desc="【感谢测试玩家：人境庐提供食谱。】"/>
+			<li Name="秘制咸鸡蛋" Desc="【感谢测试玩家：人境庐提供食谱。】"/>
+			<li Name="果木烤鸡蛋" Desc="【感谢测试玩家：人境庐提供食谱。】"/>
+			<li Name="香煎鸡蛋" Desc="【感谢测试玩家：人境庐提供食谱。】"/>
+			<li Name="炙烤鸡蛋" Desc="【感谢测试玩家：人境庐提供食谱。】"/>
+			<li Name="虎皮鸡蛋" Desc="【感谢测试玩家：人境庐提供食谱。】"/>
+			<li Name="浓香蛋挞" Desc="尼莫制作的蛋挞"/>
+		</Item_ChickenEgg>
+		
+		<Item_BoarMeat>
+			<li Name="碳烤龙啸冰封" Desc="呕"/>
+			<li Name="尼莫肉末茄子煲" Desc=""/>
+			<li Name="蓝蓝的小火锅" Desc="蓝蓝秘制小火锅，除了粉啥也没有"/>
+			<li Name="龙啸的猪耳" Desc=""/>
+			<li Name="老杨的猪肉丸子" Desc=""/>
+			<li Name="蓝蓝的红烧猪蹄" Desc=""/>
+			<li Name="蜜汁龙啸冰封" Desc="老铁们，虽然不是同一时间，但是同一个撤锁，干完就了兄弟们，呕"/>
+			<li Name="尼莫蜜汁红烧肉" Desc=""/>
+			<li Name="蓝蓝红枣闷红烧肉" Desc=""/>
+			<li Name="老杨鱼香肉丝" Desc="味道还不错"/>
+		</Item_BoarMeat>
+		<Item_ChickenMeat>
+			<li Name="老杨宫保鸡丁" Desc=""/>
+			<li Name="正新大鸡排" Desc=""/>
+			<li Name="老杨炸鸡腿" Desc=""/>
+		</Item_ChickenMeat>
+		<Item_Beef>
+			<li Name="老杨水煮牛肉" Desc=""/>
+			<li Name="老杨上汤肥牛" Desc=""/>
+			<li Name="老杨的砂锅牛肉" Desc=""/>
+			<li Name="老杨的牛肉乱炖" Desc=""/>
+		</Item_Beef>
+		<Item_RabbitMeat>
+			<li Name="蓝蓝的香辣兔头" Desc=""/>
+			<li Name="老杨烤全兔" Desc=""/>
+			<li Name="蘸水龙啸冰封" Desc="臭卤虾，臭豆腐，腐乳，老干妈，韭菜花做的蘸水，配上龙啸的肉，呕"/>
+		</Item_RabbitMeat>
+		<Item_WolfMeat>
+			<li Name="老杨炖狼肉" Desc=""/>
+			<li Name="老杨野山椒狼肉" Desc=""/>
+			<li Name="老杨孜然狼肉" Desc=""/>
+			<li Name="老杨的葱爆狼肉" Desc=""/>
+		</Item_WolfMeat>
+		<Item_FishMeat>
+			<li Name="蓝蓝水煮鱼" Desc=""/>
+			<li Name="蓝蓝鱼肉丸子" Desc=""/>
+			<li Name="蓝蓝的三鱼锅" Desc=""/>
+			<li Name="尼莫酸汤鱼" Desc=""/>
+			<li Name="老杨秘制高汤焖鱼" Desc=""/>
+			<li Name="老杨剁椒鱼头" Desc=""/>
+		</Item_FishMeat>
+		<Item_SnakeMeat>
+			<li Name="蓝蓝口水蛇" Desc=""/>
+			<li Name="猫港水蛇粥" Desc=""/>
+			<li Name="老杨黄焖蛇" Desc=""/>
+			<li Name="猫港葱爆蛇段" Desc=""/>
+			<li Name="青云金针蛇丝" Desc=""/>
+			<li Name="老杨三菌蛇肉" Desc=""/>
+		</Item_SnakeMeat>
+		<Item_Wheat>
+			<li Name="杰神手工馒头" Desc=""/>
+			<li Name="杰神葱花饼" Desc=""/>
+			<li Name="杰神大饼卷大葱" Desc=""/>
+			<li Name="杰神大饼卷猪头肉" Desc=""/>
+			<li Name="杰神煎饼" Desc=""/>
+			<li Name="杰神烙饼" Desc="老好吃了，朋友们都喜欢"/>
+			<li Name="老杨炒面" Desc=""/>
+			<li Name="老杨肥肠面" Desc=""/>
+			<li Name="尼莫烤制的蛋挞" Desc=""/>
+			<li Name="尼莫煮的方便面" Desc="普通的水，配上普通的方便面，煮了一碗普通的方便面，请问有蛋吗？"/>
+		</Item_Wheat>
+		<Item_Flour>
+			<li Name="杰神葱花饼" Desc=""/>
+			<li Name="杰神大饼卷猪头肉" Desc=""/>
+			<li Name="尼莫麻油面" Desc=""/>
+			<li Name="青云清汤面" Desc=""/>
+			<li Name="猫港豆沙包" Desc=""/>
+			<li Name="猫港奶黄包" Desc=""/>
+			<li Name="猫港糖包" Desc=""/>
+			<li Name="蓝蓝烤制的蛋挞" Desc=""/>
+			<li Name="猫港烤制的蛋挞" Desc=""/>
+			<li Name="猫港煮的方便面" Desc="普通的水，配上普通的方便面，煮了一碗普通的方便面，请问有火腿吗？"/>
+		</Item_Flour>
+		<Item_Mushroom>
+			<li Name="尼莫蘑菇高汤浇饭" Desc=""/>
+			<li Name="老杨烤蘑菇" Desc=""/>
+			<li Name="蓝蓝蘑菇炖土豆" Desc=""/>
+			<li Name="猫港蘑菇卷" Desc=""/>
+			<li Name="老杨蒜烤金针菇" Desc=""/>
+			<li Name="小鸡炖蘑菇" Desc=""/>
+		</Item_Mushroom>
+		<Item_Lotusroot>
+			<li Name="老杨炸藕盒" Desc=""/>
+			<li Name="酸梅莲藕汤" Desc=""/>
+			<li Name="糖醋藕片" Desc=""/>
+			<li Name="藕心蒸饭" Desc=""/>
+			<li Name="五香莲藕" Desc=""/>
+		</Item_Lotusroot>
+		<Item_Pear>
+			<li Name="百合冰梨片" Desc=""/>
+			<li Name="蜜梨双冲饮" Desc=""/>
+			<li Name="蓝蓝的水果捞" Desc=""/>
+			<li Name="蓝蓝水果拼盘" Desc=""/>
+			<li Name="蓝蓝冰糖雪梨" Desc=""/>
+		</Item_Pear>
+		<Item_Fruit>
+			<li Name="沙棘糕" Desc=""/>
+			<li Name="沙棘绿豆浆" Desc=""/>
+			<li Name="老杨水晶沙棘汁" Desc=""/>
+			<li Name="酸果酱烤肉" Desc=""/>
+			<li Name="酸果烤饼" Desc=""/>
+			<li Name="酸果焖鱼" Desc=""/>
+		</Item_Fruit>
+		<Item_FrogMeat>
+			<li Name="老杨干锅田鸡" Desc=""/>
+			<li Name="香酥田鸡腿" Desc=""/>
+		</Item_FrogMeat>
+		
+		<Item_TurtleMeat>
+			<li Name="红焖龟肉" Desc=""/>
+			<li Name="甲鱼汤" Desc=""/>
+		</Item_TurtleMeat>
+		
+		<Item_BearMeat>
+			<li Name="蒸熊掌" Desc=""/>
+			<li Name="红烧熊掌" Desc=""/>
+		</Item_BearMeat>
+	</SpecialItem>
+	<SpecialItem Name="Item_DelicacyFood">
+		<Item_TurtleEgg>
+			<li Name="五色烩蛋" Desc="将食材多次加水水煮后成型切片，撒上五色灵果研磨的粉末，以特殊手法翻炒。味道甘甜，适口不腻。【感谢测试玩家：人境庐提供食谱。】"/>
+			<li Name="老杨番茄炒蛋" Desc=" 西红柿炒龟蛋，越吃越能干！"/>
+			<li Name="龙息蛋" Desc=" 以温度极高的梧桐木灰焖制食材七个时辰，不加外物，让蛋本身的口感发挥到极致，并且有了些许果木清香和火灵力的爆炸感令人回味无穷。【感谢测试玩家：人境庐提供食谱。】"/>
+		</Item_TurtleEgg>
+		<Item_SnakeEgg>
+			<li Name="蓝蓝浓香蛋挞" Desc="蓝蓝制作的蛋挞"/>
+			<li Name="五色烩蛋" Desc="将食材多次加水水煮后成型切片，撒上五色灵果研磨的粉末，以特殊手法翻炒。味道甘甜，适口不腻。【感谢测试玩家：人境庐提供食谱。】"/>
+			<li Name="龙息蛋" Desc=" 以温度极高的梧桐木灰焖制食材七个时辰，不加外物，让蛋本身的口感发挥到极致，并且有了些许果木清香和火灵力的爆炸感令人回味无穷。【感谢测试玩家：人境庐提供食谱。】"/>
+		</Item_SnakeEgg>
+		<Item_ChickenEgg>
+			<li Name="五色烩蛋" Desc="将食材多次加水水煮后成型切片，撒上五色灵果研磨的粉末，以特殊手法翻炒。味道甘甜，适口不腻。【感谢测试玩家：人境庐提供食谱。】"/>
+			<li Name="蓝蓝浓香蛋挞" Desc="蓝蓝制作的蛋挞"/>
+			<li Name="龙息蛋" Desc=" 以温度极高的梧桐木灰焖制食材七个时辰，不加外物，让蛋本身的口感发挥到极致，并且有了些许果木清香和火灵力的爆炸感令人回味无穷。【感谢测试玩家：人境庐提供食谱。】"/>
+		</Item_ChickenEgg>
+		<Item_BoarMeat>
+			<li Name="老杨脆皮烤五花肉" Desc="以猛火对猪五花肉进行高难度的烤制，形成风格迥异的三层口感：外层焦脆火辣，中层嚼劲十足，内层多汁鲜嫩，吃过之后仿佛置身旷野，是极具草原风格的菜品。"/>
+			<li Name="老杨蜜汁烤五花肉" Desc="将野猪五花肉切成片，腌制入味，再加入秘制酱料烤制而成，风味冠绝。"/>
+			<li Name="蓝蓝的小火锅" Desc="蓝蓝秘制小火锅，晚餐就吃它"/>
+			<li Name="旷野之风" Desc="以猛火对猪后腿肉进行高难度的烤制，形成风格迥异的三层口感：外层焦脆火辣，中层嚼劲十足，内层多汁鲜嫩，吃过之后仿佛置身旷野，是极具草原风格的菜品。"/>
+			<li Name="二十四桥明月夜" Desc="将野猪里脊肉顺成丝，腌制入味，再团入豆腐削成的球中，做二十四粒，放入高汤小火慢炖收汁而成的豪华菜品。"/>
+		</Item_BoarMeat>
+		<Item_Beef>
+			<li Name="青云绿柳扶风" Desc="将牛肉切成细丝，以高水准翻炒后拼盘，其口感清淡，但回味无穷。因肉丝细腻，所以非常入味，但是一不小心就会失去火候，使肉质变老。"/>
+			<li Name="猫港三丝牛舌" Desc="牛舌味道甘甜鲜美，肉质极嫩，三丝牛舌更是将这一特质发挥到了极致，以很少的香料将牛舌本来的口感和味道发挥到极致。"/>
+			<li Name="绿柳扶风" Desc="将牛肉切成细丝，以高水准翻炒后拼盘，其口感清淡，但回味无穷。因肉丝细腻，所以非常入味，但是一不小心就会失去火候，使肉质变老。"/>
+			<li Name="三丝牛舌" Desc="牛舌味道甘甜鲜美，肉质极嫩，三丝牛舌更是将这一特质发挥到了极致，以很少的香料将牛舌本来的口感和味道发挥到极致。"/>
+		</Item_Beef>
+		<Item_RabbitMeat>
+			<li Name="尼莫水晶兔" Desc="以特殊手法烹制兔肉，使之半透恍如水晶。其口感弹牙鲜香，是色香味俱全的美食。"/>
+			<li Name="尼莫五仙兔" Desc="以五种香料与兔丁炒制，五种味道层叠衬托，使兔肉层次鲜明。其难点在于火候把控，一旦失衡会使香料交杂，破坏口感层次。"/>
+			<li Name="蓝蓝的小火锅" Desc="蓝蓝秘制小火锅，午餐就吃它"/>
+			<li Name="水晶兔" Desc="以特殊手法烹制兔肉，使之半透恍如水晶。其口感弹牙鲜香，是色香味俱全的美食。"/>
+			<li Name="五仙兔" Desc="以五种香料与兔丁炒制，五种味道层叠衬托，使兔肉层次鲜明。其难点在于火候把控，一旦失衡会使香料交杂，破坏口感层次。"/>
+		</Item_RabbitMeat>
+		<Item_WolfMeat>
+			<li Name="天狗吞日" Desc="以大酱及数十种食材烹制成的狼肉炖汤，初看不见奥妙，随着汤汁一点点喝掉，其中的食材依次露出，各有风味。"/>
+			<li Name="老杨烈火灼心" Desc="狼脊背最优质的肉以辣椒反复烹炒，哪怕寒冬之时，入口亦觉得全身燥热生暖，其口感鲜辣，欲罢不能。"/>
+		</Item_WolfMeat>
+		<Item_FishMeat>
+			<li Name="蓝蓝的化龙汤" Desc="取鱼跃化龙之意，此汤秘诀在复杂的烹饪顺序和香料使用上，其味道鲜香远超普通的鱼肉料理。"/>
+			<li Name="羊方藏鱼" Desc="将鱼置于割开的大块羊肉中，加上调料同烹，其味鲜美无比。因为鱼鲜羊鲜合成一体，其味更鲜。羊肉酥烂味香，内藏鱼肉鲜嫩。"/>
+		</Item_FishMeat>
+		<Item_SnakeMeat>
+			<li Name="蓝蓝龙凤呈祥" Desc="将蛇肉与鸡肉先进行腌制，而后合入汤锅小火炖煮，直到汤汁收干，两种肉的鲜香互相衬托，味道绝佳。"/>
+			<li Name="龟蛇盘" Desc="将龟肉蛇肉一起烹饪熬煮，龟肉与蛇肉口感劲道入味，是一道大补佳肴。"/>
+		</Item_SnakeMeat>
+		<Item_Flour>
+			<li Name="三千烦恼" Desc="细如发丝的面食，配以四种特制卤汤，极其入味而且入口即化，是面食极艺。"/>
+			<li Name="灌汤五德大包" Desc="传自宫廷的烹饪，将大包内分五阁，填入五种特质馅料，象征仁义礼智信五德。若以小火蒸，则五味俱全；若以大火蒸，包内薄皮因压力而破裂，酱料随机混合，又滋生出千变万化的口味。"/>
+			<li Name="青云手撕包" Desc="来自一座南方海边城市的特制面食，蓬松甜软，入口香糯，口感十分美妙。它寄托了那座城市的回忆。"/>
+			<li Name="杰神鸡蛋灌饼" Desc="来自一座北方城市的特制面食，蓬松甜软，入口香糯，口感十分美妙。它寄托了那座城市的回忆。"/>
+			<li Name="蓝蓝的小火锅" Desc="除了粉啥也没有，吃这个要配米饭才香"/>
+			<li Name="老杨羊肉烧麦" Desc="来自内蒙的名吃，透明的面皮包上极鲜的大块羊肉馅料，其入味而且入口即化，是面食极艺。"/>
+			<li Name="杰神葱花饼" Desc="来自一座北方城市的特制面食，蓬松甜软，入口香糯，口感十分美妙。它寄托了那座城市的回忆。"/>
+			<li Name="老杨飘香炒面" Desc="老杨亲手炒制的面食，材料选自与上好的方便面，喷香三明治，剔透的鲜虾，鸡蛋，香辣鸭肠精心炒制而成；若配以快乐水一起食用，效果更甚。"/>
+			<li Name="尼莫煮方便面" Desc="除了方便面啥也没有，不能包个蛋吗"/>
+		</Item_Flour>
+		<Item_Wheat>
+			<li Name="杰神鸡蛋灌饼" Desc="来自一座北方城市的特制面食，蓬松甜软，入口香糯，口感十分美妙。它寄托了那座城市的回忆。"/>
+			<li Name="蓝蓝的小火锅" Desc="除了粉啥也没有，吃这个要配米饭才香"/>
+			<li Name="老杨羊肉烧麦" Desc="来自内蒙的名吃，透明的面皮包上极鲜的大块羊肉馅料，其入味而且入口即化，是面食极艺。"/>
+			<li Name="杰神葱花饼" Desc="来自一座北方城市的特制面食，蓬松甜软，入口香糯，口感十分美妙。它寄托了那座城市的回忆。"/>
+			<li Name="老杨飘香炒面" Desc="老杨亲手炒制的面食，材料选自与上好的方便面，喷香三明治，剔透的鲜虾，鸡蛋，香辣鸭肠精心炒制而成；若配以快乐水一起食用，效果更甚。"/>
+			<li Name="猫港煮方便面" Desc="除了方便面啥也没有，不能包个蛋吗"/>
+			<li Name="三千烦恼" Desc="细如发丝的面食，配以四种特制卤汤，极其入味而且入口即化，是面食极艺。"/>
+			<li Name="灌汤五德大包" Desc="传自宫廷的烹饪，将大包内分五阁，填入五种特质馅料，象征仁义礼智信五德。若以小火蒸，则五味俱全；若以大火蒸，包内薄皮因压力而破裂，酱料随机混合，又滋生出千变万化的口味。"/>
+		</Item_Wheat>
+		<Item_Mushroom>
+			<li Name="尼莫天街小雨润如酥" Desc="将形状完好规整的蘑菇立于白豆腐上，并在蒸制的过程中持续的淋入特制汤汁。出锅时菌伞上犹带液滴，因而得名。"/>
+			<li Name="天街小雨润如酥" Desc="将形状完好规整的蘑菇立于白豆腐上，并在蒸制的过程中持续的淋入特制汤汁。出锅时菌伞上犹带液滴，因而得名。"/>
+		</Item_Mushroom>
+		<Item_Lotusroot>
+			<li Name="蓝蓝七巧蒸洪藕" Desc="本是祭天所用的菜品，后流入民间成为名菜。取七窍的大莲藕为主料，分别填入三牲四畜的特制肉糜，蒸熟后切片盛盘。虽然步骤简单，但是对食材和厨艺要求极高。"/>
+			<li Name="鱼儿跃龙门" Desc="将整只大藕两端切掉，中间孔洞打通。而后置于特制的鸳鸯大锅之中，一端高汤加冰，一端清汤并放入云梦泽特产的小银鱼并以猛火加热，而后上桌。"/>
+			<li Name="蓝蓝的小火锅" Desc="蓝蓝秘制小火锅，早餐就吃它"/>
+			<li Name="跃龙门" Desc="将整只大藕两端切掉，中间孔洞打通。而后置于特制的鸳鸯大锅之中，一端高汤加冰，一端清汤并放入云梦泽特产的小银鱼并以猛火加热，而后上桌。"/>
+		</Item_Lotusroot>
+		<Item_Pear>
+			<li Name="蓝蓝的冰糖雪梨" Desc="将上等雪梨去皮，冰糖放如其内。食用过程中，梨片甜脆可口，吃完梨更可畅饮冰糖融化后的汤汁。虽是冷饮，但却是不分季节的美味。"/>
+			<li Name="水晶梨雕" Desc="将优质梨子急冻，然后去皮，梨子果肉会变成半透明的材质。在极短的时间内将其雕刻成种种形状呈桌，白雾蒸腾中半透明的精致雕塑若隐若现，入口冰爽香甜。是一道色香味俱全的美食。"/>
+			<li Name="冰罄蝉翼" Desc="将上等雪梨去皮，再切成蝉翼般的薄片，层层贴于姜糖水制成的冰罄内壁。食用过程中，薄如蝉翼的梨片甜脆可口，吃完梨片更可畅饮冰罄融化后的汤汁。虽是冷饮，但却是不分季节的美味。"/>
+		</Item_Pear>
+		<Item_Fruit>
+			<li Name="百果汇" Desc="以最普通的野生酸浆果为原料，以高超的手法和用料将其调制成各种水果的味道，而后汇于一盆，没有化腐朽为神奇的高超厨艺无法完成这道菜品。"/>
+			<li Name="蓝蓝的冰糖雪梨" Desc="将上等雪梨去皮，冰糖放如其内。食用过程中，梨片甜脆可口，吃完梨更可畅饮冰糖融化后的汤汁。虽是冷饮，但却是不分季节的美味。"/>
+		</Item_Fruit>
+		<Item_FrogMeat>
+			<li Name="老杨干锅田鸡" Desc=""/>
+			<li Name="小时候烤的田鸡腿" Desc="老杨记得很小的时候，在河边和小伙伴抓田鸡烧着吃，撒的方便面粉包，当时吃的津津有味"/>
+			<li Name="干锅田鸡" Desc=""/>
+			<li Name="香酥田鸡腿" Desc=""/>
+		</Item_FrogMeat>
+		<Item_TurtleMeat>
+			<li Name="龟蛇盘" Desc="将龟肉蛇肉一起烹饪熬煮，龟肉与蛇肉口感劲道入味，是一道大补佳肴。"/>
+		</Item_TurtleMeat>
+		<Item_BearMeat>
+			<li Name="水晶熊掌" Desc=""/>
+		</Item_BearMeat>
+		
+		<Item_ChickenMeat>
+			<li Name="金啼报晓" Desc=""/>
+			<li Name="尼莫金啼报晓" Desc=""/>
+			<li Name="老杨咖喱鸡块" Desc=""/>
+			<li Name="老杨土豆焖鸡" Desc=""/>
+		</Item_ChickenMeat>
+	</SpecialItem>
+</List></SpecialNames>

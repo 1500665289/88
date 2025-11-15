@@ -1,0 +1,1136 @@
+﻿<Stories><List>
+	
+
+
+
+	<Story Name="BaoZang_TZLS"  Parent="BaseFillingStory">
+		<DisplayName>挑战陈佳宁</DisplayName>
+		<Desc>[NAME]向陈佳宁发出挑战，只见陈佳宁缓缓把筷子放下，叹了口气。</Desc>
+		<Selections>
+			<li>
+				<Display>开始战斗</Display> 
+				<OKResult><![CDATA[
+					me:AddMsg("我觉得吧，你还是跑吧。");
+					world:SetRandomSeed();
+					local nQ = me:GetProperty("NpcLingMaxValue")-me:GetProperty("NpcLingMaxValue")%1;
+					local nW = me:GetProperty("NpcFight_FabaoPowerAddP") * me:GetGLevel() * me:GetPhysique() * me:GetPerception() * 1.85-(me:GetProperty("NpcFight_FabaoPowerAddP") * me:GetGLevel() * me:GetPhysique() * me:GetPerception() * 1.85)%1;
+					local nE = (me:GetProperty("NpcFight_ShieldConversionRateAddP") + 0.8)  * me:GetGLevel() * (me:GetProperty("BaseEmotionAddV") + 20) * 1.55-((me:GetProperty("NpcFight_ShieldConversionRateAddP") + 0.8)  * me:GetGLevel() * (me:GetProperty("BaseEmotionAddV") + 20 ) * 1.55)%1;
+					local nU =(3/(me:GetProperty("NpcFight_FabaoCoolDownAddP")+1.2)) - (3/(me:GetProperty("NpcFight_FabaoCoolDownAddP")+1.2))%1;
+					local nL = (me:GetProperty("NpcFight_BaseHitChance") - me:GetProperty("NpcFight_BaseHitChance")%0.01)*100;
+					world:SetWorldFlag(278,nL);
+					world:SetWorldFlag(279,nU);
+					world:SetWorldFlag(280,nQ);
+					world:SetWorldFlag(281,nW);
+					world:SetWorldFlag(282,nE);
+					world:SetWorldFlag(277,1);
+					local nP = me:RandomInt(80000000,90000000);
+					local nO = me:RandomInt(10000000,15000000);
+					local nI = me:RandomInt(700000,800000);
+					world:SetWorldFlag(283,nP);
+					world:SetWorldFlag(284,nO);
+					world:SetWorldFlag(285,nI);
+					local Element = me:RandomInt(0,5);
+					
+					
+					if me:GetGElementKind() == 1 then
+					
+					if Element == 4 or Element == 5 then
+					local nA = 0.7*nW-0.7*nW%1;
+					local nB = 0.7*nE-0.7*nE%1;
+					world:SetWorldFlag(281,nA);
+					world:SetWorldFlag(282,nB);
+					
+					elseif Element == 2 or Element == 3 then
+					local nA = 1.5*nW-1.5*nW%1;
+					local nB = 1.5*nE-1.5*nE%1;
+					world:SetWorldFlag(281,nA);
+					world:SetWorldFlag(282,nB);
+					
+					else
+					world:SetWorldFlag(281,nW);
+					world:SetWorldFlag(282,nE);
+					end
+					
+					elseif me:GetGElementKind() == 2 then
+					if Element == 1 or Element == 4 then
+					local nA = 0.7*nW-0.7*nW%1;
+					local nB = 0.7*nE-0.7*nE%1;
+					world:SetWorldFlag(281,nA);
+					world:SetWorldFlag(282,nB);
+					
+					elseif Element == 3 or Element == 5 then
+					local nA = 1.5*nW-1.5*nW%1;
+					local nB = 1.5*nE-1.5*nE%1;
+					world:SetWorldFlag(281,nA);
+					world:SetWorldFlag(282,nB);
+					
+					else
+					world:SetWorldFlag(281,nW);
+					world:SetWorldFlag(282,nE);
+					end
+					
+					elseif me:GetGElementKind() == 3 then
+					if Element == 2 or Element == 5 then
+					local nA = 0.7*nW-0.7*nW%1;
+					local nB = 0.7*nE-0.7*nE%1;
+					world:SetWorldFlag(281,nA);
+					world:SetWorldFlag(282,nB);
+					
+					elseif Element == 1 or Element == 4 then
+					local nA = 1.5*nW-1.5*nW%1;
+					local nB = 1.5*nE-1.5*nE%1;
+					world:SetWorldFlag(281,nA);
+					world:SetWorldFlag(282,nB);
+					
+					else
+					world:SetWorldFlag(281,nW);
+					world:SetWorldFlag(282,nE);
+					end
+					
+					elseif me:GetGElementKind() == 4 then
+					if Element == 3 or Element == 5 then
+					local nA = 0.7*nW-0.7*nW%1;
+					local nB = 0.7*nE-0.7*nE%1;
+					world:SetWorldFlag(281,nA);
+					world:SetWorldFlag(282,nB);
+					
+					elseif Element == 1 or Element == 2 then
+					local nA = 1.5*nW-1.5*nW%1;
+					local nB = 1.5*nE-1.5*nE%1;
+					world:SetWorldFlag(281,nA);
+					world:SetWorldFlag(282,nB);
+					
+					else
+					world:SetWorldFlag(281,nW);
+					world:SetWorldFlag(282,nE);
+					end
+				
+					elseif me:GetGElementKind() == 5 then
+					if Element == 1 or Element == 2 then
+					local nA = 0.7*nW-0.7*nW%1;
+					local nB = 0.7*nE-0.7*nE%1;
+					world:SetWorldFlag(281,nA);
+					world:SetWorldFlag(282,nB);
+					
+					elseif Element == 3 or Element == 4 then
+					local nA = 1.5*nW-1.5*nW%1;
+					local nB = 1.5*nE-1.5*nE%1;
+					world:SetWorldFlag(281,nA);
+					world:SetWorldFlag(282,nB);
+					
+					else
+					world:SetWorldFlag(281,nW);
+					world:SetWorldFlag(282,nE);
+					end
+					
+					else
+					world:SetWorldFlag(281,nW);
+					world:SetWorldFlag(282,nE);
+					end			
+					me:AddMsg("当前血量："..world:GetWorldFlag(280).."");
+					me:AddMsg("当前攻击："..world:GetWorldFlag(281).."");
+					me:AddMsg("当前防御："..world:GetWorldFlag(282).."");
+					me:AddMsg("敌人属性：混沌");									
+					me:AddMsg("敌人血量："..world:GetWorldFlag(283).."");
+					me:AddMsg("敌人攻击："..world:GetWorldFlag(284).."");
+					me:AddMsg("敌人防御："..world:GetWorldFlag(285).."");
+					me:AddMsg("陈佳宁开启了冰霜领域，你还没出手就受伤了。");me:AddDamageRandomPart(1,"Fracture4", 1, XT("冰霜领域"));
+					me:AddMsg("你确定要挑战我吗？小蜜桃。");
+					me:TriggerStory("BaoZang_FIGHT_MOD1");	
+				]]>
+				</OKResult>
+			</li>
+			<li>
+				<Display>委婉离开</Display>
+				<OKResult>me:AddMsg("[NAME]向陈佳宁道歉，并解释自己的无意冒犯后离开。");
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="BaoZang_FIGHT_MOD1"  Parent="BaseFillingStory">
+		<DisplayName>战斗启动</DisplayName>
+		<Desc>[NAME]与陈佳宁的战斗进行中。</Desc>
+		<Selections>
+			<li>
+				<Display>攻击</Display> 
+				<OKResult><![CDATA[
+					local nM = world:GetWorldFlag(277);
+					local nL = world:GetWorldFlag(278);
+					local nU = world:GetWorldFlag(279);	
+					local nQ = world:GetWorldFlag(280);	
+					local nW = world:GetWorldFlag(281);	
+					local nE = world:GetWorldFlag(282);	
+					local nR = world:GetWorldFlag(283);	
+					local nT = world:GetWorldFlag(284);	
+					local nY = world:GetWorldFlag(285);	
+					local nI = me:RandomInt(0,10);	
+					local nJ = me:RandomInt(0,120);
+					local nG = me:RandomInt(0,120);
+					local nF = me:RandomInt(0,120);
+					local nH = me:RandomInt(0,100);
+					local nD = me:RandomInt(0,100);
+					local nA = me:RandomInt(0,100);
+					me:AddMsg("第"..nM.."回合");
+					if me:GetProperty("WorldMapFlySpeed") * (1 + me:GetProperty("WorldMapFlySpeedAddP")) >= nI then
+					me:AddMsg("[NAME]的速度非常快，所以先手攻击。");
+					if nU == 2 then
+					if nL >= nJ then
+					if nH <= 5 then
+					local nS = 4 * nW;
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了破防伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					elseif nH <= 15 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 30 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 50 then
+					local nS = 0.7 * nW - (0.7 * nW) % 1 - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了格挡伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					else
+					local nS =nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了正常伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					end
+					else
+					me:AddMsg("敌方闪避了你的攻击。");	
+					end
+
+
+
+					if nR <= 0 then
+					me:AddMsg("陈佳宁还没出手，就被打败了");	
+					else
+
+
+					if nL >= nG then
+					if nD <= 5 then
+					local nS = 4 * nW;
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了破防伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					elseif nH <= 15 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);	
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 30 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 50 then
+					local nS = 0.7 * nW - (0.7 * nW) % 1 - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了格挡伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					else
+					local nS =nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了正常伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					end
+					else
+					me:AddMsg("敌方闪避了你的攻击。");	
+					end
+
+					end
+
+
+
+					elseif nU == 3 then
+
+					if nL >= nJ then
+					if nH <= 5 then
+					local nS = 4 * nW;
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了破防伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					elseif nH <= 15 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);	
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 30 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 50 then
+					local nS = 0.7 * nW - (0.7 * nW) % 1 - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了格挡伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					else
+					local nS =nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了正常伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					end
+					else
+					me:AddMsg("敌方闪避了你的攻击。");	
+					end
+
+
+
+
+
+					if nR <= 0 then
+					me:AddMsg("陈佳宁还没出手，就被打败了");	
+					else
+
+					if nL >= nG then
+					if nD <= 5 then
+					local nS = 4 * nW;
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了破防伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					elseif nH <= 15 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 30 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 50 then
+					local nS = 0.7 * nW - (0.7 * nW) % 1 - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了格挡伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					else
+					local nS =nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了正常伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					end
+					else
+					me:AddMsg("敌方闪避了你的攻击。");	
+					end
+					end
+
+
+					if nR <= 0 then
+					me:AddMsg("陈佳宁还没出手，就被打败了");	
+					else
+
+					if nL >= nF then
+					if nA <= 5 then
+					local nS = 4 * nW;
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了破防伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					elseif nH <= 15 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);	
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 30 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 50 then
+					local nS = 0.7 * nW - (0.7 * nW) % 1 - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了格挡伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					else
+					local nS =nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了正常伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					end
+					else
+					me:AddMsg("敌方闪避了你的攻击。");	
+					end
+					
+					end
+
+					else
+					if nL >= nJ then
+					if nH <= 5 then
+					local nS = 4 * nW;
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了破防伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					elseif nH <= 15 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);	
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 30 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 50 then
+					local nS = 0.7 * nW - (0.7 * nW) % 1 - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了格挡伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					else
+					local nS =nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了正常伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					end
+					else
+					me:AddMsg("敌方闪避了你的攻击。");	
+					end
+					end
+					
+
+
+
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("陈佳宁还没来得及出手，就被[NAME]打倒了！");
+					else
+					local nX = nT - nE;
+					if nX <= 0 then
+					me:AddMsg("虽然陈佳宁的攻势很强，但都被[NAME]轻而易举的化解。");
+					else
+					world:SetWorldFlag(280,world:GetWorldFlag(280)-nX);
+					local nQ = world:GetWorldFlag(280);
+					if nQ <= 0 then
+					me:AddMsg("陈佳宁她的剑一旦出鞘，又会增加多少亡灵......但[NAME]依然敢直视她的眼睛，结果[NAME]直接被眼神秒杀了。");me:AddDamage("Destroy", "LeftEye", 1, XT("灼伤"));me:AddDamage("Destroy", "RightEye", 1, XT("灼伤"));me:AddDamage("Fabao_CutOff","Head", 1, XT("灼伤"));me:AddDamgeFromCache(story.DamageCache,4);
+					else
+					me:AddMsg("只见陈佳宁柳腰一摆，刹那间闪过[NAME]迅如奔雷的一剑，那激荡的掌风刮得她的秀美脸蛋隐隐做痛。[NAME]身上竟不知什么时候中了狠狠的一剑！");me:AddDamage("Fabao_CutOff","LeftRibs1", 1, XT("陈佳宁的剑"));me:AddDamage("Fabao_CutOff","RightRibs1", 1, XT("陈佳宁的剑"));me:AddDamgeFromCache(story.DamageCache,4);
+					end
+					end
+					end
+					
+					
+					else
+					me:AddMsg("陈佳宁的速度非常快，所以先手攻击。");
+					local nX = nT - nE;
+					if nX <= 0 then
+					me:AddMsg("虽然陈佳宁的攻势很强，但都被[NAME]轻而易举的化解。");
+					else
+					world:SetWorldFlag(280,world:GetWorldFlag(280)-nX);
+					local nQ = world:GetWorldFlag(280);
+					if nQ <= 0 then
+					me:AddMsg("陈佳宁青色的剑光终于冲天而起，剑在空中虚虚实实挽了三个剑花，如蛇吐芯一般，直刺向[NAME]的眉心。");me:AddDamage("Destroy", "LeftEye", 1, XT("灼伤"));me:AddDamage("Destroy", "RightEye", 1, XT("灼伤"));me:AddDamage("Fabao_CutOff","Head", 1, XT("灼伤"));me:AddDamgeFromCache(story.DamageCache,4);me:AddDamage("Fabao_CutOff","Face", 1, XT("脸"));
+					else
+					me:AddMsg("只见陈佳宁迅如奔雷的一剑刺中了[NAME]！[NAME]知道自己不能有片刻的懈怠和喘息，也许倒下就化做尘埃，不能再起来。所以，他咬牙着，展开剑鞘，祭起剑中剑来，只求一招结束战斗。");me:AddDamage("Fabao_CutOff","LeftRibs1", 1, XT("陈佳宁的剑"));me:AddDamage("Fabao_CutOff","RightRibs1", 1, XT("陈佳宁的剑"));me:AddDamage("Fabao_CutOff","Body", 1, XT("陈佳宁的剑"));me:AddDamgeFromCache(story.DamageCache,4);
+					end
+					end
+					local nQ = world:GetWorldFlag(280);
+					if nQ <= 0 then
+					me:AddMsg("[NAME]还没来得及出手，就被陈佳宁打倒了！给你机会你不中用啊，小牙签。");me:AddDamgeFromCache(story.DamageCache,4);me:AddDamage("Fabao_CutOff","Spine", 1, XT("法宝重击"));me:AddDamage("Fabao_CutOff","LeftScapula", 1, XT("法宝重击"));me:AddDamage("Fabao_CutOff","RightScapula", 1, XT("法宝重击"));me:AddDamage("Fabao_CutOff","LeftThighbone", 1, XT("法宝重击"));me:AddDamage("Fabao_CutOff","RightThighbone", 1, XT("法宝重击"));me:AddDamage("Fabao_CutOff","LeftRibs1", 1, XT("法宝重击"));me:AddDamage("Fabao_CutOff","RightRibs1", 1, XT("法宝重击"));me:AddDamage("Fabao_CutOff","Body", 1, XT("法宝重击"));
+					else
+					if nU == 2 then
+					if nL >= nJ then
+					if nH <= 5 then
+					local nS = 4 * nW;
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了破防伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					elseif nH <= 15 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 30 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 50 then
+					local nS = 0.7 * nW - (0.7 * nW) % 1 - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了格挡伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					else
+					local nS =nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了正常伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					end
+					else
+					me:AddMsg("敌方闪避了你的攻击。");	
+					end
+
+
+					if nR <= 0 then
+					me:AddMsg("陈佳宁还没出手，就被打败了");	
+					else
+
+					if nL >= nG then
+					if nD <= 5 then
+					local nS = 4 * nW;
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了破防伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					elseif nH <= 15 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);	
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 30 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 50 then
+					local nS = 0.7 * nW - (0.7 * nW) % 1 - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了格挡伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					else
+					local nS =nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了正常伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					end
+					else
+					me:AddMsg("敌方闪避了你的攻击。");	
+					end
+					end
+
+					elseif nU == 3 then
+
+					if nL >= nJ then
+					if nH <= 5 then
+					local nS = 4 * nW;
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了破防伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					elseif nH <= 15 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);	
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 30 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 50 then
+					local nS = 0.7 * nW - (0.7 * nW) % 1 - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了格挡伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					else
+					local nS =nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了正常伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					end
+					else
+					me:AddMsg("敌方闪避了你的攻击。");	
+					end
+
+
+					if nR <= 0 then
+					me:AddMsg("陈佳宁还没出手，就被打败了");	
+					else
+
+					if nL >= nG then
+					if nD <= 5 then
+					local nS = 4 * nW;
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了破防伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					elseif nH <= 15 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 30 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 50 then
+					local nS = 0.7 * nW - (0.7 * nW) % 1 - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了格挡伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					else
+					local nS =nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了正常伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					end
+					else
+					me:AddMsg("敌方闪避了你的攻击。");	
+					end
+					end
+
+
+					if nR <= 0 then
+					me:AddMsg("陈佳宁还没出手，就被打败了");	
+					else
+
+					if nL >= nF then
+					if nA <= 5 then
+					local nS = 4 * nW;
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了破防伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					elseif nH <= 15 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);	
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 30 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 50 then
+					local nS = 0.7 * nW - (0.7 * nW) % 1 - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了格挡伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					else
+					local nS =nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了正常伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					end
+					else
+					me:AddMsg("敌方闪避了你的攻击。");	
+					end
+					end
+					else
+					if nL >= nJ then
+					if nH <= 5 then
+					local nS = 4 * nW;
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了破防伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					elseif nH <= 15 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);	
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 30 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 50 then
+					local nS = 0.7 * nW - (0.7 * nW) % 1 - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了格挡伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					else
+					local nS =nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]使出浑身全力，对陈佳宁造成了"..nS.."点伤害，陈佳宁灵力不足，无法进行攻击，[NAME]最终战胜了陈佳宁！");
+					else
+					me:AddMsg("[NAME]打出了正常伤害，对陈佳宁造成了"..nS.."点伤害，陈佳宁剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					end
+					else
+					me:AddMsg("敌方闪避了你的攻击。");	
+					end
+					end
+					end
+					end
+					local nR = world:GetWorldFlag(283);
+					local nQ = world:GetWorldFlag(280);
+					if nR > 0 and nQ > 0 then
+					me:TriggerStory("BaoZang_FIGHT_MOD1");
+					local nM = world:GetWorldFlag(277);
+					world:SetWorldFlag(277,world:GetWorldFlag(277) + 1);
+					end
+				]]>
+				</OKResult>
+			</li>
+			<li>
+				<Display>逃跑</Display>
+				<OKResult><![CDATA[	
+				local nZ = me:RandomInt(0,100);
+				if nZ >= 50 then
+				me:AddMsg("你成功的逃离了战斗！");	
+				else
+					local nQ = world:GetWorldFlag(280);	
+					local nE = world:GetWorldFlag(282);	
+					local nT = world:GetWorldFlag(284);	
+					local nX = nT - nE;
+					if nX <= 0 then
+					me:AddMsg("在逃跑的过程当中，你似乎领悟了一套浑然天成的剑决。");me:AddModifier("Story_FabaoPower1");me:AddModifier("Story_LingAbsorbSpeed1");me:AddModifier("Story_WorldMapFlySpeedAddP1");me:AddModifier("Story_ShieldConversionRate1");
+					me:TriggerStory("BaoZang_FIGHT_MOD1");
+					else
+					world:SetWorldFlag(280,world:GetWorldFlag(280)-nX);
+					local nQ = world:GetWorldFlag(280);
+					if nQ <= 0 then
+					me:AddMsg("陈佳宁的剑光划破夜空，美丽夺目，却带着森森杀意剑在半空疾落，忽然一分三，三化九，倏忽间化作数十道肉眼难辨的寒光，交织成天罗地网，呼啸杀去！[NAME]直接傻了眼，站在原地动弹不得。");me:AddDamage("Fabao_CutOff","Hips", 1, XT("陈佳宁的剑"));me:AddDamage("Fabao_CutOff","Spine", 1, XT("陈佳宁的剑"));me:AddDamgeFromCache(story.DamageCache,4);
+					else
+					me:AddMsg("这么快就不行了呀，小牙签，看看是你跑的快，还是我的剑快！");me:AddDamage("Fabao_CutOff","Hips", 1, XT("陈佳宁的剑"));me:AddDamage("Fabao_CutOff","Spine", 1, XT("陈佳宁的剑"));me:AddDamgeFromCache(story.DamageCache,4);
+					me:TriggerStory("BaoZang_FIGHT_MOD1");
+					end
+					end
+					end
+					local nM = world:GetWorldFlag(277);
+					world:SetWorldFlag(277,world:GetWorldFlag(277) + 1);
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</List></Stories>

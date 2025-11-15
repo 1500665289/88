@@ -1,0 +1,21 @@
+﻿<FeatureDefs><List>
+	
+		<Feature Name="mzx_999" Type="Normal">
+		<DisplayName>魔血者</DisplayName>
+		<Desc>此人身体中有稀薄的魔族血脉，这让[IT]对内气敏感。但也让[IT]的心境易受波动。</Desc>
+		<Close><!--亲近特性-->
+			<li>DragonBlood</li>
+			<li>DemonBlood</li>
+		</Close>
+		
+		<ModifierDef>
+			
+			<Properties>								
+				<li Name="NpcFight_FabaoNum" AddP="6"/>
+			</Properties>
+	
+		</ModifierDef>
+	</Feature>
+			
+		
+</List></FeatureDefs>

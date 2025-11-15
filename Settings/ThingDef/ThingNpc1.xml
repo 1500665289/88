@@ -1,0 +1,42 @@
+﻿<ThingDefs><List>
+	<ThingDef Type="Npc" Name="Npc_JMiniLong"  Parent="NpcBase">
+		<Light>
+			<Value>30</Value>
+			<Failing>0.8</Failing>
+			<FailRadius>1</FailRadius>
+			<Radius>8</Radius>
+			<Color>FBB600FF</Color>
+		</Light>
+	</ThingDef>	
+	<ThingDef Type="Npc" Name="Npc_CMiniFeng"  Parent="NpcBase">
+		<Light>
+			<Value>30</Value>
+			<Failing>0.8</Failing>
+			<FailRadius>1</FailRadius>
+			<Radius>8</Radius>
+			<Color>FBB600FF</Color>
+		</Light>
+	</ThingDef>	
+	<ThingDef Type="Npc" Name="Npc_MFei"  Parent="NpcBase">
+		<BindWeather>Miasma</BindWeather>
+		<Light>
+			<Value>20</Value>
+			<Failing>0.8</Failing>
+			<FailRadius>1</FailRadius>
+			<Radius>8</Radius>
+			<Color>A600BFFF</Color>
+		</Light>
+	</ThingDef>	
+	
+	<ThingDef Type="Npc" Name="Npc_BlackLong"  Parent="NpcBase">
+		<BindWeather>PermanentNight</BindWeather>
+		<Light>
+			<Value>20</Value>
+			<Failing>0.8</Failing>
+			<FailRadius>1</FailRadius>
+			<Radius>8</Radius>
+			<Color>A600BFFF</Color>
+		</Light>
+	</ThingDef>	
+	
+</List></ThingDefs>

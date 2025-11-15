@@ -1,0 +1,127 @@
+﻿<Stories><List>	
+	
+	<Story Name="Secrets_GodStory_1">
+		<DisplayName>凡人战争</DisplayName>
+		<Desc>[NAME]赶到[PLACE]，发现战火正燃，此地百姓饱受战争之苦。</Desc>
+		<Selections>
+			<li>
+				<Display>劝停战争</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("[NAME]以仙法摄走两军首领，一番劝戒，迫使他们停止了战争，消弭了这场祸事。此举手段温和，虽无人知晓，但却顺应天道，[NAME]获得了一些功德。"));me:AddPenalty(-me:RandomInt(10,20));story:FinishSecret();
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>雷霆镇压</Display>  
+				<Tip>金丹期</Tip>
+				<OKResult><![CDATA[
+				if me:GetGLevel() > 6 then
+					local nN = me:RandomInt(math.floor(me:GetGLevel()^4 * 0.8),math.floor(me:GetGLevel()^4* 1.2))
+					me:AddMsg(XT("[NAME]于战场之上降下雷霆震怒，将两军兵士镇压，强行制止了这场战争。[NAME]之神威因此深深刻印在亲见此幕的凡人脑海，他们口口相传，使[NAME]收获了不少信徒和信仰。"));me:AddFaith(me:RandomInt(50,100)*nN);me:AddGodPopulation(nN);story:FinishSecret();
+				else
+					me:AddMsg(XT("[NAME]降临于战场之上，欲以法力强行镇压两军兵士。然而[NAME]没想到的是，战场上凡人军士个体虽弱，但其气血沸腾浑然一体，以[NAME]的修为竟然无法镇压。此举使得[NAME]声名大损。"));me:AddGodPopulation(-me:RandomInt(40,81));me:AddSchoolScore(1,-30);story:FinishSecret();
+				end
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>离开</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("[NAME]决定还是不管这场闲事，转身离开。"));
+				]]></OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Secrets_GodStory_2">
+		<DisplayName>瘟疫肆虐</DisplayName>
+		<Desc>[NAME]赶到[PLACE]，发现此地的瘟疫已经越演越烈，已有数个村落鸡犬不留。</Desc>
+		<Selections>
+			<li>
+				<Display>耐心治愈</Display>
+				<Tip>金丹期</Tip>
+				<OKResult><![CDATA[
+				if me:GetGLevel() > 6 then
+					local nN = me:RandomInt(math.floor(me:GetGLevel()^4 * 0.8),math.floor(me:GetGLevel()^4* 1.2))
+					me:AddMsg(XT("[NAME]以仙法依次治疗感染瘟疫的凡人，终于成功制止了瘟疫。[NAME]以医仙之名广为流传，收获了一些信仰与信徒。此举顺应天心，[NAME]获得了许多功德。"));me:AddFaith(me:RandomInt(50,100)*nN);me:AddGodPopulation(nN);me:AddPenalty(-me:RandomInt(10,20));me:AddSchoolScore(2,30);story:FinishSecret();
+				else
+					me:AddMsg(XT("[NAME]以仙法依次治疗感染瘟疫的凡人，然而以[NAME]的境界，治愈速度竟然没能赶上瘟疫蔓延的速度，最终瘟疫彻底爆发。此举使得[NAME]声名大损。"));me:AddGodPopulation(-me:RandomInt(40,81));me:AddSchoolScore(1,-30);story:FinishSecret();
+				end
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>隔离灭杀</Display>  
+				<OKResult><![CDATA[
+					local nN = me:RandomInt(math.floor(me:GetGLevel()^4 * 0.8),math.floor(me:GetGLevel()^4* 1.2))
+					me:AddMsg(XT("[NAME]施展仙法，将瘟疫感染的人集中起来，彻底封闭，瘟疫无法传播自然消弭无形。此举虽不完美，但也算成功制止的瘟疫，让[NAME]之名远播，亦因此收获了不少信徒和信仰。"));me:AddFaith(me:RandomInt(50,100)*nN);me:AddGodPopulation(nN);me:AddSchoolScore(1,30);story:FinishSecret();
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>离开</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("[NAME]决定还是不管这场闲事，转身离开。"));
+				]]></OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Secrets_GodStory_3">
+		<DisplayName>妖邪乱世</DisplayName>
+		<Desc>[NAME]赶到[PLACE]，正发现此地妖气弥漫，附近百姓人心惶惶，充斥着不安。</Desc>
+		<Selections>
+			<li>
+				<Display>设计除妖</Display>
+				<OKResult><![CDATA[
+				me:AddMsg(XT("[NAME]化身为凡人，故意被妖邪摄走，趁其不备将其斩杀，成功消除了妖邪之害。此举手段温和，虽无人知晓，但却顺应天道，[NAME]获得了许多功德。"));me:AddPenalty(-me:RandomInt(10,20));story:FinishSecret();
+			
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>雷霆斩杀</Display>  
+				<Tip>金丹期</Tip>
+				<OKResult><![CDATA[
+				if me:GetGLevel() > 6 then
+					local nN = me:RandomInt(math.floor(me:GetGLevel()^4 * 0.8),math.floor(me:GetGLevel()^4* 1.2))
+					me:AddMsg(XT("[NAME]见状大怒，直接当空施展仙法，逼迫妖邪露面。双发在天际各展神通，血战当场，最终[NAME]成功斩杀了妖邪。此举虽波及不少凡人意外丧命，但[NAME]的神威却广为流传，使其收获了许多信仰和信徒。"));me:AddFaith(me:RandomInt(50,100)*nN);me:AddGodPopulation(nN);me:AddSchoolScore(1,30);story:FinishSecret();
+				else
+					me:AddMsg(XT("[NAME]见状大怒，直接当空施展仙法，逼迫妖邪露面。双发在天际各展神通，血战当场。然而没想到的是，[NAME]的修为不足，竟然败于妖邪之手。虽然妖邪因此惊走，但此举也使得[NAME]声名大损。"));me:AddGodPopulation(-me:RandomInt(40,81));me:AddSchoolScore(1,-30);me:AddDamgeFromCache(story.DamageCache,1,0.5);story:FinishSecret();
+				end
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>离开</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("[NAME]决定还是不管这场闲事，转身离开。"));
+				]]></OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Secrets_GodStory_4">
+		<DisplayName>天灾突发</DisplayName>
+		<Desc>[NAME]赶到[PLACE]时，发现此地民众死伤惨重，正慌乱的躲避灾祸。</Desc>
+		<Selections>
+			<li>
+				<Display>救灾济民</Display>
+				<OKResult><![CDATA[
+				
+				local nN = me:RandomInt(math.floor(me:GetGLevel()^4 * 0.8),math.floor(me:GetGLevel()^4* 1.2))
+				me:AddMsg(XT("[NAME]施展神通，阻止了天灾蔓延。并救助灾民，重新安定。[NAME]之善名广为流传，收获了一些信仰与信徒。此举顺应天心，也为[NAME]带来了一些功德。"));me:AddFaith(me:RandomInt(50,100)*nN);me:AddGodPopulation(nN);me:AddPenalty(-me:RandomInt(10,20));me:AddSchoolScore(2,30);story:FinishSecret();
+			
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>离开</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("[NAME]决定还是不管这场闲事，转身离开。"));
+				]]></OKResult>
+			</li>
+		</Selections>
+	</Story>
+			
+</List></Stories>

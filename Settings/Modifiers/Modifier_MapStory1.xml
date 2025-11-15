@@ -1,0 +1,37 @@
+﻿<ModifierDefs><List>
+
+	<Modifier Name="Story_FabaoPower1" Type="Normal">
+		<DisplayName>从根本上提高5%的法宝威力。</DisplayName>
+		<Desc>从根本上提高5%的法宝威力。</Desc>
+		<MaxStack>0</MaxStack>
+		<Duration>-1</Duration>
+		<Display>0</Display>
+		<Properties>
+			<li Name="NpcFight_FabaoPowerAddP" BAddP="0.15"/>
+		</Properties>
+	</Modifier>	
+	
+	<Modifier Name="Story_DragonBlood" Type="Normal">
+		<DisplayName>龙之血脉</DisplayName>
+		<Desc>龙之血脉觉醒：根骨提高2成;神识提高2成;从根本上提高25%的灵气最大值。</Desc>
+		<MaxStack>0</MaxStack>
+		<Duration>-1</Duration>
+		<Display>0</Display>
+		<BaseFive>2,2,0,0,0</BaseFive>
+		<Properties>
+			<li Name="NpcLingMaxValue" BAddP="0.35"/>
+		</Properties>
+	</Modifier>
+	
+	<Modifier Name="Modifier_Story_BossLong_Wish1" Type="Normal">
+		<DisplayName>馈赠</DisplayName>
+		<MaxStack>0</MaxStack>
+		<Duration>-1</Duration>
+		<Display>0</Display>
+		<BaseFive>5.5,0,0,0,5</BaseFive>
+		<Properties>
+			<li Name="MaxAge" AddV="4000"/>
+		</Properties>
+	</Modifier>
+	
+</List></ModifierDefs>

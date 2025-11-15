@@ -1,0 +1,1155 @@
+﻿<Stories><List>
+	
+
+
+
+	<Story Name="BaoZang_B4_FIGHT"  Parent="BaseFillingStory">
+		<DisplayName>邪魔分身</DisplayName>
+		<Desc>[NAME][NAME]从裤裆里掏出了一把四十米的大宝剑准备战斗！。。。</Desc>
+		<Selections>
+			<li>
+				<Display>开始战斗</Display> 
+				<OKResult><![CDATA[
+					me:AddMsg("数据加载中...随机种子加载中...敌人数据加载中...");
+					world:SetRandomSeed();
+					local nQ = me:GetProperty("NpcLingMaxValue")-me:GetProperty("NpcLingMaxValue")%1;
+					local nW = me:GetProperty("NpcFight_FabaoPowerAddP") * me:GetGLevel() * me:GetPhysique() * me:GetPerception() * 1.85-(me:GetProperty("NpcFight_FabaoPowerAddP") * me:GetGLevel() * me:GetPhysique() * me:GetPerception() * 1.85)%1;
+					local nE = (me:GetProperty("NpcFight_ShieldConversionRateAddP") + 0.8)  * me:GetGLevel() * (me:GetProperty("BaseEmotionAddV") + 20) * 1.55-((me:GetProperty("NpcFight_ShieldConversionRateAddP") + 0.8)  * me:GetGLevel() * (me:GetProperty("BaseEmotionAddV") + 20 ) * 1.55)%1;
+					local nU =(3/(me:GetProperty("NpcFight_FabaoCoolDownAddP")+1.2)) - (3/(me:GetProperty("NpcFight_FabaoCoolDownAddP")+1.2))%1;
+					local nL = (me:GetProperty("NpcFight_BaseHitChance") - me:GetProperty("NpcFight_BaseHitChance")%0.01)*100;
+					world:SetWorldFlag(278,nL);
+					world:SetWorldFlag(279,nU);
+					world:SetWorldFlag(280,nQ);
+					world:SetWorldFlag(281,nW);
+					world:SetWorldFlag(282,nE);
+					world:SetWorldFlag(277,1);
+					local nP = me:RandomInt(500000,1000000);
+					local nO = me:RandomInt(50000,150000);
+					local nI = me:RandomInt(3000,8000);
+					world:SetWorldFlag(283,nP);
+					world:SetWorldFlag(284,nO);
+					world:SetWorldFlag(285,nI);
+					local Element = me:RandomInt(0,5);
+					
+					
+					if me:GetGElementKind() == 1 then
+					
+					if Element == 4 or Element == 5 then
+					local nA = 0.7*nW-0.7*nW%1;
+					local nB = 0.7*nE-0.7*nE%1;
+					world:SetWorldFlag(281,nA);
+					world:SetWorldFlag(282,nB);
+					
+					elseif Element == 2 or Element == 3 then
+					local nA = 1.5*nW-1.5*nW%1;
+					local nB = 1.5*nE-1.5*nE%1;
+					world:SetWorldFlag(281,nA);
+					world:SetWorldFlag(282,nB);
+					
+					else
+					world:SetWorldFlag(281,nW);
+					world:SetWorldFlag(282,nE);
+					end
+					
+					elseif me:GetGElementKind() == 2 then
+					if Element == 1 or Element == 4 then
+					local nA = 0.7*nW-0.7*nW%1;
+					local nB = 0.7*nE-0.7*nE%1;
+					world:SetWorldFlag(281,nA);
+					world:SetWorldFlag(282,nB);
+					
+					elseif Element == 3 or Element == 5 then
+					local nA = 1.5*nW-1.5*nW%1;
+					local nB = 1.5*nE-1.5*nE%1;
+					world:SetWorldFlag(281,nA);
+					world:SetWorldFlag(282,nB);
+					
+					else
+					world:SetWorldFlag(281,nW);
+					world:SetWorldFlag(282,nE);
+					end
+					
+					elseif me:GetGElementKind() == 3 then
+					if Element == 2 or Element == 5 then
+					local nA = 0.7*nW-0.7*nW%1;
+					local nB = 0.7*nE-0.7*nE%1;
+					world:SetWorldFlag(281,nA);
+					world:SetWorldFlag(282,nB);
+					
+					elseif Element == 1 or Element == 4 then
+					local nA = 1.5*nW-1.5*nW%1;
+					local nB = 1.5*nE-1.5*nE%1;
+					world:SetWorldFlag(281,nA);
+					world:SetWorldFlag(282,nB);
+					
+					else
+					world:SetWorldFlag(281,nW);
+					world:SetWorldFlag(282,nE);
+					end
+					
+					elseif me:GetGElementKind() == 4 then
+					if Element == 3 or Element == 5 then
+					local nA = 0.7*nW-0.7*nW%1;
+					local nB = 0.7*nE-0.7*nE%1;
+					world:SetWorldFlag(281,nA);
+					world:SetWorldFlag(282,nB);
+					
+					elseif Element == 1 or Element == 2 then
+					local nA = 1.5*nW-1.5*nW%1;
+					local nB = 1.5*nE-1.5*nE%1;
+					world:SetWorldFlag(281,nA);
+					world:SetWorldFlag(282,nB);
+					
+					else
+					world:SetWorldFlag(281,nW);
+					world:SetWorldFlag(282,nE);
+					end
+				
+					elseif me:GetGElementKind() == 5 then
+					if Element == 1 or Element == 2 then
+					local nA = 0.7*nW-0.7*nW%1;
+					local nB = 0.7*nE-0.7*nE%1;
+					world:SetWorldFlag(281,nA);
+					world:SetWorldFlag(282,nB);
+					
+					elseif Element == 3 or Element == 4 then
+					local nA = 1.5*nW-1.5*nW%1;
+					local nB = 1.5*nE-1.5*nE%1;
+					world:SetWorldFlag(281,nA);
+					world:SetWorldFlag(282,nB);
+					
+					else
+					world:SetWorldFlag(281,nW);
+					world:SetWorldFlag(282,nE);
+					end
+					
+					else
+					world:SetWorldFlag(281,nW);
+					world:SetWorldFlag(282,nE);
+					end			
+					me:AddMsg("当前血量："..world:GetWorldFlag(280).."");
+					me:AddMsg("当前攻击："..world:GetWorldFlag(281).."");
+					me:AddMsg("当前防御："..world:GetWorldFlag(282).."");
+					if Element == 0 then
+					me:AddMsg("敌人属性：无");
+					elseif Element == 1 then
+					me:AddMsg("敌人属性：金");
+					elseif Element == 2 then
+					me:AddMsg("敌人属性：木");
+					elseif Element == 3 then
+					me:AddMsg("敌人属性：水");
+					elseif Element == 4 then
+					me:AddMsg("敌人属性：火");
+					else
+					me:AddMsg("敌人属性：土");
+					end	
+					me:AddMsg("敌人血量："..world:GetWorldFlag(283).."");
+					me:AddMsg("敌人攻击："..world:GetWorldFlag(284).."");
+					me:AddMsg("敌人防御："..world:GetWorldFlag(285).."");
+					me:AddMsg("数据加载完成！");
+					me:TriggerStory("BaoZang_B4_FIGHT1");	
+				]]>
+				</OKResult>
+			</li>
+			<li>
+				<Display>（离开）</Display>
+				<OKResult>me:AddMsg("[NAME]向邪魔分身道歉，并解释自己的无意冒犯后离开。");me:AddDamage("Fabao_CutOff","Body", 1, XT("邪魔分身"));me:AddDamgeFromCache(story.DamageCache,4);
+				me:TriggerStory("Secrets_B3");
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="BaoZang_B4_FIGHT1"  Parent="BaseFillingStory">
+		<DisplayName>战斗启动</DisplayName>
+		<Desc>[NAME]与邪魔分身的战斗进行中。</Desc>
+		<Selections>
+			<li>
+				<Display>攻击</Display> 
+				<OKResult><![CDATA[
+					local nM = world:GetWorldFlag(277);
+					local nL = world:GetWorldFlag(278);
+					local nU = world:GetWorldFlag(279);	
+					local nQ = world:GetWorldFlag(280);	
+					local nW = world:GetWorldFlag(281);	
+					local nE = world:GetWorldFlag(282);	
+					local nR = world:GetWorldFlag(283);	
+					local nT = world:GetWorldFlag(284);	
+					local nY = world:GetWorldFlag(285);	
+					local nI = me:RandomInt(0,10);	
+					local nJ = me:RandomInt(0,120);
+					local nG = me:RandomInt(0,120);
+					local nF = me:RandomInt(0,120);
+					local nH = me:RandomInt(0,100);
+					local nD = me:RandomInt(0,100);
+					local nA = me:RandomInt(0,100);
+					me:AddMsg("第"..nM.."回合");
+					if me:GetProperty("WorldMapFlySpeed") * (1 + me:GetProperty("WorldMapFlySpeedAddP")) >= nI then
+					me:AddMsg("[NAME]先手攻击。");
+					if nU == 2 then
+					if nL >= nJ then
+					if nH <= 5 then
+					local nS = 4 * nW;
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了破防伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					elseif nH <= 15 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 30 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 50 then
+					local nS = 0.7 * nW - (0.7 * nW) % 1 - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了格挡伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					else
+					local nS =nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了正常伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					end
+					else
+					me:AddMsg("敌方闪避了你的攻击。");	
+					end
+
+
+
+					if nR <= 0 then
+					me:AddMsg("邪魔分身还没出手，就被打败了");	
+					else
+
+
+					if nL >= nG then
+					if nD <= 5 then
+					local nS = 4 * nW;
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了破防伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					elseif nH <= 15 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);	
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 30 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 50 then
+					local nS = 0.7 * nW - (0.7 * nW) % 1 - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了格挡伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					else
+					local nS =nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了正常伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					end
+					else
+					me:AddMsg("敌方闪避了你的攻击。");	
+					end
+
+					end
+
+
+
+					elseif nU == 3 then
+
+					if nL >= nJ then
+					if nH <= 5 then
+					local nS = 4 * nW;
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了破防伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					elseif nH <= 15 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);	
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 30 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 50 then
+					local nS = 0.7 * nW - (0.7 * nW) % 1 - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了格挡伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					else
+					local nS =nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了正常伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					end
+					else
+					me:AddMsg("敌方闪避了你的攻击。");	
+					end
+
+
+
+
+
+					if nR <= 0 then
+					me:AddMsg("邪魔分身还没出手，就被打败了");	
+					else
+
+					if nL >= nG then
+					if nD <= 5 then
+					local nS = 4 * nW;
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了破防伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					elseif nH <= 15 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 30 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 50 then
+					local nS = 0.7 * nW - (0.7 * nW) % 1 - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了格挡伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					else
+					local nS =nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了正常伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					end
+					else
+					me:AddMsg("敌方闪避了你的攻击。");	
+					end
+					end
+
+
+					if nR <= 0 then
+					me:AddMsg("邪魔分身还没出手，就被打败了");	
+					else
+
+					if nL >= nF then
+					if nA <= 5 then
+					local nS = 4 * nW;
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了破防伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					elseif nH <= 15 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);	
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 30 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 50 then
+					local nS = 0.7 * nW - (0.7 * nW) % 1 - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了格挡伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					else
+					local nS =nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了正常伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					end
+					else
+					me:AddMsg("敌方闪避了你的攻击。");	
+					end
+					
+					end
+
+					else
+					if nL >= nJ then
+					if nH <= 5 then
+					local nS = 4 * nW;
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了破防伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					elseif nH <= 15 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);	
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 30 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 50 then
+					local nS = 0.7 * nW - (0.7 * nW) % 1 - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了格挡伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					else
+					local nS =nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了正常伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					end
+					else
+					me:AddMsg("敌方闪避了你的攻击。");	
+					end
+					end
+					
+
+
+
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("邪魔分身还没来得及出手，就被[NAME]打倒了！");
+					else
+					local nX = nT - nE;
+					if nX <= 0 then
+					me:AddMsg("虽然邪魔分身的攻势很强，但都被[NAME]轻而易举的化解。");
+					else
+					world:SetWorldFlag(280,world:GetWorldFlag(280)-nX);
+					local nQ = world:GetWorldFlag(280);
+					if nQ <= 0 then
+					me:AddMsg("邪魔分身以手化刀，轻轻一劈，看似轻柔，实则刚强无比，对[NAME]造成了"..nX.."点伤害，[NAME]灵力不足，无法进行攻击，[NAME]最终战败！");me:AddDamgeFromCache(story.DamageCache,4);
+					else
+					me:AddMsg("邪魔分身轻轻一打，对[NAME]造成了"..nX.."点伤害，[NAME]剩余血量为"..world:GetWorldFlag(280).."！");me:AddDamgeFromCache(story.DamageCache,4);
+					end
+					end
+					end
+					
+					
+					else
+					me:AddMsg("邪魔分身的速度非常快，所以先手攻击。");
+					local nX = nT - nE;
+					if nX <= 0 then
+					me:AddMsg("虽然邪魔分身的攻势很强，但都被[NAME]轻而易举的化解。");
+					else
+					world:SetWorldFlag(280,world:GetWorldFlag(280)-nX);
+					local nQ = world:GetWorldFlag(280);
+					if nQ <= 0 then
+					me:AddMsg("邪魔分身以手化刀，轻轻一劈，看似轻柔，实则刚强无比，对[NAME]造成了"..nX.."点伤害，[NAME]灵力不足，无法进行攻击，[NAME]最终战败！");me:AddDamgeFromCache(story.DamageCache,4);
+					else
+					me:AddMsg("邪魔分身轻轻一打，对[NAME]造成了"..nX.."点伤害，[NAME]剩余血量为"..world:GetWorldFlag(280).."！");me:AddDamgeFromCache(story.DamageCache,4);
+					end
+					end
+					local nQ = world:GetWorldFlag(280);
+					if nQ <= 0 then
+					me:AddMsg("[NAME]还没来得及出手，就被邪魔分身打倒了！");
+					else
+					if nU == 2 then
+					if nL >= nJ then
+					if nH <= 5 then
+					local nS = 4 * nW;
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了破防伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					elseif nH <= 15 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 30 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 50 then
+					local nS = 0.7 * nW - (0.7 * nW) % 1 - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了格挡伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					else
+					local nS =nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了正常伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					end
+					else
+					me:AddMsg("敌方闪避了你的攻击。");	
+					end
+
+
+					if nR <= 0 then
+					me:AddMsg("邪魔分身还没出手，就被打败了");	
+					else
+
+					if nL >= nG then
+					if nD <= 5 then
+					local nS = 4 * nW;
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了破防伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					elseif nH <= 15 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);	
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 30 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 50 then
+					local nS = 0.7 * nW - (0.7 * nW) % 1 - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了格挡伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					else
+					local nS =nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了正常伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					end
+					else
+					me:AddMsg("敌方闪避了你的攻击。");	
+					end
+					end
+
+					elseif nU == 3 then
+
+					if nL >= nJ then
+					if nH <= 5 then
+					local nS = 4 * nW;
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了破防伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					elseif nH <= 15 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);	
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 30 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 50 then
+					local nS = 0.7 * nW - (0.7 * nW) % 1 - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了格挡伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					else
+					local nS =nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了正常伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					end
+					else
+					me:AddMsg("敌方闪避了你的攻击。");	
+					end
+
+
+					if nR <= 0 then
+					me:AddMsg("邪魔分身还没出手，就被打败了");	
+					else
+
+					if nL >= nG then
+					if nD <= 5 then
+					local nS = 4 * nW;
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了破防伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					elseif nH <= 15 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 30 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 50 then
+					local nS = 0.7 * nW - (0.7 * nW) % 1 - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了格挡伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					else
+					local nS =nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了正常伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					end
+					else
+					me:AddMsg("敌方闪避了你的攻击。");	
+					end
+					end
+
+
+					if nR <= 0 then
+					me:AddMsg("邪魔分身还没出手，就被打败了");	
+					else
+
+					if nL >= nF then
+					if nA <= 5 then
+					local nS = 4 * nW;
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了破防伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					elseif nH <= 15 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);	
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 30 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 50 then
+					local nS = 0.7 * nW - (0.7 * nW) % 1 - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了格挡伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					else
+					local nS =nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了正常伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					end
+					else
+					me:AddMsg("敌方闪避了你的攻击。");	
+					end
+					end
+					else
+					if nL >= nJ then
+					if nH <= 5 then
+					local nS = 4 * nW;
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了破防伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					elseif nH <= 15 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);	
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 30 then
+					local nS = 2 * nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然打出了致命一击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);	
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了致命伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					elseif nH <= 50 then
+					local nS = 0.7 * nW - (0.7 * nW) % 1 - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了格挡伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					else
+					local nS =nW - nY;
+					if nS <= 0 then
+					me:AddMsg("[NAME]虽然用力打击，但是敌方防御实在是强，无法对敌方造成有效伤害！");
+					else
+					world:SetWorldFlag(283,world:GetWorldFlag(283)-nS);
+					local nR = world:GetWorldFlag(283);
+					if nR <= 0 then
+					me:AddMsg("[NAME]对邪魔分身造成了"..nS.."点伤害，邪魔分身灵力不足，邪魔分身无法进行攻击，[NAME]最终战胜了邪魔分身！");
+					else
+					me:AddMsg("[NAME]打出了正常伤害，对邪魔分身造成了"..nS.."点伤害，邪魔分身剩余血量为"..world:GetWorldFlag(283).."！");
+					end
+					end
+					end
+					else
+					me:AddMsg("敌方闪避了你的攻击。");	
+					end
+					end
+					end
+					end
+					local nR = world:GetWorldFlag(283);
+					local nQ = world:GetWorldFlag(280);
+					if nR > 0 and nQ > 0 then
+					me:TriggerStory("BaoZang_B4_FIGHT1");
+					local nM = world:GetWorldFlag(277);
+					world:SetWorldFlag(277,world:GetWorldFlag(277) + 1);
+					elseif nR < 0 then
+					world:SetWorldFlag(323,1);
+					me:TriggerStory("Secrets_B3");
+					else
+					me:TriggerStory("Secrets_B3");
+					end
+				]]>
+				</OKResult>
+			</li>
+			<li>
+				<Display>逃跑</Display>
+				<OKResult><![CDATA[	
+				local nZ = me:RandomInt(0,100);
+				if nZ >= 50 then
+				me:AddMsg("你成功的逃离了战斗！");me:AddDamgeFromCache(story.DamageCache,4);me:AddDamage("Fabao_CutOff","Pelvis", 1, XT("邪魔分身"));	
+				me:TriggerStory("Secrets_B3");
+				else
+					local nQ = world:GetWorldFlag(280);	
+					local nE = world:GetWorldFlag(282);	
+					local nT = world:GetWorldFlag(284);	
+					local nX = nT - nE;
+					if nX <= 0 then
+					me:AddMsg("虽然邪魔分身的攻势很强，但都被[NAME]轻而易举的化解。");
+					me:TriggerStory("BaoZang_B4_FIGHT1");
+					else
+					world:SetWorldFlag(280,world:GetWorldFlag(280)-nX);
+					local nQ = world:GetWorldFlag(280);
+					if nQ <= 0 then
+					me:AddMsg("邪魔分身以手化刀，轻轻一劈，看似轻柔，实则刚强无比，对[NAME]造成了"..nX.."点伤害，[NAME]灵力不足，无法进行攻击，[NAME]最终战败！");me:AddDamgeFromCache(story.DamageCache,4);me:AddDamage("Fabao_CutOff","Pelvis", 1, XT("邪魔分身"));
+					me:TriggerStory("Secrets_B3");
+					else
+					me:AddMsg("邪魔分身轻轻一打，对[NAME]造成了"..nX.."点伤害，[NAME]剩余血量为"..world:GetWorldFlag(280).."！");me:AddDamgeFromCache(story.DamageCache,4);
+					me:TriggerStory("BaoZang_B4_FIGHT1");
+					end
+					end
+					end
+					local nM = world:GetWorldFlag(277);
+					world:SetWorldFlag(277,world:GetWorldFlag(277) + 1);
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</List></Stories>

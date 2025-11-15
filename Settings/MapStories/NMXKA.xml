@@ -1,0 +1,707 @@
+﻿<Stories><List>
+
+<Story Name="NMXKA"  Parent="BaseFillingStory">
+		<DisplayName>尼莫小可爱</DisplayName>
+		<Desc>大家好，我是一只胖头鱼。在这里，你可以用积分和我换取各种好处噢</Desc>
+		<Selections>			
+			<li>
+				<Display>随机秘籍</Display>
+				<OKResult>me:TriggerStory("NMXKA_1");</OKResult>
+			</li>
+			<li>
+				<Display>修炼经验</Display>
+				<OKResult>me:TriggerStory("NMXKA_2");</OKResult>
+			</li>
+			<li>
+				<Display>参悟经验</Display>
+				<OKResult>me:TriggerStory("NMXKA_3");</OKResult>
+			</li>
+			<li>
+				<Display>元神分神</Display>
+				<OKResult>me:TriggerStory("NMXKA_4");</OKResult>
+			</li>
+			<li>
+				<Display>法宝强度</Display>
+				<OKResult>me:TriggerStory("NMXKA_5");</OKResult>
+			</li>
+			<li>
+				<Display>护盾强度</Display>
+				<OKResult>me:TriggerStory("NMXKA_6");</OKResult>
+			</li>
+			<li>
+				<Display>下一页</Display>
+				<OKResult>me:TriggerStory("NMXKA1");</OKResult>
+			</li>	
+			<li>
+				<Display>返回大厅</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_renwu");
+				]]>
+				</OKResult>
+			</li>
+			
+		</Selections>
+	</Story>
+
+<Story Name="NMXKA1"  Parent="BaseFillingStory">
+		<DisplayName>尼莫小可爱</DisplayName>
+		<Desc>大家好，我是一只胖头鱼。本页是仙修觉醒喔</Desc>
+		<Selections>
+			<li>
+				<Display>提高历练速度</Display>
+				<OKResult>me:TriggerStory("NMXKA_7");</OKResult>
+			</li>			
+			<li>
+				<Display>提高的灵气吸收速度</Display>
+				<OKResult>me:TriggerStory("NMXKA_8");</OKResult>
+			</li>
+			<li>
+				<Display>提高根本灵气值</Display>
+				<OKResult>me:TriggerStory("NMXKA_9");</OKResult>
+			</li>
+			<li>
+				<Display>坤元真气</Display>
+				<OKResult>me:TriggerStory("NMXKA_10");</OKResult>
+			</li>
+			<li>
+				<Display>仙修觉醒</Display>
+				<OKResult>me:TriggerStory("NMXKA_11");</OKResult>
+			</li>			
+			<li>
+				<Display>上一页</Display>
+				<OKResult>me:TriggerStory("NMXKA");</OKResult>
+			</li>
+			<li>
+				<Display>下一页</Display>
+				<OKResult>me:TriggerStory("NMXKA2");</OKResult>
+			</li>
+			<li>
+				<Display>返回大厅</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_renwu");
+				]]>
+				</OKResult>
+			</li>
+			
+		</Selections>
+	</Story>
+
+<Story Name="NMXKA2"  Parent="BaseFillingStory">
+		<DisplayName>尼莫小可爱</DisplayName>
+		<Desc>大家好，我是一只胖头鱼。本页是体修功法噢</Desc>
+		<Selections>			
+			<li>
+				<Display>太古形意六合真体</Display>
+				<OKResult>me:TriggerStory("NMXKA_12");</OKResult>
+			</li>
+			<li>
+				<Display>蛮极金身</Display>
+				<OKResult>me:TriggerStory("NMXKA_13");</OKResult>
+			</li>
+			<li>
+				<Display>妖祖圣体</Display>
+				<OKResult>me:TriggerStory("NMXKA_14");</OKResult>
+			</li>
+			<li>
+				<Display>败灭邪体</Display>
+				<OKResult>me:TriggerStory("NMXKA_15");</OKResult>
+			</li>
+			<li>
+				<Display>提高根本真气</Display>
+				<OKResult>me:TriggerStory("NMXKA_16");</OKResult>
+			</li>
+			<li>
+				<Display>秘体威力全局加成</Display>
+				<OKResult>me:TriggerStory("NMXKA_17");</OKResult>
+			</li>
+			<li>
+				<Display>秘体防御全局加成</Display>
+				<OKResult>me:TriggerStory("NMXKA_18");</OKResult>
+			</li>
+			<li>
+				<Display>秘体护甲穿透全局加成</Display>
+				<OKResult>me:TriggerStory("NMXKA_19");</OKResult>
+			</li>
+			<li>
+				<Display>体修觉醒</Display>
+				<OKResult>me:TriggerStory("NMXKA_20");</OKResult>
+			</li>
+			<li>
+				<Display>上一页</Display>
+				<OKResult>me:TriggerStory("NMXKA");</OKResult>
+			</li>			
+			<li>
+				<Display>返回大厅</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_renwu");
+				]]>
+				</OKResult>
+			</li>
+			
+		</Selections>
+	</Story>
+
+<Story Name="NMXKA_1"  Parent="BaseFillingStory">
+		<DisplayName>随机卷轴</DisplayName>
+		<Desc>兑换随机秘籍，20积分</Desc>
+		<Selections>
+			<li>
+				<Display>获得</Display>				
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20 and me:GetGLevel() >= 0
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20);
+					me:DropRandomItem("Esoterica");
+					me:TriggerStory("NMXKA");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分。");me:TriggerStory("NMXKA");</NOResult>
+			</li>
+			<li>
+				<Display>返回</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("NMXKA");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="NMXKA_2"  Parent="BaseFillingStory">
+		<DisplayName>修炼经验</DisplayName>
+		<Desc>境界越高，收获越多，还能提高少量的修炼速度，100积分</Desc>
+		<Selections>
+			<li>
+				<Display>获得</Display>				
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 100 and me:GetGLevel() >= 0
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-100);
+					me:AddPracticeResource("Stage",me:GetGLevel() * 2000);me:AddModifier("Story_PracticeSpeed1");				
+					me:TriggerStory("NMXKA");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分。");me:TriggerStory("NMXKA");</NOResult>
+			</li>
+			<li>
+				<Display>返回</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("NMXKA");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="NMXKA_3"  Parent="BaseFillingStory">
+		<DisplayName>参悟经验</DisplayName>
+		<Desc>道行越高，收获越多，100积分</Desc>
+		<Selections>
+			<li>
+				<Display>获得</Display>				
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 100 and me:GetGLevel() >= 0
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-100);
+					me:AddMemery(sN);me:AddTreeExp(me:GetDaoHang()*10000);			
+					me:TriggerStory("NMXKA");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分。");me:TriggerStory("NMXKA");</NOResult>
+			</li>
+			<li>
+				<Display>返回</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("NMXKA");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="NMXKA_4"  Parent="BaseFillingStory">
+		<DisplayName>元神分神</DisplayName>
+		<Desc>增加一条元神分神，100积分</Desc>
+		<Selections>
+			<li>
+				<Display>获得</Display>				
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 100 and me:GetGLevel() >= 10
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-100);
+					me:AddMsg("[NAME]获得一条元神分神");
+					me:AddMemery(sN);me:SetFlag(86,me:GetFlag(86) + 1);me:DivideGodSoul(true,1);				
+					me:TriggerStory("NMXKA");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分或境界不足。");me:TriggerStory("NMXKA");</NOResult>
+			</li>
+			<li>
+				<Display>返回</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("NMXKA");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="NMXKA_5"  Parent="BaseFillingStory">
+		<DisplayName>法宝强度</DisplayName>
+		<Desc>增加5%法宝根本战斗强度，100积分</Desc>
+		<Selections>
+			<li>
+				<Display>获得</Display>				
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 100 and me:GetGLevel() >= 0
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-100);
+					me:AddModifier("Story_FabaoPower1");				
+					me:TriggerStory("NMXKA");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分。");me:TriggerStory("NMXKA");</NOResult>
+			</li>
+			<li>
+				<Display>返回</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("NMXKA");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="NMXKA_6"  Parent="BaseFillingStory">
+		<DisplayName>护盾强度</DisplayName>
+		<Desc>增加10%根本护盾强度，100积分</Desc>
+		<Selections>
+			<li>
+				<Display>获得</Display>				
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 100 and me:GetGLevel() >= 0
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-100);
+					me:AddModifier("Story_ShieldConversionRate1");			
+					me:TriggerStory("NMXKA");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分。");me:TriggerStory("NMXKA");</NOResult>
+			</li>
+			<li>
+				<Display>返回</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("NMXKA");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="NMXKA_7"  Parent="BaseFillingStory">
+		<DisplayName>提高历练速度</DisplayName>
+		<Desc>提高50%历练速度，100积分</Desc>
+		<Selections>
+			<li>
+				<Display>获得</Display>				
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 100 and me:GetGLevel() >= 0
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-100);
+					me:AddModifier("Story_WorldMapFlySpeedAddP1");			
+					me:TriggerStory("NMXKA");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分。");me:TriggerStory("NMXKA");</NOResult>
+			</li>
+			<li>
+				<Display>返回</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("NMXKA");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="NMXKA_8"  Parent="BaseFillingStory">
+		<DisplayName>提高的灵气吸收速度</DisplayName>
+		<Desc>提高的灵气吸收速度，500积分</Desc>
+		<Selections>
+			<li>
+				<Display>获得</Display>				
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 300 and me:GetGLevel() >= 0
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-300);
+					me:AddModifier("Story_LingAbsorbSpeed1");		
+					me:TriggerStory("NMXKA1");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分。");me:TriggerStory("NMXKA1");</NOResult>
+			</li>
+			<li>
+				<Display>返回</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("NMXKA1");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="NMXKA_9"  Parent="BaseFillingStory">
+		<DisplayName>提高根本灵气值</DisplayName>
+		<Desc>提高根本灵气值，500积分</Desc>
+		<Selections>
+			<li>
+				<Display>获得</Display>				
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 0
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:AddModifier("Story_LingMax1");		
+					me:TriggerStory("NMXKA1");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分。");me:TriggerStory("NMXKA1");</NOResult>
+			</li>
+			<li>
+				<Display>返回</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("NMXKA1");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="NMXKA_10"  Parent="BaseFillingStory">
+		<DisplayName>坤元真气</DisplayName>
+		<Desc>大幅提高灵气最大值，1000积分</Desc>
+		<Selections>
+			<li>
+				<Display>学习</Display>					
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 1000 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("Gong11_LvUpEsoterica_11") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-1000);
+					me:LearnEsoteric("Gong11_LvUpEsoterica_11");
+					me:TriggerStory("NMXKA1");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分或境界不足或已经学习。");me:TriggerStory("NMXKA1");</NOResult>
+			</li>
+			<li>
+				<Display>返回</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("NMXKA1");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="NMXKA_11"  Parent="BaseFillingStory">
+		<DisplayName>仙修觉醒</DisplayName>
+		<Desc>获得一些神秘能力，大幅激发自身潜能。30000积分</Desc>
+		<Selections>
+			<li>
+				<Display>觉醒</Display>				
+				<Condition><![CDATA[
+				me:GetFlag(520) == 0 and world:GetWorldFlag(287) >= 30000 and me:GetGLevel() >= 0				
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-30000);					
+					me:AddMsg("[NAME]五维提高100%");
+					me:AddModifier("JUEXING");		
+					me:TriggerStory("NMXKA1");
+					me:SetFlag(520,1)
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分或已觉醒。");me:TriggerStory("NMXKA1");</NOResult>
+			</li>
+			<li>
+				<Display>返回</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("NMXKA1");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="NMXKA_12"  Parent="BaseFillingStory">
+		<DisplayName>太古形意六合真体</DisplayName>
+		<Desc>传自太古的炼体之法，取诸生灵之形，享应乾坤之意，通御六合之法。擅长与自然合一吐纳玄妙，层层演进，最终可铸造六合万化之玄真妙体，肉身成圣，破碎虚空。500积分</Desc>
+		<Selections>
+			<li>
+				<Display>学习</Display>					
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 0 and world:IsGongUnLocked("Body_Gong_1") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:UnLockGong("Body_Gong_1");
+					me:TriggerStory("NMXKA2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分或已经学习。");me:TriggerStory("NMXKA2");</NOResult>
+			</li>
+			<li>
+				<Display>返回</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("NMXKA2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="NMXKA_13"  Parent="BaseFillingStory">
+		<DisplayName>蛮极金身</DisplayName>
+		<Desc>人类炼体者参照太古时代大妖的天生妖躯所创的炼体术。此法以狂猛爆裂著称，极其擅长淬炼骨骼，最终可铸就蛮极之身，肉身成圣，破碎虚空，破碎虚空。500积分</Desc>
+		<Selections>
+			<li>
+				<Display>学习</Display>					
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 0 and world:IsGongUnLocked("Body_Gong_2") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:UnLockGong("Body_Gong_2");
+					me:TriggerStory("NMXKA2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分或已经学习。");me:TriggerStory("NMXKA2");</NOResult>
+			</li>
+			<li>
+				<Display>返回</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("NMXKA2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="NMXKA_14"  Parent="BaseFillingStory">
+		<DisplayName>妖祖圣体</DisplayName>
+		<Desc>传闻是妖祖所传的体修之术。此法极其擅长淬炼器官，认为生灵五脏六腑之中蕴含无穷宝藏，开发出其中的奥妙便可肉身成圣，破碎虚空。需要注意，此功法中包含许为各类妖族量身打造的秘体，如身体结构不同，很难发挥此功法的威力。500积分</Desc>
+		<Selections>
+			<li>
+				<Display>学习</Display>					
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 0 and world:IsGongUnLocked("Body_Gong_3") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:UnLockGong("Body_Gong_3");
+					me:TriggerStory("NMXKA2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分或已经学习。");me:TriggerStory("NMXKA2");</NOResult>
+			</li>
+			<li>
+				<Display>返回</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("NMXKA2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+<Story Name="NMXKA_15"  Parent="BaseFillingStory">
+		<DisplayName>败灭邪体</DisplayName>
+		<Desc>古代有一部分炼体者认为此世为牢笼，而永夜这种天气正是牢笼之外投射进来的光。他们自永夜之中汲取出一种奇特的精华，并以此淬炼身体，认为最终会将肉体修成打破牢笼度过苦海的宝筏。这种炼体流派热衷于对永夜的崇拜，一度为世人所不容，被成为败灭邪教。而其根本大法也被称为《败灭邪体》。1000积分</Desc>
+		<Selections>
+			<li>
+				<Display>学习</Display>					
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 1000 and me:GetGLevel() >= 0 and world:IsGongUnLocked("Body_Gong_5") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-1000);
+					me:UnLockGong("Body_Gong_5");
+					me:TriggerStory("NMXKA2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分或已经学习。");me:TriggerStory("NMXKA2");</NOResult>
+			</li>
+			<li>
+				<Display>返回</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("NMXKA2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+<Story Name="NMXKA_16"  Parent="BaseFillingStory">
+		<DisplayName>提高根本真气</DisplayName>
+		<Desc>提高根本真气值，500积分</Desc>
+		<Selections>
+			<li>
+				<Display>获得</Display>				
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 0
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:AddModifier("TGZQ");		
+					me:TriggerStory("NMXKA2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分。");me:TriggerStory("NMXKA2");</NOResult>
+			</li>
+			<li>
+				<Display>返回</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("NMXKA2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="NMXKA_17"  Parent="BaseFillingStory">
+		<DisplayName>提高秘体威力</DisplayName>
+		<Desc>秘体威力全局加成，200积分</Desc>
+		<Selections>
+			<li>
+				<Display>获得</Display>				
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 200 and me:GetGLevel() >= 0
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-200);
+					me:AddModifier("MTWL");		
+					me:TriggerStory("NMXKA2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分。");me:TriggerStory("NMXKA2");</NOResult>
+			</li>
+			<li>
+				<Display>返回</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("NMXKA2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="NMXKA_18"  Parent="BaseFillingStory">
+		<DisplayName>提高秘体防御</DisplayName>
+		<Desc>秘体坚韧全局加成，200积分</Desc>
+		<Selections>
+			<li>
+				<Display>获得</Display>				
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 200 and me:GetGLevel() >= 0
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-200);
+					me:AddModifier("MTFY");		
+					me:TriggerStory("NMXKA2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分。");me:TriggerStory("NMXKA2");</NOResult>
+			</li>
+			<li>
+				<Display>返回</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("NMXKA2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="NMXKA_19"  Parent="BaseFillingStory">
+		<DisplayName>提高护甲穿透</DisplayName>
+		<Desc>秘体护甲穿透全局加成，500积分</Desc>
+		<Selections>
+			<li>
+				<Display>获得</Display>				
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 0
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:AddModifier("GJCT");		
+					me:TriggerStory("NMXKA2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分。");me:TriggerStory("NMXKA2");</NOResult>
+			</li>
+			<li>
+				<Display>返回</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("NMXKA2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="NMXKA_20"  Parent="BaseFillingStory">
+		<DisplayName>体修觉醒</DisplayName>
+		<Desc>获得一些神秘能力，超大幅激发自身潜能。30000积分</Desc>
+		<Selections>
+			<li>
+				<Display>觉醒</Display>				
+				<Condition><![CDATA[	
+				me:GetFlag(521) == 0 and world:GetWorldFlag(287) >= 30000 and me:GetGLevel() >= 0
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-30000);
+					me:AddMsg("[NAME]五维提高100%");
+					me:AddModifier("JUEXING1");		
+					me:TriggerStory("NMXKA2");
+					me:SetFlag(521,1)
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分。");me:TriggerStory("NMXKA2");</NOResult>
+			</li>
+			<li>
+				<Display>返回</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("NMXKA2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+</List></Stories>

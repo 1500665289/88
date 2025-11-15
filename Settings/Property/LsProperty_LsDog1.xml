@@ -1,0 +1,10 @@
+<Properties><List>
+	<Property Name="LsDogShieldConversionRateAddP">
+		<MathProperty>
+			<Value>
+				<Expression>LingShouHuTi*3.2+0.1+LingShouHuTi*0.7*LsBadGood/5</Expression>				
+			</Value>
+		</MathProperty>
+	</Property>	
+
+</List></Properties>

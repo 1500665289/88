@@ -1,0 +1,114 @@
+﻿<ModifierDefs><List>
+	<Modifier Name="LYGY" Type="Normal">
+		<DisplayName>不死咒怨</DisplayName>
+		<Desc>佩戴在身上有些许好处，不过听说得到它的都死了</Desc>
+		<MaxStack>1</MaxStack>
+		<Duration>-1</Duration>
+		<Sync>1</Sync>
+		<Display>0</Display>
+		<Properties>
+			<li Name="MindStateBaseValue" AddV="20"/>
+			<li Name="NeckCountdownAddV" AddV="7048000"/>
+			<li Name="NpcFight_FabaoPowerAddP" BAddP="1"/>
+			<li Name="NpcFight_ShieldConversionRate" AddV="5"/>
+			<li Name="NpcFight_ShieldResistanceToJin" AddV="0.1"/>
+			<li Name="NpcFight_ShieldResistanceToMu" AddV="0.1"/>
+			<li Name="NpcFight_ShieldResistanceToShui" AddV="0.1"/>
+			<li Name="NpcFight_ShieldResistanceToHuo" AddV="0.1"/>
+			<li Name="NpcFight_ShieldResistanceToTu" AddV="0.1"/>		
+		</Properties>
+		<Skills>
+			<li Name="Fabao" LevelOver="10"/>
+			<li Name="FightSkill" LevelOver="10"/>
+			<li Name="Barrier" LevelOver="10"/>
+		</Skills>
+		<Moods>
+			 <li>Mood_Equipment_Fun</li>
+		</Moods>
+	</Modifier> 
+
+	<Modifier Name="TGZQ" Type="Normal">
+		<DisplayName>提高真气</DisplayName>		
+		<MaxStack>0</MaxStack>
+		<Duration>-1</Duration>
+		<Display>0</Display>		
+		<Properties>
+			<li Name="BodyPratice_MaxZhenQi" BAddP="0.1"/><!-- 真气最大值-->
+		</Properties>
+	</Modifier> 
+
+	<Modifier Name="MTWL" Type="Normal">
+		<DisplayName>秘体威力</DisplayName>		
+		<MaxStack>0</MaxStack>
+		<Duration>-1</Duration>
+		<Display>0</Display>		
+		<Properties>
+			<li Name="BodyPractice_SuperPartAddp_AtkPower" BAddP="0.1"/>
+		</Properties>
+	</Modifier> 
+
+	<Modifier Name="MTFY" Type="Normal">
+		<DisplayName>秘体防御</DisplayName>		
+		<MaxStack>0</MaxStack>
+		<Duration>-1</Duration>
+		<Display>0</Display>		
+		<Properties>
+			<li Name="BodyPractice_SuperPartAddp_DefPower" BAddP="0.1"/>
+		</Properties>
+	</Modifier>
+
+	<Modifier Name="GJCT" Type="Normal">
+		<DisplayName>秘体护甲穿透全局加成</DisplayName>		
+		<MaxStack>0</MaxStack>
+		<Duration>-1</Duration>
+		<Display>0</Display>		
+		<Properties>
+			<li Name="BodyPractice_SuperPartAddp_ArmorPenetration" BAddP="0.05"/>
+		</Properties>
+	</Modifier>
+ 
+	<Modifier Name="JUEXING" Type="Normal">
+		<DisplayName>仙修觉醒</DisplayName>
+		<Desc>大幅激发自身潜能</Desc>
+		<MaxStack>0</MaxStack>
+		<Duration>-1</Duration>
+		<Display>0</Display>
+		<BaseFive>10,10,10,10,10</BaseFive>
+		<Skills>
+			<li Name="Fabao" LevelOver="5"/>
+			<li Name="FightSkill" LevelOver="5"/>
+			<li Name="Barrier" LevelOver="5"/>
+		</Skills>
+		<Properties>
+			<li Name="NpcLingMaxValue" BAddP="0.35"/>
+		</Properties>
+	</Modifier> 
+
+	<Modifier Name="JUEXING1" Type="Normal">
+		<DisplayName>体修觉醒</DisplayName>
+		<Desc>大幅激发自身潜能</Desc>
+		<MaxStack>0</MaxStack>
+		<Duration>-1</Duration>
+		<Display>0</Display>
+		<BaseFive>10,10,10,10,10</BaseFive>
+		<Skills>
+			<li Name="Fabao" LevelOver="5"/>
+			<li Name="FightSkill" LevelOver="5"/>
+			<li Name="Barrier" LevelOver="5"/>
+		</Skills>
+		<Properties>
+			<li Name="BodyPratice_BodyRecover" BAddP="3"/>
+			<li Name="BodyPratice_MaxZhenQi" BAddP="3"/>
+			<li Name="BodyPratice_DefenseRecoverZhenQi" BAddP="1"/>
+			<li Name="BodyPratice_BodyStrong" BAddP="3"/>
+			<li Name="BodyPractice_SuperPartAddp_AtkPower" BAddP="5"/>
+			<li Name="BodyPractice_SuperPartAddp_ArmorPenetration" BAddP="1"/>
+			<li Name="BodyPractice_AngerFireDuration" AddP="0.5"/>
+			<li Name="BodyPractice_AngerFireEffectAddp" AddP="0.5"/>
+			<li Name="BodyPractice_SuperPartAtk_EquptMaxCount" AddV="1"/>
+			<li Name="BodyPractice_SuperPartDef_EquptMaxCount" AddV="1"/>
+			<li Name="BodyPractice_SuperPartBuff_EquptMaxCount" AddV="1"/>
+		</Properties>
+	</Modifier> 
+	
+</List></ModifierDefs>

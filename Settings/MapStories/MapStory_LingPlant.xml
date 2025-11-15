@@ -1,0 +1,44 @@
+﻿<Stories><List>	
+	
+	<!-- 		
+	local lingzhi = story.target;
+	local tJG = {};
+	
+	lingzhi:GetName();
+	lingzhi:GetLastYunYangName();
+	lingzhi:GetLingSha();
+	lingzhi:AddLingSha();
+	lingzhi:GetLing();
+	lingzhi:AddLing();
+	lingzhi:GetGrowProgress();
+	lingzhi:GetHarvestProgress();
+	
+	lingzhi:GetJiaoGanNpcList(tJG);
+	for _, v in pairs(tJG) do
+		v.npcObj:GetName()
+	end 
+	
+	-->
+	
+	<Story Name="Story_LingZhi_Attack"> 
+		<DisplayName>敌人入侵</DisplayName>
+		<Desc>天地灵根成熟，必有灾劫，请做好准备。</Desc>
+		<Kind>None</Kind>
+		
+		<Selections>
+			<li>
+				<Display>查看</Display>
+				<OKResult><![CDATA[		
+					local lingzhi = story.target;	
+					local nR = world:RandomInt(10,16)
+					lingzhi:AddMsg(string.format(XT("天地灵根成熟，天象异变。似乎有%s伙贼人闻风而动，向此处袭来。"), tostring(nR)));
+					for i = 1, nR do
+						lingzhi:AddEnemy(world:RandomInt(1,5),world:RandomFloat(0,1));
+					end
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+</List></Stories>

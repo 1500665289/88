@@ -1,0 +1,157 @@
+﻿<DamageDefs><List>
+	<Damage Name="Ling_VisceralRupture">
+		<DisplayName>死亡践踏</DisplayName>
+		<Lable>Ling</Lable>            <!--伤害类别-->
+		<TreatConstant>0</TreatConstant>  <!-- 是否可以自愈-->
+		<ValueMin>0.2</ValueMin>    <!-- 最低损伤器官百分比-->
+		<ValueMax>1</ValueMax>       <!--最高损伤器官百分比-->
+		<Pain>1</Pain>               <!--疼痛程度-->
+		<Trend>0.2</Trend>			<!--恶化速度-->
+		<Previous></Previous>      <!--治疗后转变的伤势-->
+		<Next></Next>              <!--恶化后转变的伤势-->
+	</Damage>
+	<Damage Name="Ling_Fracture3">
+		<DisplayName>灵力外溢</DisplayName>
+		<Lable>Ling</Lable>            <!--伤害类别-->
+		<TreatConstant>0</TreatConstant>  <!-- 是否可以自愈-->
+		<ValueMin>0.1</ValueMin>    <!-- 最低损伤器官百分比-->
+		<ValueMax>0.3</ValueMax>       <!--最高损伤器官百分比-->
+		<Pain>1</Pain>               <!--疼痛程度-->
+		<Trend>0.2</Trend>			<!--恶化速度-->
+		<Previous></Previous>      <!--治疗后转变的伤势-->
+		<Next></Next>              <!--恶化后转变的伤势-->
+	</Damage>
+	<Damage Name="Ling_Bruise3">
+		<DisplayName>灵力侵染</DisplayName>
+		<Lable>Ling</Lable>            <!--伤害类别-->
+		<TreatConstant>0</TreatConstant>  <!-- 是否可以自愈-->
+		<ValueMin>0.3</ValueMin>    <!-- 最低损伤器官百分比-->
+		<ValueMax>0.6</ValueMax>       <!--最高损伤器官百分比-->
+		<Pain>1</Pain>               <!--疼痛程度-->
+		<Trend>0.2</Trend>			<!--恶化速度-->
+		<Previous></Previous>      <!--治疗后转变的伤势-->
+		<Next></Next>              <!--恶化后转变的伤势-->
+	</Damage>
+	<Damage Name="Ling_HolyJudgement">
+		<DisplayName>灵力爆裂</DisplayName>
+		<Lable>Ling</Lable>            <!--伤害类别-->
+		<TreatConstant>0</TreatConstant>  <!-- 是否可以自愈-->
+		<ValueMin>0.8</ValueMin>    <!-- 最低损伤器官百分比-->
+		<ValueMax>1</ValueMax>       <!--最高损伤器官百分比-->
+		<Pain>1</Pain>               <!--疼痛程度-->
+		<Trend>0.2</Trend>			<!--恶化速度-->
+		<Previous></Previous>      <!--治疗后转变的伤势-->
+		<Next></Next>              <!--恶化后转变的伤势-->
+	</Damage>	
+	<Damage Name="Shui_ColdBloodEX">
+		<DisplayName>泽国(未成形)</DisplayName><!--全身-->
+		<Lable>Shui</Lable>
+		<TreatConstant>0</TreatConstant>
+		<ValueMin>0.6</ValueMin>
+		<ValueMax>1</ValueMax>
+		<Pain>0</Pain>
+		<Trend>0.5</Trend>
+		<Previous></Previous>
+		<Next></Next>
+	</Damage>
+	<Damage Name="Shui_FrostbiteEX">
+		<DisplayName>水脉爆发</DisplayName><!--内脏，血肉-->
+		<Lable>Shui</Lable>
+		<TreatConstant>0</TreatConstant>
+		<ValueMin>0.1</ValueMin>
+		<ValueMax>0.6</ValueMax>
+		<Pain>0.2</Pain>
+		<Trend>0.05</Trend>
+		<Previous></Previous>
+		<Next></Next>
+	</Damage>
+	<Damage Name="Shui_ColdPoisonEX">
+		<DisplayName>真水凝练</DisplayName><!--骨-->
+		<Lable>Shui</Lable>
+		<TreatConstant>0</TreatConstant>
+		<ValueMin>0.2</ValueMin>
+		<ValueMax>0.6</ValueMax>
+		<Pain>0.8</Pain>
+		<Trend>0.1</Trend>
+		<Previous></Previous>
+		<Next></Next>
+	</Damage>
+	
+	<Damage Name="Huo_VisceralBurnEX">
+		<DisplayName>灼之瞳</DisplayName><!--内脏-->
+		<Lable>Huo</Lable>
+		<TreatConstant>0</TreatConstant>
+		<ValueMin>0.5</ValueMin>
+		<ValueMax>1</ValueMax>
+		<Pain>0.8</Pain>
+		<Trend>0.06</Trend>
+		<Previous></Previous>
+		<Next></Next>
+	</Damage>
+	<Damage Name="Huo_MarrowDryEX">
+		<DisplayName>真焱熔断</DisplayName><!--骨骼-->
+		<Lable>Huo</Lable>
+		<TreatConstant>0</TreatConstant>
+		<ValueMin>0.2</ValueMin>
+		<ValueMax>1</ValueMax>
+		<Pain>0.2</Pain>
+		<Trend>0.05</Trend>
+		<Previous></Previous>
+		<Next></Next>
+	</Damage>
+	<Damage Name="Huo_BurnOfPainEX">
+		<DisplayName>真焱之息</DisplayName><!--血肉-->
+		<Lable>Huo</Lable>
+		<TreatConstant>0</TreatConstant>
+		<ValueMin>0.2</ValueMin>
+		<ValueMax>0.7</ValueMax>
+		<Pain>0.8</Pain>
+		<Trend>0</Trend>
+		<Previous></Previous>
+		<Next></Next>
+	</Damage>
+	<Damage Name="Huo_ColdBloodEX">
+		<DisplayName>凤怒九霄(未成形)</DisplayName><!--全身-->
+		<Lable>Huo</Lable>
+		<TreatConstant>0</TreatConstant>
+		<ValueMin>0.7</ValueMin>
+		<ValueMax>1</ValueMax>
+		<Pain>0</Pain>
+		<Trend>0.5</Trend>
+		<Previous></Previous>
+		<Next></Next>
+	</Damage>
+	<Damage Name="DiseaseBreathEX">
+		<DisplayName>疫病之息</DisplayName><!--全身-->
+		<Lable>Tu</Lable>
+		<TreatConstant>0</TreatConstant>
+		<ValueMin>0.8</ValueMin>
+		<ValueMax>1</ValueMax>
+		<Pain>0</Pain>
+		<Trend>0.5</Trend>
+		<Previous></Previous>
+		<Next></Next>
+	</Damage>
+	<Damage Name="BlackLong">
+		<DisplayName>毒焰</DisplayName>
+		<Lable>Huo</Lable>
+		<TreatConstant>0</TreatConstant>
+		<ValueMin>0.2</ValueMin>
+		<ValueMax>0.5</ValueMax>
+		<Pain>0</Pain>
+		<Trend>0.5</Trend>
+		<Previous></Previous>
+		<Next></Next>
+	</Damage>
+	<Damage Name="BlackLongEX">
+		<DisplayName>黑龙吐息</DisplayName><!--全身-->
+		<Lable>Huo</Lable>
+		<TreatConstant>0</TreatConstant>
+		<ValueMin>0.8</ValueMin>
+		<ValueMax>1</ValueMax>
+		<Pain>0</Pain>
+		<Trend>0.5</Trend>
+		<Previous></Previous>
+		<Next></Next>
+	</Damage>
+</List></DamageDefs>

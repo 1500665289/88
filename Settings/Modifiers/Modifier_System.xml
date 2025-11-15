@@ -1,0 +1,77 @@
+﻿<ModifierDefs><List>
+		
+	<Modifier Name="SysTeacherModifier" Type="Normal"><!--指导 结束时便会离开-->
+		<DisplayName>幻化分神</DisplayName>
+		<Desc>前世留下的一缕分神。</Desc>
+		<ClassName>Modifier_Teacher</ClassName>
+		<MaxStack>1</MaxStack>
+		<Duration>-1</Duration>
+		<Display>1</Display>
+		<SpecialFlags>
+			<li>FLAG_NONEED</li>
+			<li>FLAG_ISVISTOR</li>
+			<li>FLAG_ISTEACHER</li>
+		</SpecialFlags>
+		<Skills>
+				<li Name="Qi" LevelOver="15"/>
+				<li Name="Fabao" Level="25"/>
+				<li Name="DouFa" Level="25"/>
+				<li Name="Barrier" Level="25"/>
+				<li Name="FightSkill" Level="25"/>
+				<li Name="Fight" Level="30"/>
+				
+				<li Name="Fight" LevelOver="17"/>
+				<li Name="Fabao" LevelOver="17"/>
+				<li Name="DouFa" LevelOver="5"/>
+				<li Name="FightSkill" LevelOver="5"/>
+				<li Name="Barrier" LevelOver="1"/>			
+		</Skills>
+		<Properties>
+			<li Name="MaxAge" AddV="3000"/>
+			<li Name="MindStateBaseValue" AddV="200"/>
+			
+			<li Name="SpeedOfMindStateCoefficient" AddP="1"/>
+			<li Name="MaxAge" AddV="2000"/>
+			<li Name="ComfyTMax" AddV="999"/>
+			<li Name="ComfyTMin" AddV="-273"/>
+			<li Name="ToleranceTMin" AddV="-273"/>
+			<li Name="ToleranceTMax" AddV="1999"/>
+			<li Name="FavourChangeSpeedRate" AddP="0.3"/>
+			<li Name="WorldMapFlySpeedAddP" AddV="10"/>
+			<li Name="LingAbsorbSpeed" AddP="5"/>
+			<li Name="PainTolerance" AddP="1.5"/>
+			<li Name="PotentialOfBasepracticeAddValue" AddV="5"/>
+						
+			<li Name="NpcFight_FabaoPowerAddP" BAddP="8"/>
+			<li Name="NpcFight_FabaoLingRecoverAddP" AddP="200"/>
+			<li Name="NpcFight_FabaoMaxLingAddP" AddP="30"/>
+			<li Name="NpcFight_FabaoLingRecoverK" AddP="50000"/>
+			<li Name="NpcFight_FabaoRepelDistanceAddV" AddP="1"/>
+			<li Name="NpcFight_FabaoRepelResistanceAddV" AddP="1"/>
+			<li Name="NpcFight_FabaoFlySpeedAddP" AddP="1"/>
+			<li Name="NpcFight_FabaoTurnSpeedAddP" AddP="1"/>
+			<li Name="NpcFight_FabaoTrailingLengthAddP" AddP="5"/>
+			<li Name="NpcFight_ShieldResistanceToJin" AddV="0.23"/>
+			<li Name="NpcFight_ShieldResistanceToMu" AddV="0.23"/>
+			<li Name="NpcFight_ShieldResistanceToShui" AddV="0.23"/>
+			<li Name="NpcFight_ShieldResistanceToHuo" AddV="0.23"/>
+			<li Name="NpcFight_ShieldResistanceToTu" AddV="0.23"/>
+			<li Name="NpcFight_SpellPowerAddP" AddP="5"/>
+			<li Name="NpcLingMaxValue" AddP="20"/>
+			<li Name="NpcFight_ShieldConversionRate" AddV="5"/>				
+			
+			<li Name="PainTolerance" AddP="200"/>
+			
+			<li Name="NpcFight_FabaoFlySpeedAddP" AddV="2"/>
+			<li Name="NpcFight_FabaoTurnSpeedAddP" AddV="2"/>
+			
+			<li Name="BaseEmotionAddV" AddV="38"/>
+			<li Name="PracticeFoodConsumeConstant" AddV="-100"/>
+			<li Name="DeepPracticeSpeedSpecialCoefficient" AddV="-200"/>
+
+		</Properties>
+
+	</Modifier>
+	
+	
+</List></ModifierDefs>

@@ -1,0 +1,760 @@
+﻿<RaceDefs><List>
+<RaceDef Name="JMiniLong">
+	<DisplayName>蛟</DisplayName>
+	<Mod>Mod/Npc/YouLong/Base</Mod>
+	<RaceType>Animal</RaceType>
+	<Template>Npc_JMiniLong</Template>
+	<Revive>0</Revive>
+	<MaleName>公</MaleName>
+	<FemaleName>母</FemaleName>
+	<NormalAttack>MiniLong_NormalAttack</NormalAttack>
+	<Body>SnakeBody</Body>
+	<Revive>0</Revive>
+	<AutoAniSpeed>0</AutoAniSpeed>
+	<HasGenders>1</HasGenders>
+	<HasEquip>0</HasEquip>
+	<AdultAge>5</AdultAge>
+	<GenerateMinAge>0</GenerateMinAge>
+	<GenerateMaxAge>1</GenerateMaxAge>
+	<FreeLength>6.9</FreeLength>
+	<RacePregnant>
+		<PregnantTime>36000</PregnantTime>
+		<PregnantInterval>45000</PregnantInterval>
+		<PregnantRate>0.01</PregnantRate>
+		<MinBirthCount>1</MinBirthCount>
+		<MaxBirthCount>1</MaxBirthCount>
+		<PregnantItem>Item_JLongEgg</PregnantItem>
+	</RacePregnant>
+	<FreeAni>
+		<li>Free</li>
+	</FreeAni>
+	<BreedingLikeTame>
+		<li>TameMeat</li>
+		<li>TameLing</li>
+	</BreedingLikeTame>
+	<Products>
+		<li>
+			<ProductTime>150000</ProductTime>	
+			<Sex>Female</Sex>				
+			<ProductItems>
+				
+				<li>
+					<ThingDef>Item_LongEgg</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+			</ProductItems>
+		</li>
+	</Products> 
+	<SlaughterItems>
+		<li>
+			<ThingDef>Item_BossLong_Meat</ThingDef>
+			<Count>2</Count>
+			<Rate>0.3</Rate>
+		</li>
+		<li>
+			<ThingDef>Item_MonsterBlood</ThingDef>
+			<Count>1</Count>
+			<Rate>1</Rate>
+		</li>
+		<li>
+			<ThingDef>Item_BossLong_Meat</ThingDef>
+			<Count>2</Count>
+			<Rate>1</Rate>
+		</li>
+		<li>
+			<ThingDef>Item_BossLong_Lin</ThingDef>
+			<Count>1</Count>
+			<Rate>0.2</Rate>
+		</li>
+	</SlaughterItems>
+	<BaseFive>
+		<li Sex="Male" 	 AgeMin="0" 	AgeMax="999999">10,10,10,10,10</li> 
+		<li Sex="Female" AgeMin="0" 	AgeMax="999999">10,10,10,10,10</li>
+	</BaseFive>
+	<BaseP>
+		<li Name="RaceMaxAge" Value="PuppetRaceMaxAge"/>
+		<li Name="RaceMoveSpeed" Value="MammalMoveSpeed_NewYear"/>
+		<li Name="RaceMaxHp" Value="MammalMaxHp"/>
+		<li Name="RaceComfyTMin" Value="MammalComfyTMin"/>
+		<li Name="RaceComfyTMax" Value="MammalComfyTMax"/>
+		<li Name="RaceToleranceTMin" Value="MammalToleranceTMin"/>
+		<li Name="RaceToleranceTMax" Value="MammalToleranceTMax"/>
+		<li Name="RaceVisionRadius" Value="MammalVisionRadius"/>
+		<li Name="RaceBaseWorkSpeed" Value="MammalBaseWorkSpeed"/>
+		<li Name="RaceRecoveryPower" Value="MammalRecoveryPower"/>
+	</BaseP>
+</RaceDef>
+<RaceDef Name="CMiniFeng">
+	<DisplayName>雏凤</DisplayName>
+	<Mod>Mod/Npc/YouFeng/Base</Mod>
+	<RaceType>Animal</RaceType>
+	<Template>Npc_CMiniFeng</Template>
+	<MaleName>公</MaleName>
+	<FemaleName>母</FemaleName>
+	<NormalAttack>MiniFeng_NormalAttack</NormalAttack>
+	<Body>QuadrupedBody</Body>
+	<Revive>0</Revive>
+	<AutoAniSpeed>0</AutoAniSpeed>
+	<HasGenders>1</HasGenders>
+	<HasEquip>0</HasEquip>
+	<AdultAge>5</AdultAge>
+	<GenerateMinAge>0</GenerateMinAge>
+	<GenerateMaxAge>1</GenerateMaxAge>
+	<FreeLength>0.7</FreeLength>
+	<RacePregnant>
+		<PregnantTime>36000</PregnantTime>
+		<PregnantInterval>45000</PregnantInterval>
+		<PregnantRate>0.01</PregnantRate>
+		<MinBirthCount>1</MinBirthCount>
+		<MaxBirthCount>1</MaxBirthCount>
+		<PregnantItem>Item_CFengEgg</PregnantItem>
+	</RacePregnant>
+	<FreeAni>
+		<li>Free</li>
+	</FreeAni>
+	<BreedingLikeTame>
+		<li>TameMeat</li>
+		<li>TameLing</li>
+	</BreedingLikeTame>
+	<Products>
+		<li>
+			<ProductTime>15000</ProductTime>	
+			<Sex>Female</Sex>				
+			<ProductItems>
+				<li>
+					<ThingDef>Item_FengEgg</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				
+			</ProductItems>
+		</li>
+	</Products> 
+	<SlaughterItems>
+		<li>
+			<ThingDef>Item_BossFeng_Meat</ThingDef>
+			<Count>2</Count>
+			<Rate>0.2</Rate>
+		</li>
+		<li>
+			<ThingDef>Item_MonsterBlood</ThingDef>
+			<Count>1</Count>
+			<Rate>1</Rate>
+		</li>
+		<li>
+			<ThingDef>Item_BossFeng_Meat</ThingDef>
+			<Count>2</Count>
+			<Rate>1</Rate>
+		</li>
+		<li>
+			<ThingDef>Item_BossFeng_GangYu</ThingDef>
+			<Count>1</Count>
+			<Rate>0.1</Rate>
+		</li>
+	</SlaughterItems>
+	<BaseFive>
+		<li Sex="Male" 	 AgeMin="0" 	AgeMax="999999">10,10,10,10,10</li> 
+		<li Sex="Female" AgeMin="0" 	AgeMax="999999">10,10,10,10,10</li>
+	</BaseFive>
+	<BaseP>
+		<li Name="RaceMaxAge" Value="PuppetRaceMaxAge"/>
+		<li Name="RaceMoveSpeed" Value="MammalMoveSpeed_NewYear"/>
+		<li Name="RaceMaxHp" Value="MammalMaxHp"/>
+		<li Name="RaceComfyTMin" Value="MammalComfyTMin"/>
+		<li Name="RaceComfyTMax" Value="MammalComfyTMax"/>
+		<li Name="RaceToleranceTMin" Value="MammalToleranceTMin"/>
+		<li Name="RaceToleranceTMax" Value="MammalToleranceTMax"/>
+		<li Name="RaceVisionRadius" Value="MammalVisionRadius"/>
+		<li Name="RaceBaseWorkSpeed" Value="MammalBaseWorkSpeed"/>
+		<li Name="RaceRecoveryPower" Value="MammalRecoveryPower"/>
+	</BaseP>
+</RaceDef>
+<RaceDef Name="BlackLong" Parent="JYBase">
+	<DisplayName>黑龙仆</DisplayName>
+	<Mod>Mod/Npc/Longzhipuyi_night/Base</Mod>
+	<Template>Npc_BlackLong</Template>
+	<RaceType>Animal</RaceType>
+	<Revive>0</Revive>
+	<MaleName></MaleName>
+	<FemaleName></FemaleName>
+	<NormalAttack>BlackLong_NormalAttack</NormalAttack>
+	<Body>SnakeBody</Body>
+	<HasGenders>0</HasGenders>
+	<HasEquip>0</HasEquip>
+	<GenerateMinAge>0.5</GenerateMinAge>
+	<GenerateMaxAge>45</GenerateMaxAge>
+	<AdultAge>40</AdultAge>
+	<StrikeBack>1</StrikeBack>
+	<WarningRange>0</WarningRange>
+	<WinterHide>0</WinterHide>
+	<RebornRace>BlackLong</RebornRace>
+	<!--<CastBip>Bip01 R Hand</CastBip>-->
+	
+	<Collider>
+		<!--(0Empty 1Base) 2EmptyCenter 4EmptyWorkspace-->
+		<Data>
+		[0,0,1,0,0],
+		[0,1,1,1,0],
+		[1,1,3,1,1],
+		[0,1,1,1,0],
+		[0,0,1,0,0],
+		</Data>
+	</Collider>
+	<ForbidFly>1</ForbidFly>
+	
+	<EliteDrops>
+		<Drop MinJinJie="1" MaxJinJie="12">
+			<Items>
+				<li>
+					<ThingDef>Item_YaoLeather</ThingDef>
+					<Count>94</Count>
+					<Rate>1</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_XieHunLu</ThingDef>
+					<Count>1</Count>
+					<Rate>0.5</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MonsterBlood</ThingDef>
+					<Count>3</Count>
+					<Rate>0.25</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_SoulCrystalYou</ThingDef>
+					<Count>1</Count>
+					<Rate>0.25</Rate>
+				</li>
+			</Items>
+		</Drop>
+		<Drop MinJinJie="4" MaxJinJie="9">
+			<Items>
+				<li>
+					<ThingDef>Item_XieHunLu</ThingDef>
+					<Count>1</Count>
+					<Rate>0.5</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_YaoLeather</ThingDef>
+					<Count>35</Count>
+					<Rate>0.25</Rate>
+				</li>
+			</Items>
+		</Drop>
+		<Drop MinJinJie="7" MaxJinJie="12">
+			<Items>
+				<li>
+					<ThingDef>Item_XieHunLu</ThingDef>
+					<Count>1</Count>
+					<Rate>0.5</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_XieHunLu</ThingDef>
+					<Count>1</Count>
+					<Rate>1</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_SoulCrystalYou</ThingDef>
+					<Count>2</Count>
+					<Rate>0.25</Rate>
+				</li>
+			</Items>
+		</Drop>
+		<Drop MinJinJie="10" MaxJinJie="12">
+			<Items>
+				<li>
+					<ThingDef>Item_XieHunLu</ThingDef>
+					<Count>1</Count>
+					<Rate>0.5</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_YaoLeather</ThingDef>
+					<Count>40</Count>
+					<Rate>1</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_YaoLeather1</ThingDef>
+					<Count>15</Count>
+					<Rate>0.2</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_SoulCrystalYou</ThingDef>
+					<Count>5</Count>
+					<Rate>0.25</Rate>
+				</li>
+			</Items>
+		</Drop>
+		
+		<Drop MinJinJie="10" MaxJinJie="12">
+			<Items>
+				<li>
+					<ThingDef>Item_XianBone</ThingDef>
+					<Count>1</Count>
+					<Rate>0.05</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_ThunderAir</ThingDef>
+					<Count>1</Count>
+					<Rate>0.05</Rate>
+				</li>				
+				<li>
+					<ThingDef>Item_BossZhuLong_LongYu</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+												
+				
+				<li>
+					<ThingDef>Item_MiBao_QiJueShenZhen</ThingDef><!--秘宝池子-->
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_JinFabao</ThingDef>
+					<Count>1</Count>
+					<Rate>0.05</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_ShuiFabao</ThingDef>
+					<Count>1</Count>
+					<Rate>0.05</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_HuoFabao</ThingDef>
+					<Count>1</Count>
+					<Rate>0.05</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_TuFabao</ThingDef>
+					<Count>1</Count>
+					<Rate>0.05</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_KuiHuaShenJian</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+
+
+				<li>
+					<ThingDef>Item_MiBao_JinLianShenZuo</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_BaiLingZhanXianSword</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_WuDuZhuXianSword</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_LongXinYinYangGui</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_WuqiLeiFu</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_XiXingShenSuo</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+
+
+				<li>
+					<ThingDef>Item_MiBao_ZhuXianJian</ThingDef><!--诛仙四剑-->
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_LuXianJian</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_JueXianJian</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_XianXianJian</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+
+
+				<li>
+					<ThingDef>Item_MiBao_YinHunZhu</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_TianMoHuaXueShenDao</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_ShiErShaShenMoLingSha</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_TaiYiFenGuangJian</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_ShenNongDing</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_QingNingFeiYu</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_YuanShenXinJian</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_TianLangDing</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+			</Items>
+		</Drop>
+	</EliteDrops>
+	
+	<BaseFive>
+		<li Sex="Male" 	 AgeMin="0" 	AgeMax="2"	>2,4,1,1,2</li> 
+		<li Sex="Male" 	 AgeMin="3" 	AgeMax="9"	>3,4,1,2,2</li> 
+		<li Sex="Male" 	 AgeMin="10" 	AgeMax="30"	>4,4,1,3,3</li> 
+		<li Sex="Male" 	 AgeMin="31" 	AgeMax="50"	>6,4,1,5,4</li> 
+		<li Sex="Female" 	 AgeMin="0" 	AgeMax="2"	>2,4,1,1,2</li> 
+		<li Sex="Female" 	 AgeMin="3" 	AgeMax="9"	>3,4,1,2,2</li> 
+		<li Sex="Female" 	 AgeMin="10" 	AgeMax="30"	>4,4,1,3,3</li> 
+		<li Sex="Female" 	 AgeMin="31" 	AgeMax="50"	>6,4,1,5,4</li> 
+	</BaseFive>
+	<BaseP>
+		<li Name="RaceMaxAge" Value="PoikilothermMaxAge_50"/>
+		<li Name="RaceMoveSpeed" Value="PoikilothermMoveSpeed_Snake"/>
+		<li Name="RaceMaxHp" Value="PoikilothermMaxHp"/>
+		<li Name="RaceComfyTMin" Value="PoikilothermComfyTMin"/>
+		<li Name="RaceComfyTMax" Value="PoikilothermComfyTMax"/>
+		<li Name="RaceToleranceTMin" Value="PoikilothermToleranceTMin"/>
+		<li Name="RaceToleranceTMax" Value="PoikilothermToleranceTMax"/>
+		<li Name="RaceVisionRadius" Value="PoikilothermVisionRadius"/>
+		<li Name="RaceBaseWorkSpeed" Value="PoikilothermBaseWorkSpeed"/>
+		<li Name="RaceRecoveryPower" Value="PoikilothermRecoveryPower"/>
+	</BaseP>
+</RaceDef>
+<RaceDef Name="MFei" Parent="JYBase">
+	<DisplayName>魔蜚</DisplayName>
+	<Mod>Mod/Npc/Fei/Base</Mod>
+	<Template>Npc_MFei</Template>
+	<RaceType>Animal</RaceType>
+	<Revive>0</Revive>
+	<MaleName></MaleName>
+	<FemaleName></FemaleName>
+	<NormalAttack>MFei_NormalAttack</NormalAttack>
+	<Body>QuadrupedBody</Body>
+	<FreeLength>1.8</FreeLength>
+	<FreeAni>
+		<li>Free</li>
+		<li>Free2</li>
+	</FreeAni>
+	<HasGenders>0</HasGenders>
+	<HasEquip>0</HasEquip>
+	<GenerateMinAge>0.5</GenerateMinAge>
+	<GenerateMaxAge>12</GenerateMaxAge>
+	<AdultAge>5</AdultAge>
+	<StrikeBack>1</StrikeBack>
+	<WarningRange>0</WarningRange>
+	<RebornRace>Fei</RebornRace>
+	<TexPath>tex://res/Sprs/tujian/TJ_fei01</TexPath>
+	
+	<BreedingLikeTame>
+		<li>TameMeat</li>
+		<li>TameLing</li>
+	</BreedingLikeTame>
+	
+	<Collider>
+		<!--(0Empty 1Base) 2EmptyCenter 4EmptyWorkspace-->
+		<Data>
+		[0,1,0],
+		[1,3,1],
+		[0,1,0],
+		</Data>
+	</Collider>
+	
+	<EliteDrops>
+		<Drop MinJinJie="1" MaxJinJie="12">
+			<Items>
+				<li>
+					<ThingDef>Item_FeiLeather</ThingDef>
+					<Count>94</Count>
+					<Rate>1</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_SoulPearl</ThingDef>
+					<Count>1</Count>
+					<Rate>0.5</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MonsterBlood</ThingDef>
+					<Count>3</Count>
+					<Rate>0.25</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MonsterBlood</ThingDef>
+					<Count>1</Count>
+					<Rate>0.25</Rate>
+				</li>
+			</Items>
+		</Drop>
+		<Drop MinJinJie="4" MaxJinJie="9">
+			<Items>
+				<li>
+					<ThingDef>Item_SoulPearl</ThingDef>
+					<Count>1</Count>
+					<Rate>0.5</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_YaoLeather</ThingDef>
+					<Count>35</Count>
+					<Rate>0.25</Rate>
+				</li>
+			</Items>
+		</Drop>
+		<Drop MinJinJie="7" MaxJinJie="12">
+			<Items>
+				<li>
+					<ThingDef>Item_SoulPearl</ThingDef>
+					<Count>1</Count>
+					<Rate>0.5</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_SoulPearl</ThingDef>
+					<Count>1</Count>
+					<Rate>1</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MonsterBlood</ThingDef>
+					<Count>2</Count>
+					<Rate>0.25</Rate>
+				</li>
+			</Items>
+		</Drop>
+		<Drop MinJinJie="10" MaxJinJie="12">
+			<Items>
+				<li>
+					<ThingDef>Item_SoulPearl</ThingDef>
+					<Count>1</Count>
+					<Rate>0.5</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_YaoLeather</ThingDef>
+					<Count>40</Count>
+					<Rate>1</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_YaoLeather1</ThingDef>
+					<Count>15</Count>
+					<Rate>0.2</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MonsterBlood</ThingDef>
+					<Count>5</Count>
+					<Rate>0.25</Rate>
+				</li>
+			</Items>
+		</Drop>
+		
+		<Drop MinJinJie="10" MaxJinJie="12">
+			<Items>
+				<li>
+					<ThingDef>MFei_NormalAttack1</ThingDef>
+					<Count>1</Count>
+					<Rate>0.1</Rate>
+				</li>
+
+				<li>
+					<ThingDef>Item_XianBone</ThingDef>
+					<Count>1</Count>
+					<Rate>0.05</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_ThunderAir</ThingDef>
+					<Count>1</Count>
+					<Rate>0.05</Rate>
+				</li>				
+				<li>
+					<ThingDef>Item_BossZhuLong_LongYu</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+												
+				
+				<li>
+					<ThingDef>Item_MiBao_QiJueShenZhen</ThingDef><!--秘宝池子-->
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_JinFabao</ThingDef>
+					<Count>1</Count>
+					<Rate>0.05</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_ShuiFabao</ThingDef>
+					<Count>1</Count>
+					<Rate>0.05</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_HuoFabao</ThingDef>
+					<Count>1</Count>
+					<Rate>0.05</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_TuFabao</ThingDef>
+					<Count>1</Count>
+					<Rate>0.05</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_KuiHuaShenJian</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+
+
+				<li>
+					<ThingDef>Item_MiBao_JinLianShenZuo</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_BaiLingZhanXianSword</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_WuDuZhuXianSword</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_LongXinYinYangGui</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_WuqiLeiFu</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_XiXingShenSuo</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+
+
+				<li>
+					<ThingDef>Item_MiBao_ZhuXianJian</ThingDef><!--诛仙四剑-->
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_LuXianJian</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_JueXianJian</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_XianXianJian</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+
+
+				<li>
+					<ThingDef>Item_MiBao_YinHunZhu</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_TianMoHuaXueShenDao</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_ShiErShaShenMoLingSha</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_TaiYiFenGuangJian</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_ShenNongDing</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_QingNingFeiYu</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_YuanShenXinJian</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+				<li>
+					<ThingDef>Item_MiBao_TianLangDing</ThingDef>
+					<Count>1</Count>
+					<Rate>0.01</Rate>
+				</li>
+			</Items>
+		</Drop>
+	</EliteDrops>
+	
+	<BaseFive>
+		<li Sex="Male" 	 AgeMin="0" 	AgeMax="2"	>2,2,1,1,2</li> 
+		<li Sex="Male" 	 AgeMin="3" 	AgeMax="9"	>5,6,1,3,2</li> 
+		<li Sex="Male" 	 AgeMin="10" 	AgeMax="12"	>4,9,1,4,2</li> 
+		<li Sex="Female" 	 AgeMin="0" 	AgeMax="2"	>2,2,1,1,2</li> 
+		<li Sex="Female" 	 AgeMin="3" 	AgeMax="9"	>5,63,1,3,2</li> 
+		<li Sex="Female" 	 AgeMin="10" 	AgeMax="12"	>4,9,1,4,2</li> 
+	</BaseFive>
+	<BaseP>
+		<li Name="RaceMaxAge" Value="MammalMaxAge_15"/>
+		<li Name="RaceMoveSpeed" Value="MammalMoveSpeed"/>
+		<li Name="RaceMaxHp" Value="MammalMaxHp"/>
+		<li Name="RaceComfyTMin" Value="MammalComfyTMin"/>
+		<li Name="RaceComfyTMax" Value="MammalComfyTMax"/>
+		<li Name="RaceToleranceTMin" Value="MammalToleranceTMin"/>
+		<li Name="RaceToleranceTMax" Value="MammalToleranceTMax"/>
+		<li Name="RaceVisionRadius" Value="MammalVisionRadius"/>
+		<li Name="RaceBaseWorkSpeed" Value="MammalBaseWorkSpeed"/>
+		<li Name="RaceRecoveryPower" Value="MammalRecoveryPower"/>
+	</BaseP>
+</RaceDef>
+
+</List></RaceDefs>

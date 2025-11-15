@@ -1,0 +1,102 @@
+﻿<FightSkills><List>
+	<Skill Name="JJYTurtleAttackMissile"><!--蛟--> 
+		<NormalAtk>1</NormalAtk>
+		<ShowInUI>0</ShowInUI>
+		<Kind>Damage</Kind>
+		<SingTime>0</SingTime>
+		<CD>0</CD>
+		<Shape>Missile</Shape>
+		<Radius>0</Radius>
+		<SelectType>Target</SelectType>
+		<TargetCamp>Enemy</TargetCamp>
+		<MissileEffect>26</MissileEffect>
+		<BombEffect>200000</BombEffect>
+		<HitEffect>68</HitEffect>
+		<Missile>	<!--弹道数据，贝塞尔曲线的四个参数-->
+			<p1>0</p1>
+			<p2>5</p2>
+			<p3>5</p3>
+			<p4>0</p4>
+			<Speed>10</Speed>
+			<Shake>2</Shake>
+		</Missile>
+	</Skill>
+	
+	
+	<Skill Name="CJYBearAttackMissile"><!--雏凤--> 
+		<NormalAtk>1</NormalAtk>
+		<ShowInUI>0</ShowInUI>
+		<Kind>Damage</Kind>
+		<SingTime>0</SingTime>
+		<CD>0</CD>
+		<Shape>Missile</Shape>
+		<Radius>0</Radius>
+		<SelectType>Target</SelectType>
+		<TargetCamp>Enemy</TargetCamp>
+		<MissileEffect>89</MissileEffect>
+		<BombEffect>39</BombEffect>
+		<HitEffect>39</HitEffect>
+		<Radius>10</Radius>
+		<ClassName>xiongfeng_huodan</ClassName>
+		<Missile>	<!--弹道数据，贝塞尔曲线的四个参数-->
+			<p1>0</p1>
+			<p2>0.5</p2>
+			<p3>0.5</p3>
+			<p4>0</p4>
+			<Speed>15</Speed>
+			<Shake>1</Shake>
+			<BombRadius>25</BombRadius>
+		</Missile>
+	</Skill>
+	
+	<Skill Name="MFeiAttackMissile"><!--魔蜚--> 
+		<NormalAtk>1</NormalAtk>
+		<ShowInUI>0</ShowInUI>
+		<Kind>Damage</Kind>
+		<SingTime>0</SingTime>
+		<CD>0</CD>
+		<Shape>Missile</Shape>
+		<Radius>0</Radius>
+		<SelectType>Target</SelectType>
+		<TargetCamp>Enemy</TargetCamp>
+		<MissileEffect>22</MissileEffect>
+		<BombEffect>86</BombEffect>
+		<HitEffect>60</HitEffect>
+		<Missile>	<!--弹道数据，贝塞尔曲线的四个参数-->
+			<p1>0</p1>
+			<p2>5</p2>
+			<p3>5</p3>
+			<p4>0</p4>
+			<Speed>8</Speed>
+			<Shake>2</Shake>
+		</Missile>
+	</Skill>
+	
+	
+	<Skill Name="BlackLongAttackMissile"><!--黑龙--> 
+		<NormalAtk>1</NormalAtk>
+		<ShowInUI>0</ShowInUI>
+		<Kind>Damage</Kind>
+		<SingTime>0</SingTime>
+		<CD>0</CD>
+		<Shape>Missile</Shape>
+		<Radius>0</Radius>
+		<SelectType>Target</SelectType>
+		<TargetCamp>Enemy</TargetCamp>
+		<MissileEffect>22</MissileEffect>
+		<BombEffect>86</BombEffect>
+		<HitEffect>58</HitEffect>
+		<Missile>	<!--弹道数据，贝塞尔曲线的四个参数-->
+			<p1>0</p1>
+			<p2>5</p2>
+			<p3>0</p3>
+			<p4>0</p4>
+			<Speed>30</Speed>
+			<Shake>2</Shake>
+		</Missile>
+	</Skill>
+	
+		
+
+	
+</List></FightSkills>

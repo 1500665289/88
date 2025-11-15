@@ -1,0 +1,5270 @@
+﻿<Stories><List>	
+<Story Name="BaoZang_renwu"  Parent="BaseFillingStory">
+		<DisplayName>任务大厅</DisplayName>
+		<Desc>嗨，[NAME]，这里是做任务的地方。或许你想挑战一把死亡之路？</Desc>
+		<Selections>
+			<li>
+				<Display>玉面修罗陈佳宁</Display>
+				<OKResult>me:TriggerStory("BaoZang_SDLS");</OKResult>
+			</li>
+			<li>
+				<Display>接受任务</Display>
+				<OKResult>me:TriggerStory("BaoZang_JSRW");</OKResult>
+			</li>
+			<li>
+				<Display>上楼</Display>				
+				<OKResult>me:TriggerStory("BaoZang_JRGL");</OKResult>				
+			</li>
+			<li>
+				<Display>死亡之路</Display>				
+				<OKResult>me:TriggerStory("SWZL");</OKResult>				
+			</li>
+			<li>
+				<Display>赞助老杨</Display>				
+				<OKResult>me:TriggerStory("ZDLY");</OKResult>				
+			</li>
+			<li>
+				<Display>离开</Display>
+				<OKResult><![CDATA[	
+				me:AddMsg("[NAME]转身离去。");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="ZDLY"> 
+		<DisplayName>赞助老杨</DisplayName>
+		<Desc>你想拥有专属的全新人物形象以及专属词条吗？你想带着老婆兄弟朋友一起修仙吗？你想拥有专属的法宝利器吗？你想拥有绝世神兵吗？你想拥有天道神符吗？亦或是你想摇身一变成为游戏中的大BOSS？没错，找我就对了。</Desc>		
+		<Selections>
+			<li>
+				<Display>联系老杨QQ56885013</Display>
+				<Tip>唯一联系方式</Tip>				
+				<OKResult>me:TriggerStory("ZDLY");</OKResult>				
+			</li>
+			<li>
+				<Display>斗鱼直播间：2814446</Display>
+				<Tip>来看直播也说明了你是真的爱我</Tip>				
+				<OKResult>me:TriggerStory("ZDLY");</OKResult>			
+			</li>
+			<li>
+				<Display>请老杨帮忙降低声望</Display>
+				<Tip>你好意思让我白帮忙吗？兄弟</Tip>								
+				<OKResult>me:TriggerStory("ZDLY1");</OKResult>
+						
+			</li>
+			<li>
+				<Display>请老杨帮忙提高声望</Display>
+				<Tip>你好意思一直白嫖我吗？兄弟</Tip>							
+				<OKResult>me:TriggerStory("ZDLY2");</OKResult>						
+			</li>
+			<li>
+				<Display>不好意思我点错了（没事，我都懂的，嘤嘤嘤。）</Display>						
+				<OKResult>me:TriggerStory("BaoZang_renwu");</OKResult>			
+			</li>
+	
+		</Selections>
+	</Story>
+
+<Story Name="ZDLY1"> 
+		<DisplayName>降低声望</DisplayName>
+		<Desc>免费降低声望一次</Desc>
+		<Selections>
+			<li>
+				<Display>降低声望（太难了，我不行了）</Display>
+				<Tip>你白嫖我的时候心会痛吗？兄弟</Tip>	
+				<Condition><![CDATA[	
+				world:GetWorldFlag(525) == 0
+				]]>
+				</Condition>			
+				<OKResult><![CDATA[
+				me:AddSchoolScore(1, -1000);me:TriggerStory("ZDLY");world:SetWorldFlag(525,1)
+				]]>
+				</OKResult>
+				<NOResult>
+				me:AddMsg("飞行道具获得第二次机会，哈尼。");
+				</NOResult>			
+			</li>
+			<li>
+				<Display>返回</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("ZDLY");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="ZDLY2"> 
+		<DisplayName>提高声望</DisplayName>
+		<Desc>免费提高声望一次</Desc>
+		<Selections>
+			<li>
+				<Display>提高声望（加强，敌人也太菜了吧）</Display>
+				<Tip>你白嫖我的时候心会痛吗？兄弟</Tip>	
+				<Condition><![CDATA[	
+				world:GetWorldFlag(526) == 0
+				]]>
+				</Condition>			
+				<OKResult><![CDATA[
+				me:AddSchoolScore(1, 50000);me:TriggerStory("ZDLY");world:SetWorldFlag(526,1)
+				]]>
+				</OKResult>
+				<NOResult>
+				me:AddMsg("飞行道具获得第二次机会，哈尼。");
+				</NOResult>			
+			</li>
+			<li>
+				<Display>返回</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("ZDLY");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="SWZL"> 
+		<DisplayName>死亡之路</DisplayName>
+		<Desc>你想让游戏更刺激一点？没错，你来对地方了。挑战死亡之路，你会得到大量积分点数以及各种奖励，前提是你能活下来。</Desc>
+		<Kind>None</Kind>
+		<Selections>
+			<li>
+				<Display>挑战（普通）</Display>
+				<Condition><![CDATA[	
+				me:GetGLevel() >= 0
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					local nR = world:RandomInt(15,20)
+					me:AddMsg(string.format(XT("你感觉你能行？不，你不行。快跑路吧亲爱的，趁我们还没来。"), tostring(nR)));
+					for i = 1, nR do
+						me:AddEnemy(world:RandomInt(1,5),world:RandomFloat(0,1));
+					end
+				me:AddMsg("你真是有种啊，兄弟。玩的开心的话，来直播间办张卡吧。");
+				me:AddMsg("积分值增加100点，积分点数增加100点。");
+				me:AddMemery(sN);me:AddTreeExp(me:GetDaoHang()*1000);
+				me:DropAwardItem("Item_BossLong_NiLin",1);
+				world:SetWorldFlag(287,world:GetWorldFlag(287)+100);
+				world:SetWorldFlag(286,world:GetWorldFlag(286)+100);
+				]]>
+				</OKResult>
+				<NOResult><![CDATA[	
+				me:AddMsg("你在想屁吃？就你这点修为也敢挑战？给你个大嘴巴子。");
+				me:TriggerStory("BaoZang_renwu");
+				]]>
+				</NOResult>
+			</li>
+			<li>
+				<Display>挑战（噩梦）</Display>
+				<Condition><![CDATA[	
+				me:GetGLevel() >= 7
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					local nR = world:RandomInt(90,100)
+					me:AddMsg(string.format(XT("你感觉你能行？不，你不行。快跑路吧亲爱的，趁我们还没来。"), tostring(nR)));
+					for i = 1, nR do
+						me:AddEnemy(world:RandomInt(1,9),world:RandomFloat(0,1));
+					end
+				me:AddMsg("你真是有种啊，兄弟。玩的开心的话，来直播间办张卡吧，或者来个飞鸡儿。");
+				me:AddMsg("积分值增加500点，积分点数增加500点。");
+				me:AddMemery(sN);me:AddTreeExp(me:GetDaoHang()*5000);
+				me:DropAwardItem("Item_BossLong_NiLin",1);me:DropAwardItem("Item_BossFeng_HongYu",1);
+				world:SetWorldFlag(287,world:GetWorldFlag(287)+500);
+				world:SetWorldFlag(286,world:GetWorldFlag(286)+500);
+				]]>
+				</OKResult>
+				<NOResult><![CDATA[	
+				me:AddMsg("你在想屁吃？就你这点修为也敢挑战？给你个大嘴巴子。");
+				me:TriggerStory("BaoZang_renwu");
+				]]>
+				</NOResult>
+			</li>
+			<li>
+				<Display>挑战（地狱）</Display>
+				<Condition><![CDATA[	
+				me:GetGLevel() >= 12
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					local nR = world:RandomInt(180,200)
+					me:AddMsg(string.format(XT("你感觉你能行？不，你不行。快跑路吧亲爱的，趁我们还没来。"), tostring(nR)));
+					for i = 1, nR do
+						me:AddEnemy(world:RandomInt(1,12),world:RandomFloat(0,1));
+					end
+				Map:CallBoss("Boss_Long", me.npcObj.Key);
+				Map:CallBoss("Boss_Feng", me.npcObj.Key);
+				me:AddMsg("你真是有种啊，兄弟。玩的开心的话，来直播间发射个火箭吧，爱你。");
+				me:AddMsg("积分值增加3000点，积分点数增加3000点。");
+				me:AddTreeExp(me:GetDaoHang()*50000);
+				me:DropAwardItem("Item_BossZhuLong_LongYu",2);
+				world:SetWorldFlag(287,world:GetWorldFlag(287)+3000);
+				world:SetWorldFlag(286,world:GetWorldFlag(286)+3000);
+				]]>
+				</OKResult>
+				<NOResult><![CDATA[	
+				me:AddMsg("你在想屁吃？就你这点修为也敢挑战？给你个大嘴巴子。");
+				me:TriggerStory("BaoZang_renwu");
+				]]>
+				</NOResult>
+			</li>		
+			<li>
+				<Display>返回大厅</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_renwu");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_JRGL"  Parent="BaseFillingStory">
+		<DisplayName>阁楼</DisplayName>
+		<Desc>一共有七层，每层都有许多宝物和秘籍，每层需要消耗的积分都不一样，你要去哪层？</Desc>
+		<Selections>
+			<li>
+				<Display>尼莫小可爱</Display>
+				<OKResult>me:TriggerStory("NMXKA");</OKResult>
+			</li>
+			<li>
+				<Display>第一层，20积分</Display>
+				<Tip>20积分</Tip>
+				<OKResult>me:TriggerStory("BaoZang_DAC");</OKResult>
+			</li>
+			<li>
+				<Display>第二层，50积分</Display>
+				<Tip>50积分</Tip>
+				<OKResult>me:TriggerStory("BaoZang_DBC");</OKResult>
+			</li>
+			<li>
+				<Display>第三层，100积分</Display>
+				<Tip>100积分</Tip>
+				<Condition><![CDATA[	
+				me:GetGLevel() >= 0
+				]]>
+				</Condition>
+				<OKResult>me:TriggerStory("BaoZang_DCC");</OKResult>
+				<NOResult><![CDATA[	
+				me:AddMsg("[NAME]被某种禁制阻挡在了外面。");
+				me:TriggerStory("BaoZang_JRGL");
+				]]>
+				</NOResult>
+			</li>
+			<li>
+				<Display>第四层，250积分</Display>
+				<Tip>250积分</Tip>
+				<Condition><![CDATA[	
+				me:GetGLevel() >= 0
+				]]>
+				</Condition>
+				<OKResult>me:TriggerStory("BaoZang_DDC");</OKResult>
+				<NOResult><![CDATA[	
+				me:AddMsg("[NAME]被某种禁制阻挡在了外面。");
+				me:TriggerStory("BaoZang_JRGL");
+				]]>
+				</NOResult>
+			</li>
+			<li>
+				<Display>第五层，500积分</Display>
+				<Tip>500积分</Tip>
+				<Condition><![CDATA[	
+				me:GetGLevel() >= 0
+				]]>
+				</Condition>
+				<OKResult>me:TriggerStory("BaoZang_DEC");</OKResult>
+				<NOResult><![CDATA[	
+				me:AddMsg("[NAME]被某种禁制阻挡在了外面。");
+				me:TriggerStory("BaoZang_JRGL");
+				]]>
+				</NOResult>				
+			</li>
+			<li>
+				<Display>第六层，2000积分</Display>
+				<Tip>2000积分</Tip>
+				<Condition><![CDATA[	
+				me:GetGLevel() >= 0
+				]]>
+				</Condition>				
+				<OKResult>me:TriggerStory("BaoZang_DFC");</OKResult>	
+				<NOResult><![CDATA[	
+				me:AddMsg("[NAME]被某种禁制阻挡在了外面。");
+				me:TriggerStory("BaoZang_JRGL");
+				]]>
+				</NOResult>			
+			</li>
+			<li>
+				<Display>第七层，20000积分</Display>
+				<Tip>20000积分</Tip>
+				<Condition><![CDATA[	
+				me:GetGLevel() >= 0
+				]]>
+				</Condition>				
+				<OKResult>me:TriggerStory("BaoZang_DGC");</OKResult>
+				<NOResult><![CDATA[	
+				me:AddMsg("[NAME]被某种禁制阻挡在了外面。");
+				me:TriggerStory("BaoZang_JRGL");
+				]]>
+				</NOResult>	
+			</li>
+			<li>
+				<Display>返回大厅</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_renwu");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+
+<Story Name="BaoZang_DAC"  Parent="BaseFillingStory">
+		<DisplayName>第一层</DisplayName>
+		<Desc>阁楼的底层，有很多基础的秘籍在这里。</Desc>
+		<Selections>			
+			
+			<li>
+				<Display>修罗之体</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC_1");</OKResult>
+			</li>
+			<li>
+				<Display>真吾之体</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC_2");</OKResult>
+			</li>
+			<li>
+				<Display>天人之体</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC_3");</OKResult>
+			</li>
+			<li>
+				<Display>庚金元神</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC_4");</OKResult>
+			</li>
+			<li>
+				<Display>甲木元神</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC_5");</OKResult>
+			</li>
+			<li>
+				<Display>壬水元神</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC_6");</OKResult>
+			</li>
+			<li>
+				<Display>丙火元神</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC_7");</OKResult>
+			</li>
+			<li>
+				<Display>下一页</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC2");</OKResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_JRGL");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DAC2"  Parent="BaseFillingStory">
+		<DisplayName>第一层</DisplayName>
+		<Desc>阁楼的底层，有很多基础的秘籍在这里。</Desc>
+		<Selections>			
+			<li>
+				<Display>戊土元神</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC_8");</OKResult>
+			</li>			
+			<li>
+				<Display>野球拳</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC_9");</OKResult>
+			</li>
+			<li>
+				<Display>春回大地</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC_10");</OKResult>
+			</li>
+			<li>
+				<Display>昆仑仙法</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC_11");</OKResult>
+			</li>			
+			<li>
+				<Display>松影千霞</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC_12");</OKResult>
+			</li>
+			<li>
+				<Display>紫霞丹霄</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC_13");</OKResult>
+			</li>
+			<li>
+				<Display>太平符箓要册</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC_14");</OKResult>
+			</li>
+			<li>
+				<Display>上一页</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC");</OKResult>
+			</li>
+			<li>
+				<Display>下一页</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC3");</OKResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_JRGL");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DAC3"  Parent="BaseFillingStory">
+		<DisplayName>第一层</DisplayName>
+		<Desc>地点信息。</Desc>
+		<Selections>
+			
+			<li>
+				<Display>游仙录</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC_15");</OKResult>
+			</li>
+			<li>
+				<Display>云笈秘录：边荒篇</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC_16");</OKResult>
+			</li>
+			<li>
+				<Display>山图海志</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC_17");</OKResult>
+			</li>
+			<li>
+				<Display>云笈秘录：大漠篇（万妖殿）</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC_18");</OKResult>
+			</li>
+			<li>
+				<Display>群仙录：卷二（南海青连山）</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC_19");</OKResult>
+			</li>
+			<li>
+				<Display>群仙录：卷三（古天极符）</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC_20");</OKResult>
+			</li>
+			<li>
+				<Display>拾遗录：上册</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC_21");</OKResult>
+			</li>
+			<li>
+				<Display>拾遗录：下册</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC_22");</OKResult>
+			</li>
+			<li>
+				<Display>上古秘闻：卷一</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC_23");</OKResult>
+			</li>
+			<li>
+				<Display>上古秘闻：卷二</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC_24");</OKResult>
+			</li>
+						
+			<li>
+				<Display>上一页</Display>
+				<OKResult>me:TriggerStory("BaoZang_DAC2");</OKResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_JRGL");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DAC_1"  Parent="BaseFillingStory">
+		<DisplayName>修罗之体</DisplayName>
+		<Desc>以身化修罗，大幅提高战斗能力。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("Gong9_Esoterica_14") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20);
+					me:LearnEsoteric("Gong9_Esoterica_14");
+					me:TriggerStory("BaoZang_DAC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DAC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DAC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DAC_2"  Parent="BaseFillingStory">
+		<DisplayName>真吾之体</DisplayName>
+		<Desc>真吾之体</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("Gong9_Esoterica_13") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20);
+					me:LearnEsoteric("Gong9_Esoterica_13");
+					me:TriggerStory("BaoZang_DAC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DAC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DAC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+<Story Name="BaoZang_DAC_3"  Parent="BaseFillingStory">
+		<DisplayName>天人之体</DisplayName>
+		<Desc>天人之体个一阶。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("Gong9_Esoterica_12") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20);
+					me:LearnEsoteric("Gong9_Esoterica_12");
+					me:TriggerStory("BaoZang_DAC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DAC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DAC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+<Story Name="BaoZang_DAC_4"  Parent="BaseFillingStory">
+		<DisplayName>庚金元神</DisplayName>
+		<Desc>凝练庚金元神，提高神识，大幅提高御器威力。且可以庚金之道为引，分化一条元神分神。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("Gong4_Esoterica_8") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20);
+					me:LearnEsoteric("Gong4_Esoterica_8");
+					me:TriggerStory("BaoZang_DAC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DAC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DAC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DAC_5"  Parent="BaseFillingStory">
+		<DisplayName>甲木元神</DisplayName>
+		<Desc>凝练甲木元神，提高根骨，大幅提高寿命。且可以甲木之道为引，分化一条元神分神。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("Gong4_Esoterica_9") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20);
+					me:LearnEsoteric("Gong4_Esoterica_9");
+					me:TriggerStory("BaoZang_DAC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DAC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DAC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DAC_6"  Parent="BaseFillingStory">
+		<DisplayName>壬水元神</DisplayName>
+		<Desc>凝练壬水元神，提高魅力，提高灵气最大值。且可以壬水之道为引，分化一条元神分神。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("Gong4_Esoterica_10") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20);
+					me:LearnEsoteric("Gong4_Esoterica_10");
+					me:TriggerStory("BaoZang_DAC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DAC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DAC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DAC_7"  Parent="BaseFillingStory">
+		<DisplayName>丙火元神</DisplayName>
+		<Desc>凝练丙火元神，提高悟性，提高法术威力。且可以丙火之道为引，分化一条元神分神。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("Gong4_Esoterica_11") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20);
+					me:LearnEsoteric("Gong4_Esoterica_11");
+					me:TriggerStory("BaoZang_DAC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DAC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DAC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DAC_8"  Parent="BaseFillingStory">
+		<DisplayName>戊土元神</DisplayName>
+		<Desc>凝练戊土元神，提高机缘，提高灵气护盾强度。且可以戊土之道为引，分化一条元神分神。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("Gong4_Esoterica_12") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20);
+					me:LearnEsoteric("Gong4_Esoterica_12");
+					me:TriggerStory("BaoZang_DAC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DAC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DAC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DAC_9"  Parent="BaseFillingStory">
+		<DisplayName>野球拳</DisplayName>
+		<Desc>来自现代的神秘秘籍，有改换体质的妙用。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("Esoterica_LunHui1") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20);
+					me:LearnEsoteric("Esoterica_LunHui1");
+					me:TriggerStory("BaoZang_DAC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DAC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DAC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DAC_10"  Parent="BaseFillingStory">
+		<DisplayName>春回大地</DisplayName>
+		<Desc>来自现代的神奇秘籍，可以将灵气汇聚头部，让人思维灵动，提高悟性。顺便……</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("Esoterica_LunHui2") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20);
+					me:LearnEsoteric("Esoterica_LunHui2");
+					me:TriggerStory("BaoZang_DAC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DAC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DAC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DAC_11"  Parent="BaseFillingStory">
+		<DisplayName>昆仑仙法</DisplayName>
+		<Desc>昆仑不知名仙人所传授的秘法，可以提高悟性与根骨。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("Esoterica_LunHui4") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20);
+					me:LearnEsoteric("Esoterica_LunHui4");
+					me:TriggerStory("BaoZang_DAC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DAC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DAC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DAC_12"  Parent="BaseFillingStory">
+		<DisplayName>松影千霞</DisplayName>
+		<Desc>从丹霞山绝壁丹霞之景色中领悟出的奇术，可以提高法术伤害。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("Other_Esoterica_DanXia1") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20);
+					me:LearnEsoteric("Other_Esoterica_DanXia1");
+					me:TriggerStory("BaoZang_DAC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DAC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DAC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DAC_13"  Parent="BaseFillingStory">
+		<DisplayName>紫霞丹霄</DisplayName>
+		<Desc>从丹霞山绝壁丹霞之景色中领悟出的心法，长期修持可以调节心境，稳固元气。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("Other_Esoterica_DanXia2") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20);
+					me:LearnEsoteric("Other_Esoterica_DanXia2");
+					me:TriggerStory("BaoZang_DAC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DAC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DAC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DAC_14"  Parent="BaseFillingStory">
+		<DisplayName>太平符箓要册</DisplayName>
+		<Desc>相对齐全的符箓合集，包含了大多数常见的符咒。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("SpellEsoterica_5") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20);
+					me:LearnEsoteric("SpellEsoterica_5");
+					me:TriggerStory("BaoZang_DAC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DAC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DAC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DAC_15"  Parent="BaseFillingStory">
+		<DisplayName>游仙录</DisplayName>
+		<Desc>上古流传的神秘图册，记录了一些在仙人眼里都只能称得上传说的上古秘闻，是真是假早已不可考据。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("YouJi_5") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20);
+					me:LearnEsoteric("YouJi_5");
+					me:TriggerStory("BaoZang_DAC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DAC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DAC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DAC_16"  Parent="BaseFillingStory">
+		<DisplayName>云笈秘录：边荒篇</DisplayName>
+		<Desc>道门前辈仙人从各种典籍中找寻奇闻异事，将之摘录编撰而成的书册。本卷记载了邪帝陵，大江发源等几处传说。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("YouJi_6_1") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20);
+					me:LearnEsoteric("YouJi_6_1");
+					me:TriggerStory("BaoZang_DAC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DAC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DAC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DAC_17"  Parent="BaseFillingStory">
+		<DisplayName>山图海志</DisplayName>
+		<Desc>道门前辈仙人从各种典籍中找寻奇闻异事，将之摘录编撰而成的书册。本卷记载了海外的奇闻。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("YouJi_3") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20);
+					me:LearnEsoteric("YouJi_3");
+					me:TriggerStory("BaoZang_DAC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DAC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DAC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DAC_18"  Parent="BaseFillingStory">
+		<DisplayName>云笈秘录：大漠篇</DisplayName>
+		<Desc>道门前辈仙人从各种典籍中找寻奇闻异事，将之摘录编撰而成的书册。本卷记载了大漠深处的秘事。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("YouJi_6_4") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20);
+					me:LearnEsoteric("YouJi_6_4");
+					me:TriggerStory("BaoZang_DAC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DAC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DAC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DAC_19"  Parent="BaseFillingStory">
+		<DisplayName>群仙录：卷二</DisplayName>
+		<Desc>记载前古诸位仙人事迹的书册，已经失踪千年。本册记录的乃是青莲仙人年轻时游历的事迹。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("QunXianLu_2") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20);
+					me:LearnEsoteric("QunXianLu_2");
+					me:TriggerStory("BaoZang_DAC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DAC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DAC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DAC_20"  Parent="BaseFillingStory">
+		<DisplayName>群仙录：卷三</DisplayName>
+		<Desc>记载前古诸位仙人事迹的书册。本册记录的乃是天极老祖建立极天宫后游历人间的趣事。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("QunXianLu_3") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20);
+					me:LearnEsoteric("QunXianLu_3");
+					me:TriggerStory("BaoZang_DAC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DAC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DAC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DAC_21"  Parent="BaseFillingStory">
+		<DisplayName>拾遗录：上册</DisplayName>
+		<Desc>传说一位修行界的前辈仙人所著，记录了一些鲜为人知的秘闻要地。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("YouJi_4_1") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20);
+					me:LearnEsoteric("YouJi_4_1");
+					me:TriggerStory("BaoZang_DAC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DAC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DAC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DAC_22"  Parent="BaseFillingStory">
+		<DisplayName>拾遗录：下册</DisplayName>
+		<Desc>传说一位修行界的前辈仙人所著，记录了一些鲜为人知的秘闻要地。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("YouJi_4_3") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20);
+					me:LearnEsoteric("YouJi_4_3");
+					me:TriggerStory("BaoZang_DAC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DAC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DAC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DAC_23"  Parent="BaseFillingStory">
+		<DisplayName>上古秘闻：卷一</DisplayName>
+		<Desc>记录上古传闻的秘册，本册记录的乃是上古龙族禁地龙台的秘闻。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("ShangGuYiWen_1") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20);
+					me:LearnEsoteric("ShangGuYiWen_1");
+					me:TriggerStory("BaoZang_DAC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DAC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DAC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DAC_24"  Parent="BaseFillingStory">
+		<DisplayName>上古秘闻：卷二</DisplayName>
+		<Desc>记录上古传闻的秘册，本册记录的乃是上古仙魔战场的秘闻。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("ShangGuYiWen_2") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20);
+					me:LearnEsoteric("ShangGuYiWen_2");
+					me:TriggerStory("BaoZang_DAC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DAC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DAC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DBC"  Parent="BaseFillingStory">
+		<DisplayName>第二层</DisplayName>
+		<Desc>修炼</Desc>
+		<Selections>
+			<li>
+				<Display>少阴锻体</Display>
+				<OKResult>me:TriggerStory("BaoZang_DBC_1");</OKResult>
+			</li>
+			<li>
+				<Display>百炼诀四</Display>
+				<OKResult>me:TriggerStory("BaoZang_DBC_2");</OKResult>
+			</li>
+			<li>
+				<Display>上清真气</Display>
+				<OKResult>me:TriggerStory("BaoZang_DBC_3");</OKResult>
+			</li>
+			<li>
+				<Display>心斋二阶</Display>
+				<OKResult>me:TriggerStory("BaoZang_DBC_4");</OKResult>
+			</li>
+			<li>
+				<Display>天一真法</Display>
+				<OKResult>me:TriggerStory("BaoZang_DBC_5");</OKResult>
+			</li>
+			<li>
+				<Display>水镜观心定</Display>
+				<OKResult>me:TriggerStory("BaoZang_DBC_6");</OKResult>
+			</li>
+			<li>
+				<Display>玉清定境</Display>
+				<OKResult>me:TriggerStory("BaoZang_DBC_7");</OKResult>
+			</li>
+			<li>
+				<Display>下一页</Display>
+				<OKResult>me:TriggerStory("BaoZang_DBC2");</OKResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_JRGL");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DBC2"  Parent="BaseFillingStory">
+		<DisplayName>第二层</DisplayName>
+		<Desc>世界</Desc>
+		<Selections>			
+			<li>
+				<Display>龙凤宝典</Display>
+				<OKResult>me:TriggerStory("BaoZang_DBC_8");</OKResult>
+			</li>
+			<li>
+				<Display>奔流剑意</Display>
+				<OKResult>me:TriggerStory("BaoZang_DBC_9");</OKResult>
+			</li>
+			<li>
+				<Display>飞流心法</Display>
+				<OKResult>me:TriggerStory("BaoZang_DBC_10");</OKResult>
+			</li>
+			<li>
+				<Display>坤离炼宝法</Display>
+				<OKResult>me:TriggerStory("BaoZang_DBC_11");</OKResult>
+			</li>
+			<li>
+				<Display>秘传南宫渡厄宝录</Display>
+				<OKResult>me:TriggerStory("BaoZang_DBC_12");</OKResult>
+			</li>
+			<li>
+				<Display>五炁神符经</Display>
+				<OKResult>me:TriggerStory("BaoZang_DBC_13");</OKResult>
+			</li>
+			<li>
+				<Display>三洞玉函</Display>
+				<OKResult>me:TriggerStory("BaoZang_DBC_14");</OKResult>
+			</li>			
+			<li>
+				<Display>上一页</Display>
+				<OKResult>me:TriggerStory("BaoZang_DBC");</OKResult>
+			</li>
+			<li>
+				<Display>下一页</Display>
+				<OKResult>me:TriggerStory("BaoZang_DBC3");</OKResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_JRGL");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DBC3"  Parent="BaseFillingStory">
+		<DisplayName>第二层</DisplayName>
+		<Desc>分神，本页200积分</Desc>
+		<Selections>
+			
+			<li>
+				<Display>龙魂真灵法</Display>
+				<OKResult>me:TriggerStory("BaoZang_DBC_15");</OKResult>
+			</li>
+			<li>
+				<Display>凤魂真灵法</Display>
+				<OKResult>me:TriggerStory("BaoZang_DBC_16");</OKResult>
+			</li>
+			<li>
+				<Display>阴阳真灵法</Display>
+				<OKResult>me:TriggerStory("BaoZang_DBC_17");</OKResult>
+			</li>
+			<li>
+				<Display>一气化三清</Display>
+				<OKResult>me:TriggerStory("BaoZang_DBC_18");</OKResult>
+			</li>
+			<li>
+				<Display>善我之斩</Display>
+				<OKResult>me:TriggerStory("BaoZang_DBC_19");</OKResult>
+			</li>
+			<li>
+				<Display>恶我之斩</Display>
+				<OKResult>me:TriggerStory("BaoZang_DBC_20");</OKResult>
+			</li>
+			<li>
+				<Display>本我之斩</Display>
+				<OKResult>me:TriggerStory("BaoZang_DBC_21");</OKResult>
+			</li>
+			<li>
+				<Display>东木分神书四</Display>
+				<OKResult>me:TriggerStory("BaoZang_DBC_22");</OKResult>
+			</li>
+			<li>
+				<Display>上一页</Display>
+				<OKResult>me:TriggerStory("BaoZang_DBC2");</OKResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_JRGL");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DBC_1"  Parent="BaseFillingStory">
+		<DisplayName>少阴锻体</DisplayName>
+		<Desc>以少阴之气淬炼身躯。如是男儿身修炼，性别会发生逆转。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 50 and me:GetGLevel() >= 3 and me:IsLearnedEsoteric("Gong11_LvUpEsoterica_1") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-50);
+					me:LearnEsoteric("Gong11_LvUpEsoterica_1");
+					me:TriggerStory("BaoZang_DBC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DBC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DBC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DBC_2"  Parent="BaseFillingStory">
+		<DisplayName>百炼诀四</DisplayName>
+		<Desc>丹霞山入门功课，可反复修炼淬炼身躯，夯实基础。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 50 and me:GetGLevel() >= 3 and me:IsLearnedEsoteric("Gong2_LvUpEsoterica_4") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-50);
+					me:LearnEsoteric("Gong2_LvUpEsoterica_4");
+					me:TriggerStory("BaoZang_DBC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DBC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DBC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+
+<Story Name="BaoZang_DBC_3"  Parent="BaseFillingStory">
+		<DisplayName>上清真气</DisplayName>
+		<Desc>采先天清气凝练成上清真气。可以提升气感。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 50 and me:GetGLevel() >= 3 and me:IsLearnedEsoteric("Gong2_LvUpEsoterica_5") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-50);
+					me:LearnEsoteric("Gong2_LvUpEsoterica_5");
+					me:TriggerStory("BaoZang_DBC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DBC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DBC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+
+<Story Name="BaoZang_DBC_4"  Parent="BaseFillingStory">
+		<DisplayName>心斋二阶</DisplayName>
+		<Desc>心斋之法以收束意念，此举可提高心情基础值，增加修炼速度。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 50 and me:GetGLevel() >= 3 and me:IsLearnedEsoteric("Gong7_LvUpEsoterica_2") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-50);
+					me:LearnEsoteric("Gong7_LvUpEsoterica_2");
+					me:TriggerStory("BaoZang_DBC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DBC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DBC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+
+<Story Name="BaoZang_DBC_5"  Parent="BaseFillingStory">
+		<DisplayName>天一真法</DisplayName>
+		<Desc>以法力引动天地灵气，为所有友方恢复大量灵气，但是调息时间极长。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 50 and me:GetGLevel() >= 3 and me:IsLearnedEsoteric("Gong1_LvUpEsoterica_2") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-50);
+					me:LearnEsoteric("Gong1_LvUpEsoterica_2");
+					me:TriggerStory("BaoZang_DBC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DBC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DBC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DBC_6"  Parent="BaseFillingStory">
+		<DisplayName>水镜观心定</DisplayName>
+		<Desc>在元神定境中观想水镜，进入定中之定，快速消耗寿元炼化精元。修为不会提升。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 50 and me:GetGLevel() >= 3 and me:IsLearnedEsoteric("Gong1_LvUpEsoterica_3") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-50);
+					me:LearnEsoteric("Gong1_LvUpEsoterica_3");
+					me:TriggerStory("BaoZang_DBC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DBC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DBC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DBC_7"  Parent="BaseFillingStory">
+		<DisplayName>玉清定境</DisplayName>
+		<Desc>玉清仙法所记载的入定秘法，可以以元神遨游天地初开的元始之境，相比世传入定之法而言效率更高，消耗寿元更少。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 50 and me:GetGLevel() >= 3 and me:IsLearnedEsoteric("Gong4_LvUpEsoterica_2") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-50);
+					me:LearnEsoteric("Gong4_LvUpEsoterica_2");
+					me:TriggerStory("BaoZang_DBC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DBC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DBC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DBC_8"  Parent="BaseFillingStory">
+		<DisplayName>龙凤宝典</DisplayName>
+		<Desc>上古大能解析龙凤体内气脉运行路径而领悟的秘法。学成此法可将凡人肉身转化成龙凤之体，全面提高身体素质。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 50 and me:GetGLevel() >= 3 and me:IsLearnedEsoteric("Other_Esoterica_JiuHua") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-50);
+					me:LearnEsoteric("Other_Esoterica_JiuHua");
+					me:TriggerStory("BaoZang_DBC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DBC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DBC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DBC_9"  Parent="BaseFillingStory">
+		<DisplayName>奔流剑意</DisplayName>
+		<Desc>观龙虎山飞流瀑白虹裂石之景领悟的剑意，融入剑法之中可使法宝冲击力大增。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 50 and me:GetGLevel() >= 3 and me:IsLearnedEsoteric("Other_Esoterica_LongHu1") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-50);
+					me:LearnEsoteric("Other_Esoterica_LongHu1");
+					me:TriggerStory("BaoZang_DBC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DBC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DBC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DBC_10"  Parent="BaseFillingStory">
+		<DisplayName>飞流心法</DisplayName>
+		<Desc>观龙虎山飞流瀑飞流绵延不绝而领悟的吐纳之术，可以提高灵气恢复速度。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 50 and me:GetGLevel() >= 3 and me:IsLearnedEsoteric("Other_Esoterica_LongHu2") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-50);
+					me:LearnEsoteric("Other_Esoterica_LongHu2");
+					me:TriggerStory("BaoZang_DBC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DBC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DBC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DBC_11"  Parent="BaseFillingStory">
+		<DisplayName>坤离炼宝法</DisplayName>
+		<Desc>古仙南宫红炼器之术的秘传，以此术炼宝，可以极大的提高炼制成功率。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 50 and me:GetGLevel() >= 3 and me:IsLearnedEsoteric("Other_Esoterica_ChiLianYuan") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-50);
+					me:LearnEsoteric("Other_Esoterica_ChiLianYuan");
+					me:TriggerStory("BaoZang_DBC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DBC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DBC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DBC_12"  Parent="BaseFillingStory">
+		<DisplayName>秘传南宫渡厄宝录</DisplayName>
+		<Desc>古仙南宫红飞升之前总结出的一套根源秘法，修炼之后可以偷天换日，提高修行者之修行根基。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 50 and me:GetGLevel() >= 3 and me:IsLearnedEsoteric("Other_Esoterica_ChiLianYuan1") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-50);
+					me:LearnEsoteric("Other_Esoterica_ChiLianYuan1");
+					me:TriggerStory("BaoZang_DBC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DBC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DBC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DBC_13"  Parent="BaseFillingStory">
+		<DisplayName>五炁神符经</DisplayName>
+		<Desc>记载五种内门符箓的秘册。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 50 and me:GetGLevel() >= 3 and me:IsLearnedEsoteric("SpellEsoterica_2") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-50);
+					me:LearnEsoteric("SpellEsoterica_2");
+					me:TriggerStory("BaoZang_DBC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DBC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DBC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+<Story Name="BaoZang_DBC_14"  Parent="BaseFillingStory">
+		<DisplayName>三洞玉函</DisplayName>
+		<Desc>道门秘传，记载三种于修行大有益处的符箓。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 50 and me:GetGLevel() >= 3 and me:IsLearnedEsoteric("SpellEsoterica_1") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-50);
+					me:LearnEsoteric("SpellEsoterica_1");
+					me:TriggerStory("BaoZang_DBC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DBC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DBC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DBC_15"  Parent="BaseFillingStory">
+		<DisplayName>龙魂真灵法</DisplayName>
+		<Desc>从蛟龙的记忆碎片中领悟出的秘法。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 200 and me:GetGLevel() >= 3 and me:IsLearnedEsoteric("Other_Esoterica_LongDan") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-200);
+					me:LearnEsoteric("Other_Esoterica_LongDan");
+					me:TriggerStory("BaoZang_DBC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DBC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DBC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DBC_16"  Parent="BaseFillingStory">
+		<DisplayName>凤魂真灵法</DisplayName>
+		<Desc>从凶凤的记忆碎片中领悟出的秘法。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 200 and me:GetGLevel() >= 3 and me:IsLearnedEsoteric("Other_Esoterica_FengDan") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-200);
+					me:LearnEsoteric("Other_Esoterica_FengDan");
+					me:TriggerStory("BaoZang_DBC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DBC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DBC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DBC_17"  Parent="BaseFillingStory">
+		<DisplayName>阴阳真灵法</DisplayName>
+		<Desc>从烛龙的记忆碎片中领悟出的秘法。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 200 and me:GetGLevel() >= 3 and me:IsLearnedEsoteric("Other_Esoterica_ZhuLongDan") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-200);
+					me:LearnEsoteric("Other_Esoterica_ZhuLongDan");
+					me:TriggerStory("BaoZang_DBC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DBC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DBC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DBC_18"  Parent="BaseFillingStory">
+		<DisplayName>一气化三清</DisplayName>
+		<Desc>上古道门炼神秘法，早已失传。修炼此术可使元神分化，产生三条分神。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 200 and me:GetGLevel() >= 3 and me:IsLearnedEsoteric("Other_Esoterica_FenShen1") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-200);
+					me:LearnEsoteric("Other_Esoterica_FenShen1");
+					me:TriggerStory("BaoZang_DBC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DBC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DBC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DBC_19"  Parent="BaseFillingStory">
+		<DisplayName>善我之斩</DisplayName>
+		<Desc>上古修士以斩三尸成道之法为蓝本而创出的分神秘术。修习此册可以自身恶念为引，分出一条元神分神。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 200 and me:GetGLevel() >= 3 and me:IsLearnedEsoteric("Other_Esoterica_FenShen2") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-200);
+					me:LearnEsoteric("Other_Esoterica_FenShen2");
+					me:TriggerStory("BaoZang_DBC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DBC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DBC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DBC_20"  Parent="BaseFillingStory">
+		<DisplayName>恶我之斩</DisplayName>
+		<Desc>上古修士以斩三尸成道之法为蓝本而创出的分神秘术。修习此册可以自身恶念为引，分出一条元神分神。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 200 and me:GetGLevel() >= 3 and me:IsLearnedEsoteric("Other_Esoterica_FenShen3") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-200);
+					me:LearnEsoteric("Other_Esoterica_FenShen3");
+					me:TriggerStory("BaoZang_DBC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DBC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DBC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DBC_21"  Parent="BaseFillingStory">
+		<DisplayName>本我之斩</DisplayName>
+		<Desc>上古修士以斩三尸成道之法为蓝本而创出的分神秘术。修习此册可以自身恶念为引，分出一条元神分神。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 200 and me:GetGLevel() >= 3 and me:IsLearnedEsoteric("Other_Esoterica_FenShen4") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-200);
+					me:LearnEsoteric("Other_Esoterica_FenShen4");
+					me:TriggerStory("BaoZang_DBC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DBC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DBC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+<Story Name="BaoZang_DBC_22"  Parent="BaseFillingStory">
+		<DisplayName>东木分神书四</DisplayName>
+		<Desc>东方木神宫所传分神秘法，修到极致可斩四道分神，玄妙无匹。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 3 and me:IsLearnedEsoteric("Gong12_LvUpEsoterica_7") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:LearnEsoteric("Gong12_LvUpEsoterica_7");
+					me:TriggerStory("BaoZang_DBC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DBC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DBC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DCC"  Parent="BaseFillingStory">
+		<DisplayName>第三层</DisplayName>
+		<Desc>阁楼的第三层，里面也是许多较为深奥的秘籍。</Desc>
+		<Selections>
+			<li>
+				<Display>玄阴锻体</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC_1");</OKResult>
+			</li>
+			<li>
+				<Display>同风诀</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC_2");</OKResult>
+			</li>
+			<li>
+				<Display>归海诀</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC_3");</OKResult>
+			</li>
+			<li>
+				<Display>罡煞合流三</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC_4");</OKResult>
+			</li>
+			<li>
+				<Display>风水凝练</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC_5");</OKResult>
+			</li>
+			<li>
+				<Display>元央归息法</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC_6");</OKResult>
+			</li>
+			<li>
+				<Display>五内蕴火二</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC_7");</OKResult>
+			</li>
+			<li>
+				<Display>极剑二</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC_24");</OKResult>
+			</li>
+			<li>
+				<Display>我剑二</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC_25");</OKResult>
+			</li>
+			<li>
+				<Display>下一页</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC2");</OKResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[
+				me:TriggerStory("BaoZang_JRGL");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DCC2"  Parent="BaseFillingStory">
+		<DisplayName>第三层</DisplayName>
+		<Desc>阁楼的第三层，里面也是许多较为深奥的秘籍。</Desc>
+		<Selections>
+			<li>
+				<Display>太虚神盾</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC_8");</OKResult>
+			</li>
+			<li>
+				<Display>心炎</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC_9");</OKResult>
+			</li>
+			<li>
+				<Display>天火同人</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC_10");</OKResult>
+			</li>
+			<li>
+				<Display>九幽炼神</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC_11");</OKResult>
+			</li>
+			<li>
+				<Display>瞬形法</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC_12");</OKResult>
+			</li>
+			<li>
+				<Display>凝血神盾</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC_13");</OKResult>
+			</li>
+			<li>
+				<Display>道心</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC_14");</OKResult>
+			</li>			
+			<li>
+				<Display>上一页</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC");</OKResult>
+			</li>
+			<li>
+				<Display>下一页</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC3");</OKResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_JRGL");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DCC3"  Parent="BaseFillingStory">
+		<DisplayName>第三层</DisplayName>
+		<Desc>大幅提升潜力</Desc>
+		<Selections>
+			<li>
+				<Display>形容返照</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC_15");</OKResult>
+			</li>
+			<li>
+				<Display>五感返照</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC_16");</OKResult>
+			</li>
+			<li>
+				<Display>神智返照</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC_17");</OKResult>
+			</li>
+			<li>
+				<Display>气运返照</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC_18");</OKResult>
+			</li>
+			<li>
+				<Display>炼身法-速</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC_19");</OKResult>
+			</li>
+			<li>
+				<Display>炼身法-精</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC_20");</OKResult>
+			</li>
+			<li>
+				<Display>炼身法-神</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC_21");</OKResult>
+			</li>
+			<li>
+				<Display>谷神大法</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC_22");</OKResult>
+			</li>
+			<li>
+				<Display>同心诀</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC_23");</OKResult>
+			</li>
+			<li>
+				<Display>上一页</Display>
+				<OKResult>me:TriggerStory("BaoZang_DCC2");</OKResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_JRGL");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DCC_1"  Parent="BaseFillingStory">
+		<DisplayName>玄阴锻体</DisplayName>
+		<Desc>以玄阴之气淬炼身躯。如是男儿身修炼，性别会发生逆转。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 100 and me:GetGLevel() >= 5 and me:IsLearnedEsoteric("Gong11_LvUpEsoterica_2") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-100);
+					me:LearnEsoteric("Gong11_LvUpEsoterica_2");
+					me:TriggerStory("BaoZang_DCC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DCC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DCC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DCC_2"  Parent="BaseFillingStory">
+		<DisplayName>同风诀</DisplayName>
+		<Desc>研习此术可以御风同调，身剑合一，彻底化入风中，巨幅提高历练飞行的速度。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 100 and me:GetGLevel() >= 5 and me:IsLearnedEsoteric("Gong1_LvUpEsoterica_4") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-100);
+					me:LearnEsoteric("Gong1_LvUpEsoterica_4");
+					me:TriggerStory("BaoZang_DCC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DCC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DCC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DCC_3"  Parent="BaseFillingStory">
+		<DisplayName>归海诀</DisplayName>
+		<Desc>真元如海，万脉归流，修习此法可以大幅提高角色气感。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 100 and me:GetGLevel() >= 5 and me:IsLearnedEsoteric("Gong1_LvUpEsoterica_5") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-100);
+					me:LearnEsoteric("Gong1_LvUpEsoterica_5");
+					me:TriggerStory("BaoZang_DCC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DCC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DCC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DCC_4"  Parent="BaseFillingStory">
+		<DisplayName>罡煞合流三</DisplayName>
+		<Desc>将天地间的罡气煞气炼化入元神之中的秘法。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 100 and me:GetGLevel() >= 5 and me:IsLearnedEsoteric("Gong1_LvUpEsoterica_8") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-100);
+					me:LearnEsoteric("Gong1_LvUpEsoterica_8");
+					me:TriggerStory("BaoZang_DCC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DCC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DCC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DCC_5"  Parent="BaseFillingStory">
+		<DisplayName>风水凝练</DisplayName>
+		<Desc>消耗本源精血为一件物品赋予风水镇物属性。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 100 and me:GetGLevel() >= 5 and me:IsLearnedEsoteric("Gong1_LvUpEsoterica_9") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-100);
+					me:LearnEsoteric("Gong1_LvUpEsoterica_9");
+					me:TriggerStory("BaoZang_DCC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DCC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DCC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DCC_6"  Parent="BaseFillingStory">
+		<DisplayName>元央归息法</DisplayName>
+		<Desc>吸取一个无修为活物的寿命，并增加自身修为，并同时获取参悟。目标体质越高，效果越强。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 100 and me:GetGLevel() >= 5 and me:IsLearnedEsoteric("Gong9_LvUpEsoterica_3") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-100);
+					me:LearnEsoteric("Gong9_LvUpEsoterica_3");
+					me:TriggerStory("BaoZang_DCC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DCC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DCC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+
+<Story Name="BaoZang_DCC_7"  Parent="BaseFillingStory">
+		<DisplayName>五内蕴火二</DisplayName>
+		<Desc>凝聚丙火之力淬炼五脏，提高脏器功能，可大幅提高五维，并巨幅提高精元转化率。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 100 and me:GetGLevel() >= 5 and me:IsLearnedEsoteric("Gong10_LvUpEsoterica_2") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-100);
+					me:LearnEsoteric("Gong10_LvUpEsoterica_2");
+					me:TriggerStory("BaoZang_DCC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DCC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DCC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DCC_8"  Parent="BaseFillingStory">
+		<DisplayName>太虚神盾</DisplayName>
+		<Desc>讲述借助坤元之力凝练灵气护盾的秘册。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 100 and me:GetGLevel() >= 5 and me:IsLearnedEsoteric("Gong11_LvUpEsoterica_5") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-100);
+					me:LearnEsoteric("Gong11_LvUpEsoterica_5");
+					me:TriggerStory("BaoZang_DCC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DCC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DCC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DCC_9"  Parent="BaseFillingStory">
+		<DisplayName>心炎</DisplayName>
+		<Desc>点燃心念之火，大幅度降低施法间隔和施法消耗。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 100 and me:GetGLevel() >= 5 and me:IsLearnedEsoteric("Gong10_LvUpEsoterica_5") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-100);
+					me:LearnEsoteric("Gong10_LvUpEsoterica_5");
+					me:TriggerStory("BaoZang_DCC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DCC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DCC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DCC_10"  Parent="BaseFillingStory">
+		<DisplayName>天火同人</DisplayName>
+		<Desc>天火同人，天下大同。修习此法可大幅提高机缘。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 100 and me:GetGLevel() >= 5 and me:IsLearnedEsoteric("Gong10_LvUpEsoterica_7") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-100);
+					me:LearnEsoteric("Gong10_LvUpEsoterica_7");
+					me:TriggerStory("BaoZang_DCC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DCC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DCC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DCC_11"  Parent="BaseFillingStory">
+		<DisplayName>九幽炼神</DisplayName>
+		<Desc>夺取一个活物的魂魄，将其炼化来增加自身修为，并同时获取参悟。目标悟性越高，效果越强。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 100 and me:GetGLevel() >= 5 and me:IsLearnedEsoteric("Gong11_LvUpEsoterica_4") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-100);
+					me:LearnEsoteric("Gong11_LvUpEsoterica_4");
+					me:TriggerStory("BaoZang_DCC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DCC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DCC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DCC_12"  Parent="BaseFillingStory">
+		<DisplayName>瞬形法</DisplayName>
+		<Desc>缩地成寸，以为神行。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 100 and me:GetGLevel() >= 5 and me:IsLearnedEsoteric("Gong11_LvUpEsoterica_3") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-100);
+					me:LearnEsoteric("Gong11_LvUpEsoterica_3");
+					me:TriggerStory("BaoZang_DCC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DCC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DCC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DCC_13"  Parent="BaseFillingStory">
+		<DisplayName>凝血神盾</DisplayName>
+		<Desc>上古时期的修行者从无尽的战斗中总结出的技巧，可以短时间将精血融入护体罡气中，提升其强度。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 100 and me:GetGLevel() >= 5 and me:IsLearnedEsoteric("Gong5_LvUpEsoterica_6") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-100);
+					me:LearnEsoteric("Gong5_LvUpEsoterica_6");
+					me:TriggerStory("BaoZang_DCC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DCC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DCC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+
+<Story Name="BaoZang_DCC_14"  Parent="BaseFillingStory">
+		<DisplayName>道心</DisplayName>
+		<Desc>道教至高心法，修持道德之念，得清净之心。修成之后可保心境清明。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 100 and me:GetGLevel() >= 5 and me:IsLearnedEsoteric("Gong6_LvUpEsoterica_3") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-100);
+					me:LearnEsoteric("Gong6_LvUpEsoterica_3");
+					me:TriggerStory("BaoZang_DCC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DCC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DCC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DCC_15"  Parent="BaseFillingStory">
+		<DisplayName>形容返照</DisplayName>
+		<Desc>凝练浊之躯后偷天换日，将形容返照，并借此提升潜力。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 100 and me:GetGLevel() >= 5 and me:IsLearnedEsoteric("Gong5_LvUpEsoterica_1") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-100);
+					me:LearnEsoteric("Gong5_LvUpEsoterica_1");
+					me:TriggerStory("BaoZang_DCC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DCC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DCC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+
+
+<Story Name="BaoZang_DCC_16"  Parent="BaseFillingStory">
+		<DisplayName>五感返照</DisplayName>
+		<Desc>凝练浊之躯后偷天换日，将五感返照，并借此提升潜力。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 100 and me:GetGLevel() >= 5 and me:IsLearnedEsoteric("Gong5_LvUpEsoterica_2") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-100);
+					me:LearnEsoteric("Gong5_LvUpEsoterica_2");
+					me:TriggerStory("BaoZang_DCC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DCC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DCC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+
+
+
+<Story Name="BaoZang_DCC_17"  Parent="BaseFillingStory">
+		<DisplayName>神智返照</DisplayName>
+		<Desc>凝练浊之躯后偷天换日，将神智返照，并借此提升潜力。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 100 and me:GetGLevel() >= 5 and me:IsLearnedEsoteric("Gong5_LvUpEsoterica_3") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-100);
+					me:LearnEsoteric("Gong5_LvUpEsoterica_3");
+					me:TriggerStory("BaoZang_DCC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DCC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DCC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DCC_18"  Parent="BaseFillingStory">
+		<DisplayName>气运返照</DisplayName>
+		<Desc>凝练浊之躯后偷天换日，将气运返照，并借此提升潜力。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 100 and me:GetGLevel() >= 5 and me:IsLearnedEsoteric("Gong5_LvUpEsoterica_4") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-100);
+					me:LearnEsoteric("Gong5_LvUpEsoterica_4");
+					me:TriggerStory("BaoZang_DCC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DCC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DCC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DCC_19"  Parent="BaseFillingStory">
+		<DisplayName>炼身法-速</DisplayName>
+		<Desc>太上门下秘法，以身为丹，以速炼之法淬之，以激发潜力。不过以身为丹炼化十分凶险，会透支生命，加速寿元流逝。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 100 and me:GetGLevel() >= 5 and me:IsLearnedEsoteric("Gong6_LvUpEsoterica_4") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-100);
+					me:LearnEsoteric("Gong6_LvUpEsoterica_4");
+					me:TriggerStory("BaoZang_DCC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DCC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DCC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DCC_20"  Parent="BaseFillingStory">
+		<DisplayName>炼身法-精</DisplayName>
+		<Desc>太上门下秘法，以身为丹，以精炼之法淬之，以激发潜力。不过以身为丹炼化十分凶险，会透支生命，加速寿元流逝。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 100 and me:GetGLevel() >= 5 and me:IsLearnedEsoteric("Gong6_LvUpEsoterica_5") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-100);
+					me:LearnEsoteric("Gong6_LvUpEsoterica_5");
+					me:TriggerStory("BaoZang_DCC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DCC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DCC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DCC_21"  Parent="BaseFillingStory">
+		<DisplayName>炼身法-神</DisplayName>
+		<Desc>太上门下秘法，以身为丹，以神炼之法淬之，以激发潜力。不过以身为丹炼化十分凶险，会透支生命，加速寿元流逝。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 100 and me:GetGLevel() >= 5 and me:IsLearnedEsoteric("Gong6_LvUpEsoterica_6") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-100);
+					me:LearnEsoteric("Gong6_LvUpEsoterica_6");
+					me:TriggerStory("BaoZang_DCC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DCC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DCC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DCC_22"  Parent="BaseFillingStory">
+		<DisplayName>谷神大法，200积分</DisplayName>
+		<Desc>谷神不死，是谓玄牝。习成此法可让寿元大增，且极大的增强灵气的容量。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 200 and me:GetGLevel() >= 5 and me:IsLearnedEsoteric("Gong4_Esoterica_6") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-200);
+					me:LearnEsoteric("Gong4_Esoterica_6");
+					me:TriggerStory("BaoZang_DCC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DCC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DCC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DCC_23"  Parent="BaseFillingStory">
+		<DisplayName>同心诀，200积分</DisplayName>
+		<Desc>以心念体会鸟兽他人之心，感受万灵之态。修习此法可大幅提高魅力与处世能力，且于同心之中增强自身灵力。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 200 and me:GetGLevel() >= 5 and me:IsLearnedEsoteric("Gong7_Esoterica_3") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-200);
+					me:LearnEsoteric("Gong7_Esoterica_3");
+					me:TriggerStory("BaoZang_DCC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DCC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DCC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DCC_24"  Parent="BaseFillingStory">
+		<DisplayName>极剑二，200积分</DisplayName>
+		<Desc>以心念体会鸟兽他人之心，感受万灵之态。修习此法可大幅提高魅力与处世能力，且于同心之中增强自身灵力。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 200 and me:GetGLevel() >= 5 and me:IsLearnedEsoteric("Gong3_LvUpEsoterica_6") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-200);
+					me:LearnEsoteric("Gong3_LvUpEsoterica_6");
+					me:TriggerStory("BaoZang_DCC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DCC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DCC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DCC_25"  Parent="BaseFillingStory">
+		<DisplayName>我剑二，200积分</DisplayName>
+		<Desc>以心念体会鸟兽他人之心，感受万灵之态。修习此法可大幅提高魅力与处世能力，且于同心之中增强自身灵力。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 200 and me:GetGLevel() >= 5 and me:IsLearnedEsoteric("Gong3_LvUpEsoterica_7") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-200);
+					me:LearnEsoteric("Gong3_LvUpEsoterica_7");
+					me:TriggerStory("BaoZang_DCC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DCC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DCC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DDC"  Parent="BaseFillingStory">
+		<DisplayName>第四层</DisplayName>
+		<Desc>御器</Desc>
+		<Selections>
+			<li>
+				<Display>天枢剑意</Display>
+				<OKResult>me:TriggerStory("BaoZang_DDC_1");</OKResult>
+			</li>
+			<li>
+				<Display>天璇剑意</Display>
+				<OKResult>me:TriggerStory("BaoZang_DDC_2");</OKResult>
+			</li>
+			<li>
+				<Display>天玑剑意</Display>
+				<OKResult>me:TriggerStory("BaoZang_DDC_3");</OKResult>
+			</li>
+			<li>
+				<Display>天权剑意</Display>
+				<OKResult>me:TriggerStory("BaoZang_DDC_4");</OKResult>
+			</li>
+			<li>
+				<Display>玉衡剑意</Display>
+				<OKResult>me:TriggerStory("BaoZang_DDC_5");</OKResult>
+			</li>
+			<li>
+				<Display>开阳剑意</Display>
+				<OKResult>me:TriggerStory("BaoZang_DDC_6");</OKResult>
+			</li>
+			<li>
+				<Display>摇光剑意</Display>
+				<OKResult>me:TriggerStory("BaoZang_DDC_7");</OKResult>
+			</li>
+			<li>
+				<Display>下一页</Display>
+				<OKResult>me:TriggerStory("BaoZang_DDC2");</OKResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_JRGL");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DDC2"  Parent="BaseFillingStory">
+		<DisplayName>第四层</DisplayName>
+		<Desc>合一</Desc>
+		<Selections>
+			<li>
+				<Display>天人之体·二阶</Display>
+				<OKResult>me:TriggerStory("BaoZang_DDC_8");</OKResult>
+			</li>
+			<li>
+				<Display>真吾之体·二阶</Display>
+				<OKResult>me:TriggerStory("BaoZang_DDC_9");</OKResult>
+			</li>
+			<li>
+				<Display>修罗之体·二阶</Display>
+				<OKResult>me:TriggerStory("BaoZang_DDC_10");</OKResult>
+			</li>
+			<li>
+				<Display>神火合一·雷泽</Display>
+				<OKResult>me:TriggerStory("BaoZang_DDC_11");</OKResult>
+			</li>
+			<li>
+				<Display>神火合一·上清</Display>
+				<OKResult>me:TriggerStory("BaoZang_DDC_12");</OKResult>
+			</li>
+			<li>
+				<Display>神火合一·心焰</Display>
+				<OKResult>me:TriggerStory("BaoZang_DDC_13");</OKResult>
+			</li>
+			<li>
+				<Display>万法归藏四</Display>
+				<OKResult>me:TriggerStory("BaoZang_DDC_14");</OKResult>
+			</li>
+			<li>
+				<Display>上一页</Display>
+				<OKResult>me:TriggerStory("BaoZang_DDC");</OKResult>
+			</li>
+			<li>
+				<Display>下一页</Display>
+				<OKResult>me:TriggerStory("BaoZang_DDC3");</OKResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_JRGL");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DDC3"  Parent="BaseFillingStory">
+		<DisplayName>第四层</DisplayName>
+		<Desc>圆满</Desc>
+		<Selections>
+			<li>
+				<Display>庚金元神·圆满</Display>
+				<OKResult>me:TriggerStory("BaoZang_DDC_15");</OKResult>
+			</li>
+			<li>
+				<Display>甲木元神·圆满</Display>
+				<OKResult>me:TriggerStory("BaoZang_DDC_16");</OKResult>
+			</li>
+			<li>
+				<Display>壬水元神·圆满</Display>
+				<OKResult>me:TriggerStory("BaoZang_DDC_17");</OKResult>
+			</li>
+			<li>
+				<Display>丙火元神·圆满</Display>
+				<OKResult>me:TriggerStory("BaoZang_DDC_18");</OKResult>
+			</li>
+			<li>
+				<Display>戊土元神·圆满</Display>
+				<OKResult>me:TriggerStory("BaoZang_DDC_19");</OKResult>
+			</li>
+			<li>
+				<Display>焚日真法</Display>
+				<OKResult>me:TriggerStory("BaoZang_DDC_20");</OKResult>
+			</li>
+			<li>
+				<Display>元磁灭绝神光</Display>
+				<OKResult>me:TriggerStory("BaoZang_DDC_21");</OKResult>
+			</li>
+			<li>
+				<Display>上一页</Display>
+				<OKResult>me:TriggerStory("BaoZang_DDC2");</OKResult>
+			</li>			
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_JRGL");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DDC_1"  Parent="BaseFillingStory">
+		<DisplayName>天枢剑意</DisplayName>
+		<Desc>采集天枢星之力为己用，将其化为凌然剑意，突破剑道极限。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 250 and me:GetGLevel() >= 7 and me:IsLearnedEsoteric("Gong8_LvUpEsoterica_1") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-250);
+					me:LearnEsoteric("Gong8_LvUpEsoterica_1");
+					me:TriggerStory("BaoZang_DDC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DDC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DDC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DDC_2"  Parent="BaseFillingStory">
+		<DisplayName>天璇剑意</DisplayName>
+		<Desc>采集天璇星之力为己用，将其化为凌然剑意，突破剑道极限。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 250 and me:GetGLevel() >= 7 and me:IsLearnedEsoteric("Gong8_LvUpEsoterica_2") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-250);
+					me:LearnEsoteric("Gong8_LvUpEsoterica_2");
+					me:TriggerStory("BaoZang_DDC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DDC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DDC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DDC_3"  Parent="BaseFillingStory">
+		<DisplayName>天玑剑意</DisplayName>
+		<Desc>采集天玑星之力为己用，将其化为凌然剑意，突破剑道极限。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 250 and me:GetGLevel() >= 7 and me:IsLearnedEsoteric("Gong8_LvUpEsoterica_3") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-250);
+					me:LearnEsoteric("Gong8_LvUpEsoterica_3");
+					me:TriggerStory("BaoZang_DDC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DDC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DDC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DDC_4"  Parent="BaseFillingStory">
+		<DisplayName>天权剑意</DisplayName>
+		<Desc>采集天权星之力为己用，将其化为凌然剑意，突破剑道极限。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 250 and me:GetGLevel() >= 7 and me:IsLearnedEsoteric("Gong8_LvUpEsoterica_4") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-250);
+					me:LearnEsoteric("Gong8_LvUpEsoterica_4");
+					me:TriggerStory("BaoZang_DDC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DDC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DDC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DDC_5"  Parent="BaseFillingStory">
+		<DisplayName>玉衡剑意</DisplayName>
+		<Desc>采集玉衡星之力为己用，将其化为凌然剑意，突破剑道极限。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 250 and me:GetGLevel() >= 7 and me:IsLearnedEsoteric("Gong8_LvUpEsoterica_5") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-250);
+					me:LearnEsoteric("Gong8_LvUpEsoterica_5");
+					me:TriggerStory("BaoZang_DDC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DDC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DDC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DDC_6"  Parent="BaseFillingStory">
+		<DisplayName>开阳剑意</DisplayName>
+		<Desc>采集开阳星之力为己用，将其化为凌然剑意，突破剑道极限。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 250 and me:GetGLevel() >= 7 and me:IsLearnedEsoteric("Gong8_LvUpEsoterica_6") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-250);
+					me:LearnEsoteric("Gong8_LvUpEsoterica_6");
+					me:TriggerStory("BaoZang_DDC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DDC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DDC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DDC_7"  Parent="BaseFillingStory">
+		<DisplayName>摇光剑意</DisplayName>
+		<Desc>采集摇光星之力为己用，将其化为凌然剑意，突破剑道极限。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 250 and me:GetGLevel() >= 7 and me:IsLearnedEsoteric("Gong8_LvUpEsoterica_7") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-250);
+					me:LearnEsoteric("Gong8_LvUpEsoterica_7");
+					me:TriggerStory("BaoZang_DDC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DDC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DDC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DDC_8"  Parent="BaseFillingStory">
+		<DisplayName>天人之体·二阶</DisplayName>
+		<Desc>将身躯转化为天人之体，大幅提高寿命以及自然恢复力。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 250 and me:GetGLevel() >= 7 and me:IsLearnedEsoteric("Gong9_LvUpEsoterica_6") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-250);
+					me:LearnEsoteric("Gong9_LvUpEsoterica_6");
+					me:TriggerStory("BaoZang_DDC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DDC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DDC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DDC_9"  Parent="BaseFillingStory">
+		<DisplayName>真吾之体·二阶</DisplayName>
+		<Desc>将自身身躯借六道神妙凝练完美，适宜快速突破境界后，根基不稳之人学习，可从根本上大幅提高灵气最大值，弥补根基。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 250 and me:GetGLevel() >= 7 and me:IsLearnedEsoteric("Gong9_LvUpEsoterica_7") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-250);
+					me:LearnEsoteric("Gong9_LvUpEsoterica_7");
+					me:TriggerStory("BaoZang_DDC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DDC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DDC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DDC_10"  Parent="BaseFillingStory">
+		<DisplayName>修罗之体·二阶</DisplayName>
+		<Desc>借修罗道之神妙将身躯转化为修罗之体，大幅提高战斗能力。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 250 and me:GetGLevel() >= 7 and me:IsLearnedEsoteric("Gong9_LvUpEsoterica_8") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-250);
+					me:LearnEsoteric("Gong9_LvUpEsoterica_8");
+					me:TriggerStory("BaoZang_DDC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DDC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DDC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DDC_11"  Parent="BaseFillingStory">
+		<DisplayName>神火合一·雷泽</DisplayName>
+		<Desc>以元神合雷泽之火，神火合一，大幅提高法术威力。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 250 and me:GetGLevel() >= 7 and me:IsLearnedEsoteric("Gong2_LvUpEsoterica_6") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-250);
+					me:LearnEsoteric("Gong2_LvUpEsoterica_6");
+					me:TriggerStory("BaoZang_DDC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DDC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DDC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DDC_12"  Parent="BaseFillingStory">
+		<DisplayName>神火合一·上清</DisplayName>
+		<Desc>以元神合上清先天真焰，神火合一，大幅提高神器练成几率。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 250 and me:GetGLevel() >= 7 and me:IsLearnedEsoteric("Gong9_LvUpEsoterica_7") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-250);
+					me:LearnEsoteric("Gong9_LvUpEsoterica_7");
+					me:TriggerStory("BaoZang_DDC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DDC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DDC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DDC_13"  Parent="BaseFillingStory">
+		<DisplayName>神火合一·心焰</DisplayName>
+		<Desc>以元神合心焰，神火合一，大幅提高灵气最大值。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 250 and me:GetGLevel() >= 7 and me:IsLearnedEsoteric("Gong2_LvUpEsoterica_8") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-250);
+					me:LearnEsoteric("Gong2_LvUpEsoterica_8");
+					me:TriggerStory("BaoZang_DDC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DDC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DDC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DDC_14"  Parent="BaseFillingStory">
+		<DisplayName>万法归藏</DisplayName>
+		<Desc>将自身所学融会贯通，以盗天机。可以在不影响实力的情况下，降低自身道行。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 250 and me:GetGLevel() >= 7 and me:IsLearnedEsoteric("Gong4_LvUpEsoterica_5") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-250);
+					me:LearnEsoteric("Gong4_LvUpEsoterica_5");
+					me:TriggerStory("BaoZang_DDC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DDC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DDC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DDC_15"  Parent="BaseFillingStory">
+		<DisplayName>庚金元神·圆满</DisplayName>
+		<Desc>凝练庚金元神，提高神识，大幅提高御器威力。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 250 and me:GetGLevel() >= 7 and me:IsLearnedEsoteric("Gong4_LvUpEsoterica_6") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-250);
+					me:LearnEsoteric("Gong4_LvUpEsoterica_6");
+					me:TriggerStory("BaoZang_DDC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DDC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DDC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DDC_16"  Parent="BaseFillingStory">
+		<DisplayName>甲木元神·圆满</DisplayName>
+		<Desc>凝练甲木元神，提高根骨，大幅提高寿命。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 250 and me:GetGLevel() >= 7 and me:IsLearnedEsoteric("Gong4_LvUpEsoterica_7") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-250);
+					me:LearnEsoteric("Gong4_LvUpEsoterica_7");
+					me:TriggerStory("BaoZang_DDC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DDC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DDC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DDC_17"  Parent="BaseFillingStory">
+		<DisplayName>壬水元神·圆满</DisplayName>
+		<Desc>凝练壬水元神，提高魅力，提高灵气最大值。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 250 and me:GetGLevel() >= 7 and me:IsLearnedEsoteric("Gong4_LvUpEsoterica_8") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-250);
+					me:LearnEsoteric("Gong4_LvUpEsoterica_8");
+					me:TriggerStory("BaoZang_DDC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DDC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DDC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DDC_18"  Parent="BaseFillingStory">
+		<DisplayName>丙火元神·圆满</DisplayName>
+		<Desc>凝练丙火元神，提高悟性，提高法术威力。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 250 and me:GetGLevel() >= 7 and me:IsLearnedEsoteric("Gong4_LvUpEsoterica_9") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-250);
+					me:LearnEsoteric("Gong4_LvUpEsoterica_9");
+					me:TriggerStory("BaoZang_DDC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DDC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DDC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DDC_19"  Parent="BaseFillingStory">
+		<DisplayName>戊土元神·圆满</DisplayName>
+		<Desc>凝练戊土元神，提高机缘，提高灵气护盾强度。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 250 and me:GetGLevel() >= 7 and me:IsLearnedEsoteric("Gong4_LvUpEsoterica_10") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-250);
+					me:LearnEsoteric("Gong4_LvUpEsoterica_10");
+					me:TriggerStory("BaoZang_DDC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DDC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DDC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DDC_20"  Parent="BaseFillingStory">
+		<DisplayName>焚日真法</DisplayName>
+		<Desc>借助天地间至阳之力，使法术威力大幅增强。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 250 and me:GetGLevel() >= 7 and me:IsLearnedEsoteric("Gong10_LvUpEsoterica_3") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-250);
+					me:LearnEsoteric("Gong10_LvUpEsoterica_3");
+					me:TriggerStory("BaoZang_DDC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DDC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DDC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DDC_21"  Parent="BaseFillingStory">
+		<DisplayName>元磁灭绝神光</DisplayName>
+		<Desc>将自身身躯借六道神妙凝练完美，适宜快速突破境界后，根基不稳之人学习，可从根本上大幅提高灵气最大值，弥补根基。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 250 and me:GetGLevel() >= 7 and me:IsLearnedEsoteric("Gong4_LvUpEsoterica_1") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-250);
+					me:LearnEsoteric("Gong4_LvUpEsoterica_1");
+					me:TriggerStory("BaoZang_DDC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DDC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DDC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+
+<Story Name="BaoZang_DEC"  Parent="BaseFillingStory">
+		<DisplayName>第五层</DisplayName>
+		<Desc>剑气领域</Desc>
+		<Selections>
+			<li>
+				<Display>北斗剑界</Display>
+				<OKResult>me:TriggerStory("BaoZang_DEC_1");</OKResult>
+			</li>
+			<li>
+				<Display>九阳神火界</Display>
+				<OKResult>me:TriggerStory("BaoZang_DEC_2");</OKResult>
+			</li>
+			<li>
+				<Display>九阴真水界</Display>
+				<OKResult>me:TriggerStory("BaoZang_DEC_3");</OKResult>
+			</li>
+			<li>
+				<Display>太上忘情</Display>
+				<OKResult>me:TriggerStory("BaoZang_DEC_4");</OKResult>
+			</li>
+			<li>
+				<Display>不昧真灵</Display>
+				<OKResult>me:TriggerStory("BaoZang_DEC_5");</OKResult>
+			</li>
+			<li>
+				<Display>天道神丹</Display>
+				<OKResult>me:TriggerStory("BaoZang_DEC_6");</OKResult>
+			</li>
+			<li>
+				<Display>天道神器</Display>
+				<OKResult>me:TriggerStory("BaoZang_DEC_7");</OKResult>
+			</li>			
+			<li>
+				<Display>下一页</Display>
+				<OKResult>me:TriggerStory("BaoZang_DEC2");</OKResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_JRGL");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DEC2"  Parent="BaseFillingStory">
+		<DisplayName>第五层</DisplayName>
+		<Desc>炼体</Desc>
+		<Selections>
+			<li>
+				<Display>天人之体·三阶</Display>
+				<OKResult>me:TriggerStory("BaoZang_DEC_8");</OKResult>
+			</li>
+			<li>
+				<Display>真吾之体·三阶</Display>
+				<OKResult>me:TriggerStory("BaoZang_DEC_9");</OKResult>
+			</li>
+			<li>
+				<Display>修罗之体·三阶</Display>
+				<OKResult>me:TriggerStory("BaoZang_DEC_10");</OKResult>
+			</li>
+			<li>
+				<Display>火真之体</Display>
+				<OKResult>me:TriggerStory("BaoZang_DEC_11");</OKResult>
+			</li>
+			<li>
+				<Display>浊之躯</Display>
+				<OKResult>me:TriggerStory("BaoZang_DEC_12");</OKResult>
+			</li>
+			<li>
+				<Display>无漏之身</Display>
+				<OKResult>me:TriggerStory("BaoZang_DEC_13");</OKResult>
+			</li>
+			<li>
+				<Display>新体诀</Display>
+				<OKResult>me:TriggerStory("BaoZang_DEC_14");</OKResult>
+			</li>
+			<li>
+				<Display>上一页</Display>
+				<OKResult>me:TriggerStory("BaoZang_DEC");</OKResult>
+			</li>
+			<li>
+				<Display>下一页</Display>
+				<OKResult>me:TriggerStory("BaoZang_DEC3");</OKResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_JRGL");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DEC3"  Parent="BaseFillingStory">
+		<DisplayName>第五层</DisplayName>
+		<Desc>剑光分化</Desc>
+		<Selections>
+			<li>
+				<Display>极剑·三</Display>
+				<OKResult>me:TriggerStory("BaoZang_DEC_15");</OKResult>
+			</li>
+			<li>
+				<Display>我剑·三</Display>
+				<OKResult>me:TriggerStory("BaoZang_DEC_16");</OKResult>
+			</li>
+			<li>
+				<Display>剑灵</Display>
+				<OKResult>me:TriggerStory("BaoZang_DEC_17");</OKResult>
+			</li>
+			<li>
+				<Display>玄阴诀</Display>
+				<OKResult>me:TriggerStory("BaoZang_DEC_18");</OKResult>
+			</li>
+			<li>
+				<Display>北斗绝式-归一剑</Display>
+				<OKResult>me:TriggerStory("BaoZang_DEC_19");</OKResult>
+			</li>
+			<li>
+				<Display>北斗绝式-北极剑</Display>
+				<OKResult>me:TriggerStory("BaoZang_DEC_20");</OKResult>
+			</li>
+			<li>
+				<Display>幽狱诀</Display>
+				<OKResult>me:TriggerStory("BaoZang_DEC_21");</OKResult>
+			</li>
+			<li>
+				<Display>逆转轮回·秘</Display>
+				<OKResult>me:TriggerStory("BaoZang_DEC_22");</OKResult>
+			</li>
+			<li>
+				<Display>上一页</Display>
+				<OKResult>me:TriggerStory("BaoZang_DEC2");</OKResult>
+			</li>			
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_JRGL");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DEC_1"  Parent="BaseFillingStory">
+		<DisplayName>北斗剑界</DisplayName>
+		<Desc>以大法力在此方区域布下北斗剑界，使场景中所有我方角色法宝威力大幅提高。同一时间只能存在一个结界。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("Gong8_LvUpEsoterica_9") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:LearnEsoteric("Gong8_LvUpEsoterica_9");
+					me:TriggerStory("BaoZang_DEC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DEC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DEC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DEC_2"  Parent="BaseFillingStory">
+		<DisplayName>九阳神火界</DisplayName>
+		<Desc>以大法力在此方区域布下九阳神火之界，使场景温度大幅上升，所有我方角色法术威力大幅提高。同一时间只能存在一个结界。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("Gong10_LvUpEsoterica_4") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:LearnEsoteric("Gong10_LvUpEsoterica_4");
+					me:TriggerStory("BaoZang_DEC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DEC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DEC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DEC_3"  Parent="BaseFillingStory">
+		<DisplayName>九阴真水界</DisplayName>
+		<Desc>以大法力在此方区域布下真水结界，使场景温度大幅下降，所有我方角色自然恢复力，灵气恢复速度大幅提高。同一时间只能存在一个结界。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 0 and me:IsLearnedEsoteric("Gong1_LvUpEsoterica_6") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:LearnEsoteric("Gong1_LvUpEsoterica_6");
+					me:TriggerStory("BaoZang_DEC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DEC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DEC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DEC_4"  Parent="BaseFillingStory">
+		<DisplayName>太上忘情</DisplayName>
+		<Desc>阅览万情，而后忘情。以忘情之心阅人间，万事具足。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 10 and me:IsLearnedEsoteric("Gong7_LvUpEsoterica_5") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:LearnEsoteric("Gong7_LvUpEsoterica_5");
+					me:TriggerStory("BaoZang_DEC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DEC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DEC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DEC_5"  Parent="BaseFillingStory">
+		<DisplayName>不昧真灵</DisplayName>
+		<Desc>凝聚万世记忆，抵达不昧心境。修习此法可使心境通明，永不退转，并大幅提高法术调息时间与释放速度。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 10 and me:IsLearnedEsoteric("Gong9_LvUpEsoterica_4") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:LearnEsoteric("Gong9_LvUpEsoterica_4");
+					me:TriggerStory("BaoZang_DEC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DEC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DEC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DEC_6"  Parent="BaseFillingStory">
+		<DisplayName>天道神丹</DisplayName>
+		<Desc>既度天劫，洞彻天道。如炼丹造诣登峰造极，即可领悟窃天道炼制神丹之术。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 10 and me:IsLearnedEsoteric("God2_Dan") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:LearnEsoteric("God2_Dan");
+					me:TriggerStory("BaoZang_DEC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DEC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DEC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DEC_7"  Parent="BaseFillingStory">
+		<DisplayName>天道神器</DisplayName>
+		<Desc>既度天劫，洞彻天道。如炼器造诣登峰造极，即可领悟窃天道炼制神器之术。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 10 and me:IsLearnedEsoteric("God2_Fabao") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:LearnEsoteric("God2_Fabao");
+					me:TriggerStory("BaoZang_DEC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DEC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DEC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DEC_8"  Parent="BaseFillingStory">
+		<DisplayName>天人之体·三阶</DisplayName>
+		<Desc>将身躯转化为天人之体，大幅提高法术威力。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 10 and me:IsLearnedEsoteric("Gong9_LvUpEsoterica_9") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:LearnEsoteric("Gong9_LvUpEsoterica_9");
+					me:TriggerStory("BaoZang_DEC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DEC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DEC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DEC_9"  Parent="BaseFillingStory">
+		<DisplayName>真吾之体·三阶</DisplayName>
+		<Desc>将自身身躯借六道神妙凝练完美，适宜快速突破境界后，根基不稳之人学习，可从根本上大幅提高灵气最大值，弥补根基。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 10 and me:IsLearnedEsoteric("Gong9_LvUpEsoterica_10") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:LearnEsoteric("Gong9_LvUpEsoterica_10");
+					me:TriggerStory("BaoZang_DEC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DEC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DEC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DEC_10"  Parent="BaseFillingStory">
+		<DisplayName>修罗之体·三阶</DisplayName>
+		<Desc>借修罗道之神妙将身躯转化为修罗之体，大幅提高战斗能力。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 10 and me:IsLearnedEsoteric("Gong9_LvUpEsoterica_11") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:LearnEsoteric("Gong9_LvUpEsoterica_11");
+					me:TriggerStory("BaoZang_DEC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DEC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DEC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DEC_11"  Parent="BaseFillingStory">
+		<DisplayName>火真之体</DisplayName>
+		<Desc>借助天地真火转化为火真之体。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 10 and me:IsLearnedEsoteric("Gong10_LvUpEsoterica_6") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:LearnEsoteric("Gong10_LvUpEsoterica_6");
+					me:TriggerStory("BaoZang_DEC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DEC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DEC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DEC_12"  Parent="BaseFillingStory">
+		<DisplayName>浊之躯</DisplayName>
+		<Desc>借助偷天之力，彻底凝练浊之躯。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 10 and me:IsLearnedEsoteric("Gong5_LvUpEsoterica_5") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:LearnEsoteric("Gong5_LvUpEsoterica_5");
+					me:TriggerStory("BaoZang_DEC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DEC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DEC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DEC_13"  Parent="BaseFillingStory">
+		<DisplayName>无漏之身</DisplayName>
+		<Desc>太上门下对人身皮囊研究之精粹，修习可提高自然恢复力，降低寿命流逝速度。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 10 and me:IsLearnedEsoteric("Gong6_LvUpEsoterica_2") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:LearnEsoteric("Gong6_LvUpEsoterica_2");
+					me:TriggerStory("BaoZang_DEC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DEC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DEC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DEC_14"  Parent="BaseFillingStory">
+		<DisplayName>新体诀</DisplayName>
+		<Desc>将残余的药力完整炼化，肉体如焕然一新，可提高灵气最大值，并提高饮气效率。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 10 and me:IsLearnedEsoteric("Gong6_LvUpEsoterica_1") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:LearnEsoteric("Gong6_LvUpEsoterica_1");
+					me:TriggerStory("BaoZang_DEC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DEC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DEC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DEC_15"  Parent="BaseFillingStory">
+		<DisplayName>极剑·三</DisplayName>
+		<Desc>以剑唯一，舍剑无物，修到极致可提高驾驭法宝数量。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 10 and me:IsLearnedEsoteric("Gong3_LvUpEsoterica_8") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:LearnEsoteric("Gong3_LvUpEsoterica_8");
+					me:TriggerStory("BaoZang_DEC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DEC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DEC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DEC_16"  Parent="BaseFillingStory">
+		<DisplayName>我剑·三</DisplayName>
+		<Desc>以元神合剑的绝世剑法秘诀，修到极致可提高驾驭法宝数量。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 10 and me:IsLearnedEsoteric("Gong3_LvUpEsoterica_9") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:LearnEsoteric("Gong3_LvUpEsoterica_9");
+					me:TriggerStory("BaoZang_DEC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DEC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DEC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DEC_17"  Parent="BaseFillingStory">
+		<DisplayName>剑灵</DisplayName>
+		<Desc>以魔流剑意凝聚剑灵，可提升御器数量。并以此为引，分化一条元神分神。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 10 and me:IsLearnedEsoteric("Gong3_LvUpEsoterica_5") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:LearnEsoteric("Gong3_LvUpEsoterica_5");
+					me:TriggerStory("BaoZang_DEC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DEC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DEC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DEC_18"  Parent="BaseFillingStory">
+		<DisplayName>玄阴诀</DisplayName>
+		<Desc>传承自幽冥的剑法，以玄阴之息凝聚剑意，是自己驾驭法宝的数量增加。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 10 and me:IsLearnedEsoteric("Gong11_LvUpEsoterica_7") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:LearnEsoteric("Gong11_LvUpEsoterica_7");
+					me:TriggerStory("BaoZang_DEC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DEC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DEC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DEC_19"  Parent="BaseFillingStory">
+		<DisplayName>北斗绝式-归一剑</DisplayName>
+		<Desc>北斗洞心劫法最高秘诀，威力绝伦。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 10 and me:IsLearnedEsoteric("Gong8_LvUpEsoterica_11") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:LearnEsoteric("Gong8_LvUpEsoterica_11");
+					me:TriggerStory("BaoZang_DEC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DEC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DEC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DEC_20"  Parent="BaseFillingStory">
+		<DisplayName>北斗绝式-北极剑</DisplayName>
+		<Desc>北斗洞心劫法最高秘诀，威力绝伦。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 10 and me:IsLearnedEsoteric("Gong8_LvUpEsoterica_10") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:LearnEsoteric("Gong8_LvUpEsoterica_10");
+					me:TriggerStory("BaoZang_DEC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DEC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DEC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DEC_21"  Parent="BaseFillingStory">
+		<DisplayName>幽狱诀</DisplayName>
+		<Desc>领悟御器真意，突破御器技能极限7级。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 10 and me:IsLearnedEsoteric("Gong11_LvUpEsoterica_8") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:LearnEsoteric("Gong11_LvUpEsoterica_8");
+					me:TriggerStory("BaoZang_DEC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DEC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DEC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DEC_22"  Parent="BaseFillingStory">
+		<DisplayName>逆转轮回·秘</DisplayName>
+		<Desc>彻底洞彻轮回之秘，运用轮回之力，极大的恢复灵气最低的友方角色之灵气。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 500 and me:GetGLevel() >= 10 and me:IsLearnedEsoteric("Gong9_LvUpEsoterica_5") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-500);
+					me:LearnEsoteric("Gong9_LvUpEsoterica_5");
+					me:TriggerStory("BaoZang_DEC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DEC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DEC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DFC"  Parent="BaseFillingStory">
+		<DisplayName>第六层</DisplayName>
+		<Desc>本源真法</Desc>
+		<Selections>
+			<li>
+				<Display>本源真法-琅琊典</Display>
+				<OKResult>me:TriggerStory("BaoZang_DFC_1");</OKResult>
+			</li>
+			<li>
+				<Display>本源真法-枯荣经</Display>
+				<OKResult>me:TriggerStory("BaoZang_DFC_2");</OKResult>
+			</li>
+			<li>
+				<Display>本源真法-青莲书</Display>
+				<OKResult>me:TriggerStory("BaoZang_DFC_3");</OKResult>
+			</li>
+			<li>
+				<Display>本源真法-明夷录</Display>
+				<OKResult>me:TriggerStory("BaoZang_DFC_4");</OKResult>
+			</li>
+			<li>
+				<Display>本源真法-蕴龙诀</Display>
+				<OKResult>me:TriggerStory("BaoZang_DFC_5");</OKResult>
+			</li>
+			<li>
+				<Display>下一页</Display>
+				<OKResult>me:TriggerStory("BaoZang_DFC2");</OKResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_JRGL");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DFC2"  Parent="BaseFillingStory">
+		<DisplayName>第六层</DisplayName>
+		<Desc>逆源真法</Desc>
+		<Selections>
+			<li>
+				<Display>逆源真法-无妄心魔咒</Display>
+				<OKResult>me:TriggerStory("BaoZang_DFC_6");</OKResult>
+			</li>
+			<li>
+				<Display>逆源真法-大过经</Display>
+				<OKResult>me:TriggerStory("BaoZang_DFC_7");</OKResult>
+			</li>
+			<li>
+				<Display>逆源真法-未济七绝体</Display>
+				<OKResult>me:TriggerStory("BaoZang_DFC_8");</OKResult>
+			</li>
+			<li>
+				<Display>逆源真法-革天录</Display>
+				<OKResult>me:TriggerStory("BaoZang_DFC_9");</OKResult>
+			</li>
+			<li>
+				<Display>逆源真法-否极无咎书</Display>
+				<OKResult>me:TriggerStory("BaoZang_DFC_10");</OKResult>
+			</li>
+			<li>
+				<Display>上一页</Display>
+				<OKResult>me:TriggerStory("BaoZang_DFC");</OKResult>
+			</li>
+			<li>
+				<Display>下一页</Display>
+				<OKResult>me:TriggerStory("BaoZang_DFC3");</OKResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_JRGL");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DFC3"  Parent="BaseFillingStory">
+		<DisplayName>第六层</DisplayName>
+		<Desc>天道化阵</Desc>
+		<Selections>
+			<li>
+				<Display>河洛先天神阵：魔帝真解</Display>
+				<OKResult>me:TriggerStory("BaoZang_DFC_11");</OKResult>
+			</li>
+			<li>
+				<Display>天道化阵：日月之道</Display>
+				<OKResult>me:TriggerStory("BaoZang_DFC_12");</OKResult>
+			</li>
+			<li>
+				<Display>天道化阵：阴阳之道</Display>
+				<OKResult>me:TriggerStory("BaoZang_DFC_13");</OKResult>
+			</li>
+			<li>
+				<Display>天道化阵：宇宙之道</Display>
+				<OKResult>me:TriggerStory("BaoZang_DFC_14");</OKResult>
+			</li>
+			<li>
+				<Display>天道化阵：始终之道</Display>
+				<OKResult>me:TriggerStory("BaoZang_DFC_15");</OKResult>
+			</li>
+			<li>
+				<Display>天道化阵：生灭之道</Display>
+				<OKResult>me:TriggerStory("BaoZang_DFC_16");</OKResult>
+			</li>
+			<li>
+				<Display>天道化阵：造化之道</Display>
+				<OKResult>me:TriggerStory("BaoZang_DFC_17");</OKResult>
+			</li>
+			<li>
+				<Display>上一页</Display>
+				<OKResult>me:TriggerStory("BaoZang_DFC2");</OKResult>
+			</li>			
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_JRGL");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DFC_1"  Parent="BaseFillingStory">
+		<DisplayName>本源真法-琅琊典</DisplayName>
+		<Desc>以天地灵根之灵性为媒介，窥视五行大道而领悟的秘典。所谓道可道，非常道，此乃修行者本尊直面大道而产生的感悟，故很难传授他人。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 2000 and me:GetGLevel() >= 11 and me:IsLearnedEsoteric("Esoterica_LingZhi_MiFa_Ling_Jin") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-2000);
+					me:LearnEsoteric("Esoterica_LingZhi_MiFa_Ling_Jin");
+					me:TriggerStory("BaoZang_DFC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DFC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DFC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DFC_2"  Parent="BaseFillingStory">
+		<DisplayName>本源真法-枯荣经</DisplayName>
+		<Desc>以天地灵根之灵性为媒介，窥视五行大道而领悟的秘典。所谓道可道，非常道，此乃修行者本尊直面大道而产生的感悟，故很难传授他人。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 2000 and me:GetGLevel() >= 11 and me:IsLearnedEsoteric("Esoterica_LingZhi_MiFa_Ling_Mu") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-2000);
+					me:LearnEsoteric("Esoterica_LingZhi_MiFa_Ling_Mu");
+					me:TriggerStory("BaoZang_DFC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DFC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DFC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DFC_3"  Parent="BaseFillingStory">
+		<DisplayName>本源真法-青莲书</DisplayName>
+		<Desc>以天地灵根之灵性为媒介，窥视五行大道而领悟的秘典。所谓道可道，非常道，此乃修行者本尊直面大道而产生的感悟，故很难传授他人。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 2000 and me:GetGLevel() >= 11 and me:IsLearnedEsoteric("Esoterica_LingZhi_MiFa_Ling_Shui") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-2000);
+					me:LearnEsoteric("Esoterica_LingZhi_MiFa_Ling_Shui");
+					me:TriggerStory("BaoZang_DFC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DFC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DFC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DFC_4"  Parent="BaseFillingStory">
+		<DisplayName>本源真法-明夷录</DisplayName>
+		<Desc>以天地灵根之灵性为媒介，窥视五行大道而领悟的秘典。所谓道可道，非常道，此乃修行者本尊直面大道而产生的感悟，故很难传授他人。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 2000 and me:GetGLevel() >= 11 and me:IsLearnedEsoteric("Esoterica_LingZhi_MiFa_Ling_Huo") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-2000);
+					me:LearnEsoteric("Esoterica_LingZhi_MiFa_Ling_Huo");
+					me:TriggerStory("BaoZang_DFC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DFC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DFC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DFC_5"  Parent="BaseFillingStory">
+		<DisplayName>本源真法-蕴龙诀</DisplayName>
+		<Desc>以天地灵根之灵性为媒介，窥视五行大道而领悟的秘典。所谓道可道，非常道，此乃修行者本尊直面大道而产生的感悟，故很难传授他人。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 2000 and me:GetGLevel() >= 11 and me:IsLearnedEsoteric("Esoterica_LingZhi_MiFa_Ling_Tu") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-2000);
+					me:LearnEsoteric("Esoterica_LingZhi_MiFa_Ling_Tu");
+					me:TriggerStory("BaoZang_DFC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DFC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DFC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DFC_6"  Parent="BaseFillingStory">
+		<DisplayName>逆源真法-无妄心魔咒</DisplayName>
+		<Desc>以天地灵根之灵性为媒介，窥视五行大道而领悟的秘典。所谓道可道，非常道，此乃修行者本尊直面大道而产生的感悟，故很难传授他人。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 2000 and me:GetGLevel() >= 11 and me:IsLearnedEsoteric("Esoterica_LingZhi_MiFa_Sha_Jin") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-2000);
+					me:LearnEsoteric("Esoterica_LingZhi_MiFa_Sha_Jin");
+					me:TriggerStory("BaoZang_DFC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DFC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DFC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DFC_7"  Parent="BaseFillingStory">
+		<DisplayName>逆源真法-大过经</DisplayName>
+		<Desc>以天地灵根之灵性为媒介，窥视五行大道而领悟的秘典。所谓道可道，非常道，此乃修行者本尊直面大道而产生的感悟，故很难传授他人。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 2000 and me:GetGLevel() >= 11 and me:IsLearnedEsoteric("Esoterica_LingZhi_MiFa_Sha_Mu") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-2000);
+					me:LearnEsoteric("Esoterica_LingZhi_MiFa_Sha_Mu");
+					me:TriggerStory("BaoZang_DFC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DFC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DFC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DFC_8"  Parent="BaseFillingStory">
+		<DisplayName>逆源真法-未济七绝体</DisplayName>
+		<Desc>以天地灵根之灵性为媒介，窥视五行大道而领悟的秘典。所谓道可道，非常道，此乃修行者本尊直面大道而产生的感悟，故很难传授他人。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 2000 and me:GetGLevel() >= 11 and me:IsLearnedEsoteric("Esoterica_LingZhi_MiFa_Sha_Shui") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-2000);
+					me:LearnEsoteric("Esoterica_LingZhi_MiFa_Sha_Shui");
+					me:TriggerStory("BaoZang_DFC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DFC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DFC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DFC_9"  Parent="BaseFillingStory">
+		<DisplayName>逆源真法-革天录</DisplayName>
+		<Desc>以天地灵根之灵性为媒介，窥视五行大道而领悟的秘典。所谓道可道，非常道，此乃修行者本尊直面大道而产生的感悟，故很难传授他人。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 2000 and me:GetGLevel() >= 11 and me:IsLearnedEsoteric("Esoterica_LingZhi_MiFa_Sha_Huo") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-2000);
+					me:LearnEsoteric("Esoterica_LingZhi_MiFa_Sha_Huo");
+					me:TriggerStory("BaoZang_DFC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DFC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DFC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DFC_10"  Parent="BaseFillingStory">
+		<DisplayName>逆源真法-否极无咎书</DisplayName>
+		<Desc>以天地灵根之灵性为媒介，窥视五行大道而领悟的秘典。所谓道可道，非常道，此乃修行者本尊直面大道而产生的感悟，故很难传授他人。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 2000 and me:GetGLevel() >= 11 and me:IsLearnedEsoteric("Esoterica_LingZhi_MiFa_Sha_Tu") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-2000);
+					me:LearnEsoteric("Esoterica_LingZhi_MiFa_Sha_Tu");
+					me:TriggerStory("BaoZang_DFC2");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DFC2");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DFC2");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DFC_11"  Parent="BaseFillingStory">
+		<DisplayName>河洛先天神阵：魔帝真解</DisplayName>
+		<Desc>魔帝付辟空以绝代天资重编先天河洛之阵，创出其变阵阵眼，极大的扩展了阵法之道的应用。乃承上启下的绝代之作。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 2000 and me:GetGLevel() >= 11 and me:IsLearnedEsoteric("Esoterica_ZhenFa_15") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-2000);
+					me:LearnEsoteric("Esoterica_ZhenFa_15");
+					me:TriggerStory("BaoZang_DFC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DFC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DFC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DFC_12"  Parent="BaseFillingStory">
+		<DisplayName>天道化阵：日月之道</DisplayName>
+		<Desc>自天地之道中领悟的阵法奥义。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 2000 and me:GetGLevel() >= 11 and me:IsLearnedEsoteric("Esoterica_ZhenFa_16") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-2000);
+					me:LearnEsoteric("Esoterica_ZhenFa_16");
+					me:TriggerStory("BaoZang_DFC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DFC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DFC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DFC_13"  Parent="BaseFillingStory">
+		<DisplayName>天道化阵：阴阳之道</DisplayName>
+		<Desc>自天地之道中领悟的阵法奥义。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 2000 and me:GetGLevel() >= 11 and me:IsLearnedEsoteric("Esoterica_ZhenFa_17") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-2000);
+					me:LearnEsoteric("Esoterica_ZhenFa_17");
+					me:TriggerStory("BaoZang_DFC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DFC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DFC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DFC_14"  Parent="BaseFillingStory">
+		<DisplayName>天道化阵：宇宙之道</DisplayName>
+		<Desc>自天地之道中领悟的阵法奥义。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 2000 and me:GetGLevel() >= 11 and me:IsLearnedEsoteric("Esoterica_ZhenFa_18") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-2000);
+					me:LearnEsoteric("Esoterica_ZhenFa_18");
+					me:TriggerStory("BaoZang_DFC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DFC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DFC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DFC_15"  Parent="BaseFillingStory">
+		<DisplayName>天道化阵：始终之道</DisplayName>
+		<Desc>自天地之道中领悟的阵法奥义。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 2000 and me:GetGLevel() >= 11 and me:IsLearnedEsoteric("Esoterica_ZhenFa_19") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-2000);
+					me:LearnEsoteric("Esoterica_ZhenFa_19");
+					me:TriggerStory("BaoZang_DFC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DFC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DFC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DFC_16"  Parent="BaseFillingStory">
+		<DisplayName>天道化阵：生灭之道</DisplayName>
+		<Desc>自天地之道中领悟的阵法奥义。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 2000 and me:GetGLevel() >= 11 and me:IsLearnedEsoteric("Esoterica_ZhenFa_20") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-2000);
+					me:LearnEsoteric("Esoterica_ZhenFa_20");
+					me:TriggerStory("BaoZang_DFC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DFC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DFC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DFC_17"  Parent="BaseFillingStory">
+		<DisplayName>天道化阵：造化之道</DisplayName>
+		<Desc>自天地之道中领悟的阵法奥义。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 2000 and me:GetGLevel() >= 11 and me:IsLearnedEsoteric("Esoterica_ZhenFa_21") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-2000);
+					me:LearnEsoteric("Esoterica_ZhenFa_21");
+					me:TriggerStory("BaoZang_DFC3");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DFC3");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_DFC3");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DGC"  Parent="BaseFillingStory">
+		<DisplayName>第七层</DisplayName>
+		<Desc>鸿蒙之阵，所向披靡</Desc>
+		<Selections>
+			<li>
+				<Display>鸿蒙之阵：天地开辟</Display>
+				<OKResult>me:TriggerStory("BaoZang_DGC_1");</OKResult>
+			</li>
+			<li>
+				<Display>鸿蒙之阵：时空衍生</Display>
+				<OKResult>me:TriggerStory("BaoZang_DGC_2");</OKResult>
+			</li>
+			<li>
+				<Display>鸿蒙之阵：万灵生发</Display>
+				<OKResult>me:TriggerStory("BaoZang_DGC_3");</OKResult>
+			</li>
+			<li>
+				<Display>鸿蒙之阵：天地归寂</Display>
+				<OKResult>me:TriggerStory("BaoZang_DGC_4");</OKResult>
+			</li>
+			<li>
+				<Display>鸿蒙之阵：时空尽衰</Display>
+				<OKResult>me:TriggerStory("BaoZang_DGC_5");</OKResult>
+			</li>
+			<li>
+				<Display>鸿蒙之阵：万物陨灭</Display>
+				<OKResult>me:TriggerStory("BaoZang_DGC_6");</OKResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[	
+				me:TriggerStory("BaoZang_JRGL");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DGC_1"  Parent="BaseFillingStory">
+		<DisplayName>鸿蒙之阵：天地开辟</DisplayName>
+		<Desc>自天地之道中领悟的阵法奥义。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20000 and me:GetGLevel() >= 12 and me:IsLearnedEsoteric("Esoterica_ZhenFa_22") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20000);
+					me:LearnEsoteric("Esoterica_ZhenFa_22");
+					me:TriggerStory("BaoZang_DGC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DGC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[
+				me:TriggerStory("BaoZang_DGC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+<Story Name="BaoZang_DGC_2"  Parent="BaseFillingStory">
+		<DisplayName>鸿蒙之阵：时空衍生</DisplayName>
+		<Desc>自天地之道中领悟的阵法奥义。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20000 and me:GetGLevel() >= 12 and me:IsLearnedEsoteric("Esoterica_ZhenFa_23") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20000);
+					me:LearnEsoteric("Esoterica_ZhenFa_23");
+					me:TriggerStory("BaoZang_DGC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DGC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[
+				me:TriggerStory("BaoZang_DGC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DGC_3"  Parent="BaseFillingStory">
+		<DisplayName>鸿蒙之阵：万灵生发</DisplayName>
+		<Desc>自天地之道中领悟的阵法奥义。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20000 and me:GetGLevel() >= 12 and me:IsLearnedEsoteric("Esoterica_ZhenFa_24") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20000);
+					me:LearnEsoteric("Esoterica_ZhenFa_24");
+					me:TriggerStory("BaoZang_DGC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DGC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[
+				me:TriggerStory("BaoZang_DGC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DGC_4"  Parent="BaseFillingStory">
+		<DisplayName>鸿蒙之阵：天地归寂</DisplayName>
+		<Desc>自天地之道中领悟的阵法奥义。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20000 and me:GetGLevel() >= 12 and me:IsLearnedEsoteric("Esoterica_ZhenFa_25") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20000);
+					me:LearnEsoteric("Esoterica_ZhenFa_25");
+					me:TriggerStory("BaoZang_DGC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DGC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[
+				me:TriggerStory("BaoZang_DGC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DGC_5"  Parent="BaseFillingStory">
+		<DisplayName>鸿蒙之阵：时空尽衰</DisplayName>
+		<Desc>自天地之道中领悟的阵法奥义。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20000 and me:GetGLevel() >= 12 and me:IsLearnedEsoteric("Esoterica_ZhenFa_26") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20000);
+					me:LearnEsoteric("Esoterica_ZhenFa_26");
+					me:TriggerStory("BaoZang_DGC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DGC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[
+				me:TriggerStory("BaoZang_DGC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="BaoZang_DGC_6"  Parent="BaseFillingStory">
+		<DisplayName>鸿蒙之阵：万物陨灭</DisplayName>
+		<Desc>自天地之道中领悟的阵法奥义。</Desc>
+		<Selections>
+			<li>
+				<Display>确认学习</Display>
+				<Tip>境界/积分点</Tip>
+				<Condition><![CDATA[	
+				world:GetWorldFlag(287) >= 20000 and me:GetGLevel() >= 12 and me:IsLearnedEsoteric("Esoterica_ZhenFa_27") == false
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+					world:SetWorldFlag(287,world:GetWorldFlag(287)-20000);
+					me:LearnEsoteric("Esoterica_ZhenFa_27");
+					me:TriggerStory("BaoZang_DGC");
+				]]>	
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]没有足够的积分点数或境界不足或已经学习该秘籍，不能兑换该秘籍。");me:TriggerStory("BaoZang_DGC");</NOResult>
+			</li>
+			<li>
+				<Display>返回入口</Display>
+				<OKResult><![CDATA[
+				me:TriggerStory("BaoZang_DGC");
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+
+
+</List></Stories>

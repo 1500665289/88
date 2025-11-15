@@ -1,0 +1,25 @@
+﻿<ModifierDefs><List>	
+		
+	<Modifier Name="FeatureModifier_DongShiZhang1" Type="Normal">
+		<DisplayName>魔化</DisplayName>
+		<Desc>沟通天魔，将身体完全魔化，身体素质大幅度上升</Desc>
+		<MaxStack>1</MaxStack>
+		<Duration>-1</Duration>
+		<Display>0</Display>
+		<GlobleModifiers>
+			<li>FeatureModifier_DongShiZhang2</li>
+		</GlobleModifiers>
+	</Modifier> 	
+	<Modifier Name="FeatureModifier_DongShiZhang2" Type="Normal">
+		<DisplayName>魔化</DisplayName>
+		<Desc>沟通天魔，将身体完全魔化，身体素质大幅度上升</Desc>
+		<MaxStack>1</MaxStack>
+		<Duration>-1</Duration>
+		<Display>1</Display>
+		<Properties>
+			<li Name="GlobalEfficiency" AddP="0.2"/>
+			<li Name="MoveSpeed" AddP="0.2"/>
+		</Properties>
+	</Modifier> 
+	
+</List></ModifierDefs>

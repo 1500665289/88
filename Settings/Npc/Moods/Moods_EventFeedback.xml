@@ -1,0 +1,288 @@
+﻿<MoodDefs><List>
+		
+	<Mood Name="Sleep2">
+		<DisplayName>好难过</DisplayName>
+		<Desc>梦到被强奸了，好难过……</Desc>
+		<StoryDesc>正因梦到被强奸了一晚上而满面倦容</StoryDesc>
+		<MaxStack>3</MaxStack>
+		<StackRatio>1</StackRatio>
+		<Value>-8</Value>
+		<Duration>0.8</Duration>
+	</Mood>
+	
+	<Mood Name="Sleep3">
+		<DisplayName>睡觉被人弄</DisplayName>
+		<Desc>总感觉有人在扒我裤衩子。</Desc>
+		<StoryDesc>是不是正在偷看的你？你个老玻璃</StoryDesc>
+		<MaxStack>6</MaxStack>
+		<StackRatio>0.6</StackRatio>
+		<Value>-8</Value>
+		<Duration>0.5</Duration>
+	</Mood>
+	
+	<Mood Name="Sleep7">
+		<DisplayName>鬼压床</DisplayName>
+		<Desc>被鬼压床了，一晚上担惊受怕，动也不能动。</Desc>
+		<StoryDesc>正因鬼压床而暗自抱怨</StoryDesc>
+		<MaxStack>1</MaxStack>
+		<StackRatio>0.4</StackRatio>
+		<Value>-15</Value>
+		<Duration>0.5</Duration>
+	</Mood>
+
+	<Mood Name="Sleep6">
+		<DisplayName>在地上被淦</DisplayName>
+		<Desc>在地板被淦了一夜，全身骨头要散架了。</Desc>
+		<StoryDesc>正因在地板上被淦了一夜而全身酸痛</StoryDesc>
+		<MaxStack>1</MaxStack>
+		<StackRatio>0.4</StackRatio>
+		<Value>-15</Value>
+		<Duration>0.5</Duration>
+	</Mood>
+
+
+	<Mood Name="Sleep8">
+		<DisplayName>做春梦</DisplayName>
+		<Desc>梦到和那个人嘿嘿嘿，真的棒……</Desc>
+		<StoryDesc>正因做了春梦而一脸回味</StoryDesc>
+		<MaxStack>3</MaxStack>
+		<StackRatio>1</StackRatio>
+		<Value>8</Value>
+		<Duration>0.8</Duration>
+	</Mood>
+
+	<Mood Name="Work">
+		<DisplayName>被调戏</DisplayName>
+		<Desc>被调戏了一下，让人乐在其中。</Desc>
+		<StoryDesc>正因为被调戏了一下而满足</StoryDesc>
+		<MaxStack>3</MaxStack>
+		<StackRatio>0.8</StackRatio>
+		<Value>4</Value>
+		<Duration>0.5</Duration>
+	</Mood>		
+	
+
+	<Mood Name="SocialContact6">
+		<DisplayName>滚床单</DisplayName>
+		<Desc>和[TXT]翻滚了一会，觉得很开心。</Desc>
+		<StoryDesc>刚和别人滚了床单，看上去很振奋</StoryDesc>
+		<MaxStack>3</MaxStack>
+		<StackRatio>0.8</StackRatio>
+		<Value>8</Value>
+		<Duration>0.5</Duration>
+	</Mood>
+	
+	<Mood Name="SocialContact12">
+		<DisplayName>他好像不行</DisplayName>
+		<Desc>[TXT]居然只有2分钟，这可怎么办才好。</Desc>
+		<StoryDesc>正在为恋人不行而感到痛苦纠结</StoryDesc>
+		<MaxStack>1</MaxStack>
+		<StackRatio>0.8</StackRatio>
+		<Value>-25</Value>
+		<Duration>15</Duration>
+	</Mood>
+			
+	<Mood Name="SocialContact8">
+		<DisplayName>养眼</DisplayName>
+		<Desc>[TXT]哇哦，今天白色。</Desc>
+		<StoryDesc>你瞅啥？</StoryDesc>
+		<MaxStack>3</MaxStack>
+		<StackRatio>0.8</StackRatio>
+		<Value>4</Value>
+		<Duration>0.5</Duration>
+	</Mood>
+
+	<Mood Name="SocialContact9">
+		<DisplayName>被揩油</DisplayName>
+		<Desc>被[TXT]的吃了豆腐，还行，有点温柔</Desc>
+		<StoryDesc>刚刚被某人吃豆腐</StoryDesc>
+		<MaxStack>3</MaxStack>
+		<StackRatio>0.8</StackRatio>
+		<Value>4</Value>
+		<Duration>0.5</Duration>
+	</Mood>
+	
+	<Mood Name="SocialContact16">
+		<DisplayName>成为夫妻</DisplayName>
+		<Desc>和[TXT]成为夫妻，嘿嘿，天怎么还没黑？</Desc>
+		<MaxStack>1</MaxStack>
+		<StackRatio>0.8</StackRatio>
+		<Value>40</Value>
+		<Duration>10</Duration>
+	</Mood>
+		
+	<Mood Name="SocialContact14">
+		<DisplayName>被拒绝</DisplayName>
+		<Desc>向[TXT]表白，被拒绝了，信不信强奸你？</Desc>
+		<StoryDesc>还沉浸在表白失败的痛苦中</StoryDesc>
+		<MaxStack>1</MaxStack>
+		<StackRatio>0.8</StackRatio>
+		<Value>-15</Value>
+		<Duration>5</Duration>
+	</Mood>
+
+	<Mood Name="Insult">
+		<DisplayName>侮辱</DisplayName>
+		<Desc>被[TXT]侮辱了，心里很难过。他明明说我只看看的</Desc>
+		<StoryDesc>正为刚才被侮辱而耿耿于怀</StoryDesc>
+		<MaxStack>3</MaxStack>
+		<StackRatio>0.8</StackRatio>
+		<Value>-8</Value>
+		<Duration>2</Duration>
+	</Mood>
+	
+	
+	<Mood Name="FailInLove">
+		<DisplayName>沦陷</DisplayName>
+		<Desc>我爱上了[TXT]，这感觉真奇妙</Desc>
+		<StoryDesc>正因为恋爱而傻笑</StoryDesc>
+		<MaxStack>1</MaxStack>
+		<StackRatio>1</StackRatio>
+		<Value>25</Value>
+		<Duration>4</Duration>
+	</Mood>
+
+	<Mood Name="Sleep1">
+		<DisplayName>好舒服</DisplayName>
+		<Desc>嘿嘿嘿，昨天好舒服。</Desc>
+		<StoryDesc>正因刚刚发生的事情而觉得好舒服</StoryDesc>
+		<MaxStack>1</MaxStack>
+		<StackRatio>0.5</StackRatio>
+		<Value>15</Value>
+		<Duration>0.5</Duration>
+	</Mood>
+	<Mood Name="Sleep4">
+		<DisplayName>被人脱衣服</DisplayName>
+		<Desc>昨晚睡觉谁把我衣服脱了?想干嘛？想冻死我？</Desc>
+		<StoryDesc>正因天冷没睡好而精神不振</StoryDesc>
+		<MaxStack>1</MaxStack>
+		<StackRatio>0.4</StackRatio>
+		<Value>-8</Value>
+		<Duration>0.5</Duration>
+	</Mood>
+	<Mood Name="Sleep5">
+		<DisplayName>被人骑</DisplayName>
+		<Desc>感觉昨晚被好几个压在身下，喘不上气。</Desc>
+		<StoryDesc>正因被人骑而精神萎靡</StoryDesc>
+		<MaxStack>1</MaxStack>
+		<StackRatio>0.4</StackRatio>
+		<Value>-8</Value>
+		<Duration>0.5</Duration>
+	</Mood>
+	
+	<Mood Name="SleepWithWhat">
+		<DisplayName>别这样</DisplayName>
+		<Desc>为什么要让我亲下面，为什么要那样对我。。</Desc>
+		<StoryDesc>为什么每天都这样？</StoryDesc>
+		<MaxStack>1</MaxStack>
+		<StackRatio>1</StackRatio>
+		<Value>-10</Value>
+		<Duration>0.5</Duration>
+	</Mood>
+	
+	<Mood Name="StayWithGood"> <!--作用于喜欢的人在身边的时候-->
+		<DisplayName>讨厌啦</DisplayName>
+		<Desc>刚才和[TXT]亲亲，可是他怎么一直伸舌头，还摸我那里，讨厌</Desc>
+		<StoryDesc>正回味刚才的一吻</StoryDesc>
+		<StoryDesc></StoryDesc>
+		<MaxStack>10</MaxStack>
+		<StackRatio>0.8</StackRatio>
+		<Value>10</Value>
+		<Duration>0.5</Duration>
+	</Mood>
+	<Mood Name="SleepWithSpouse"><!--夫妻睡在一起-->
+		<DisplayName>巫山云雨</DisplayName>
+		<Desc>和[TXT]住在一起，每天总是翻云覆雨。。有点受不了了。。</Desc>
+		<StoryDesc>正因想起昨晚的事而露出幸福的微笑</StoryDesc>
+		<MaxStack>5</MaxStack>
+		<StackRatio>0.8</StackRatio>
+		<Value>50</Value>
+		<Duration>0.5</Duration>
+	</Mood>
+	<Mood Name="SleepWithLover"><!--恋人住在一起-->
+		<DisplayName>同居的日子</DisplayName>
+		<Desc>和[TXT]住在一起，好害羞，[TXT]好像只会一招。。</Desc>
+		<StoryDesc>正因为想起昨晚的事而微微不好意思</StoryDesc>
+		<MaxStack>5</MaxStack>
+		<StackRatio>0.8</StackRatio>
+		<Value>5</Value>
+		<Duration>0.5</Duration>
+	</Mood>
+		
+	<Mood Name="INeedClothesF" Group="NeedClothes">
+		<DisplayName>需要衣服</DisplayName>
+		<Desc>啊！为什么我没有穿衣服？/捂胸，你看什么看，下流</Desc>
+		<StoryDesc>你看什么看，下流</StoryDesc>
+		<MaxStack>1</MaxStack>
+		<StackRatio>1</StackRatio>
+		<Value>-25</Value>
+		<Duration>-1</Duration>
+	</Mood>
+	<Mood Name="INeedTrousersF" Group="NeedTrousers">
+		<DisplayName>需要裤子</DisplayName>
+		<Desc>啊！为什么我没有...?/捂脸，你看什么看，流氓</Desc>
+		<StoryDesc>你看什么看，流氓</StoryDesc>
+		<MaxStack>1</MaxStack>
+		<StackRatio>1</StackRatio>
+		<Value>-25</Value>
+		<Duration>-1</Duration>
+	</Mood>
+			
+	<Mood Name="TerribleThing1">
+		<DisplayName>被强奸</DisplayName>
+		<Desc>我被强奸了，他怎么可以这样对我。</Desc>
+		<StoryDesc>他怎么能这样对我？</StoryDesc>
+		<MaxStack>5</MaxStack>
+		<StackRatio>1.4</StackRatio>
+		<Value>-25</Value>
+		<Duration>20</Duration>
+	</Mood>
+	<Mood Name="TerribleThing2">
+		<DisplayName>目睹别人被强奸</DisplayName>
+		<Desc>亲眼目睹了[TXT]被强奸，我眼睛都没眨一下。</Desc>
+		<StoryDesc>他不会也来强奸我吧？</StoryDesc>
+		<MaxStack>5</MaxStack>
+		<StackRatio>1.4</StackRatio>
+		<Value>-8</Value>
+		<Duration>2</Duration>
+	</Mood>
+	<Mood Name="TerribleThing3">
+		<DisplayName>朋友被强奸</DisplayName>
+		<Desc>目睹了我的[TXT]被强奸，我眼睛都没眨一下。。</Desc>
+		<StoryDesc>正因为目睹朋友被强奸又怒又怕</StoryDesc>
+		<MaxStack>5</MaxStack>
+		<StackRatio>1.4</StackRatio>
+		<Value>-15</Value>
+		<Duration>5</Duration>
+	</Mood>
+	<Mood Name="TerribleThing4">
+		<DisplayName>爱人被强奸</DisplayName>
+		<Desc>目睹了我的[TXT]被强奸，我眼睛都没眨一下。。</Desc>
+		<StoryDesc>正因为目睹恋人被强奸而又怒又怕</StoryDesc>
+		<MaxStack>5</MaxStack>
+		<StackRatio>1.4</StackRatio>
+		<Value>-100</Value>
+		<Duration>5</Duration>
+	</Mood>
+	<Mood Name="TerribleThing5">
+		<DisplayName>为亲人难过</DisplayName>
+		<Desc>目睹了我的[TXT]被强奸，我眼睛都没眨一下。。</Desc>
+		<StoryDesc>正因为目睹亲人被强奸而又怒又怕</StoryDesc>
+		<MaxStack>5</MaxStack>
+		<StackRatio>1.4</StackRatio>
+		<Value>-30</Value>
+		<Duration>10</Duration>
+	</Mood>
+	<Mood Name="TerribleThing6">
+		<DisplayName>目睹可怕的事</DisplayName>
+		<Desc>他好像对那尸体做了什么。。</Desc>
+		<StoryDesc>正因为目睹发生的可怕的事而担忧</StoryDesc>
+		<MaxStack>5</MaxStack>
+		<StackRatio>1.4</StackRatio>
+		<Value>-8</Value>
+		<Duration>2</Duration>
+	</Mood>
+	
+	
+	
+</List></MoodDefs>

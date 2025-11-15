@@ -1,0 +1,78 @@
+﻿<Stories><List>	
+<!--系统使用，不能修改-->
+
+	<Story Name="Story_Item_E_FaBaoBox" Parent="BaseFillingStory">
+		<DisplayName>太一宝匣</DisplayName>
+		<Desc>在灭门之夜，你发现器庐禁法被破，你不忍派中至宝尽数被洗劫，于是拼死闯入其中，将几件珍贵的法宝装入匣中带走。</Desc>
+		<Kind>None</Kind>
+		<Selections>
+			<li>
+				<Display>打开</Display>
+				<OKResult>
+				<![CDATA[	
+				me:AddMsg(XT("[NAME]开了太一宝匣，取出其中的物件。"));me:DropFabao(0,"Item_WeaponSword",nil,nil,nil,1,me:RandomInt(3, 9));me:DropFabao(0,"Item_WeaponSword",nil,nil,nil,1,me:RandomInt(1, 12));me:DropFabao(0,"Item_WeaponSword",nil,nil,nil,1,me:RandomInt(6, 11));story:RemoveBindItem();
+				]]>		
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+
+<Story Name="Story_Item_SpringBox" Parent="BaseFillingStory">
+		<DisplayName>年货</DisplayName>
+		<Desc>尝试打开此物。</Desc>
+		<Kind>None</Kind>
+		<Selections>
+			<li>
+				<Display>打开</Display>
+				<OKResult>
+				<![CDATA[
+				me:AddMsg(XT("[NAME]打开年货，发现其中除了有许多饺子和炮仗，还有很多异界小妖沿路收集的天材地宝，真是大有收获！"));me:DropAwardItem("Item_Jiaozi",me:RandomInt(10,61));me:DropAwardItem("Item_Firecracker",me:RandomInt(1,6));me:DropAwardItemFromCache(story.ItemCache3, 1, me:RandomInt(1,6));me:DropAwardItemFromCache(story.ItemCache4, 1, me:RandomInt(1,6));story:RemoveBindItem();
+				local nR = me:RandomInt(1,6)
+					if nR == 1 then
+						me:AddMsg(XT("获得10积分。"));world:SetWorldFlag(287,world:GetWorldFlag(287)+10);world:SetWorldFlag(286,world:GetWorldFlag(286)+10);
+					elseif nR == 2 then
+						me:AddMsg(XT("获得30积分。"));world:SetWorldFlag(287,world:GetWorldFlag(287)+30);world:SetWorldFlag(286,world:GetWorldFlag(286)+30);
+					elseif nR == 3 then
+						me:AddMsg(XT("获得50积分。"));world:SetWorldFlag(287,world:GetWorldFlag(287)+50);world:SetWorldFlag(286,world:GetWorldFlag(286)+50);
+					elseif nR == 4 then
+						me:AddMsg(XT("获得80积分。"));world:SetWorldFlag(287,world:GetWorldFlag(287)+80);world:SetWorldFlag(286,world:GetWorldFlag(286)+80);
+					elseif nR == 5 then
+						me:AddMsg(XT("获得100积分。"));world:SetWorldFlag(287,world:GetWorldFlag(287)+100);world:SetWorldFlag(286,world:GetWorldFlag(286)+100);
+					elseif nR == 6 then
+						me:AddMsg(XT("获得10积分以及锻体奥义。"));me:DropAwardItem("Item_SuperPartItem",1);world:SetWorldFlag(287,world:GetWorldFlag(287)+10);world:SetWorldFlag(286,world:GetWorldFlag(286)+10);
+					end				
+				]]>		
+				</OKResult>
+			</li>			
+		</Selections>
+	</Story>
+
+	<Story Name="Story_BSZY" Parent="BaseFillingStory">
+		<DisplayName>解密</DisplayName>
+		<Desc>[NAME]尝试用精血解密这块古石。</Desc>
+		<Kind>None</Kind>
+		<Selections>
+			<li>
+				<Display>解密</Display>
+				<Condition><![CDATA[
+				me:CheckFeature("DragonBlood") == true and world:GetWorldFlag(518) == 0					
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+				me:AddMsg(XT("突然一股极大的吸力把[NAME]吸到了无尽的黑暗中，[NAME]感到自己身体内有什么东西被唤醒了。仿佛是太古的记忆，又仿佛是前世今生。不知过了多久，[NAME]缓缓的睁开双眼，发现面前有一把巨大的黑剑。"));me:AddMsg(XT("[NAME]用魔念包裹黑剑，黑剑表面渐渐裂开，散发着腥红的气息。这把魔剑似乎对[NAME]的气息充满好感，自动投入[NAME]紫府之中。这时[NAME]才发现，自己身体仿佛焕然一新，潜藏在身体中的魔之血脉觉醒了。"));me:AddModifier("LYGY");me:DropAwardItem("Item_LYGY1",1);world:SetWorldFlag(518,1)
+				]]>
+				</OKResult>
+				<NOResult>
+				<![CDATA[	
+					if me:GetGLevel() > 6 then
+						me:AddMsg("[NAME]把精血滴在了石头上，古石突然仿佛活物般的疯狂吸收，但除此之外好像并没有什么其它反应。");me:AddDamageRandomPart(1, "Fracture4", 1, XT("不死咒怨"));me:AddDamgeFromCache(story.DamageCache,4);						
+					else 
+						me:AddMsg("[NAME]刚要上前，就受到了极大的魔气反噬。");me:AddDamage("LingSpillsInjury","TheWholeBody", 1, XT("不死咒怨"));me:AddDamgeFromCache(story.DamageCache,4);me:AddDamgeFromCache(story.DamageCache,4);
+					end
+				]]>
+				</NOResult>
+			</li>
+		</Selections>
+	</Story>
+
+</List></Stories>
