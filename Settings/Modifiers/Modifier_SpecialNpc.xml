@@ -15,7 +15,7 @@
 		<Properties>
 			
 			<li Name="NpcLingMaxValue" AddV="50000"/>
-			<li Name="NpcLingMaxValue" AddP="2"/>
+			<li Name="NpcLingMaxValue" AddP="2.1"/>
 			
 			<li Name="NpcFight_FabaoPowerAddP" AddP="3"/>
 			<li Name="NpcFight_FabaoMaxLingAddP" AddP="2"/>
