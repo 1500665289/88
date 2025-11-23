@@ -21,7 +21,7 @@
 			<ArtDesc>2</ArtDesc>
 			<CostItems>
 					<Item name = "Item_Water" count = "500"/>
-					<Item name = "Item_JSXY" count = "15"/>
+					<Item name = "Item_JSXY" count = "25"/>
 			</CostItems>
 		</BeMade> 		
 	<!--	<Rot>
@@ -120,11 +120,11 @@
 			<SpecialAbility>
 				<Ability Kind="Sync_AddFlag" sParam1="FLAG_ITEM_RESURRECTION" nParam1 = "1" Desc="【破碎】" />			
 				<Ability Kind="HitCountAddDamage" nParam1="19" sParam1="TheWholeBody" sParam2="FivePoison" Desc="【斩仙】"/>
-				<Ability Kind="HitCountAddMirror" nParam1="9" nParam2="7" fParam1="3" Desc="【天魔缭乱】"/>	
-				<Ability Kind="FristHitPowerUp" fParam1="5" Desc="第一剑威力增加500%"/>
-				<Ability Kind="FlyDamageAddP" fParam1="0.1" Desc="飞行1秒，威力提高1%"/>
-				<Ability Kind="HitCountCostSkill" nParam1="9"  sParam1="DamageSkill_4" Desc="每9次攻击发动一次法术"/>						
-				 <Ability Kind="LastLingCostPowerUp" nParam1="10000" fParam1="0.05" fParam2="10"  Desc="每消耗10000点灵气，伤害提高5%，最高提高1000%，法宝补充灵气时重置。"/>					</SpecialAbility>
+				<Ability Kind="HitCountAddMirror" nParam1="10" nParam2="5" fParam1="3" Desc="【天魔缭乱】"/>	
+				<Ability Kind="FristHitPowerUp" fParam1="1" Desc="第一剑威力增加100%"/>
+				<Ability Kind="FlyDamageAddP" fParam1="0.001" Desc="飞行1秒，威力提高0.01%"/>
+				<Ability Kind="HitCountCostSkill" nParam1="10"  sParam1="DamageSkill_4" Desc="每10次攻击发动一次法术"/>						
+				 <Ability Kind="LastLingCostPowerUp" nParam1="1000" fParam1="0.05" fParam2="10"  Desc="每消耗10000点灵气，伤害提高5%，最高提高100%，法宝补充灵气时重置。"/>					</SpecialAbility>
 		</Fabao>	
 		</Item>
 		<Element>

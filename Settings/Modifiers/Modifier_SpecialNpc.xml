@@ -5,23 +5,23 @@
 		<Duration>-1</Duration>
 		<Display>1</Display>
 		<Skills>
-			<li Name="Fabao" LevelOver="100"/>
-			<li Name="FightSkill" LevelOver="50"/>
-			<li Name="Barrier" LevelOver="50"/>
+			<li Name="Fabao" LevelOver="10"/>
+			<li Name="FightSkill" LevelOver="5"/>
+			<li Name="Barrier" LevelOver="5"/>
 		</Skills>
 		<EffectBind>
 			<li Path="Effect/System/fx_daneng" Bip="Root"/>
 		</EffectBind>
 		<Properties>
 			
-			<li Name="NpcLingMaxValue" AddV="5000000"/>
-			<li Name="NpcLingMaxValue" AddP="200"/>
+			<li Name="NpcLingMaxValue" AddV="50000"/>
+			<li Name="NpcLingMaxValue" AddP="2"/>
 			
-			<li Name="NpcFight_FabaoPowerAddP" AddP="300"/>
-			<li Name="NpcFight_FabaoMaxLingAddP" AddP="200"/>
-			<li Name="NpcFight_FabaoLingRecoverAddP" AddP="200"/> 
+			<li Name="NpcFight_FabaoPowerAddP" AddP="3"/>
+			<li Name="NpcFight_FabaoMaxLingAddP" AddP="2"/>
+			<li Name="NpcFight_FabaoLingRecoverAddP" AddP="2"/> 
 			
-			<li Name="NpcFight_SpellPowerAddP" AddP="100"/> 
+			<li Name="NpcFight_SpellPowerAddP" AddP="1"/> 
 			
 			<li Name="NpcFight_FabaoNum" AddP="3"/>
 			
@@ -35,8 +35,8 @@
 			<li Name="WaterConsumeConstant" AddP="-10"/> 
 			<li Name="HappyConsumeConstant" AddP="-10"/> 
 			
-			<li Name="ToleranceTMin" AddV="-270"/>
-			<li Name="ToleranceTMax" AddV="1200"/>
+			<li Name="ToleranceTMin" AddV="-27"/>
+			<li Name="ToleranceTMax" AddV="120"/>
 		</Properties>
 	</Modifier> 
 	
@@ -46,12 +46,12 @@
 		<Duration>-1</Duration>
 		<Display>1</Display>
 		<Properties>
-			<li Name="NpcLingMaxValue" AddV="3500000"/>
-			<li Name="NpcLingMaxValue" AddP="150"/>
+			<li Name="NpcLingMaxValue" AddV="35000"/>
+			<li Name="NpcLingMaxValue" AddP="15"/>
 			
-			<li Name="NpcFight_FabaoPowerAddP" AddP="400"/>
-			<li Name="NpcFight_FabaoMaxLingAddP" AddP="100"/>
-			<li Name="NpcFight_FabaoLingRecoverAddP" AddP="100"/> 
+			<li Name="NpcFight_FabaoPowerAddP" AddP="4"/>
+			<li Name="NpcFight_FabaoMaxLingAddP" AddP="1"/>
+			<li Name="NpcFight_FabaoLingRecoverAddP" AddP="1"/> 
 			
 			<li Name="NpcFight_SpellPowerAddP" AddP="15"/> 
 		</Properties>
@@ -64,8 +64,8 @@
 		<Duration>-1</Duration>
 		<Display>1</Display>
 		<Properties>
-			<li Name="NpcLingMaxValue" AddV="15000000"/>
-			<li Name="NpcLingMaxValue" AddP="250"/>
+			<li Name="NpcLingMaxValue" AddV="150000"/>
+			<li Name="NpcLingMaxValue" AddP="2"/>
 		</Properties>
 	</Modifier>
 	
@@ -86,7 +86,7 @@
 		<Duration>-1</Duration>
 		<Display>1</Display>
 		<Properties>
-			<li Name="NpcFight_FabaoPowerAddP" AddP="500"/>
+			<li Name="NpcFight_FabaoPowerAddP" AddP="5"/>
 		</Properties>
 	</Modifier> 
 	<Modifier Name="Modifier_SpNpc_FabaoLing" Type="Normal">
@@ -96,8 +96,8 @@
 		<Duration>-1</Duration>
 		<Display>1</Display>
 		<Properties>
-			<li Name="NpcFight_FabaoMaxLingAddP" AddP="300"/>
-			<li Name="NpcFight_FabaoLingRecoverAddP" AddP="300"/> 
+			<li Name="NpcFight_FabaoMaxLingAddP" AddP="3"/>
+			<li Name="NpcFight_FabaoLingRecoverAddP" AddP="3"/> 
 		</Properties>
 	</Modifier> 
 	
@@ -144,7 +144,7 @@
 		<Duration>-1</Duration>
 		<Display>1</Display>
 		<Properties>
-			<li Name="NpcFight_SpellPowerAddP" AddP="300"/> 
+			<li Name="NpcFight_SpellPowerAddP" AddP="3"/> 
 		</Properties>
 	</Modifier> 
 	
@@ -166,14 +166,14 @@
 		<Duration>-1</Duration>
 		<Display>1</Display>
 		<Properties>
-			<li Name="NpcLingMaxValue" AddV="15000000"/>
-			<li Name="NpcLingMaxValue" AddP="250"/>
+			<li Name="NpcLingMaxValue" AddV="150000"/>
+			<li Name="NpcLingMaxValue" AddP="2"/>
 			
-			<li Name="NpcFight_FabaoPowerAddP" AddP="540"/>
-			<li Name="NpcFight_FabaoMaxLingAddP" AddP="520"/>
-			<li Name="NpcFight_FabaoLingRecoverAddP" AddP="520"/> 
+			<li Name="NpcFight_FabaoPowerAddP" AddP="5"/>
+			<li Name="NpcFight_FabaoMaxLingAddP" AddP="5"/>
+			<li Name="NpcFight_FabaoLingRecoverAddP" AddP="5"/> 
 			
-			<li Name="NpcFight_SpellPowerAddP" AddP="150"/> 
+			<li Name="NpcFight_SpellPowerAddP" AddP="1"/> 
 		</Properties>
 	</Modifier> 
 	
@@ -184,16 +184,16 @@
 		<Duration>-1</Duration>
 		<Display>1</Display>
 		<Skills>
-			<li Name="Fabao" LevelOver="20"/>
-			<li Name="FightSkill" LevelOver="20"/>
-			<li Name="Barrier" LevelOver="20"/>
+			<li Name="Fabao" LevelOver="2"/>
+			<li Name="FightSkill" LevelOver="2"/>
+			<li Name="Barrier" LevelOver="2"/>
 		</Skills>
 		<Properties>
-			<li Name="MaxAge" AddV="20"/>
-			<li Name="NpcLingMaxValue" AddV="500"/>
+			<li Name="MaxAge" AddV="2"/>
+			<li Name="NpcLingMaxValue" AddV="5"/>
 			
-			<li Name="NpcFight_FabaoPowerAddP" AddP="50"/>
-			<li Name="NpcFight_FabaoMaxLingAddP" AddP="10"/>
+			<li Name="NpcFight_FabaoPowerAddP" AddP="5"/>
+			<li Name="NpcFight_FabaoMaxLingAddP" AddP="1"/>
 			<li Name="NpcFight_FabaoLingRecoverAddP" AddP="1"/> 
 			<li Name="NpcFight_SpellPowerAddP" AddP="1"/> 
 			
@@ -207,19 +207,19 @@
 		<Duration>-1</Duration>
 		<Display>1</Display>
 		<Skills>
-			<li Name="Fabao" LevelOver="22"/>
-			<li Name="FightSkill" LevelOver="22"/>
-			<li Name="Barrier" LevelOver="22"/>
+			<li Name="Fabao" LevelOver="2"/>
+			<li Name="FightSkill" LevelOver="2"/>
+			<li Name="Barrier" LevelOver="2"/>
 		</Skills>
 		<Properties>
-			<li Name="MaxAge" AddV="35"/>
-			<li Name="NpcLingMaxValue" AddV="800"/>
+			<li Name="MaxAge" AddV="3"/>
+			<li Name="NpcLingMaxValue" AddV="8"/>
 			
-			<li Name="NpcFight_FabaoPowerAddP" AddP="100"/>
-			<li Name="NpcFight_FabaoMaxLingAddP" AddP="50"/>
-			<li Name="NpcFight_FabaoLingRecoverAddP" AddP="20"/> 
+			<li Name="NpcFight_FabaoPowerAddP" AddP="1"/>
+			<li Name="NpcFight_FabaoMaxLingAddP" AddP="5"/>
+			<li Name="NpcFight_FabaoLingRecoverAddP" AddP="2"/> 
 			
-			<li Name="NpcFight_SpellPowerAddP" AddP="25"/> 
+			<li Name="NpcFight_SpellPowerAddP" AddP="2"/> 
 			
 			
 			<li Name="NpcFight_FabaoFlySpeedAddP" AddP="1.5"/>
@@ -235,16 +235,16 @@
 		<Duration>-1</Duration>
 		<Display>1</Display>
 		<Skills>
-			<li Name="Fabao" LevelOver="23"/>
-			<li Name="FightSkill" LevelOver="23"/>
-			<li Name="Barrier" LevelOver="23"/>
+			<li Name="Fabao" LevelOver="2"/>
+			<li Name="FightSkill" LevelOver="2"/>
+			<li Name="Barrier" LevelOver="2"/>
 		</Skills>
 		<Properties>
-			<li Name="MaxAge" AddV="200"/>
-			<li Name="NpcLingMaxValue" AddP="100"/>
+			<li Name="MaxAge" AddV="2"/>
+			<li Name="NpcLingMaxValue" AddP="1"/>
 			
-			<li Name="NpcFight_FabaoPowerAddP" AddP="250"/>
-			<li Name="NpcFight_FabaoMaxLingAddP" AddP="150"/>
+			<li Name="NpcFight_FabaoPowerAddP" AddP="25"/>
+			<li Name="NpcFight_FabaoMaxLingAddP" AddP="15"/>
 			<li Name="NpcFight_FabaoLingRecoverAddP" AddP="15"/> 
 			
 			<li Name="NpcFight_SpellPowerAddP" AddP="55"/> 
@@ -264,21 +264,21 @@
 		<Duration>-1</Duration>
 		<Display>1</Display>
 		<Skills>
-			<li Name="Fabao" LevelOver="24"/>
-			<li Name="FightSkill" LevelOver="24"/>
-			<li Name="Barrier" LevelOver="24"/>
+			<li Name="Fabao" LevelOver="2"/>
+			<li Name="FightSkill" LevelOver="2"/>
+			<li Name="Barrier" LevelOver="2"/>
 		</Skills>
 		<Properties>
-			<li Name="MaxAge" AddV="1500"/>
-			<li Name="NpcLingMaxValue" AddP="5000"/>
+			<li Name="MaxAge" AddV="15"/>
+			<li Name="NpcLingMaxValue" AddP="50"/>
 			
-			<li Name="NpcFight_FabaoPowerAddP" AddP="200"/>
-			<li Name="NpcFight_FabaoMaxLingAddP" AddP="140"/>
-			<li Name="NpcFight_FabaoLingRecoverAddP" AddP="140"/> 
+			<li Name="NpcFight_FabaoPowerAddP" AddP="20"/>
+			<li Name="NpcFight_FabaoMaxLingAddP" AddP="14"/>
+			<li Name="NpcFight_FabaoLingRecoverAddP" AddP="14"/> 
 			
-			<li Name="NpcFight_SpellPowerAddP" AddP="140"/> 
+			<li Name="NpcFight_SpellPowerAddP" AddP="14"/> 
 			
-			<li Name="AbilityLvAddV" AddV="100"/>
+			<li Name="AbilityLvAddV" AddV="10"/>
 			
 			<li Name="NpcFight_FabaoNum" AddP="2"/>
 			
@@ -293,8 +293,8 @@
 			<li Name="WaterConsumeConstant" AddP="-10"/> 
 			<li Name="HappyConsumeConstant" AddP="-10"/> 
 			
-			<li Name="ToleranceTMin" AddV="-270"/>
-			<li Name="ToleranceTMax" AddV="1200"/>
+			<li Name="ToleranceTMin" AddV="-27"/>
+			<li Name="ToleranceTMax" AddV="120"/>
 		</Properties>
 	</Modifier> 
 </List></ModifierDefs>

@@ -19,7 +19,7 @@
 		<Display>0</Display>
 		<BaseFive>2,2,0,0,0</BaseFive>
 		<Properties>
-			<li Name="NpcLingMaxValue" BAddP="0.35"/>
+			<li Name="NpcLingMaxValue" BAddP="0.25"/>
 		</Properties>
 	</Modifier>
 	
@@ -30,7 +30,7 @@
 		<Display>0</Display>
 		<BaseFive>5.5,0,0,0,5</BaseFive>
 		<Properties>
-			<li Name="MaxAge" AddV="4000"/>
+			<li Name="MaxAge" AddV="40"/>
 		</Properties>
 	</Modifier>
 	
