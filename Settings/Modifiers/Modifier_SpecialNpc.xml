@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿<ModifierDefs><List>
 	<Modifier Name="Modifier_SpNpc_BasePropertie" Type="Normal">
 		<DisplayName>保底属性</DisplayName>
@@ -298,3 +299,5 @@
 		</Properties>
 	</Modifier> 
 </List></ModifierDefs>
+=======
+>>>>>>> 5bbc14adb1a63af1bb4083adc2504fcca84f10f2
