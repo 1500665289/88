@@ -1,6 +1,6 @@
 ﻿<Places><List>
 	<Place Name="Place_renwu" Parent="Place_Level3Base">
-		<Location X="1160" Y="500"/>
+		<Location X="1160" Y="800"/>
 		<Icon>Spr\Object\renwu.png</Icon>
 		<DisplayName>任务大厅</DisplayName>
 		<Desc>大爷来玩嘛</Desc>
