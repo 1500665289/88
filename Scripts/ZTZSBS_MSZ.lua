@@ -26,17 +26,17 @@ function tbSkill:Cast()
 	
 	local fabao = ItemRandomMachine.RandomFabao(g_emItemLable.FightFabao, 12, 12, 100, "Item_Boss_Jiaowangci", nil, 0, true);
 	fabao:SetName("魔神锥");
-	fabao.Fabao:SetProperty(CS.XiaWorld.Fight.g_emFaBaoP.AttackPower,15000)
-	fabao.Fabao:SetProperty(CS.XiaWorld.Fight.g_emFaBaoP.MaxLing,8000)
+	fabao.Fabao:SetProperty(CS.XiaWorld.Fight.g_emFaBaoP.AttackPower,1500)
+	fabao.Fabao:SetProperty(CS.XiaWorld.Fight.g_emFaBaoP.MaxLing,800)
 	fabao.Fabao:SetProperty(CS.XiaWorld.Fight.g_emFaBaoP.Scale,2)
-	fabao.Fabao:SetProperty(CS.XiaWorld.Fight.g_emFaBaoP.AttackRate,10)
-	fabao.Fabao:SetProperty(CS.XiaWorld.Fight.g_emFaBaoP.KnockBackResistance,120)
-	fabao.Fabao:SetProperty(CS.XiaWorld.Fight.g_emFaBaoP.KnockBackAddition,50)
-	fabao.Fabao:SetProperty(CS.XiaWorld.Fight.g_emFaBaoP.LingRecover,4000)
+	fabao.Fabao:SetProperty(CS.XiaWorld.Fight.g_emFaBaoP.AttackRate,5)
+	fabao.Fabao:SetProperty(CS.XiaWorld.Fight.g_emFaBaoP.KnockBackResistance,60)
+	fabao.Fabao:SetProperty(CS.XiaWorld.Fight.g_emFaBaoP.KnockBackAddition,20)
+	fabao.Fabao:SetProperty(CS.XiaWorld.Fight.g_emFaBaoP.LingRecover,40)
 	self.bind:EquipItem(fabao);
 	--self.bind.Bag:AddItem(fabao);
-	local data1 ={Kind = CS.XiaWorld.Fight.g_emFabaoSpecialAbility.AtkRateDamageAddp,Desc ="十二天都魔神：5%几率对敌方法宝造成1000倍伤害",fParam1="0.05" ,fParam2="999" ,nParam1="2"};
-	local data2 ={Kind = CS.XiaWorld.Fight.g_emFabaoSpecialAbility.HitCountAddMirror,Desc ="三十六都煞：每攻击36次分出36道分影，持续15s",nParam1="36",nParam2="36",fParam1="15"};
+	local data1 ={Kind = CS.XiaWorld.Fight.g_emFabaoSpecialAbility.AtkRateDamageAddp,Desc ="十二天都魔神：5%几率对敌方法宝造成10倍伤害",fParam1="0.05" ,fParam2="9" ,nParam1="2"};
+	local data2 ={Kind = CS.XiaWorld.Fight.g_emFabaoSpecialAbility.HitCountAddMirror,Desc ="三十六都煞：每攻击36次分出36道分影，持续10s",nParam1="36",nParam2="36",fParam1="10"};
 	fabao.Fabao:AddAbilityData(data1);
 	fabao.Fabao:AddAbilityData(data2);
 	fabao:AddLing(fabao.MaxLing);

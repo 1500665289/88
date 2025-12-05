@@ -8,7 +8,7 @@ if flag == 0 then
 time = time + dt;
 if time >= 10 then
 flag = 1;
-CS.CangJingGeMgr.Instance.WaitMemorySize=-500000
+CS.CangJingGeMgr.Instance.WaitMemorySize=5000
 end
 end
 end
