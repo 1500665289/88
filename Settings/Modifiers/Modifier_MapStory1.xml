@@ -7,7 +7,7 @@
 		<Duration>-1</Duration>
 		<Display>0</Display>
 		<Properties>
-			<li Name="NpcFight_FabaoPowerAddP" BAddP="0.15"/>
+			<li Name="NpcFight_FabaoPowerAddP" BAddP="0.05"/>
 		</Properties>
 	</Modifier>	
 	
@@ -33,5 +33,49 @@
 			<li Name="MaxAge" AddV="40"/>
 		</Properties>
 	</Modifier>
+	
+	<Modifier Name="Story_ShieldConversionRate1" Type="Normal">
+		<DisplayName>护盾强度</DisplayName>
+		<Desc>增加10%根本护盾强度，100积分</Desc>
+		<MaxStack>0</MaxStack>
+		<Duration>-1</Duration>
+		<Display>0</Display>
+		<Properties>
+			<li Name="NpcFight_ShieldConversionRate" BAddP="0.1"/>
+		</Properties>
+	</Modifier>	
+	
+		<Modifier Name="Story_WorldMapFlySpeedAddP1" Type="Normal">
+		<DisplayName>提高历练速度</DisplayName>
+		<Desc>提高10%历练速度，100积分</Desc>
+		<MaxStack>0</MaxStack>
+		<Duration>-1</Duration>
+		<Display>0</Display>
+		<Properties>
+			<li Name="WorldMapFlySpeedAddP" BAddP="0.1"/>
+		</Properties>
+	</Modifier>	
+	
+		<Modifier Name="Story_LingAbsorbSpeed1" Type="Normal">
+		<DisplayName>提高的灵气吸收速度</DisplayName>
+		<Desc>提高的灵气吸收速度，300积分</Desc>
+		<MaxStack>0</MaxStack>
+		<Duration>-1</Duration>
+		<Display>0</Display>
+		<Properties>
+			<li Name="LingAbsorbSpeed" BAddP="0.1"/>
+		</Properties>
+	</Modifier>	
+	
+		<Modifier Name="Story_LingMax1" Type="Normal">
+		<DisplayName>提高根本灵气值</DisplayName>
+		<Desc>提高根本灵气值，500积分</Desc>
+		<MaxStack>0</MaxStack>
+		<Duration>-1</Duration>
+		<Display>0</Display>
+		<Properties>
+			<li Name="NpcLingMaxValue" BAddP="0.1"/>
+		</Properties>
+	</Modifier>	
 	
 </List></ModifierDefs>
