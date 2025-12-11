@@ -319,7 +319,11 @@
 	
 	<ThingDef Type="Plant" Name="TreeGinkgo_Big" Parent="TreeGinkgo">
 	<ThingName>巨银杏</ThingName>
-	<TexPath>res/special/scene_juyinxing001</TexPath>
+	<TexPath>
+		res\Sprs\scene_TemperateForest_plant\scene_xiaohua004_a;
+		res\Sprs\scene_TemperateForest_plant\scene_xiaohua004_b;
+		res\Sprs\scene_TemperateForest_plant\scene_xiaohua004_c
+		</TexPath>
 	<Desc>上了年份的老银杏，巨大而充满灵气。</Desc>
 	<Beauty>36</Beauty>
 	<Rate>9</Rate>	
@@ -390,7 +394,11 @@
 	
 	<ThingDef Type="Plant" Name="TreeGinkgo_Dead" Parent="TreeGinkgo_Big">
 	<ThingName>枯梧桐</ThingName>
-	<TexPath>res/special/scene_juyinxing001_Trunk</TexPath>
+	<TexPath>
+		res\Sprs\scene_TemperateForest_plant\scene_xiaohua003_a;
+		res\Sprs\scene_TemperateForest_plant\scene_xiaohua003_b;
+		res\Sprs\scene_TemperateForest_plant\scene_xiaohua003_c
+		</TexPath>
 	<Desc>已经枯死的梧桐树，依然异常高大。</Desc>
 
 	</ThingDef>	
