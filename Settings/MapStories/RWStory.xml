@@ -1,1611 +1,1562 @@
-﻿<Stories><List>
+<Stories>
+<List>
 
+<!-- ==================== 主入口和NPC交互 ==================== -->
 
-<Story Name="BaoZang_SDLS"  Parent="BaseFillingStory">
-		<DisplayName>玉面修罗陈佳宁</DisplayName>
-		<Desc>异常漂亮的一位年轻女子，但是她看起来并不好惹。</Desc>
-		<Selections>
-			<li>
-				<Display>打招呼</Display>
-				<DisplayCondition><![CDATA[	
-				world:GetWorldFlag(522) == 0
-				]]>
-				</DisplayCondition>
-				<OKResult>me:AddMsg("[NAME]向陈佳宁打了个招呼，只见陈佳宁对[NAME]面无表情的点了点头，很随意的向你丢了一些东西。");			
-					me:AddMemery(sN);me:AddTreeExp(me:GetDaoHang()*1000);	
-					world:SetWorldFlag(287,world:GetWorldFlag(287)+100);
-					world:SetWorldFlag(286,world:GetWorldFlag(286)+100);
-					me:AddMsg("[NAME]获得了100积分");
-					me:DropAwardItem("Item_Dan_TreeEXP",2);
-					me:DropAwardItem("Item_Dan_IncreaseLife3",2);
-					me:DropAwardItem("Item_RedGinseng",2);
-					me:DropAwardItem("Item_PurpleGanodermaLucidum",2);
-					me:DropAwardItem("Item_SkyStone",2);
-					me:DropAwardItem("Item_LingCrystal",2);
-					me:DropAwardItem("Item_CopperBlock1",2);
-					me:DropAwardItem("Item_SilverBlock1",2);				
-					me:DropAwardItem("Item_SoulCrystalNing",2);
-					local tS = {"Item_ParasolWood","Item_JadeEssence","Item_ExtremeJade","Item_LingCrystal","Item_StarEssence","Item_DarksteelRock","Item_WeaponBow","Item_WeaponKnife","Item_WeaponLance","Item_WeaponSword","Item_WeaponHalbert","Item_WeaponAxeRing","Item_Dice","Item_SmallBell","Item_Bracelet","Item_Handkerchief","Item_PerfumeBag","Item_SpellPaperLv3","Item_JinEssence","Item_MuEssence","Item_ShuiEssence","Item_HuoEssence","Item_TuEssence","Item_SoulPearl","Item_FunPainting","Item_FunMusic","Item_FunChess","Item_FunPoem","Item_Umbrella","Item_SysAcupuncture","Item_SilverGrit","Item_CopperGrit"};
-					me:DropFabao(0,tS[nR],nil,nil,XT("斗鱼老杨珍藏的上古神器，来历不明。"),1,12);					
-					world:SetWorldFlag(522,1)
-				</OKResult>
-			</li>
-			<li>
-				<Display>查询积分</Display>
-				<OKResult>me:TriggerStory("BaoZang_CXGX");</OKResult>
-			</li>
-			<li>
-				<Display>请教陈佳宁</Display>
-				<Condition><![CDATA[	
-				me:GetGLevel() >= 0
-				]]>
-				</Condition>
-				<OKResult>
-				me:TriggerStory("BaoZang_QJLS");
-				</OKResult>
-				<NOResult>
-				me:AddMsg("陈佳宁并没有理[NAME]。");
-				</NOResult>
-			</li>
-			<li>
-				<Display>挑战陈佳宁</Display>
-				<Condition><![CDATA[	
-				me:GetGLevel() >= 12
-				]]>
-				</Condition>
-				<OKResult>me:TriggerStory("BaoZang_TZLS");
-				</OKResult>
-				<NOResult>
-				me:AddMsg("陈佳宁并没有理[NAME]，连眉毛都没抬一下。");
-				</NOResult>
-			</li>
-			<li>
-				<Display>返回大厅</Display>
-				<OKResult><![CDATA[	
-				me:AddMsg("[NAME]想了想，决定还是不冒险，转身离去。");
-				me:TriggerStory("BaoZang_renwu");
-				]]>
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-	
+<Story Name="BaoZang_SDLS" Parent="BaseFillingStory">
+	<DisplayName>玉面修罗陈佳宁</DisplayName>
+	<Desc>异常漂亮的一位年轻女子，但是她看起来并不好惹。</Desc>
+	<Selections>
+		<li>
+			<Display>打招呼</Display>
+			<DisplayCondition>
+			<![CDATA[world:GetWorldFlag(522) == 0]]>
+			</DisplayCondition>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]向陈佳宁打了个招呼，只见陈佳宁对[NAME]面无表情的点了点头，很随意的向你丢了一些东西。");
+			me:AddMemery(sN);
+			me:AddTreeExp(me:GetDaoHang()*1000);
+			world:SetWorldFlag(287, world:GetWorldFlag(287) + 100);
+			world:SetWorldFlag(286, world:GetWorldFlag(286) + 100);
+			me:AddMsg("[NAME]获得了100积分");
+			
+			-- 赠送物品
+			me:DropAwardItem("Item_Dan_TreeEXP", 2);
+			me:DropAwardItem("Item_Dan_IncreaseLife3", 2);
+			me:DropAwardItem("Item_RedGinseng", 2);
+			me:DropAwardItem("Item_PurpleGanodermaLucidum", 2);
+			me:DropAwardItem("Item_SkyStone", 2);
+			me:DropAwardItem("Item_LingCrystal", 2);
+			me:DropAwardItem("Item_CopperBlock1", 2);
+			me:DropAwardItem("Item_SilverBlock1", 2);
+			me:DropAwardItem("Item_SoulCrystalNing", 2);
+			
+			local tS = {"Item_ParasolWood", "Item_JadeEssence", "Item_ExtremeJade", "Item_LingCrystal", "Item_StarEssence", "Item_DarksteelRock", "Item_WeaponBow", "Item_WeaponKnife", "Item_WeaponLance", "Item_WeaponSword", "Item_WeaponHalbert", "Item_WeaponAxeRing", "Item_Dice", "Item_SmallBell", "Item_Bracelet", "Item_Handkerchief", "Item_PerfumeBag", "Item_SpellPaperLv3", "Item_JinEssence", "Item_MuEssence", "Item_ShuiEssence", "Item_HuoEssence", "Item_TuEssence", "Item_SoulPearl", "Item_FunPainting", "Item_FunMusic", "Item_FunChess", "Item_FunPoem", "Item_Umbrella", "Item_SysAcupuncture", "Item_SilverGrit", "Item_CopperGrit"};
+			local nR = me:RandomInt(1, #tS);
+			me:DropFabao(0, tS[nR], nil, nil, XT("斗鱼老杨珍藏的上古神器，来历不明。"), 1, 12);
+			
+			world:SetWorldFlag(522, 1);
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>查询积分</Display>
+			<OKResult>me:TriggerStory("BaoZang_CXGX");</OKResult>
+		</li>
+		<li>
+			<Display>请教陈佳宁</Display>
+			<Condition>
+			<![CDATA[me:GetGLevel() >= 0]]>
+			</Condition>
+			<OKResult>me:TriggerStory("BaoZang_QJLS");</OKResult>
+			<NOResult>me:AddMsg("陈佳宁并没有理[NAME]。");</NOResult>
+		</li>
+		<li>
+			<Display>挑战陈佳宁</Display>
+			<Condition>
+			<![CDATA[me:GetGLevel() >= 12]]>
+			</Condition>
+			<OKResult>me:TriggerStory("BaoZang_TZLS");</OKResult>
+			<NOResult>me:AddMsg("陈佳宁并没有理[NAME]，连眉毛都没抬一下。");</NOResult>
+		</li>
+		<li>
+			<Display>返回大厅</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]想了想，决定还是不冒险，转身离去。");
+			me:TriggerStory("BaoZang_renwu");
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
 
-<Story Name="BaoZang_QJLS"  Parent="BaseFillingStory">
-		<DisplayName>请教陈佳宁</DisplayName>
-		<Desc>陈佳宁正在慢悠悠的吃着火锅</Desc>
-		<Selections>
-			<li>
-				<Display>确认请教</Display>
-				<Condition><![CDATA[
-				me:GetFlag(27) <= 9
-				]]>
-				</Condition>
-				<OKResult><![CDATA[
-
-				if me:RandomInt(1, 20) <= me:GetPerception() then
-					me:SetFlag(27, (me:GetFlag(27) + 1))
-
-					local nR = me:RandomInt(1,5)
-					if nR == 1 then
-						me:AddMsg(XT("陈佳宁悠闲的耍了一套剑法，[NAME]只能领悟其中百分之一。"));me:AddModifier("Story_FabaoPower1");
-					elseif nR == 2 then
-						me:AddMsg(XT("陈佳宁突然呼吸急促，面红耳赤，原来是鼻炎犯了，只见她张嘴呼吸，[NAME]从中领悟了一些奥秘。"));me:AddModifier("Story_LingAbsorbSpeed1");
-					elseif nR == 3 then
-						me:AddMsg(XT("陈佳宁突然御剑飞行，在空中画出了一道妙曼的弧线，[NAME]领悟了一些飞行诀窍。"));me:AddModifier("Story_WorldMapFlySpeedAddP1");
-					elseif nR == 4 then
-						me:AddMsg(XT("陈佳宁传授了[NAME]一套金刚护体功法，[NAME]的运气还真是不错呢。"));me:AddModifier("Story_ShieldConversionRate1");
-					end
-				else
-					me:AddMsg(XT("[NAME]蠢的一比，看陈佳宁耍了半天什么都没学会,还把自己弄伤了。"));me:AddDamgeFromCache(story.DamageCache,4);
-				end
-				]]>
-				</OKResult>
-				<NOResult>
-					me:AddMsg(XT("来了这么多次，就这点长进？你的眼要来有何用?"));me:AddDamgeFromCache(story.DamageCache,4);me:AddDamage("Destroy", "LeftEye", 1, XT("陈佳宁的剑"));me:AddDamage("Destroy", "RightEye", 1, XT("陈佳宁的剑"));
-				</NOResult>				
+<Story Name="BaoZang_QJLS" Parent="BaseFillingStory">
+	<DisplayName>请教陈佳宁</DisplayName>
+	<Desc>陈佳宁正在慢悠悠的吃着火锅</Desc>
+	<Selections>
+		<li>
+			<Display>确认请教</Display>
+			<Condition>
+			<![CDATA[me:GetFlag(27) <= 9]]>
+			</Condition>
+			<OKResult>
+			<![CDATA[
+			if me:RandomInt(1, 20) <= me:GetPerception() then
+				me:SetFlag(27, me:GetFlag(27) + 1);
 				
-			</li>
-			<li>
-				<Display>返回大厅</Display>
-				<OKResult><![CDATA[	
-				me:AddMsg("[NAME]返回了入口。");
-				me:TriggerStory("BaoZang_renwu");
-				]]>
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-	<Story Name="BaoZang_CXGX"  Parent="BaseFillingStory">
-		<DisplayName>积分查询</DisplayName>
-		<Desc>只见陈佳宁不紧不慢地拿出一本积分册，根据目录找到了[NAME]的名字，并告诉[NAME]目前拥有的积分点。</Desc>
-		<Selections>
-			<li>
-				<Display>积分查询</Display>
-				<OKResult>
-				<![CDATA[	
-				local nQ = world:GetWorldFlag(287);
-				world:SetWorldFlag(287,world:GetWorldFlag(287)+0);
-				local nR = world:GetWorldFlag(286);
-				me:AddMsg("[NAME]目前拥有的积分点数为：\n");
-				if nR == 0 then
-					me:AddMsg("积分点数："..world:GetWorldFlag(287).."。\n积分值："..world:GetWorldFlag(286).."");
-					me:AddMsg("目前没有任何积分啊，年轻人，多点去做任务好吧。");
-					me:TriggerStory("BaoZang_CXGX");
-				elseif nR <= 10 then
-					me:AddMsg("积分点数："..world:GetWorldFlag(287).."。\n积分值："..world:GetWorldFlag(286).."");
-					me:AddMsg("目前积分挺少的，年轻人，多点去做任务好吧。");
-					me:TriggerStory("BaoZang_CXGX");
-				elseif nR <= 500 then
-					me:AddMsg("积分点数："..world:GetWorldFlag(287).."。\n积分值："..world:GetWorldFlag(286).."");
-					me:AddMsg("目前积分还不错，年轻人，继续加油！。");
-					me:TriggerStory("BaoZang_CXGX");
-				elseif nR <= 5000 then
-					me:AddMsg("积分点数："..world:GetWorldFlag(287).."。\n积分值："..world:GetWorldFlag(286).."");
-					me:AddMsg("目前积分挺大的，年轻人，我看好你哦！。");
-					me:TriggerStory("BaoZang_CXGX");
-				elseif nR <= 20000 then
-					me:AddMsg("积分点数："..world:GetWorldFlag(287).."。\n积分值："..world:GetWorldFlag(286).."");
-					me:AddMsg("目前积分非常巨大，年轻人，我支持你啊！。");
-					me:TriggerStory("BaoZang_CXGX");
-				else
-					me:AddMsg("积分点数："..world:GetWorldFlag(287).."。\n积分值："..world:GetWorldFlag(286).."");
-					me:AddMsg("哀家对你所做所为真是钦佩至极！");
-					me:TriggerStory("BaoZang_CXGX");
-				end
-				]]>	
-				</OKResult>
-			</li>
-			<li>
-				<Display>返回大厅</Display>
-				<OKResult><![CDATA[	
-				me:AddMsg("[NAME]想了想，决定还是先回门口吧，于是向陈佳宁告别并转身离去。");
-				me:TriggerStory("BaoZang_renwu");
-				]]>
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-<Story Name="BaoZang_JSRW"  Parent="BaseFillingStory">
-		<DisplayName>接受任务</DisplayName>
-		<Desc>任务中心</Desc>
-		<Selections>
-			<li>
-				<Display>D级任务</Display>
-				<Condition><![CDATA[	
-				me:GetGLevel() >= 0
-				]]>
-				</Condition>
-				<OKResult>me:TriggerStory("BaoZang_RW_D");</OKResult>
-				<NOResult>me:AddMsg("这个任务对于[NAME]来说太危险了，所以[NAME]不能接受这个任务。");</NOResult>
-			</li>
-			<li>
-				<Display>C级任务</Display>
-				<Condition><![CDATA[	
-				me:GetGLevel() >= 3
-				]]>
-				</Condition>
-				<OKResult>me:TriggerStory("BaoZang_RW_C");</OKResult>
-				<NOResult>me:AddMsg("这个任务对于[NAME]来说太危险了，所以[NAME]不能接受这个任务。");</NOResult>
-			</li>
-			<li>
-				<Display>B级任务</Display>
-				<Condition><![CDATA[	
-				me:GetGLevel() >= 6
-				]]>
-				</Condition>
-				<OKResult>me:TriggerStory("BaoZang_RW_B");</OKResult>
-				<NOResult>me:AddMsg("这个任务对于[NAME]来说太危险了，所以[NAME]不能接受这个任务。");</NOResult>
-			</li>
-			<li>
-				<Display>A级任务</Display>
-				<Condition><![CDATA[	
-				me:GetGLevel() >= 9
-				]]>
-				</Condition>
-				<OKResult>me:TriggerStory("BaoZang_RW_A");</OKResult>
-				<NOResult>me:AddMsg("这个任务对于[NAME]来说太危险了，所以[NAME]不能接受这个任务。");</NOResult>
-			</li>
-			<li>
-				<Display>S级任务</Display>
-				<Condition><![CDATA[	
-				me:GetGLevel() >= 12
-				]]>
-				</Condition>
-				<OKResult>me:TriggerStory("BaoZang_RW_S");</OKResult>
-				<NOResult>me:AddMsg("这个任务对于[NAME]来说太危险了，所以[NAME]不能接受这个任务。");</NOResult>
-			</li>
-			<li>
-				<Display>重置任务口（任务系统异常或者接不到任务）</Display>
-				<OKResult>
-				world:SetWorldFlag(318,0)
-				world:SetWorldFlag(300,0)
-				world:SetWorldFlag(301,0)
-				world:SetWorldFlag(302,0)
-				world:SetWorldFlag(303,0);
-				me:TriggerStory("BaoZang_JSRW");
-				</OKResult>
-			</li>
-			<li>
-				<Display>返回大厅</Display>
-				<OKResult><![CDATA[	
-				me:TriggerStory("BaoZang_renwu");
-				]]>
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-<Story Name="BaoZang_RW_D"  Parent="BaseFillingStory">
-		<DisplayName>接受D级任务</DisplayName>
-		<Desc>15天内完成任务，2积分点数。</Desc>
-		<Selections>
-			<li>
-				<Display>随机接取任务</Display>
-				<DisplayCondition><![CDATA[	
-				world:GetWorldFlag(318) == 0
-				]]>
-				</DisplayCondition>
-				<OKResult><![CDATA[
 				local nR = me:RandomInt(1, 5);
 				if nR == 1 then
-				me:TriggerStory("BaoZang_RWD_1");
+					me:AddMsg(XT("陈佳宁悠闲的耍了一套剑法，[NAME]只能领悟其中百分之一。"));
+					me:AddModifier("Story_FabaoPower1");
 				elseif nR == 2 then
-				me:TriggerStory("BaoZang_RWD_2");
+					me:AddMsg(XT("陈佳宁突然呼吸急促，面红耳赤，原来是鼻炎犯了，只见她张嘴呼吸，[NAME]从中领悟了一些奥秘。"));
+					me:AddModifier("Story_LingAbsorbSpeed1");
 				elseif nR == 3 then
-				me:TriggerStory("BaoZang_RWD_3");
+					me:AddMsg(XT("陈佳宁突然御剑飞行，在空中画出了一道妙曼的弧线，[NAME]领悟了一些飞行诀窍。"));
+					me:AddModifier("Story_WorldMapFlySpeedAddP1");
 				elseif nR == 4 then
-				me:TriggerStory("BaoZang_RWD_4");
-				else
-				me:TriggerStory("BaoZang_RWD_5");
+					me:AddMsg(XT("陈佳宁传授了[NAME]一套金刚护体功法，[NAME]的运气还真是不错呢。"));
+					me:AddModifier("Story_ShieldConversionRate1");
 				end
-				]]>
-				</OKResult>
-			</li>
-			<li>
-				<Display>返回入口</Display>
-				<OKResult><![CDATA[				
-				me:TriggerStory("BaoZang_JSRW");
-				]]>
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-<Story Name="BaoZang_RWD_1"  Parent="BaseFillingStory">
-		<DisplayName>救尼莫</DisplayName>
-		<Desc>尼莫受困于山谷之中无法行动。</Desc>
-		<Selections>
-			<li>
-				<Display>确认接受</Display>
-				<OKResult><![CDATA[
-				me:AddSecret(3000);
-				world:SetWorldFlag(318,1)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-<Story Name="BaoZang_RWD_2"  Parent="BaseFillingStory">
-		<DisplayName>送信物</DisplayName>
-		<Desc>将信物送给指定地点的接线人。</Desc>
-		<Selections>
-			<li>
-				<Display>确认接受</Display>
-				<OKResult><![CDATA[
-				me:AddSecret(3001);
-				world:SetWorldFlag(318,1)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-<Story Name="BaoZang_RWD_3"  Parent="BaseFillingStory">
-		<DisplayName>寻动物</DisplayName>
-		<Desc>有小孩的动物丢失了。</Desc>
-		<Selections>
-			<li>
-				<Display>确认接受</Display>
-				<OKResult><![CDATA[
-				me:AddSecret(3002);
-				world:SetWorldFlag(318,1)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-<Story Name="BaoZang_RWD_4"  Parent="BaseFillingStory">
-		<DisplayName>挪山地</DisplayName>
-		<Desc>愚公还在挖山。</Desc>
-		<Selections>
-			<li>
-				<Display>确认接受</Display>
-				<OKResult><![CDATA[
-				me:AddSecret(3003);
-				world:SetWorldFlag(318,1)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-<Story Name="BaoZang_RWD_5"  Parent="BaseFillingStory">
-		<DisplayName>闹饥荒</DisplayName>
-		<Desc>有地方的人们闹饥荒了。</Desc>
-		<Selections>
-			<li>
-				<Display>确认接受</Display>
-				<OKResult><![CDATA[
-				me:AddSecret(3004);
-				world:SetWorldFlag(318,1)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-<Story Name="BaoZang_RW_C"  Parent="BaseFillingStory">
-		<DisplayName>接受C级任务</DisplayName>
-		<Desc>10天内完成该任务，5积分点数。</Desc>
-		<Selections>
-			<li>
-				<Display>随机接受任务</Display>
-				<DisplayCondition><![CDATA[	
-				world:GetWorldFlag(300) == 0
-				]]>
-				</DisplayCondition>
-				<OKResult><![CDATA[
-				local nR = me:RandomInt(1, 5);
-				if nR == 1 then
-				me:TriggerStory("BaoZang_RWC_1");
-				elseif nR == 2 then
-				me:TriggerStory("BaoZang_RWC_2");
-				elseif nR == 3 then
-				me:TriggerStory("BaoZang_RWC_3");
-				elseif nR == 4 then
-				me:TriggerStory("BaoZang_RWC_4");
-				else
-				me:TriggerStory("BaoZang_RWC_5");
-				end
-				]]>
-				</OKResult>
-			</li>
-			<li>
-				<Display>返回入口</Display>
-				<OKResult><![CDATA[	
-				me:TriggerStory("BaoZang_JSRW");
-				]]>
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-<Story Name="BaoZang_RWC_1"  Parent="BaseFillingStory">
-		<DisplayName>除东海</DisplayName>
-		<Desc>东海浪人在四处烧杀抢掠。</Desc>
-		<Selections>
-			<li>
-				<Display>确认接受</Display>
-				<OKResult><![CDATA[
-				me:AddSecret(3005);
-				world:SetWorldFlag(300,1)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-<Story Name="BaoZang_RWC_2"  Parent="BaseFillingStory">
-		<DisplayName>扫南蛮</DisplayName>
-		<Desc>南蛮野人在四处烧杀抢掠。</Desc>
-		<Selections>
-			<li>
-				<Display>确认接受</Display>
-				<OKResult><![CDATA[
-				me:AddSecret(3006);
-				world:SetWorldFlag(300,1)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-<Story Name="BaoZang_RWC_3"  Parent="BaseFillingStory">
-		<DisplayName>清北夷</DisplayName>
-		<Desc>北夷蛮人在四处烧杀抢掠。</Desc>
-		<Selections>
-			<li>
-				<Display>确认接受</Display>
-				<OKResult><![CDATA[
-				me:AddSecret(3007);
-				world:SetWorldFlag(300,1)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-
-<Story Name="BaoZang_RWC_4"  Parent="BaseFillingStory">
-		<DisplayName>祛西寇</DisplayName>
-		<Desc>西方倭寇在四处烧杀抢掠</Desc>
-		<Selections>
-			<li>
-				<Display>确认接受</Display>
-				<OKResult><![CDATA[
-				me:AddSecret(3008);
-				world:SetWorldFlag(300,1)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-<Story Name="BaoZang_RWC_5"  Parent="BaseFillingStory">
-		<DisplayName>寻秘籍</DisplayName>
-		<Desc>在某地出现了一本学院需要的秘籍。</Desc>
-		<Selections>
-			<li>
-				<Display>确认接受</Display>
-				<OKResult><![CDATA[
-				me:AddSecret(3009);
-				world:SetWorldFlag(300,1)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-
-<Story Name="BaoZang_RW_B"  Parent="BaseFillingStory">
-		<DisplayName>接受B级任务</DisplayName>
-		<Desc>7天内完成任务，10积分点数。</Desc>
-		<Selections>
-			<li>
-				<Display>随机接受任务</Display>
-				<DisplayCondition><![CDATA[	
-				world:GetWorldFlag(301) == 0
-				]]>
-				</DisplayCondition>
-				<OKResult><![CDATA[
-				local nR = me:RandomInt(1, 5);
-				if nR == 1 then
-				me:TriggerStory("BaoZang_RWB_1");
-				elseif nR == 2 then
-				me:TriggerStory("BaoZang_RWB_2");
-				elseif nR == 3 then
-				me:TriggerStory("BaoZang_RWB_3");
-				elseif nR == 4 then
-				me:TriggerStory("BaoZang_RWB_4");
-				else
-				me:TriggerStory("BaoZang_RWB_5");
-				end
-				]]>
-				</OKResult>
-			</li>
-			<li>
-				<Display>返回入口</Display>
-				<OKResult><![CDATA[				
-				me:TriggerStory("BaoZang_JSRW");
-				]]>
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-<Story Name="BaoZang_RWB_1"  Parent="BaseFillingStory">
-		<DisplayName>抓恶鬼</DisplayName>
-		<Desc>恶鬼小丽重现人间。</Desc>
-		<Selections>
-			<li>
-				<Display>确认接受</Display>
-				<OKResult><![CDATA[
-				me:AddSecret(3010);
-				world:SetWorldFlag(301,1)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-
-
-<Story Name="BaoZang_RWB_2"  Parent="BaseFillingStory">
-		<DisplayName>抓僵尸</DisplayName>
-		<Desc>僵尸小僵重现人间。</Desc>
-		<Selections>
-			<li>
-				<Display>确认接受</Display>
-				<OKResult><![CDATA[
-				me:AddSecret(3011);
-				world:SetWorldFlag(301,1)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-<Story Name="BaoZang_RWB_3"  Parent="BaseFillingStory">
-		<DisplayName>抓旱魃</DisplayName>
-		<Desc>旱魃小皮重现人间。</Desc>
-		<Selections>
-			<li>
-				<Display>确认接受</Display>
-				<OKResult><![CDATA[
-				me:AddSecret(3012);
-				world:SetWorldFlag(301,1)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-<Story Name="BaoZang_RWB_4"  Parent="BaseFillingStory">
-		<DisplayName>除邪魔</DisplayName>
-		<Desc>邪魔出世，重现人间。</Desc>
-		<Selections>
-			<li>
-				<Display>确认接受</Display>
-				<OKResult><![CDATA[
-				me:AddSecret(3013);
-				world:SetWorldFlag(301,1)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-<Story Name="BaoZang_RWB_5"  Parent="BaseFillingStory">
-		<DisplayName>救宗门</DisplayName>
-		<Desc>老杨直播间的水友发出了危险信号请求救援。</Desc>
-		<Selections>
-			<li>
-				<Display>确认接受</Display>
-				<OKResult><![CDATA[
-				me:AddSecret(3014);
-				world:SetWorldFlag(301,1)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-<Story Name="BaoZang_RW_A"  Parent="BaseFillingStory">
-		<DisplayName>接受A级任务</DisplayName>
-		<Desc>5天内完成任务，20积分点数。</Desc>
-		<Selections>
-			<li>
-				<Display>随机接受任务</Display>
-				<DisplayCondition><![CDATA[	
-				world:GetWorldFlag(302) == 0
-				]]>
-				</DisplayCondition>
-				<OKResult><![CDATA[
-				local nR = me:RandomInt(1, 4);
-				if nR == 1 then
-				me:TriggerStory("BaoZang_RWA_1");
-				elseif nR == 2 then
-				me:TriggerStory("BaoZang_RWA_2");
-				elseif nR == 3 then
-				me:TriggerStory("BaoZang_RWA_3");
-				else
-				me:TriggerStory("BaoZang_RWA_4");
-				end
-				]]>
-				</OKResult>
-			</li>
-			<li>
-				<Display>返回入口</Display>
-				<OKResult><![CDATA[				
-				me:TriggerStory("BaoZang_JSRW");
-				]]>
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-<Story Name="BaoZang_RWA_1"  Parent="BaseFillingStory">
-		<DisplayName>杀蛟龙</DisplayName>
-		<Desc>任务中心。</Desc>
-		<Selections>
-			<li>
-				<Display>确认接受</Display>
-				<OKResult><![CDATA[
-				me:AddSecret(3015);
-				world:SetWorldFlag(302,1)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-<Story Name="BaoZang_RWA_2"  Parent="BaseFillingStory">
-		<DisplayName>救神兽</DisplayName>
-		<Desc>任务中心。</Desc>
-		<Selections>
-			<li>
-				<Display>确认接受</Display>
-				<OKResult><![CDATA[
-				me:AddSecret(3016);
-				world:SetWorldFlag(302,1)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-<Story Name="BaoZang_RWA_3"  Parent="BaseFillingStory">
-		<DisplayName>斗魑魅</DisplayName>
-		<Desc>任务中心。</Desc>
-		<Selections>
-			<li>
-				<Display>确认接受</Display>
-				<OKResult><![CDATA[
-				me:AddSecret(3017);
-				world:SetWorldFlag(302,1)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-<Story Name="BaoZang_RWA_4"  Parent="BaseFillingStory">
-		<DisplayName>战魍魉</DisplayName>
-		<Desc>任务中心。</Desc>
-		<Selections>
-			<li>
-				<Display>确认接受</Display>
-				<OKResult><![CDATA[
-				me:AddSecret(3018);
-				world:SetWorldFlag(302,1)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-<Story Name="BaoZang_RW_S"  Parent="BaseFillingStory">
-		<DisplayName>接受S级任务</DisplayName>
-		<Desc>任务中心。</Desc>
-		<Selections>
-			<li>
-				<Display>随机接受任务</Display>
-				<DisplayCondition><![CDATA[	
-				world:GetWorldFlag(303) == 0
-				]]>
-				</DisplayCondition>
-				<OKResult><![CDATA[
-				local nR = me:RandomInt(1, 3);
-				if nR == 1 then
-				me:TriggerStory("BaoZang_RWS_1");
-				elseif nR == 2 then
-				me:TriggerStory("BaoZang_RWS_2");
-				else
-				me:TriggerStory("BaoZang_RWS_3");
-				end
-				]]>
-				</OKResult>
-			</li>
-			<li>
-				<Display>返回入口</Display>
-				<OKResult><![CDATA[				
-				me:TriggerStory("BaoZang_JSRW");
-				]]>
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-<Story Name="BaoZang_RWS_1"  Parent="BaseFillingStory">
-		<DisplayName>弑杰神分身</DisplayName>
-		<Desc>杰神的分神之二。</Desc>
-		<Selections>
-			<li>
-				<Display>确认接受</Display>
-				<OKResult><![CDATA[
-				me:AddSecret(3019);
-				world:SetWorldFlag(303,1)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-<Story Name="BaoZang_RWS_2"  Parent="BaseFillingStory">
-		<DisplayName>斩龙啸分身</DisplayName>
-		<Desc>你确定想好了吗？</Desc>
-		<Selections>
-			<li>
-				<Display>确认接受</Display>
-				<OKResult><![CDATA[
-				me:AddSecret(3020);
-				world:SetWorldFlag(303,1)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-<Story Name="BaoZang_RWS_3"  Parent="BaseFillingStory">
-		<DisplayName>杀噬妖兽</DisplayName>
-		<Desc>强大的妖兽</Desc>
-		<Selections>
-			<li>
-				<Display>确认接受</Display>
-				<OKResult><![CDATA[
-				me:AddSecret(3021);
-				world:SetWorldFlag(303,1)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-<Story Name="Secrets_D1"  Parent="BaseFillingStory">
-		<DisplayName>救尼莫</DisplayName>
-		<Desc>[NAME]到了该地。 [NAME]准备完成这个任务。</Desc>
-		<Selections>
-			<li>
-				<Display>完成任务</Display> 
-				<Condition><![CDATA[
-				me:GetGLevel() >= 7
-				]]>
-				</Condition>
-				<OKResult>
-				<![CDATA[					
-				me:AddMsg("[NAME]到达了该地，略略施展小神通把受困的尼莫救了上来，尼莫十分感谢[NAME]，并承诺要以身相许。");
-				me:AddMsg("任务完成");
-				me:AddMsg("积分值增加10点，积分点数增加10点。");
-				world:SetWorldFlag(287,world:GetWorldFlag(287)+10);
-				world:SetWorldFlag(286,world:GetWorldFlag(286)+10);
-				world:SetWorldFlag(318,0)
-				story:FinishSecret();
-				]]>		
-				</OKResult>
-				<NOResult>me:AddMsg("尼莫太重了，[NAME]根本搬不动啊，我的老天爷。");</NOResult>
-			</li>
-			<li>
-				<Display>放弃任务</Display> 
-				<OKResult><![CDATA[
-				me:AddMsg("[NAME]不为所动，看着尼莫困在这里，并放弃了任务。可能感觉她并没有传说中的漂亮。");
-				story:FinishSecret();
-				world:SetWorldFlag(318,0)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-
-<Story Name="Secrets_D2"  Parent="BaseFillingStory">
-		<DisplayName>送信物</DisplayName>
-		<Desc>[NAME]到了该地。 [NAME]准备完成这个任务。</Desc>
-		<Selections>
-			<li>
-				<Display>完成任务</Display> 
-				<OKResult>
-				<![CDATA[	
-				me:AddMsg("[NAME]到达了该地，早已在此等候的接线人和[NAME]成功对上了暗号，[NAME]把信物成功送到。");
-				me:AddMsg("任务完成");
-				me:AddMsg("积分值增加2点，积分点数增加2点。");
-				world:SetWorldFlag(287,world:GetWorldFlag(287)+2);
-				world:SetWorldFlag(286,world:GetWorldFlag(286)+2);
-				world:SetWorldFlag(318,0)
-				story:FinishSecret();
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>放弃任务</Display> 
-				<OKResult><![CDATA[
-				me:AddMsg("[NAME]找不着路，只能原路返回交还信物，并放弃了任务。");
-				story:FinishSecret();
-				world:SetWorldFlag(318,0)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-
-<Story Name="Secrets_D3"  Parent="BaseFillingStory">
-		<DisplayName>寻动物</DisplayName>
-		<Desc>[NAME]到了该地。 [NAME]准备完成这个任务。</Desc>
-		<Selections>
-			<li>
-				<Display>完成任务</Display> 
-				<OKResult>
-				<![CDATA[	
-				me:AddMsg("[NAME]到达了该地，略略施展小神通把找不到的动物找了回来，凡人十分感谢[NAME]。");
-				me:AddMsg("任务完成");
-				me:AddMsg("积分值增加2点，积分点数增加2点。");
-				world:SetWorldFlag(287,world:GetWorldFlag(287)+2);
-				world:SetWorldFlag(286,world:GetWorldFlag(286)+2);
-				world:SetWorldFlag(318,0)
-				story:FinishSecret();
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>放弃任务</Display> 
-				<OKResult><![CDATA[
-				me:AddMsg("[NAME]太菜了，决定放弃任务。");
-				story:FinishSecret();
-				world:SetWorldFlag(318,0)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-
-<Story Name="Secrets_D4"  Parent="BaseFillingStory">
-		<DisplayName>挪山地</DisplayName>
-		<Desc>[NAME]到了该地。 [NAME]准备完成这个任务。</Desc>
-		<Selections>
-			<li>
-				<Display>完成任务</Display> 
-				<OKResult>
-				<![CDATA[	
-				me:AddMsg("[NAME]到达了该地，看见了没有神通的愚公在一点一点移山，[NAME]略施展神通，便帮愚公把山体移开，愚公十分感谢[NAME]并表示下次移山还要再找[NAME]。");
-				me:AddMsg("任务完成");
-				me:AddMsg("积分值增加2点，积分点数增加2点。");
-				world:SetWorldFlag(287,world:GetWorldFlag(287)+2);
-				world:SetWorldFlag(286,world:GetWorldFlag(286)+2);
-				world:SetWorldFlag(318,0)
-				story:FinishSecret();
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>放弃任务</Display> 
-				<OKResult><![CDATA[
-				me:AddMsg("[NAME]看着愚公面对的庞大山脉，决定放弃任务。");
-				story:FinishSecret();
-				world:SetWorldFlag(318,0)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-
-<Story Name="Secrets_D5"  Parent="BaseFillingStory">
-		<DisplayName>闹饥荒</DisplayName>
-		<Desc>[NAME]到了该地。 [NAME]准备完成这个任务。</Desc>
-		<Selections>
-			<li>
-				<Display>完成任务</Display> 
-				<OKResult>
-				<![CDATA[	
-				me:AddMsg("[NAME]到达了该地，看见饱受饥饿之苦的凡人们，[NAME]立即使用神通打了许多野味给凡人们充饥，凡人们非常感谢[NAME]。");
-				me:AddMsg("任务完成");
-				me:AddMsg("积分值增加2点，积分点数增加2点。");
-				world:SetWorldFlag(287,world:GetWorldFlag(287)+2);
-				world:SetWorldFlag(286,world:GetWorldFlag(286)+2);
-				world:SetWorldFlag(318,0)
-				story:FinishSecret();
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>放弃任务</Display> 
-				<OKResult><![CDATA[
-				me:AddMsg("[NAME]不为所动，看着饱受饥饿的人们，放弃了任务。");
-				story:FinishSecret();
-				world:SetWorldFlag(318,0)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-
-
-
-
-
-<Story Name="Secrets_C1"  Parent="BaseFillingStory">
-		<DisplayName>除东海</DisplayName>
-		<Desc>[NAME]到了该地。 [NAME]准备完成这个任务。</Desc>
-		<Selections>
-			<li>
-				<Display>完成任务</Display> 
-				<OKResult>
-				<![CDATA[	
-				me:AddMsg("[NAME]到达了该地，略施展神通把没有修为的东海浪人给爆了。");
-				me:AddMsg("任务完成");
-				me:AddMsg("积分值增加5点，积分点数增加5点。");
-				world:SetWorldFlag(287,world:GetWorldFlag(287)+5);
-				world:SetWorldFlag(286,world:GetWorldFlag(286)+5);
-				world:SetWorldFlag(300,0)
-				story:FinishSecret();
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>放弃任务</Display> 
-				<OKResult><![CDATA[
-				me:AddMsg("[NAME]放弃了任务！");
-				story:FinishSecret();
-				world:SetWorldFlag(300,0)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-<Story Name="Secrets_C2"  Parent="BaseFillingStory">
-		<DisplayName>扫南蛮</DisplayName>
-		<Desc>[NAME]到了该地。 [NAME]准备完成这个任务。</Desc>
-		<Selections>
-			<li>
-				<Display>完成任务</Display> 
-				<OKResult>
-				<![CDATA[	
-				me:AddMsg("[NAME]到达了该地，略施展神通把没有修为的南蛮野人给爆了。");
-				me:AddMsg("任务完成");
-				me:AddMsg("积分值增加5点，积分点数增加5点。");
-				world:SetWorldFlag(287,world:GetWorldFlag(287)+5);
-				world:SetWorldFlag(286,world:GetWorldFlag(286)+5);
-				world:SetWorldFlag(300,0)
-				story:FinishSecret();
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>放弃任务</Display> 
-				<OKResult><![CDATA[
-				me:AddMsg("[NAME]放弃了任务！");
-				story:FinishSecret();
-				world:SetWorldFlag(300,0)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-<Story Name="Secrets_C3"  Parent="BaseFillingStory">
-		<DisplayName>清北夷</DisplayName>
-		<Desc>[NAME]到了该地。 [NAME]准备完成这个任务。</Desc>
-		<Selections>
-			<li>
-				<Display>完成任务</Display> 
-				<OKResult>
-				<![CDATA[	
-				me:AddMsg("[NAME]到达了该地，略施展神通把没有修为的北夷蛮人给爆了。");
-				me:AddMsg("任务完成");
-				me:AddMsg("积分值增加5点，积分点数增加5点。");
-				world:SetWorldFlag(287,world:GetWorldFlag(287)+5);
-				world:SetWorldFlag(286,world:GetWorldFlag(286)+5);
-				world:SetWorldFlag(300,0)
-				story:FinishSecret();
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>放弃任务</Display> 
-				<OKResult><![CDATA[
-				me:AddMsg("[NAME]放弃了任务！");
-				story:FinishSecret();
-				world:SetWorldFlag(300,0)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-<Story Name="Secrets_C4"  Parent="BaseFillingStory">
-		<DisplayName>祛西寇</DisplayName>
-		<Desc>[NAME]到了该地。 [NAME]准备完成这个任务。</Desc>
-		<Selections>
-			<li>
-				<Display>完成任务</Display> 
-				<OKResult>
-				<![CDATA[	
-				me:AddMsg("[NAME]到达了该地，略施展神通把没有修为的西方倭寇给爆了。");
-				me:AddMsg("任务完成");
-				me:AddMsg("积分值增加5点，积分点数增加5点。");
-				world:SetWorldFlag(287,world:GetWorldFlag(287)+5);
-				world:SetWorldFlag(286,world:GetWorldFlag(286)+5);
-				world:SetWorldFlag(300,0)
-				story:FinishSecret();
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>放弃任务</Display> 
-				<OKResult><![CDATA[
-				me:AddMsg("[NAME]放弃了任务！");
-				story:FinishSecret();
-				world:SetWorldFlag(300,0)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-<Story Name="Secrets_C5"  Parent="BaseFillingStory">
-		<DisplayName>寻秘籍</DisplayName>
-		<Desc>[NAME]到了该地。 [NAME]准备完成这个任务。</Desc>
-		<Selections>
-			<li>
-				<Display>完成任务</Display> 
-				<OKResult>
-				<![CDATA[	
-				me:AddMsg("[NAME]到达了该地，用神识找到了要找的秘籍并送回了学院。");
-				me:AddMsg("任务完成");
-				me:AddMsg("积分值增加5点，积分点数增加5点。");
-				world:SetWorldFlag(287,world:GetWorldFlag(287)+5);
-				world:SetWorldFlag(286,world:GetWorldFlag(286)+5);
-				world:SetWorldFlag(300,0)
-				story:FinishSecret();
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>放弃任务</Display> 
-				<OKResult><![CDATA[
-				me:AddMsg("[NAME]放弃了任务！");
-				story:FinishSecret();
-				world:SetWorldFlag(300,0)
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-<Story Name="Secrets_B1"  Parent="BaseFillingStory">
-		<DisplayName>抓恶鬼</DisplayName>
-		<Desc>[NAME]到了该地，看见正在吸食魂魄的恶鬼小丽。</Desc>
-		<Selections>
-			<li>
-				<Display>战斗</Display> 
-				<DisplayCondition><![CDATA[	
-				world:GetWorldFlag(320) == 0
-				]]>
-				</DisplayCondition>
-				<OKResult>
-				<![CDATA[	
-				me:TriggerStory("BaoZang_B1_FIGHT");
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>完成任务</Display> 
-				<DisplayCondition><![CDATA[	
-				world:GetWorldFlag(320) == 1
-				]]>
-				</DisplayCondition>
-				<OKResult>
-				<![CDATA[	
-				me:AddMsg("积分值增加10点，积分点数增加10点。");
-				world:SetWorldFlag(287,world:GetWorldFlag(287)+10);
-				world:SetWorldFlag(286,world:GetWorldFlag(286)+10);
-				world:SetWorldFlag(301,0);
-				story:FinishSecret();
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>放弃任务</Display> 
-				<OKResult><![CDATA[
-				me:AddMsg("[NAME]感觉打不赢小丽，赶紧施展神通溜了。");
-				story:FinishSecret();
-				world:SetWorldFlag(301,0);
-				world:SetWorldFlag(320,0);
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-<Story Name="Secrets_B2"  Parent="BaseFillingStory">
-		<DisplayName>抓僵尸</DisplayName>
-		<Desc>[NAME]到了该地，看见正在吸食魂魄的僵尸小僵。</Desc>
-		<Selections>
-			<li>
-				<Display>战斗</Display> 
-				<DisplayCondition><![CDATA[	
-				world:GetWorldFlag(321) == 0
-				]]>
-				</DisplayCondition>
-				<OKResult>
-				<![CDATA[	
-				me:TriggerStory("BaoZang_B2_FIGHT");
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>完成任务</Display> 
-				<DisplayCondition><![CDATA[	
-				world:GetWorldFlag(321) == 1
-				]]>
-				</DisplayCondition>
-				<OKResult>
-				<![CDATA[	
-				me:AddMsg("积分值增加10点，积分点数增加10点。");
-				world:SetWorldFlag(287,world:GetWorldFlag(287)+10);
-				world:SetWorldFlag(286,world:GetWorldFlag(286)+10);
-				world:SetWorldFlag(301,0);
-				story:FinishSecret();
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>放弃任务</Display> 
-				<OKResult><![CDATA[
-				me:AddMsg("[NAME]感觉打不赢小僵，赶紧施展神通溜了。");
-				story:FinishSecret();
-				world:SetWorldFlag(301,0);
-				world:SetWorldFlag(321,0);
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-<Story Name="Secrets_B3"  Parent="BaseFillingStory">
-		<DisplayName>杀旱魃</DisplayName>
-		<Desc>[NAME]到了该地，看见正在裸奔的小皮。。。</Desc>
-		<Selections>
-			<li>
-				<Display>战斗</Display> 
-				<DisplayCondition><![CDATA[	
-				world:GetWorldFlag(322) == 0
-				]]>
-				</DisplayCondition>
-				<OKResult>
-				<![CDATA[	
-				me:TriggerStory("BaoZang_B3_FIGHT");
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>完成任务</Display> 
-				<DisplayCondition><![CDATA[	
-				world:GetWorldFlag(322) == 1
-				]]>
-				</DisplayCondition>
-				<OKResult>
-				<![CDATA[	
-				me:AddMsg("积分值增加10点，积分点数增加10点。");
-				world:SetWorldFlag(287,world:GetWorldFlag(287)+10);
-				world:SetWorldFlag(286,world:GetWorldFlag(286)+10);
-				world:SetWorldFlag(301,0);
-				story:FinishSecret();
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>放弃任务</Display> 
-				<OKResult><![CDATA[
-				me:AddMsg("[NAME]感觉打不赢小皮，赶紧施展神通溜了。");
-				story:FinishSecret();
-				world:SetWorldFlag(301,0);
-				world:SetWorldFlag(322,0);
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-<Story Name="Secrets_B4"  Parent="BaseFillingStory">
-		<DisplayName>杀邪魔</DisplayName>
-		<Desc>[NAME]到了该地，看见的邪魔分身。</Desc>
-		<Selections>
-			<li>
-				<Display>战斗</Display> 
-				<DisplayCondition><![CDATA[	
-				world:GetWorldFlag(323) == 0
-				]]>
-				</DisplayCondition>
-				<OKResult>
-				<![CDATA[	
-				me:TriggerStory("BaoZang_B4_FIGHT");
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>完成任务</Display> 
-				<DisplayCondition><![CDATA[	
-				world:GetWorldFlag(323) == 1
-				]]>
-				</DisplayCondition>
-				<OKResult>
-				<![CDATA[	
-				me:AddMsg("积分值增加10点，积分点数增加10点。");
-				world:SetWorldFlag(287,world:GetWorldFlag(287)+10);
-				world:SetWorldFlag(286,world:GetWorldFlag(286)+10);
-				world:SetWorldFlag(301,0);
-				story:FinishSecret();
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>放弃任务</Display> 
-				<OKResult><![CDATA[
-				me:AddMsg("[NAME]感觉打不赢邪魔，赶紧施展神通溜了。");
-				story:FinishSecret();
-				world:SetWorldFlag(301,0);
-				world:SetWorldFlag(323,0);
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-<Story Name="Secrets_B5"  Parent="BaseFillingStory">
-		<DisplayName>救直播间水友</DisplayName>
-		<Desc>[NAME]到了该地。 [NAME]准备完成这个任务。</Desc>
-		<Selections>
-			<li>
-				<Display>完成任务</Display> 
-				<OKResult>
-				<![CDATA[	
-				me:AddMsg("[NAME]看到在水深火热中的水友，在[NAME]的帮助下，水友成功获救了。");
-				me:AddMsg("任务完成");
-				me:AddMsg("积分值增加10点，积分点数增加10点。");
-				world:SetWorldFlag(287,world:GetWorldFlag(287)+10);
-				world:SetWorldFlag(286,world:GetWorldFlag(286)+10);
-				world:SetWorldFlag(301,0);
-				story:FinishSecret();
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>放弃任务</Display> 
-				<OKResult><![CDATA[
-				me:AddMsg("[NAME]放弃了任务！");
-				story:FinishSecret();
-				world:SetWorldFlag(301,0);
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-
-<Story Name="Secrets_A1"  Parent="BaseFillingStory">
-		<DisplayName>杀蛟龙</DisplayName>
-		<Desc>[NAME]到了该地。 看见了一条蛟龙。</Desc>
-		<Selections>
-			<li>
-				<Display>战斗</Display> 
-				<DisplayCondition><![CDATA[	
-				world:GetWorldFlag(324) == 0
-				]]>
-				</DisplayCondition>
-				<OKResult>
-				<![CDATA[	
-				me:TriggerStory("BaoZang_A1_FIGHT");
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>完成任务</Display> 
-				<DisplayCondition><![CDATA[	
-				world:GetWorldFlag(324) == 1
-				]]>
-				</DisplayCondition>
-				<OKResult>
-				<![CDATA[	
-				me:AddMsg("积分值增加20点，积分点数增加20点。");
-				world:SetWorldFlag(287,world:GetWorldFlag(287)+20);
-				world:SetWorldFlag(286,world:GetWorldFlag(286)+20);
-				world:SetWorldFlag(302,0);
-				story:FinishSecret();
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>放弃任务</Display> 
-				<OKResult><![CDATA[
-				me:AddMsg("[NAME]放弃了任务！");
-				story:FinishSecret();
-				world:SetWorldFlag(302,0);
-				world:SetWorldFlag(324,0);
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-<Story Name="Secrets_A2"  Parent="BaseFillingStory">
-		<DisplayName>拯救神兽</DisplayName>
-		<Desc>[NAME]到了该地。发现是一只神兽鹿蜀受了伤。</Desc>
-		<Selections>
-			<li>
-				<Display>完成任务</Display>
-				<Condition><![CDATA[	
-				me:GetGLevel() >= 12
-				]]>
-				</Condition> 
-				<OKResult>
-				<![CDATA[	
-				me:AddMsg("[NAME]施展神通给鹿蜀治疗，在[NAME]的帮助下，鹿蜀成功恢复了健康。");
-				me:AddMsg("任务完成");
-				me:AddMsg("积分值增加20点，积分点数增加20点。");
-				world:SetWorldFlag(287,world:GetWorldFlag(287)+20);
-				world:SetWorldFlag(286,world:GetWorldFlag(286)+20);
-				world:SetWorldFlag(302,0);
-				story:FinishSecret();
-				]]>		
-				</OKResult>
-				<NOResult>me:AddMsg("[NAME]修为太低，不足以救起神兽。");</NOResult>
-			</li>
-			<li>
-				<Display>放弃任务</Display> 
-				<OKResult><![CDATA[
-				me:AddMsg("[NAME]放弃了任务！");
-				story:FinishSecret();
-				world:SetWorldFlag(302,0);
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-
-<Story Name="Secrets_A3"  Parent="BaseFillingStory">
-		<DisplayName>战魑魅</DisplayName>
-		<Desc>[NAME]到了该地。 看见了魑魅二鬼。</Desc>
-		<Selections>
-			<li>
-				<Display>战斗</Display> 
-				<DisplayCondition><![CDATA[	
-				world:GetWorldFlag(325) == 0
-				]]>
-				</DisplayCondition>
-				<OKResult>
-				<![CDATA[	
-				me:TriggerStory("BaoZang_A3_FIGHT");
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>完成任务</Display> 
-				<DisplayCondition><![CDATA[	
-				world:GetWorldFlag(325) == 1
-				]]>
-				</DisplayCondition>
-				<OKResult>
-				<![CDATA[	
-				me:AddMsg("积分值增加20点，积分点数增加20点。");
-				world:SetWorldFlag(287,world:GetWorldFlag(287)+20);
-				world:SetWorldFlag(286,world:GetWorldFlag(286)+20);
-				world:SetWorldFlag(302,0);
-				story:FinishSecret();
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>放弃任务</Display> 
-				<OKResult><![CDATA[
-				me:AddMsg("[NAME]放弃了任务！");
-				story:FinishSecret();
-				world:SetWorldFlag(302,0);
-				world:SetWorldFlag(325,0);
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-<Story Name="Secrets_A4"  Parent="BaseFillingStory">
-		<DisplayName>战魍魉</DisplayName>
-		<Desc>[NAME]到了该地。 看见了魍魉二鬼。</Desc>
-		<Selections>
-			<li>
-				<Display>战斗</Display> 
-				<DisplayCondition><![CDATA[	
-				world:GetWorldFlag(326) == 0
-				]]>
-				</DisplayCondition>
-				<OKResult>
-				<![CDATA[	
-				me:TriggerStory("BaoZang_A4_FIGHT");
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>完成任务</Display> 
-				<DisplayCondition><![CDATA[	
-				world:GetWorldFlag(326) == 1
-				]]>
-				</DisplayCondition>
-				<OKResult>
-				<![CDATA[	
-				me:AddMsg("积分值增加20点，积分点数增加20点。");
-				world:SetWorldFlag(287,world:GetWorldFlag(287)+20);
-				world:SetWorldFlag(286,world:GetWorldFlag(286)+20);
-				world:SetWorldFlag(302,0);
-				story:FinishSecret();
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>放弃任务</Display> 
-				<OKResult><![CDATA[
-				me:AddMsg("[NAME]放弃了任务！");
-				story:FinishSecret();
-				world:SetWorldFlag(302,0);
-				world:SetWorldFlag(326,0);
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-<Story Name="Secrets_S1"  Parent="BaseFillingStory">
-		<DisplayName>杰神分身</DisplayName>
-		<Desc>[NAME]还没到该地就已经感觉到了一股强大的气息。</Desc>
-		<Selections>
-			<li>
-				<Display>战斗</Display> 
-				<DisplayCondition><![CDATA[	
-				world:GetWorldFlag(327) == 0
-				]]>
-				</DisplayCondition>
-				<OKResult>
-				<![CDATA[	
-				me:TriggerStory("JSZD");
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>完成任务</Display> 				
-				<DisplayCondition><![CDATA[	
-				world:GetWorldFlag(327) == 1
-				]]>
-				</DisplayCondition>
-				<OKResult>
-				<![CDATA[	
-				me:AddMsg("积分值增加50点，积分点数增加50点。");
-				world:SetWorldFlag(287,world:GetWorldFlag(287)+50);
-				world:SetWorldFlag(286,world:GetWorldFlag(286)+50);
-				world:SetWorldFlag(303,0);
-				story:FinishSecret();
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>放弃任务</Display> 
-				<OKResult><![CDATA[
-				me:AddMsg("[NAME]放弃了任务！");
-				story:FinishSecret();
-				world:SetWorldFlag(303,0);
-				world:SetWorldFlag(327,0);
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-<Story Name="Secrets_S2"  Parent="BaseFillingStory">
-		<DisplayName>龙啸分身</DisplayName>
-		<Desc>[NAME]还没到该地就已经感觉到了下体一股凉意。</Desc>
-		<Selections>
-			<li>
-				<Display>战斗</Display> 
-				<DisplayCondition><![CDATA[	
-				world:GetWorldFlag(328) == 0
-				]]>
-				</DisplayCondition>
-				<OKResult>
-				<![CDATA[	
-				me:TriggerStory("LXZD");
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>完成任务</Display> 
-				<DisplayCondition><![CDATA[	
-				world:GetWorldFlag(328) == 1
-				]]>
-				</DisplayCondition>
-				<OKResult>
-				<![CDATA[	
-				me:AddMsg("积分值增加50点，积分点数增加50点。");
-				world:SetWorldFlag(287,world:GetWorldFlag(287)+50);
-				world:SetWorldFlag(286,world:GetWorldFlag(286)+50);
-				world:SetWorldFlag(303,0);
-				story:FinishSecret();
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>放弃任务</Display> 
-				<OKResult><![CDATA[
-				me:AddMsg("[NAME]放弃了任务！");
-				story:FinishSecret();
-				world:SetWorldFlag(303,0);
-				world:SetWorldFlag(328,0);
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-<Story Name="Secrets_S3"  Parent="BaseFillingStory">
-		<DisplayName>噬族妖兽</DisplayName>
-		<Desc>[NAME]还没到该地就已经感觉到了一股强大的气息。</Desc>
-		<Selections>
-			<li>
-				<Display>战斗</Display> 
-				<DisplayCondition><![CDATA[	
-				world:GetWorldFlag(329) == 0
-				]]>
-				</DisplayCondition>
-				<OKResult>
-				<![CDATA[	
-				me:TriggerStory("SZYS");
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>完成任务</Display> 
-				<DisplayCondition><![CDATA[	
-				world:GetWorldFlag(329) == 1
-				]]>
-				</DisplayCondition>
-				<OKResult>
-				<![CDATA[	
-				me:AddMsg("积分值增加50点，积分点数增加50点。");
-				world:SetWorldFlag(287,world:GetWorldFlag(287)+50);
-				world:SetWorldFlag(286,world:GetWorldFlag(286)+50);
-				world:SetWorldFlag(303,0);
-				story:FinishSecret();
-				]]>		
-				</OKResult>
-			</li>
-			<li>
-				<Display>放弃任务</Display> 
-				<OKResult><![CDATA[
-				me:AddMsg("[NAME]放弃了任务！");
-				story:FinishSecret();
-				world:SetWorldFlag(303,0);
-				world:SetWorldFlag(329,0);
-				]]>	
-				</OKResult>
-			</li>
-		</Selections>
-	</Story>
-
-
-</List></Stories>
+			else
+				me:AddMsg(XT("[NAME]蠢的一比，看陈佳宁耍了半天什么都没学会,还把自己弄伤了。"));
+				me:AddDamgeFromCache(story.DamageCache, 4);
+			end
+			]]>
+			</OKResult>
+			<NOResult>
+			<![CDATA[
+			me:AddMsg(XT("来了这么多次，就这点长进？你的眼要来有何用?"));
+			me:AddDamgeFromCache(story.DamageCache, 4);
+			me:AddDamage("Destroy", "LeftEye", 1, XT("陈佳宁的剑"));
+			me:AddDamage("Destroy", "RightEye", 1, XT("陈佳宁的剑"));
+			]]>
+			</NOResult>
+		</li>
+		<li>
+			<Display>返回大厅</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]返回了入口。");
+			me:TriggerStory("BaoZang_renwu");
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<Story Name="BaoZang_CXGX" Parent="BaseFillingStory">
+	<DisplayName>积分查询</DisplayName>
+	<Desc>只见陈佳宁不紧不慢地拿出一本积分册，根据目录找到了[NAME]的名字，并告诉[NAME]目前拥有的积分点。</Desc>
+	<Selections>
+		<li>
+			<Display>积分查询</Display>
+			<OKResult>
+			<![CDATA[
+			local nQ = world:GetWorldFlag(287);  -- 积分点数
+			local nR = world:GetWorldFlag(286);  -- 积分值
+			
+			me:AddMsg("[NAME]目前拥有的积分点数为：\n");
+			me:AddMsg("积分点数：" .. nQ .. "\n");
+			me:AddMsg("积分值：" .. nR .. "\n");
+			
+			if nR == 0 then
+				me:AddMsg("目前没有任何积分啊，年轻人，多点去做任务好吧。");
+			elseif nR <= 10 then
+				me:AddMsg("目前积分挺少的，年轻人，多点去做任务好吧。");
+			elseif nR <= 500 then
+				me:AddMsg("目前积分还不错，年轻人，继续加油！");
+			elseif nR <= 5000 then
+				me:AddMsg("目前积分挺大的，年轻人，我看好你哦！");
+			elseif nR <= 20000 then
+				me:AddMsg("目前积分非常巨大，年轻人，我支持你啊！");
+			else
+				me:AddMsg("哀家对你所做所为真是钦佩至极！");
+			end
+			
+			me:TriggerStory("BaoZang_CXGX");
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>返回大厅</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]想了想，决定还是先回门口吧，于是向陈佳宁告别并转身离去。");
+			me:TriggerStory("BaoZang_renwu");
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<Story Name="BaoZang_TZLS" Parent="BaseFillingStory">
+	<DisplayName>挑战陈佳宁</DisplayName>
+	<Desc>陈佳宁冷冷地看着你，眼中闪过一丝不屑。</Desc>
+	<Selections>
+		<li>
+			<Display>确认挑战</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("陈佳宁：不自量力！");
+			-- 这里可以添加战斗逻辑
+			me:AddMsg("[NAME]被陈佳宁轻松击败，狼狈逃窜。");
+			me:AddDamgeFromCache(story.DamageCache, 10);
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>返回大厅</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]想了想，还是放弃了挑战。");
+			me:TriggerStory("BaoZang_SDLS");
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<!-- ==================== 任务中心 ==================== -->
+
+<Story Name="BaoZang_JSRW" Parent="BaseFillingStory">
+	<DisplayName>任务中心</DisplayName>
+	<Desc>选择要接受的任务级别</Desc>
+	<Selections>
+		<li>
+			<Display>D级任务 (2积分)</Display>
+			<Condition>
+			<![CDATA[me:GetGLevel() >= 0 AND world:GetWorldFlag(290) == 0]]>
+			</Condition>
+			<OKResult>me:TriggerStory("BaoZang_RW_D");</OKResult>
+			<NOResult>
+			<![CDATA[
+			if world:GetWorldFlag(290) > 0 then
+				me:AddMsg("你已经有任务在进行中了。");
+			else
+				me:AddMsg("这个任务对于[NAME]来说太危险了。");
+			end
+			]]>
+			</NOResult>
+		</li>
+		<li>
+			<Display>C级任务 (5积分)</Display>
+			<Condition>
+			<![CDATA[me:GetGLevel() >= 3 AND world:GetWorldFlag(290) == 0]]>
+			</Condition>
+			<OKResult>me:TriggerStory("BaoZang_RW_C");</OKResult>
+			<NOResult>
+			<![CDATA[
+			if world:GetWorldFlag(290) > 0 then
+				me:AddMsg("你已经有任务在进行中了。");
+			else
+				me:AddMsg("这个任务对于[NAME]来说太危险了。");
+			end
+			]]>
+			</NOResult>
+		</li>
+		<li>
+			<Display>B级任务 (10积分)</Display>
+			<Condition>
+			<![CDATA[me:GetGLevel() >= 6 AND world:GetWorldFlag(290) == 0]]>
+			</Condition>
+			<OKResult>me:TriggerStory("BaoZang_RW_B");</OKResult>
+			<NOResult>
+			<![CDATA[
+			if world:GetWorldFlag(290) > 0 then
+				me:AddMsg("你已经有任务在进行中了。");
+			else
+				me:AddMsg("这个任务对于[NAME]来说太危险了。");
+			end
+			]]>
+			</NOResult>
+		</li>
+		<li>
+			<Display>A级任务 (20积分)</Display>
+			<Condition>
+			<![CDATA[me:GetGLevel() >= 9 AND world:GetWorldFlag(290) == 0]]>
+			</Condition>
+			<OKResult>me:TriggerStory("BaoZang_RW_A");</OKResult>
+			<NOResult>
+			<![CDATA[
+			if world:GetWorldFlag(290) > 0 then
+				me:AddMsg("你已经有任务在进行中了。");
+			else
+				me:AddMsg("这个任务对于[NAME]来说太危险了。");
+			end
+			]]>
+			</NOResult>
+		</li>
+		<li>
+			<Display>S级任务 (50积分)</Display>
+			<Condition>
+			<![CDATA[me:GetGLevel() >= 12 AND world:GetWorldFlag(290) == 0]]>
+			</Condition>
+			<OKResult>me:TriggerStory("BaoZang_RW_S");</OKResult>
+			<NOResult>
+			<![CDATA[
+			if world:GetWorldFlag(290) > 0 then
+				me:AddMsg("你已经有任务在进行中了。");
+			else
+				me:AddMsg("这个任务对于[NAME]来说太危险了。");
+			end
+			]]>
+			</NOResult>
+		</li>
+		<li>
+			<Display>放弃当前任务</Display>
+			<DisplayCondition>
+			<![CDATA[world:GetWorldFlag(290) > 0]]>
+			</DisplayCondition>
+			<OKResult>
+			<![CDATA[
+			local taskLevel = world:GetWorldFlag(290);
+			local taskId = world:GetWorldFlag(291);
+			local taskNames = {"无", "D级", "C级", "B级", "A级", "S级"};
+			me:AddMsg("[NAME]放弃了当前" .. taskNames[taskLevel] .. "任务。");
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(292, 0);
+			me:TriggerStory("BaoZang_JSRW");
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>重置任务系统（异常时使用）</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("任务系统已重置。");
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(292, 0);
+			world:SetWorldFlag(318, 0);
+			world:SetWorldFlag(300, 0);
+			world:SetWorldFlag(301, 0);
+			world:SetWorldFlag(302, 0);
+			world:SetWorldFlag(303, 0);
+			me:TriggerStory("BaoZang_JSRW");
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>返回大厅</Display>
+			<OKResult>me:TriggerStory("BaoZang_renwu");</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<!-- ==================== 各等级任务接取 ==================== -->
+
+<Story Name="BaoZang_RW_D" Parent="BaseFillingStory">
+	<DisplayName>接受D级任务</DisplayName>
+	<Desc>15天内完成任务，2积分点数。</Desc>
+	<Selections>
+		<li>
+			<Display>随机接取任务</Display>
+			<OKResult>
+			<![CDATA[
+			local nR = me:RandomInt(1, 5);
+			local taskId = 3000;
+			
+			if nR == 1 then
+				taskId = 3000;  -- 救尼莫
+			elseif nR == 2 then
+				taskId = 3001;  -- 送信物
+			elseif nR == 3 then
+				taskId = 3002;  -- 寻动物
+			elseif nR == 4 then
+				taskId = 3003;  -- 挪山地
+			else
+				taskId = 3004;  -- 闹饥荒
+			end
+			
+			me:AddSecret(taskId);
+			world:SetWorldFlag(290, 1);
+			world:SetWorldFlag(291, taskId);
+			world:SetWorldFlag(318, taskId - 2999);  -- 兼容旧系统
+			me:AddMsg("已接取D级任务，请在15天内完成。");
+			me:TriggerStory("BaoZang_JSRW");
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>返回任务中心</Display>
+			<OKResult>me:TriggerStory("BaoZang_JSRW");</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<Story Name="BaoZang_RW_C" Parent="BaseFillingStory">
+	<DisplayName>接受C级任务</DisplayName>
+	<Desc>10天内完成任务，5积分点数。</Desc>
+	<Selections>
+		<li>
+			<Display>随机接取任务</Display>
+			<OKResult>
+			<![CDATA[
+			local nR = me:RandomInt(1, 5);
+			local taskId = 3005;
+			
+			if nR == 1 then
+				taskId = 3005;  -- 除东海
+			elseif nR == 2 then
+				taskId = 3006;  -- 扫南蛮
+			elseif nR == 3 then
+				taskId = 3007;  -- 清北夷
+			elseif nR == 4 then
+				taskId = 3008;  -- 祛西寇
+			else
+				taskId = 3009;  -- 寻秘籍
+			end
+			
+			me:AddSecret(taskId);
+			world:SetWorldFlag(290, 2);
+			world:SetWorldFlag(291, taskId);
+			world:SetWorldFlag(300, taskId - 3004);  -- 兼容旧系统
+			me:AddMsg("已接取C级任务，请在10天内完成。");
+			me:TriggerStory("BaoZang_JSRW");
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>返回任务中心</Display>
+			<OKResult>me:TriggerStory("BaoZang_JSRW");</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<Story Name="BaoZang_RW_B" Parent="BaseFillingStory">
+	<DisplayName>接受B级任务</DisplayName>
+	<Desc>7天内完成任务，10积分点数。</Desc>
+	<Selections>
+		<li>
+			<Display>随机接取任务</Display>
+			<OKResult>
+			<![CDATA[
+			local nR = me:RandomInt(1, 5);
+			local taskId = 3010;
+			
+			if nR == 1 then
+				taskId = 3010;  -- 抓恶鬼
+			elseif nR == 2 then
+				taskId = 3011;  -- 抓僵尸
+			elseif nR == 3 then
+				taskId = 3012;  -- 抓旱魃
+			elseif nR == 4 then
+				taskId = 3013;  -- 除邪魔
+			else
+				taskId = 3014;  -- 救宗门
+			end
+			
+			me:AddSecret(taskId);
+			world:SetWorldFlag(290, 3);
+			world:SetWorldFlag(291, taskId);
+			world:SetWorldFlag(301, taskId - 3009);  -- 兼容旧系统
+			me:AddMsg("已接取B级任务，请在7天内完成。");
+			me:TriggerStory("BaoZang_JSRW");
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>返回任务中心</Display>
+			<OKResult>me:TriggerStory("BaoZang_JSRW");</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<Story Name="BaoZang_RW_A" Parent="BaseFillingStory">
+	<DisplayName>接受A级任务</DisplayName>
+	<Desc>5天内完成任务，20积分点数。</Desc>
+	<Selections>
+		<li>
+			<Display>随机接取任务</Display>
+			<OKResult>
+			<![CDATA[
+			local nR = me:RandomInt(1, 4);
+			local taskId = 3015;
+			
+			if nR == 1 then
+				taskId = 3015;  -- 杀蛟龙
+			elseif nR == 2 then
+				taskId = 3016;  -- 救神兽
+			elseif nR == 3 then
+				taskId = 3017;  -- 斗魑魅
+			else
+				taskId = 3018;  -- 战魍魉
+			end
+			
+			me:AddSecret(taskId);
+			world:SetWorldFlag(290, 4);
+			world:SetWorldFlag(291, taskId);
+			world:SetWorldFlag(302, taskId - 3014);  -- 兼容旧系统
+			me:AddMsg("已接取A级任务，请在5天内完成。");
+			me:TriggerStory("BaoZang_JSRW");
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>返回任务中心</Display>
+			<OKResult>me:TriggerStory("BaoZang_JSRW");</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<Story Name="BaoZang_RW_S" Parent="BaseFillingStory">
+	<DisplayName>接受S级任务</DisplayName>
+	<Desc>3天内完成任务，50积分点数。</Desc>
+	<Selections>
+		<li>
+			<Display>随机接取任务</Display>
+			<OKResult>
+			<![CDATA[
+			local nR = me:RandomInt(1, 3);
+			local taskId = 3019;
+			
+			if nR == 1 then
+				taskId = 3019;  -- 弑杰神分身
+			elseif nR == 2 then
+				taskId = 3020;  -- 斩龙啸分身
+			else
+				taskId = 3021;  -- 杀噬妖兽
+			end
+			
+			me:AddSecret(taskId);
+			world:SetWorldFlag(290, 5);
+			world:SetWorldFlag(291, taskId);
+			world:SetWorldFlag(303, taskId - 3018);  -- 兼容旧系统
+			me:AddMsg("已接取S级任务，请在3天内完成。");
+			me:TriggerStory("BaoZang_JSRW");
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>返回任务中心</Display>
+			<OKResult>me:TriggerStory("BaoZang_JSRW");</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<!-- ==================== D级任务执行 ==================== -->
+
+<Story Name="Secrets_D1" Parent="BaseFillingStory">
+	<DisplayName>救尼莫</DisplayName>
+	<Desc>[NAME]到了该地。 [NAME]准备完成这个任务。</Desc>
+	<Selections>
+		<li>
+			<Display>完成任务</Display>
+			<Condition>
+			<![CDATA[me:GetGLevel() >= 7]]>
+			</Condition>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]到达了该地，略略施展小神通把受困的尼莫救了上来，尼莫十分感谢[NAME]，并承诺要以身相许。");
+			me:AddMsg("任务完成");
+			me:AddMsg("积分值增加2点，积分点数增加2点。");
+			
+			world:SetWorldFlag(287, world:GetWorldFlag(287) + 2);
+			world:SetWorldFlag(286, world:GetWorldFlag(286) + 2);
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(318, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+			<NOResult>me:AddMsg("尼莫太重了，[NAME]根本搬不动啊，我的老天爷。");</NOResult>
+		</li>
+		<li>
+			<Display>放弃任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]不为所动，看着尼莫困在这里，并放弃了任务。可能感觉她并没有传说中的漂亮。");
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(318, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<Story Name="Secrets_D2" Parent="BaseFillingStory">
+	<DisplayName>送信物</DisplayName>
+	<Desc>[NAME]到了该地。 [NAME]准备完成这个任务。</Desc>
+	<Selections>
+		<li>
+			<Display>完成任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]到达了该地，早已在此等候的接线人和[NAME]成功对上了暗号，[NAME]把信物成功送到。");
+			me:AddMsg("任务完成");
+			me:AddMsg("积分值增加2点，积分点数增加2点。");
+			
+			world:SetWorldFlag(287, world:GetWorldFlag(287) + 2);
+			world:SetWorldFlag(286, world:GetWorldFlag(286) + 2);
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(318, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>放弃任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]找不着路，只能原路返回交还信物，并放弃了任务。");
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(318, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<Story Name="Secrets_D3" Parent="BaseFillingStory">
+	<DisplayName>寻动物</DisplayName>
+	<Desc>[NAME]到了该地。 [NAME]准备完成这个任务。</Desc>
+	<Selections>
+		<li>
+			<Display>完成任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]到达了该地，略略施展小神通把找不到的动物找了回来，凡人十分感谢[NAME]。");
+			me:AddMsg("任务完成");
+			me:AddMsg("积分值增加2点，积分点数增加2点。");
+			
+			world:SetWorldFlag(287, world:GetWorldFlag(287) + 2);
+			world:SetWorldFlag(286, world:GetWorldFlag(286) + 2);
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(318, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>放弃任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]太菜了，决定放弃任务。");
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(318, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<Story Name="Secrets_D4" Parent="BaseFillingStory">
+	<DisplayName>挪山地</DisplayName>
+	<Desc>[NAME]到了该地。 [NAME]准备完成这个任务。</Desc>
+	<Selections>
+		<li>
+			<Display>完成任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]到达了该地，看见了没有神通的愚公在一点一点移山，[NAME]略施展神通，便帮愚公把山体移开，愚公十分感谢[NAME]并表示下次移山还要再找[NAME]。");
+			me:AddMsg("任务完成");
+			me:AddMsg("积分值增加2点，积分点数增加2点。");
+			
+			world:SetWorldFlag(287, world:GetWorldFlag(287) + 2);
+			world:SetWorldFlag(286, world:GetWorldFlag(286) + 2);
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(318, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>放弃任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]看着愚公面对的庞大山脉，决定放弃任务。");
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(318, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<Story Name="Secrets_D5" Parent="BaseFillingStory">
+	<DisplayName>闹饥荒</DisplayName>
+	<Desc>[NAME]到了该地。 [NAME]准备完成这个任务。</Desc>
+	<Selections>
+		<li>
+			<Display>完成任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]到达了该地，看见饱受饥饿之苦的凡人们，[NAME]立即使用神通打了许多野味给凡人们充饥，凡人们非常感谢[NAME]。");
+			me:AddMsg("任务完成");
+			me:AddMsg("积分值增加2点，积分点数增加2点。");
+			
+			world:SetWorldFlag(287, world:GetWorldFlag(287) + 2);
+			world:SetWorldFlag(286, world:GetWorldFlag(286) + 2);
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(318, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>放弃任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]不为所动，看着饱受饥饿的人们，放弃了任务。");
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(318, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<!-- ==================== C级任务执行 ==================== -->
+
+<Story Name="Secrets_C1" Parent="BaseFillingStory">
+	<DisplayName>除东海</DisplayName>
+	<Desc>[NAME]到了该地。 [NAME]准备完成这个任务。</Desc>
+	<Selections>
+		<li>
+			<Display>完成任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]到达了该地，略施展神通把没有修为的东海浪人给爆了。");
+			me:AddMsg("任务完成");
+			me:AddMsg("积分值增加5点，积分点数增加5点。");
+			
+			world:SetWorldFlag(287, world:GetWorldFlag(287) + 5);
+			world:SetWorldFlag(286, world:GetWorldFlag(286) + 5);
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(300, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>放弃任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]放弃了任务！");
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(300, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<Story Name="Secrets_C2" Parent="BaseFillingStory">
+	<DisplayName>扫南蛮</DisplayName>
+	<Desc>[NAME]到了该地。 [NAME]准备完成这个任务。</Desc>
+	<Selections>
+		<li>
+			<Display>完成任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]到达了该地，略施展神通把没有修为的南蛮野人给爆了。");
+			me:AddMsg("任务完成");
+			me:AddMsg("积分值增加5点，积分点数增加5点。");
+			
+			world:SetWorldFlag(287, world:GetWorldFlag(287) + 5);
+			world:SetWorldFlag(286, world:GetWorldFlag(286) + 5);
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(300, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>放弃任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]放弃了任务！");
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(300, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<Story Name="Secrets_C3" Parent="BaseFillingStory">
+	<DisplayName>清北夷</DisplayName>
+	<Desc>[NAME]到了该地。 [NAME]准备完成这个任务。</Desc>
+	<Selections>
+		<li>
+			<Display>完成任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]到达了该地，略施展神通把没有修为的北夷蛮人给爆了。");
+			me:AddMsg("任务完成");
+			me:AddMsg("积分值增加5点，积分点数增加5点。");
+			
+			world:SetWorldFlag(287, world:GetWorldFlag(287) + 5);
+			world:SetWorldFlag(286, world:GetWorldFlag(286) + 5);
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(300, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>放弃任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]放弃了任务！");
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(300, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<Story Name="Secrets_C4" Parent="BaseFillingStory">
+	<DisplayName>祛西寇</DisplayName>
+	<Desc>[NAME]到了该地。 [NAME]准备完成这个任务。</Desc>
+	<Selections>
+		<li>
+			<Display>完成任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]到达了该地，略施展神通把没有修为的西方倭寇给爆了。");
+			me:AddMsg("任务完成");
+			me:AddMsg("积分值增加5点，积分点数增加5点。");
+			
+			world:SetWorldFlag(287, world:GetWorldFlag(287) + 5);
+			world:SetWorldFlag(286, world:GetWorldFlag(286) + 5);
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(300, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>放弃任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]放弃了任务！");
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(300, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<Story Name="Secrets_C5" Parent="BaseFillingStory">
+	<DisplayName>寻秘籍</DisplayName>
+	<Desc>[NAME]到了该地。 [NAME]准备完成这个任务。</Desc>
+	<Selections>
+		<li>
+			<Display>完成任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]用神识找到了要找的秘籍并送回了学院。");
+			me:AddMsg("任务完成");
+			me:AddMsg("积分值增加5点，积分点数增加5点。");
+			
+			world:SetWorldFlag(287, world:GetWorldFlag(287) + 5);
+			world:SetWorldFlag(286, world:GetWorldFlag(286) + 5);
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(300, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>放弃任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]放弃了任务！");
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(300, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<!-- ==================== B级任务执行 ==================== -->
+
+<Story Name="Secrets_B1" Parent="BaseFillingStory">
+	<DisplayName>抓恶鬼</DisplayName>
+	<Desc>[NAME]到了该地，看见正在吸食魂魄的恶鬼小丽。</Desc>
+	<Selections>
+		<li>
+			<Display>战斗</Display>
+			<DisplayCondition>
+			<![CDATA[world:GetWorldFlag(292) == 0]]>
+			</DisplayCondition>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]与恶鬼小丽展开了激烈的战斗！");
+			world:SetWorldFlag(292, 320);  -- 320是战斗状态标志
+			me:TriggerStory("BaoZang_B1_FIGHT");
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>完成任务</Display>
+			<DisplayCondition>
+			<![CDATA[world:GetWorldFlag(292) == 321]]>  <!-- 321表示战斗胜利 -->
+			</DisplayCondition>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("积分值增加10点，积分点数增加10点。");
+			world:SetWorldFlag(287, world:GetWorldFlag(287) + 10);
+			world:SetWorldFlag(286, world:GetWorldFlag(286) + 10);
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(292, 0);
+			world:SetWorldFlag(301, 0);
+			world:SetWorldFlag(320, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>放弃任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]感觉打不赢小丽，赶紧施展神通溜了。");
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(292, 0);
+			world:SetWorldFlag(301, 0);
+			world:SetWorldFlag(320, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<Story Name="Secrets_B2" Parent="BaseFillingStory">
+	<DisplayName>抓僵尸</DisplayName>
+	<Desc>[NAME]到了该地，看见正在吸食魂魄的僵尸小僵。</Desc>
+	<Selections>
+		<li>
+			<Display>战斗</Display>
+			<DisplayCondition>
+			<![CDATA[world:GetWorldFlag(292) == 0]]>
+			</DisplayCondition>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]与僵尸小僵展开了激烈的战斗！");
+			world:SetWorldFlag(292, 321);
+			me:TriggerStory("BaoZang_B2_FIGHT");
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>完成任务</Display>
+			<DisplayCondition>
+			<![CDATA[world:GetWorldFlag(292) == 322]]>
+			</DisplayCondition>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("积分值增加10点，积分点数增加10点。");
+			world:SetWorldFlag(287, world:GetWorldFlag(287) + 10);
+			world:SetWorldFlag(286, world:GetWorldFlag(286) + 10);
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(292, 0);
+			world:SetWorldFlag(301, 0);
+			world:SetWorldFlag(321, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>放弃任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]感觉打不赢小僵，赶紧施展神通溜了。");
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(292, 0);
+			world:SetWorldFlag(301, 0);
+			world:SetWorldFlag(321, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<Story Name="Secrets_B3" Parent="BaseFillingStory">
+	<DisplayName>杀旱魃</DisplayName>
+	<Desc>[NAME]到了该地，看见正在裸奔的小皮。。。</Desc>
+	<Selections>
+		<li>
+			<Display>战斗</Display>
+			<DisplayCondition>
+			<![CDATA[world:GetWorldFlag(292) == 0]]>
+			</DisplayCondition>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]与旱魃小皮展开了激烈的战斗！");
+			world:SetWorldFlag(292, 322);
+			me:TriggerStory("BaoZang_B3_FIGHT");
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>完成任务</Display>
+			<DisplayCondition>
+			<![CDATA[world:GetWorldFlag(292) == 323]]>
+			</DisplayCondition>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("积分值增加10点，积分点数增加10点。");
+			world:SetWorldFlag(287, world:GetWorldFlag(287) + 10);
+			world:SetWorldFlag(286, world:GetWorldFlag(286) + 10);
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(292, 0);
+			world:SetWorldFlag(301, 0);
+			world:SetWorldFlag(322, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>放弃任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]感觉打不赢小皮，赶紧施展神通溜了。");
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(292, 0);
+			world:SetWorldFlag(301, 0);
+			world:SetWorldFlag(322, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<Story Name="Secrets_B4" Parent="BaseFillingStory">
+	<DisplayName>杀邪魔</DisplayName>
+	<Desc>[NAME]到了该地，看见的邪魔分身。</Desc>
+	<Selections>
+		<li>
+			<Display>战斗</Display>
+			<DisplayCondition>
+			<![CDATA[world:GetWorldFlag(292) == 0]]>
+			</DisplayCondition>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]与邪魔分身展开了激烈的战斗！");
+			world:SetWorldFlag(292, 323);
+			me:TriggerStory("BaoZang_B4_FIGHT");
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>完成任务</Display>
+			<DisplayCondition>
+			<![CDATA[world:GetWorldFlag(292) == 324]]>
+			</DisplayCondition>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("积分值增加10点，积分点数增加10点。");
+			world:SetWorldFlag(287, world:GetWorldFlag(287) + 10);
+			world:SetWorldFlag(286, world:GetWorldFlag(286) + 10);
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(292, 0);
+			world:SetWorldFlag(301, 0);
+			world:SetWorldFlag(323, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>放弃任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]感觉打不赢邪魔，赶紧施展神通溜了。");
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(292, 0);
+			world:SetWorldFlag(301, 0);
+			world:SetWorldFlag(323, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<Story Name="Secrets_B5" Parent="BaseFillingStory">
+	<DisplayName>救直播间水友</DisplayName>
+	<Desc>[NAME]到了该地。 [NAME]准备完成这个任务。</Desc>
+	<Selections>
+		<li>
+			<Display>完成任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]看到在水深火热中的水友，在[NAME]的帮助下，水友成功获救了。");
+			me:AddMsg("任务完成");
+			me:AddMsg("积分值增加10点，积分点数增加10点。");
+			
+			world:SetWorldFlag(287, world:GetWorldFlag(287) + 10);
+			world:SetWorldFlag(286, world:GetWorldFlag(286) + 10);
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(301, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>放弃任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]放弃了任务！");
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(301, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<!-- ==================== A级任务执行 ==================== -->
+
+<Story Name="Secrets_A1" Parent="BaseFillingStory">
+	<DisplayName>杀蛟龙</DisplayName>
+	<Desc>[NAME]到了该地。看见了一条蛟龙。</Desc>
+	<Selections>
+		<li>
+			<Display>战斗</Display>
+			<DisplayCondition>
+			<![CDATA[world:GetWorldFlag(292) == 0]]>
+			</DisplayCondition>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]与蛟龙展开了惊天动地的战斗！");
+			world:SetWorldFlag(292, 324);
+			me:TriggerStory("BaoZang_A1_FIGHT");
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>完成任务</Display>
+			<DisplayCondition>
+			<![CDATA[world:GetWorldFlag(292) == 325]]>
+			</DisplayCondition>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("积分值增加20点，积分点数增加20点。");
+			world:SetWorldFlag(287, world:GetWorldFlag(287) + 20);
+			world:SetWorldFlag(286, world:GetWorldFlag(286) + 20);
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(292, 0);
+			world:SetWorldFlag(302, 0);
+			world:SetWorldFlag(324, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>放弃任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]放弃了任务！");
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(292, 0);
+			world:SetWorldFlag(302, 0);
+			world:SetWorldFlag(324, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<Story Name="Secrets_A2" Parent="BaseFillingStory">
+	<DisplayName>拯救神兽</DisplayName>
+	<Desc>[NAME]到了该地。发现是一只神兽鹿蜀受了伤。</Desc>
+	<Selections>
+		<li>
+			<Display>完成任务</Display>
+			<Condition>
+			<![CDATA[me:GetGLevel() >= 12]]>
+			</Condition>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]施展神通给鹿蜀治疗，在[NAME]的帮助下，鹿蜀成功恢复了健康。");
+			me:AddMsg("任务完成");
+			me:AddMsg("积分值增加20点，积分点数增加20点。");
+			
+			world:SetWorldFlag(287, world:GetWorldFlag(287) + 20);
+			world:SetWorldFlag(286, world:GetWorldFlag(286) + 20);
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(302, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+			<NOResult>me:AddMsg("[NAME]修为太低，不足以救起神兽。");</NOResult>
+		</li>
+		<li>
+			<Display>放弃任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]放弃了任务！");
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(302, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<Story Name="Secrets_A3" Parent="BaseFillingStory">
+	<DisplayName>战魑魅</DisplayName>
+	<Desc>[NAME]到了该地。看见了魑魅二鬼。</Desc>
+	<Selections>
+		<li>
+			<Display>战斗</Display>
+			<DisplayCondition>
+			<![CDATA[world:GetWorldFlag(292) == 0]]>
+			</DisplayCondition>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]与魑魅二鬼展开了激烈的战斗！");
+			world:SetWorldFlag(292, 325);
+			me:TriggerStory("BaoZang_A3_FIGHT");
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>完成任务</Display>
+			<DisplayCondition>
+			<![CDATA[world:GetWorldFlag(292) == 326]]>
+			</DisplayCondition>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("积分值增加20点，积分点数增加20点。");
+			world:SetWorldFlag(287, world:GetWorldFlag(287) + 20);
+			world:SetWorldFlag(286, world:GetWorldFlag(286) + 20);
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(292, 0);
+			world:SetWorldFlag(302, 0);
+			world:SetWorldFlag(325, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>放弃任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]放弃了任务！");
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(292, 0);
+			world:SetWorldFlag(302, 0);
+			world:SetWorldFlag(325, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<Story Name="Secrets_A4" Parent="BaseFillingStory">
+	<DisplayName>战魍魉</DisplayName>
+	<Desc>[NAME]到了该地。看见了魍魉二鬼。</Desc>
+	<Selections>
+		<li>
+			<Display>战斗</Display>
+			<DisplayCondition>
+			<![CDATA[world:GetWorldFlag(292) == 0]]>
+			</DisplayCondition>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]与魍魉二鬼展开了激烈的战斗！");
+			world:SetWorldFlag(292, 326);
+			me:TriggerStory("BaoZang_A4_FIGHT");
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>完成任务</Display>
+			<DisplayCondition>
+			<![CDATA[world:GetWorldFlag(292) == 327]]>
+			</DisplayCondition>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("积分值增加20点，积分点数增加20点。");
+			world:SetWorldFlag(287, world:GetWorldFlag(287) + 20);
+			world:SetWorldFlag(286, world:GetWorldFlag(286) + 20);
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(292, 0);
+			world:SetWorldFlag(302, 0);
+			world:SetWorldFlag(326, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>放弃任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]放弃了任务！");
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(292, 0);
+			world:SetWorldFlag(302, 0);
+			world:SetWorldFlag(326, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<!-- ==================== S级任务执行 ==================== -->
+
+<Story Name="Secrets_S1" Parent="BaseFillingStory">
+	<DisplayName>杰神分身</DisplayName>
+	<Desc>[NAME]还没到该地就已经感觉到了一股强大的气息。</Desc>
+	<Selections>
+		<li>
+			<Display>战斗</Display>
+			<DisplayCondition>
+			<![CDATA[world:GetWorldFlag(292) == 0]]>
+			</DisplayCondition>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]与杰神分身展开了惊天动地的战斗！");
+			world:SetWorldFlag(292, 327);
+			me:TriggerStory("JSZD");
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>完成任务</Display>
+			<DisplayCondition>
+			<![CDATA[world:GetWorldFlag(292) == 328]]>
+			</DisplayCondition>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("积分值增加50点，积分点数增加50点。");
+			world:SetWorldFlag(287, world:GetWorldFlag(287) + 50);
+			world:SetWorldFlag(286, world:GetWorldFlag(286) + 50);
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(292, 0);
+			world:SetWorldFlag(303, 0);
+			world:SetWorldFlag(327, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>放弃任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]放弃了任务！");
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(292, 0);
+			world:SetWorldFlag(303, 0);
+			world:SetWorldFlag(327, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<Story Name="Secrets_S2" Parent="BaseFillingStory">
+	<DisplayName>龙啸分身</DisplayName>
+	<Desc>[NAME]还没到该地就已经感觉到了下体一股凉意。</Desc>
+	<Selections>
+		<li>
+			<Display>战斗</Display>
+			<DisplayCondition>
+			<![CDATA[world:GetWorldFlag(292) == 0]]>
+			</DisplayCondition>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]与龙啸分身展开了惊天动地的战斗！");
+			world:SetWorldFlag(292, 328);
+			me:TriggerStory("LXZD");
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>完成任务</Display>
+			<DisplayCondition>
+			<![CDATA[world:GetWorldFlag(292) == 329]]>
+			</DisplayCondition>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("积分值增加50点，积分点数增加50点。");
+			world:SetWorldFlag(287, world:GetWorldFlag(287) + 50);
+			world:SetWorldFlag(286, world:GetWorldFlag(286) + 50);
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(292, 0);
+			world:SetWorldFlag(303, 0);
+			world:SetWorldFlag(328, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>放弃任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]放弃了任务！");
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(292, 0);
+			world:SetWorldFlag(303, 0);
+			world:SetWorldFlag(328, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<Story Name="Secrets_S3" Parent="BaseFillingStory">
+	<DisplayName>噬族妖兽</DisplayName>
+	<Desc>[NAME]还没到该地就已经感觉到了一股强大的气息。</Desc>
+	<Selections>
+		<li>
+			<Display>战斗</Display>
+			<DisplayCondition>
+			<![CDATA[world:GetWorldFlag(292) == 0]]>
+			</DisplayCondition>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]与噬族妖兽展开了惊天动地的战斗！");
+			world:SetWorldFlag(292, 329);
+			me:TriggerStory("SZYS");
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>完成任务</Display>
+			<DisplayCondition>
+			<![CDATA[world:GetWorldFlag(292) == 330]]>
+			</DisplayCondition>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("积分值增加50点，积分点数增加50点。");
+			world:SetWorldFlag(287, world:GetWorldFlag(287) + 50);
+			world:SetWorldFlag(286, world:GetWorldFlag(286) + 50);
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(292, 0);
+			world:SetWorldFlag(303, 0);
+			world:SetWorldFlag(329, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>放弃任务</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]放弃了任务！");
+			world:SetWorldFlag(290, 0);
+			world:SetWorldFlag(291, 0);
+			world:SetWorldFlag(292, 0);
+			world:SetWorldFlag(303, 0);
+			world:SetWorldFlag(329, 0);
+			story:FinishSecret();
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<!-- ==================== 战斗相关故事（占位符） ==================== -->
+
+<Story Name="BaoZang_B1_FIGHT" Parent="BaseFillingStory">
+	<DisplayName>恶鬼小丽战斗</DisplayName>
+	<Desc>与恶鬼小丽的战斗</Desc>
+	<Selections>
+		<li>
+			<Display>战斗胜利</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]成功击败了恶鬼小丽！");
+			world:SetWorldFlag(292, 321);  -- 设置胜利状态
+			world:SetWorldFlag(320, 1);  -- 兼容旧系统
+			me:TriggerStory("Secrets_B1");
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>战斗失败</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]被恶鬼小丽击败，狼狈逃窜。");
+			me:AddDamgeFromCache(story.DamageCache, 20);
+			world:SetWorldFlag(292, 0);
+			me:TriggerStory("Secrets_B1");
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+<Story Name="JSZD" Parent="BaseFillingStory">
+	<DisplayName>杰神分身战斗</DisplayName>
+	<Desc>与杰神分身的战斗</Desc>
+	<Selections>
+		<li>
+			<Display>战斗胜利</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]成功击败了杰神分身！");
+			world:SetWorldFlag(292, 328);
+			world:SetWorldFlag(327, 1);
+			me:TriggerStory("Secrets_S1");
+			]]>
+			</OKResult>
+		</li>
+		<li>
+			<Display>战斗失败</Display>
+			<OKResult>
+			<![CDATA[
+			me:AddMsg("[NAME]被杰神分身轻松击败，差点丧命。");
+			me:AddDamgeFromCache(story.DamageCache, 50);
+			world:SetWorldFlag(292, 0);
+			me:TriggerStory("Secrets_S1");
+			]]>
+			</OKResult>
+		</li>
+	</Selections>
+</Story>
+
+</List>
+</Stories>
