@@ -340,7 +340,7 @@
 
 <Story Name="NMXKA_8"  Parent="BaseFillingStory">
 		<DisplayName>提高的灵气吸收速度</DisplayName>
-		<Desc>提高的灵气吸收速度，500积分</Desc>
+		<Desc>提高的灵气吸收速度，300积分</Desc>
 		<Selections>
 			<li>
 				<Display>获得</Display>				
