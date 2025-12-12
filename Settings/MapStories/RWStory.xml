@@ -71,61 +71,51 @@
 	</Story>
 	
 
-<Story Name="BaoZang_QJLS" Parent="BaseFillingStory">
-	<DisplayName>请教陈佳宁</DisplayName>
-	<Desc>陈佳宁正在慢悠悠的吃着火锅（请教需要50积分）</Desc>
-	<Selections>
-		<li>
-			<Display>确认请教（50积分）</Display>
-			<!-- 新增：检查两个条件：1.请教次数≤9 2.积分≥50 -->
-			<Condition><![CDATA[
-			me:GetFlag(27) <= 9 and world:GetWorldFlag(287) >= 50
-			]]>
-			</Condition>
-			<OKResult><![CDATA[
-			// 新增：扣除50积分
-			world:SetWorldFlag(287, world:GetWorldFlag(287) - 50);
-			
-			if me:RandomInt(1, 20) <= me:GetPerception() then
-				me:SetFlag(27, (me:GetFlag(27) + 1))
-				
-				local nR = me:RandomInt(1,5)
-				if nR == 1 then
-					me:AddMsg(XT("陈佳宁悠闲的耍了一套剑法，[NAME]只能领悟其中百分之一。"));me:AddModifier("Story_FabaoPower1");
-				elseif nR == 2 then
-					me:AddMsg(XT("陈佳宁突然呼吸急促，面红耳赤，原来是鼻炎犯了，只见她张嘴呼吸，[NAME]从中领悟了一些奥秘。"));me:AddModifier("Story_LingAbsorbSpeed1");
-				elseif nR == 3 then
-					me:AddMsg(XT("陈佳宁突然御剑飞行，在空中画出了一道妙曼的弧线，[NAME]领悟了一些飞行诀窍。"));me:AddModifier("Story_WorldMapFlySpeedAddP1");
-				elseif nR == 4 then
-					me:AddMsg(XT("陈佳宁传授了[NAME]一套金刚护体功法，[NAME]的运气还真是不错呢。"));me:AddModifier("Story_ShieldConversionRate1");
-				end
-			else
-				me:AddMsg(XT("[NAME]蠢的一比，看陈佳宁耍了半天什么都没学会,还把自己弄伤了。"));me:AddDamgeFromCache(story.DamageCache,4);
-			end
-			]]>
-			</OKResult>
-			<!-- 修改：NOResult现在会区分是次数不够还是积分不足 -->
-			<NOResult>
-				if me:GetFlag(27) > 9 then
-					me:AddMsg(XT("来了这么多次，就这点长进？你的眼要来有何用?"));
-					me:AddDamgeFromCache(story.DamageCache,4);
-					me:AddDamage("Destroy", "LeftEye", 1, XT("陈佳宁的剑"));
-					me:AddDamage("Destroy", "RightEye", 1, XT("陈佳宁的剑"));
+<Story Name="BaoZang_QJLS"  Parent="BaseFillingStory">
+		<DisplayName>请教陈佳宁</DisplayName>
+		<Desc>陈佳宁正在慢悠悠的吃着火锅</Desc>
+		<Selections>
+			<li>
+				<Display>确认请教</Display>
+				<Condition><![CDATA[
+				me:GetFlag(27) <= 9
+				]]>
+				</Condition>
+				<OKResult><![CDATA[
+
+				if me:RandomInt(1, 20) <= me:GetPerception() then
+					me:SetFlag(27, (me:GetFlag(27) + 1))
+
+					local nR = me:RandomInt(1,5)
+					if nR == 1 then
+						me:AddMsg(XT("陈佳宁悠闲的耍了一套剑法，[NAME]只能领悟其中百分之一。"));me:AddModifier("Story_FabaoPower1");
+					elseif nR == 2 then
+						me:AddMsg(XT("陈佳宁突然呼吸急促，面红耳赤，原来是鼻炎犯了，只见她张嘴呼吸，[NAME]从中领悟了一些奥秘。"));me:AddModifier("Story_LingAbsorbSpeed1");
+					elseif nR == 3 then
+						me:AddMsg(XT("陈佳宁突然御剑飞行，在空中画出了一道妙曼的弧线，[NAME]领悟了一些飞行诀窍。"));me:AddModifier("Story_WorldMapFlySpeedAddP1");
+					elseif nR == 4 then
+						me:AddMsg(XT("陈佳宁传授了[NAME]一套金刚护体功法，[NAME]的运气还真是不错呢。"));me:AddModifier("Story_ShieldConversionRate1");
+					end
 				else
-					me:AddMsg(XT("[NAME]的积分不足50点，无法请教陈佳宁。"));
+					me:AddMsg(XT("[NAME]蠢的一比，看陈佳宁耍了半天什么都没学会,还把自己弄伤了。"));me:AddDamgeFromCache(story.DamageCache,4);
 				end
-			</NOResult>				
-		</li>
-		<li>
-			<Display>返回大厅</Display>
-			<OKResult><![CDATA[	
+				]]>
+				</OKResult>
+				<NOResult>
+					me:AddMsg(XT("来了这么多次，就这点长进？你的眼要来有何用?"));me:AddDamgeFromCache(story.DamageCache,4);me:AddDamage("Destroy", "LeftEye", 1, XT("陈佳宁的剑"));me:AddDamage("Destroy", "RightEye", 1, XT("陈佳宁的剑"));
+				</NOResult>				
+				
+			</li>
+			<li>
+				<Display>返回大厅</Display>
+				<OKResult><![CDATA[	
 				me:AddMsg("[NAME]返回了入口。");
 				me:TriggerStory("BaoZang_renwu");
-			]]>
-			</OKResult>
-		</li>
-	</Selections>
-</Story>
+				]]>
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
 
 
 	<Story Name="BaoZang_CXGX"  Parent="BaseFillingStory">
