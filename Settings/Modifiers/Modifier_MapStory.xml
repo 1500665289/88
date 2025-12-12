@@ -1,81 +1,104 @@
-﻿<ModifierDefs><List>
-
-	<Modifier Name="Story_FabaoPower1" Type="Normal">
-		<DisplayName>从根本上提高5%的法宝威力。</DisplayName>
-		<Desc>从根本上提高5%的法宝威力。</Desc>
-		<MaxStack>0</MaxStack>
+﻿<ModifierDefs>
+<List>
+	<Modifier Name="Story_FabaoPower1" Type="PERMANENT" Priority="STORY">
+		<DisplayName>法宝威力提升</DisplayName>
+		<Desc>法宝威力永久提升5%</Desc>
+		<Icon>ui_icon_fabao_power</Icon>
+		<MaxStack>1</MaxStack>
 		<Duration>-1</Duration>
-		<Display>0</Display>
+		<ShowInUI>true</ShowInUI>
+		<ShowInBuffBar>true</ShowInBuffBar>
+		<BuffType>BUFF</BuffType>
 		<Properties>
 			<li Name="NpcFight_FabaoPowerAddP" BAddP="0.05"/>
 		</Properties>
 	</Modifier>	
 	
-	<Modifier Name="Story_DragonBlood" Type="Normal">
+	<Modifier Name="Story_DragonBlood" Type="PERMANENT" Priority="STORY">
 		<DisplayName>龙之血脉</DisplayName>
-		<Desc>龙之血脉觉醒：根骨提高2成;神识提高2成;从根本上提高25%的灵气最大值。</Desc>
-		<MaxStack>0</MaxStack>
+		<Desc>龙之血脉觉醒：根骨+20%、神识+20%、灵气最大值+25%</Desc>
+		<Icon>ui_icon_dragon_blood</Icon>
+		<MaxStack>1</MaxStack>
 		<Duration>-1</Duration>
-		<Display>0</Display>
+		<ShowInUI>true</ShowInUI>
+		<ShowInBuffBar>true</ShowInBuffBar>
+		<BuffType>BUFF</BuffType>
 		<BaseFive>2,2,0,0,0</BaseFive>
 		<Properties>
 			<li Name="NpcLingMaxValue" BAddP="0.25"/>
 		</Properties>
 	</Modifier>
 	
-	<Modifier Name="Modifier_Story_BossLong_Wish1" Type="Normal">
-		<DisplayName>馈赠</DisplayName>
-		<MaxStack>0</MaxStack>
+	<Modifier Name="Modifier_Story_BossLong_Wish1" Type="PERMANENT" Priority="STORY">
+		<DisplayName>龙之馈赠</DisplayName>
+		<Desc>获得龙的祝福：五维属性提升，寿命+40年</Desc>
+		<Icon>ui_icon_wish</Icon>
+		<MaxStack>1</MaxStack>
 		<Duration>-1</Duration>
-		<Display>0</Display>
+		<ShowInUI>true</ShowInUI>
+		<ShowInBuffBar>true</ShowInBuffBar>
+		<BuffType>BUFF</BuffType>
 		<BaseFive>5.5,0,0,0,5</BaseFive>
 		<Properties>
 			<li Name="MaxAge" AddV="40"/>
 		</Properties>
 	</Modifier>
 	
-	<Modifier Name="Story_ShieldConversionRate1" Type="Normal">
-		<DisplayName>护盾强度</DisplayName>
-		<Desc>增加10%根本护盾强度，100积分</Desc>
-		<MaxStack>0</MaxStack>
+	<Modifier Name="Story_ShieldConversionRate1" Type="PERMANENT" Priority="STORY">
+		<DisplayName>金刚护体</DisplayName>
+		<Desc>护盾转换效率永久提升10%</Desc>
+		<Icon>ui_icon_shield</Icon>
+		<MaxStack>1</MaxStack>
 		<Duration>-1</Duration>
-		<Display>0</Display>
+		<ShowInUI>true</ShowInUI>
+		<ShowInBuffBar>true</ShowInBuffBar>
+		<BuffType>BUFF</BuffType>
 		<Properties>
 			<li Name="NpcFight_ShieldConversionRate" BAddP="0.1"/>
 		</Properties>
 	</Modifier>	
 	
-		<Modifier Name="Story_WorldMapFlySpeedAddP1" Type="Normal">
-		<DisplayName>提高历练速度</DisplayName>
-		<Desc>提高10%历练速度，100积分</Desc>
-		<MaxStack>0</MaxStack>
+	<Modifier Name="Story_WorldMapFlySpeedAddP1" Type="PERMANENT" Priority="STORY">
+		<DisplayName>身法精进</DisplayName>
+		<Desc>飞行与历练速度永久提升{需要确认是10%还是50%}</Desc>
+		<Icon>ui_icon_speed</Icon>
+		<MaxStack>1</MaxStack>
 		<Duration>-1</Duration>
-		<Display>0</Display>
+		<ShowInUI>true</ShowInUI>
+		<ShowInBuffBar>true</ShowInBuffBar>
+		<BuffType>BUFF</BuffType>
 		<Properties>
-			<li Name="WorldMapFlySpeedAddP" BAddP="0.1"/>
+			<!-- 确认数值：故事中说50%，这里写10% -->
+			<li Name="WorldMapFlySpeedAddP" BAddP="0.1"/> <!-- 或 0.1 -->
 		</Properties>
 	</Modifier>	
 	
-		<Modifier Name="Story_LingAbsorbSpeed1" Type="Normal">
-		<DisplayName>提高的灵气吸收速度</DisplayName>
-		<Desc>提高的灵气吸收速度，300积分</Desc>
-		<MaxStack>0</MaxStack>
+	<Modifier Name="Story_LingAbsorbSpeed1" Type="PERMANENT" Priority="STORY">
+		<DisplayName>灵气亲和</DisplayName>
+		<Desc>灵气吸收速度永久提升10%</Desc>
+		<Icon>ui_icon_ling_absorb</Icon>
+		<MaxStack>1</MaxStack>
 		<Duration>-1</Duration>
-		<Display>0</Display>
+		<ShowInUI>true</ShowInUI>
+		<ShowInBuffBar>true</ShowInBuffBar>
+		<BuffType>BUFF</BuffType>
 		<Properties>
 			<li Name="LingAbsorbSpeed" BAddP="0.1"/>
 		</Properties>
 	</Modifier>	
 	
-		<Modifier Name="Story_LingMax1" Type="Normal">
-		<DisplayName>提高根本灵气值</DisplayName>
-		<Desc>提高根本灵气值，500积分</Desc>
-		<MaxStack>0</MaxStack>
+	<Modifier Name="Story_LingMax1" Type="PERMANENT" Priority="STORY">
+		<DisplayName>灵气扩容</DisplayName>
+		<Desc>灵气最大值永久提升10%</Desc>
+		<Icon>ui_icon_ling_max</Icon>
+		<MaxStack>1</MaxStack>
 		<Duration>-1</Duration>
-		<Display>0</Display>
+		<ShowInUI>true</ShowInUI>
+		<ShowInBuffBar>true</ShowInBuffBar>
+		<BuffType>BUFF</BuffType>
 		<Properties>
 			<li Name="NpcLingMaxValue" BAddP="0.1"/>
 		</Properties>
 	</Modifier>	
-	
-</List></ModifierDefs>
+</List>
+</ModifierDefs>
