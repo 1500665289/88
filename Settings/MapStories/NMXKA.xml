@@ -312,7 +312,7 @@
 
 <Story Name="NMXKA_7"  Parent="BaseFillingStory">
 		<DisplayName>提高历练速度</DisplayName>
-		<Desc>提高50%历练速度，100积分</Desc>
+		<Desc>提高10%历练速度，100积分</Desc>
 		<Selections>
 			<li>
 				<Display>获得</Display>				

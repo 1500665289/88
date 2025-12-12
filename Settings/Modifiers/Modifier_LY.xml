@@ -158,7 +158,7 @@
 	
 	<Modifier Name="Story_WorldMapFlySpeedAddP1" Type="PERMANENT" Priority="STORY">
 		<DisplayName>身法精进</DisplayName>
-		<Desc>飞行与历练速度永久提升{需要确认是10%还是50%}</Desc>
+		<Desc>飞行与历练速度永久提升10%</Desc>
 		<Icon>ui_icon_speed</Icon>
 		<MaxStack>1</MaxStack>
 		<Duration>-1</Duration>
@@ -166,7 +166,6 @@
 		<ShowInBuffBar>true</ShowInBuffBar>
 		<BuffType>BUFF</BuffType>
 		<Properties>
-			<!-- 确认数值：故事中说50%，这里写10% -->
 			<li Name="WorldMapFlySpeedAddP" BAddP="0.1"/> <!-- 或 0.1 -->
 		</Properties>
 	</Modifier>	
