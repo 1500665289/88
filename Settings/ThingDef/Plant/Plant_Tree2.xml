@@ -362,14 +362,14 @@
 		<HarvestItems>
 			<li>
 				<ThingDef>Item_Ginkgo</ThingDef>
-				<Count>80</Count>
+				<Count>30</Count>
 			</li>
 		</HarvestItems>
 		
 		<DropItems>
 			<li>
 				<ThingDef>Item_Wood</ThingDef>
-				<Count>64</Count>
+				<Count>30</Count>
 			</li>
 		</DropItems> 
 	</Harvest>
@@ -400,8 +400,73 @@
 		res\Sprs\scene_TemperateForest_plant\scene_xiaohua003_c
 		</TexPath>
 	<Desc>已经枯死的梧桐树，依然异常高大。</Desc>
+<Beauty>36</Beauty>
+	<Rate>9</Rate>	
+	<MaxHitPoints>2100</MaxHitPoints>
+	<Plant>
+		<RipedTexPath></RipedTexPath>
+		<HarvestedTexPath>res/special/scene_juyinxing003</HarvestedTexPath>
+		<LeaflessTexPath>res/special/scene_juyinxing004</LeaflessTexPath> 
+		<GlowTexPath></GlowTexPath>	 
+		<SnowedTexPath></SnowedTexPath>
+		<VisualSizeMin>0.8</VisualSizeMin>
+		<VisualSizeMax>1.2</VisualSizeMax>
+		<LifespanFraction>20000</LifespanFraction>
+		<GrowDays>180</GrowDays>
+		<HarvestDays>15</HarvestDays>
+		
+		<LingMin>3</LingMin>
+		<LingMax>500</LingMax>
+		
+		<SnowRenderData>
+			<x>2.16</x>
+			<y>3.95</y>
+			<z>2</z>
+		</SnowRenderData>
+	</Plant>
+	
+	<Harvest>  
+		<HarvestWork>120</HarvestWork> 
+		<DropWork>650</DropWork>   	
+		
+		<HarvestTag>
+			<li>Cut</li>
+			<li>StandCollection</li>
+		</HarvestTag> 
+		
+		<HarvestItems>
+			<li>
+				<ThingDef>Item_LingStone</ThingDef>
+				<Count>30</Count>
+			</li>
+		</HarvestItems>
+		
+		<DropItems>
+			<li>
+				<ThingDef>Item_Wood</ThingDef>
+				<Count>30</Count>
+			</li>
+		</DropItems> 
+	</Harvest>
+	<Ling>
+		<AddionLing>95</AddionLing>
+		<AddionRadius>5</AddionRadius>
+		<AddionFailing>0.9</AddionFailing>
+		<AddionFailRadius>2</AddionFailRadius>
+		
+		<Attenuation>0.05</Attenuation>
+		<Absorption>0.4</Absorption>
+		<Accommodate>40</Accommodate>
+	</Ling>
+	<Element>
+		<Kind>Mu</Kind>
+		<Value>12</Value>         
+		<Radius>5</Radius>
+		<Failing>0.9</Failing>
+		<FailRadius>2</FailRadius>
+	</Element>
+	</ThingDef>
 
-	</ThingDef>	
 	
 	
 	<!-- 只用于拼图 -->
